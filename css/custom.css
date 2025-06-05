@@ -209,3 +209,35 @@
   z-index: 1;
   pointer-events: none;
 }
+
+/* 新首页面 */
+/* 首页关闭右侧侧边栏（index-layout 四列显示时） */
+
+.recent-post-items.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* 默认一行两列（手机端） */
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {  /* 平板端 (最小宽度768px) */
+  .recent-post-items.grid-layout {
+    grid-template-columns: repeat(3, 1fr);  /* 平板端一行四列 */
+  }
+
+  .recent-post-item .article-meta-wrap {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {  /* 电脑端 (最小宽度1024px) */
+  .recent-post-items.grid-layout {
+    grid-template-columns: repeat(4, 1fr);  /* 电脑端一行六列 */
+  }
+
+  .recent-post-item .article-meta-wrap {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
