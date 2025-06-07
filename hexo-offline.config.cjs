@@ -3,8 +3,8 @@ module.exports = {
   globPatterns: [
     '**/*.{js,css,png,jpg,jpeg,gif,svg,webp,eot,ttf,woff,woff2,mp3}'
   ],
-  globDirectory: 'public',
-  swDest: 'public/service-worker.js',
+  globDirectory: '.',
+  swDest: 'service-worker.js',
   maximumFileSizeToCacheInBytes: 209715200, // 200MB
 
   // 新版本立即生效
@@ -18,21 +18,22 @@ module.exports = {
     // —— 按需缓存 HTML 页面 —— 
     {
       urlPattern: ({ request }) => request.mode === 'navigate',
-      handler: 'NetworkFirst', // 或 'StaleWhileRevalidate'，看你更偏向“更鲜”还是“更快”
+      handler: 'StaleWhileRevalidate', // 先用缓存，后台更新
       options: {
         cacheName: 'page-cache',
-        networkTimeoutSeconds: 10,      // 可选：超时后直接走缓存
+        fetchOptions: {
+          credentials: 'same-origin' // 保持同源 Cookie 等
+        },
         plugins: [
-          // 仅按天数设置过期，不限数量
           new workbox.expiration.ExpirationPlugin({
-            maxAgeSeconds: 7 * 24 * 60 * 60, // 缓存保留 7 天
-            purgeOnQuotaError: true         // 配额不足时自动清理旧条目
+            maxAgeSeconds: 7 * 24 * 60 * 60, // 缓存7天
+            purgeOnQuotaError: true
           })
         ]
       }
     },
 
-    // —— JS/CSS 脚本 & 样式（预缓存外的运行时更新） —— 
+    // —— JS/CSS 脚本 & 样式（运行时缓存） —— 
     {
       urlPattern: ({ request }) =>
         request.destination === 'script' ||
@@ -41,7 +42,7 @@ module.exports = {
       options: {
         cacheName: 'static-resources',
         expiration: {
-          maxAgeSeconds: 30 * 24 * 60 * 60,
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30天
         }
       }
     },
@@ -53,7 +54,7 @@ module.exports = {
       options: {
         cacheName: 'image-cache',
         expiration: {
-          maxAgeSeconds: 30 * 24 * 60 * 60,
+          maxAgeSeconds: 30 * 24 * 60 * 60, // 30天
         }
       }
     },
@@ -67,7 +68,7 @@ module.exports = {
       options: {
         cacheName: 'audio-cache',
         expiration: {
-          maxAgeSeconds: 365 * 24 * 60 * 60,
+          maxAgeSeconds: 365 * 24 * 60 * 60, // 1年
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -85,7 +86,7 @@ module.exports = {
       options: {
         cacheName: 'cdn-cache',
         expiration: {
-          maxAgeSeconds: 365 * 24 * 60 * 60,
+          maxAgeSeconds: 365 * 24 * 60 * 60, // 1年
         }
       }
     },
@@ -96,12 +97,12 @@ module.exports = {
       handler: 'NetworkFirst',
       options: {
         cacheName: 'api-cache',
-        networkTimeoutSeconds: 10,
+        networkTimeoutSeconds: 10,  // 这里 NetworkFirst，保留超时
         expiration: {
           maxEntries: 100,
-          maxAgeSeconds: 365 * 24 * 60 * 60,
+          maxAgeSeconds: 365 * 24 * 60 * 60, // 1年
         }
       }
     }
-  ]
+  ] 
 }
