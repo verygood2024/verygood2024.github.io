@@ -316,3 +316,346 @@ html[data-theme="dark"] .sponsor-name i {
   color: #ff6b6b;
 }
 /* ——赞助卡片结束—— */
+
+.menus_item span,
+.menus_item i {
+  display: inline-flex;
+  align-items: center;
+}
+
+.menus_item i {
+  margin-right: 4px; /* 给图标和文字之间一点间距 */
+  line-height: 1;
+}
+
+.menus_item,
+.menus_item * {
+  user-select: none;      /* 禁止选中 */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+}
+
+/* supporters */
+
+.balance-bar {
+  display: flex;
+  height: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f2f3f5;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+  position: relative;
+  margin: 1rem 0;
+}
+
+.bar-income,
+.bar-expense {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  color: #fff;
+  font-weight: 600;
+  transition: width 0.5s ease;
+  z-index: 1;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bar-income {
+  background: linear-gradient(to right, #66bb6a, #43a047);
+  justify-content: flex-start;
+}
+
+.bar-expense {
+  background: linear-gradient(to left, #ef5350, #d32f2f);
+  justify-content: flex-end;
+}
+
+.bar-income::after, .bar-expense::after {
+  content: attr(data-amount);
+  position: absolute;
+  font-weight: 600;
+  color: white;
+}
+
+.net-percent {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.profit {
+  color: #45b26b;
+}
+
+.loss {
+  color: #f95c5c;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f3f3f3;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 0.75rem;
+}
+
+th {
+  text-align: left;
+  font-weight: bold;
+  color: #333;
+}
+
+td.right {
+  text-align: right;
+}
+
+td.center {
+  text-align: center;
+}
+
+.label-income {
+  color: #45b26b;
+  font-weight: bold;
+}
+
+.label-expense {
+  color: #f95c5c;
+  font-weight: bold;
+}
+
+.donors-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.donor-item {
+  background: #f9f9f9;
+  padding: 0.8rem 1rem;
+  border-left: 4px solid #45b26b;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: all 0.2s ease;
+}
+
+.donor-item:hover {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.donor-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.donor-amount {
+  color: #45b26b;
+  font-weight: bold;
+  margin-top: 0.3rem;
+}
+
+.donor-time {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .donors-list {
+    grid-template-columns: 1fr;
+  }
+
+  .balance-bar {
+    height: 30px;
+  }
+
+  .bar-income,
+  .bar-expense {
+    font-size: 0.9rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  th, td {
+    padding: 0.5rem;
+  }
+
+  .donor-item {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .donor-name, .donor-amount {
+    font-size: 1rem;
+  }
+
+  .net-percent {
+    font-size: 1rem;
+  }
+
+  .donor-note a {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 375px) {
+
+  .balance-bar {
+    height: 28px;
+  }
+
+  .bar-income, .bar-expense {
+    font-size: 0.8rem;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 0.4rem;
+  }
+
+  .donors-list {
+    grid-template-columns: 1fr;
+  }
+
+  .donor-item {
+    padding: 0.5rem 0.6rem;
+  }
+
+  .donor-name, .donor-amount {
+    font-size: 0.9rem;
+  }
+
+  .net-percent {
+    font-size: 1rem;
+  }
+
+  .donor-note a {
+    font-size: 0.8rem;
+  }
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+/* 黑夜模式 */
+
+html[data-theme="dark"] .balance-bar {
+  background-color: #2a2a2a;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .bar-income {
+  background: linear-gradient(to right, #66bb6a, #43a047);
+  color: #fff;
+}
+
+html[data-theme="dark"] .bar-expense {
+  background: linear-gradient(to left, #ef5350, #d32f2f);
+  color: #fff;
+}
+
+html[data-theme="dark"] .bar-income::after,
+html[data-theme="dark"] .bar-expense::after {
+  color: #fff;
+}
+
+html[data-theme="dark"] .net-percent {
+  color: #e0e0e0;
+}
+
+html[data-theme="dark"] .profit {
+  color: #81c784;
+}
+
+html[data-theme="dark"] .loss {
+  color: #ef9a9a;
+}
+
+html[data-theme="dark"] table {
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border-collapse: collapse;
+}
+
+html[data-theme="dark"] thead {
+  background: #333;
+}
+
+html[data-theme="dark"] th,
+html[data-theme="dark"] td {
+  border: 1px solid #3b3a3a;
+}
+
+html[data-theme="dark"] th {
+  color: #e0e0e0;
+}
+
+html[data-theme="dark"] td.right,
+html[data-theme="dark"] td.center {
+  color: #e0e0e0;
+}
+
+html[data-theme="dark"] .label-income {
+  color: #81c784;
+}
+
+html[data-theme="dark"] .label-expense {
+  color: #ef9a9a;
+}
+
+html[data-theme="dark"] .donors-list {
+  background: none;
+}
+
+html[data-theme="dark"] .donor-item {
+  background: #2a2a2a;
+  border-left-color: #45b26b;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  color: #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+html[data-theme="dark"] .donor-item:hover {
+  background: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+html[data-theme="dark"] .donor-name {
+  color: #e0e0e0;
+}
+
+html[data-theme="dark"] .donor-amount {
+  color: #81c784;
+}
+
+html[data-theme="dark"] .donor-time {
+  color: #aaa;
+}
+
+html[data-theme="dark"] .table-container {
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* supporters结束 */

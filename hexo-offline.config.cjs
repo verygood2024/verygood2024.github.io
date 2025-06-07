@@ -21,9 +21,6 @@ module.exports = {
       handler: 'StaleWhileRevalidate', // 先用缓存，后台更新
       options: {
         cacheName: 'page-cache',
-        fetchOptions: {
-          credentials: 'same-origin' // 保持同源 Cookie 等
-        },
         plugins: [
           new workbox.expiration.ExpirationPlugin({
             maxAgeSeconds: 7 * 24 * 60 * 60, // 缓存7天
