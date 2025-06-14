@@ -60,7 +60,6 @@ function updateInstallStatus() {
     if (banner) banner.style.display = isMobileOrTablet() ? 'flex' : 'none';
     if (installBtn) {
       installBtn.style.display = 'inline-block';
-      installBtn.innerText = '安装';
       installBtn.title = '';
       installBtn.onclick = () => {
         if (!isEdge()) {
