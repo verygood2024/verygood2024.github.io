@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>投稿 | yesandnoandperhaps</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <style>
+    
+  </style>
+</head>
+    <div class="submission-form-wrapper">
+        <form id="email-form">
+        <div class="private-style">
+          <label for="author_name">作者姓名：</label>
+          <input type="text" id="author_name" name="author_name" placeholder="请输入作者姓名" required />
+
+          <label for="author_email">作者邮箱：</label>
+          <input type="email" id="author_email" name="author_email" placeholder="请输入作者邮箱" required />
+
+          <label for="article_title">文学作品标题：</label>
+          <input type="text" id="article_title" name="article_title" placeholder="请输入文学作品标题" required  autocomplete="off"/>
+
+          <label for="article_type">投稿类型：</label>
+          <select id="article_type" name="article_type" required>
+            <option value="" disabled selected>请选择投稿类型</option>
+            <option value="近体诗">近体诗</option>
+            <option value="古体诗">古体诗</option>
+            <option value="词">词</option>
+            <option value="曲">曲</option>
+            <option value="联">联</option>
+            <option value="文言文">文言文</option>
+            <option value="现代诗">现代诗</option>
+            <option value="四不像文">四不像文</option>
+            <option value="记叙文">记叙文</option>
+            <option value="议论文">议论文</option>
+            <option value="散文">散文</option>
+            <option value="人文">人文</option>
+            <option value="算卦案例">算卦案例</option>
+            <option value="其它">其它</option>
+          </select>
+
+          <label for="article_content">文学作品正文：</label>
+          <textarea id="article_content" name="article_content" rows="5" placeholder="请输入文学作品正文" required></textarea>
+
+          <label for="article_purpose">文学作品意思：</label>
+          <textarea id="article_purpose" name="article_purpose" rows="5" placeholder="请输入文学作品意思"></textarea>
+
+          <label for="message">额外要求：</label>
+          <textarea id="message" name="message" rows="4" placeholder="请输入信息"></textarea>
+
+          <div class="checkbox-container">
+            <input type="checkbox" id="agreement" name="agreement" required />
+            <label for="agreement">我已充分阅读 <a href="https://yesandnoandperhaps.cn/posts/604f057e.html" target="_blank">投稿要求</a></label>
+          </div>
+
+          <button type="submit" class="submit-button">投稿</button>
+        </div>
+        </form>
+    </div>
+
+<script>
+(function () {
+  emailjs.init("uBtCMeYBjwcI61uvw"); // 替换为 Email.js 的 User ID
+})();
+
+const form = document.getElementById("email-form");
+const articleType = document.getElementById("article_type");
+const agreementCheckbox = document.getElementById("agreement");
+
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  if (!agreementCheckbox.checked) {
+    alert("请勾选复选框以确认您已阅读投稿要求！");
+    return;
+  }
+
+  if (!articleType.value) {
+    alert("请选择投稿类型！");
+    return;
+  }
+
+  const serviceID = "service_5mlsoqf"; // 替换为你的 Service ID
+  const templateID = "template_t37c95g"; // 替换为你的 Template ID
+
+  emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      alert("投稿成功，请等待审核。\n预计在七日内完成审核。");
+      form.reset();
+    }, (error) => {
+      console.error("投稿失败:", error);
+      alert("投稿失败，请稍后再试。");
+    });
+});
+</script>

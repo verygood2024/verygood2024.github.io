@@ -1,0 +1,50 @@
+- var htmlClassHideAside = theme.aside.enable && theme.aside.hide ? 'hide-aside' : ''
+- page.aside = is_archive() ? theme.aside.display.archive: is_category() ? theme.aside.display.category : is_tag() ? theme.aside.display.tag : page.aside
+- var hideAside = !theme.aside.enable || page.aside === false ? 'hide-aside' : ''
+- var pageType = is_post() ? 'post' : 'page'
+- pageType = page.type ? pageType + ' type-' + page.type : pageType
+
+doctype html
+html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside)
+  head
+    include ./head.pug
+  body
+    !=partial('includes/loading/index', {}, {cache: true})
+
+    if theme.background && is_post()
+      #web_bg(style=getBgPath(theme.background))
+
+    !=partial('includes/sidebar', {}, {cache: true})
+
+    #body-wrap(class=pageType)
+      include ./header/index.pug
+
+      main#content-inner.layout(class=hideAside)
+        if body
+          div!= body
+        else
+          block content
+          if theme.aside.enable && page.aside !== false
+            include widget/index.pug
+
+      - const footerBg = theme.footer_img
+      - const footer_bg = footerBg ? footerBg === true ? bg_img : getBgPath(footerBg) : ''
+      footer#footer(style=footer_bg)
+        !=partial('includes/footer', {}, {cache: true})
+
+    include ./rightside.pug
+    include ./additional-js.pug
+
+    // 👇 建议插入于 layout.pug 的 body 底部
+    div#pwaInstallBanner
+      img(
+        src="https://yesandnoandperhaps.cn/img/app_ic-playstore.png"
+        alt="App 图标"
+      )
+      div
+        div yesandnoandperhaps
+        div 安装PWA应用程序，离线阅读与沉浸体验兼得
+      div.install-buttons
+        button#pwaInstallConfirm 安装
+        button#pwaInstallDismiss 不感兴趣
+

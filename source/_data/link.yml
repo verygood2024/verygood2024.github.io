@@ -1,0 +1,18 @@
+- class_name: 友情链接
+  class_desc: 好朋友好朋友，我们与大家。
+  link_list:
+    - name: 世界钦廉人
+      link: http://yamlim.org/
+      avatar: https://yesandnoandperhaps.cn/img/img/freecompress-钦廉文献资料库.png
+      descr: 世界钦廉恳亲大会官方网站
+      target: _blank
+    - name: 知春社
+      link: https://zhichun.yesandno.cn/
+      avatar: https://zhichun.yesandno.cn/img/56a41320991856531f3c50c2d3488a1b_720.png
+      descr: 与其说“知寒”、不如说“知春”
+      target: _blank
+    - name: 穸阑隐阁
+      link: https://xlyg.fun/
+      avatar: https://yesandnoandperhaps.cn/img/img/友链/友链1.jpg
+      descr: 隐于市井，书写万象
+      target: _blank

@@ -1,0 +1,55 @@
+doctype html
+html(lang='zh')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  body
+    .gradient-loader(id='loading-box')
+      .loader-text yesandnoandperhaps
+    script.
+      const preloader = (() => {
+        const loadingBox = document.getElementById('loading-box');
+        return {
+          endLoading: () => {
+            if (!loadingBox) return;
+            document.body.style.overflow = 'auto'; // 恢复滚动
+            loadingBox.classList.add('hidden'); // 隐藏加载动画
+          },
+          initLoading: () => {
+            if (!loadingBox) return;
+            document.body.style.overflow = 'hidden'; // 禁止滚动
+            loadingBox.classList.remove('hidden'); // 显示加载动画
+          }
+        };
+      })();
+
+      const manageLoadingTimeout = (() => {
+        let timeoutID;
+        const handleTimeout = () => {
+          preloader.endLoading(); // 超时后直接结束加载动画
+          clearTimeout(timeoutID);
+        };
+
+        return {
+          start: (duration = 3000) => {
+            timeoutID = setTimeout(handleTimeout, duration);
+          },
+          clear: () => {
+            clearTimeout(timeoutID);
+          }
+        };
+      })();
+
+      // 初始化加载动画
+      preloader.initLoading();
+      manageLoadingTimeout.start();
+
+      // 页面加载完成后隐藏加载动画并清除超时
+      window.addEventListener('load', () => {
+        try {
+          manageLoadingTimeout.clear();
+          preloader.endLoading();
+        } catch (error) {
+          console.error('Error during loading cleanup:', error);
+        }
+      });

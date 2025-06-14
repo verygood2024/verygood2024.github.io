@@ -1,0 +1,80 @@
+- const { readmode, translate, darkmode, aside, chat } = theme
+mixin rightsideItem(array)
+  each item in array
+    case item
+      when 'readmode'
+        if is_post() && readmode
+          button#readmode(type="button" title=_p('rightside.readmode_title'))
+            i.iconfont.icon-book-open
+      when 'translate'
+        if translate.enable
+          button#translateLink(type="button" title=_p('rightside.translate_title'))= translate.default
+      when 'darkmode'
+        if darkmode.enable && darkmode.button
+          button#darkmode(type="button" title=_p('rightside.night_mode_title'))
+            i.iconfont.icon-adjust
+      when 'hideAside'
+        if aside.enable && aside.button && page.aside !== false
+          button#hide-aside-btn(type="button" title=_p('rightside.aside'))
+            i.iconfont.icon-expand-arrows-alt
+      when 'toc'
+        if showToc
+          button#mobile-toc-button.close(type="button" title=_p("rightside.toc"))
+            i.iconfont.icon-list-ul
+      when 'chat'
+        if chat.rightside_button && chat.use
+          button#chat-btn(type="button" title=_p("rightside.chat"))
+            i.fas.fa-message
+      when 'comment'
+        if commentsJsLoad
+          a#to_comment(href="#post-comment" title=_p("rightside.scroll_to_comment"))
+            i.iconfont.icon-comments
+      when '随机访问'
+        button.randomPost(type="button" title="随机访问一篇文章" onclick="randomPost()")
+          i.iconfont.icon-random
+      when '增大字体'
+        button#fontsizeIncrease(type="button" title="增大字体" onclick="increaseFontSize()")
+          i.iconfont.icon-search-plus
+      when '减小字体'
+        button#fontsizeDecrease(type="button" title="减小字体" onclick="decreaseFontSize()")
+          i.iconfont.icon-search-minus
+      when 'clearcache'
+        button#cacheManager(type="button" title="清除网站缓存" onclick="cacheManager.clearAll()")
+          i.iconfont.icon-trash
+      when '切换字体'
+        button#toggleFont(type="button" title="切换字体" onclick="toggleFont()")
+          i.iconfont.icon-font
+      when '安装'
+        button#installPWA(type="button" title="安装到桌面")
+          i.fas.fa-download
+
+
+#rightside
+  - const { enable, hide, show } = theme.rightside_item_order
+  - const hideArray = enable ? hide && hide.split(',') : ['readmode','translate','切换字体','darkmode','增大字体','减小字体','clearcache','hideAside']
+  - const showArray = enable ? show && show.split(',') : ['toc','chat','comment','随机访问','安装']
+
+  
+  #rightside-config-hide
+    if hideArray
+      +rightsideItem(hideArray)
+  #rightside-config-show
+    if enable
+      if hide
+        button#rightside-config(type="button" title=_p("rightside.setting"))
+          i.iconfont.icon-cog
+    else
+      if is_post()
+        if (readmode || translate.enable || (darkmode.enable && darkmode.button))
+          button#rightside-config(type="button" title=_p("rightside.setting"))
+            i.iconfont.icon-cog
+      else if translate.enable || (darkmode.enable && darkmode.button)
+        button#rightside-config(type="button" title=_p("rightside.setting"))
+          i.iconfont.icon-cog
+
+    if showArray
+      +rightsideItem(showArray)
+
+    button#go-up(type="button" title=_p("rightside.back_to_top"))
+      span.scroll-percent
+      i.iconfont.icon-arrow-up

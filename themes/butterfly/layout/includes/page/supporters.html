@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>赞助我们 | yesandnoandperhaps</title>
+
+</head>
+<body>
+
+    <section aria-label="净盈亏百分比">
+      <div id="net-percent" class="net-percent"></div>
+    </section>
+
+    <section aria-label="收入和支出比例横条">
+      <div class="balance-bar" aria-live="polite" aria-atomic="true">
+        <div class="bar-income" id="bar-income" style="width: 0;"></div>
+        <div class="bar-expense" id="bar-expense" style="width: 0;"></div>
+      </div>
+
+    </section>
+
+    <section aria-label="收支明细表">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">用途/来自</th>
+              <th scope="col" class="right">金额（¥）</th>
+              <th scope="col" class="right">单项占比</th>
+              <th scope="col" class="right">总占比</th>
+              <th scope="col" class="center">类型</th>
+            </tr>
+          </thead>
+          <tbody id="details-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <section aria-label="赞助人员榜">
+      <div class="donors-list" role="list" tabindex="0" id="donors-list"></div>
+    </section>
+    
+    <section aria-label="赞助说明" style="text-align: center; max-width: 600px; margin: auto; line-height: 1.8;">
+      <h2 style="font-size: 1.8em; margin-bottom: 0.7em;">让我们一起，让这个项目走得更远！</h2>
+
+      <p>
+        这个项目的持续运行离不开您的支持：<br>
+        域名、服务器、资料整理……每一项都需投入。<br>
+        <b>如果这个平台曾为你提供启发、温暖或帮助，<br>请考虑支持我们，一起守护它的成长。</b>
+      </p>
+
+      <p style="font-weight: bold; margin-top: 1em;">
+        赞助请备注：<br>
+        <span style="color: #333;">赞助名（必填）</span>、<span style="color: #333;">网站网址（选填）</span>、<span style="color: #333;">赞助对象（选填）</span><br>
+        <span style="font-weight: normal; color: #555;">（赞助对象指您想支持的具体作者；如果留空，则视为赞助整个网站）</span><br>
+        <span style="font-weight: normal; color: #555;">若赞助名为空，将视填为<b>做好事不留名</b>。</span>
+      </p>
+
+      <p style="margin-top: 1.5em;"><i class="iconfont icon-hand-holding-heart"></i><b>赞助方式</b>：</p>
+
+      <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin: 1em 0;">
+        <div>
+          <img src="https://yesandnoandperhaps.cn/img/img/C6C80D074DFBD42886AB5BDFCB19DF99.jpg" alt="微信赞助二维码" style="max-width: 200px; width: 100%; border: 1px solid #ccc; border-radius: 8px;">
+          <p style="margin-top: 0.5em;">微信</p>
+        </div>
+        <div>
+          <img src="https://yesandnoandperhaps.cn/img/img/2F6C5DF420D722C2EBC05918BFCE4AD9.jpg" alt="支付宝赞助二维码" style="max-width: 200px; width: 100%; border: 1px solid #ccc; border-radius: 8px;">
+          <p style="margin-top: 0.5em;">支付宝</p>
+        </div>
+      </div>
+
+      <p style="font-size: 0.95em; color: #666;">
+        所有赞助将在<b>7天内</b>处理，<br>我们会将您添加至“赞助者名单”以示感谢。<br>
+        如有问题，请随时通过<a href="mailto:yesandnoandperhaps@yesandnoandperhaps.cn">邮件联系我们</a>。
+      </p>
+
+      <p style="margin-top: 2em; font-weight: bold; font-size: 1.05em;">
+        <i class="iconfont icon-heart"></i>谢谢您的慷慨！您不仅是用户，更是我们的共建者。
+      </p>
+    </section>
+
+
+
+  <script>
+    function renderRecordsAndDonors() {
+      const records_dict = [
+        { name: "赞助款", amount: 3, type: "income" },
+        { name: "yesandnoandperhaps.cn域名", amount: 35, type: "expense" },
+        { name: "yesandno.cn域名", amount: 19, type: "expense" },
+        { name: "香港云服务器一月", amount: 44, type: "expense" },
+        { name: "香港云服务器一月", amount: 44, type: "expense" }
+      ];
+
+      const donors = [
+        { name: "United Daxiang", amount: 3, time: "2025-04-20 21:30", a: "" },
+      ];
+
+      const totalIncome = records_dict
+        .filter(r => r.type === "income")
+        .reduce((a, b) => a + b.amount, 0);
+
+      const totalExpense = records_dict
+        .filter(r => r.type === "expense")
+        .reduce((a, b) => a + b.amount, 0);
+
+      const maxAmount = Math.max(totalIncome, totalExpense, 1);
+
+      const barIncome = document.getElementById("bar-income");
+      const barExpense = document.getElementById("bar-expense");
+
+      if (barIncome && barExpense) {
+        barIncome.style.width = (totalIncome / maxAmount * 100).toFixed(2) + "%";
+        barExpense.style.width = (totalExpense / maxAmount * 100).toFixed(2) + "%";
+
+        barIncome.setAttribute('data-amount', `收入 ¥${totalIncome.toFixed(2)}`);
+        barExpense.setAttribute('data-amount', `支出 ¥${totalExpense.toFixed(2)}`);
+      }
+
+      const net = totalIncome - totalExpense;
+      const netPercentValue = totalIncome === 0 ? -100 : (net / totalExpense) * 100;
+      const netPercent = netPercentValue.toFixed(1);
+
+      const netPercentElem = document.getElementById("net-percent");
+      if (netPercentElem) {
+        if (net >= 0) {
+          netPercentElem.textContent = `盈利 ${netPercent}%`;
+          netPercentElem.classList.add("profit");
+          netPercentElem.classList.remove("loss");
+        } else {
+          netPercentElem.textContent = `亏损 ${Math.abs(netPercent)}%`;
+          netPercentElem.classList.add("loss");
+          netPercentElem.classList.remove("profit");
+        }
+      }
+
+      const detailsBody = document.getElementById("details-body");
+      if (detailsBody) {
+        detailsBody.innerHTML = "";
+        records_dict.forEach(({ name, amount, type }) => {
+          const percent = type === "income"
+            ? totalIncome === 0 ? 0 : ((amount / totalIncome) * 100).toFixed(1)
+            : totalExpense === 0 ? 0 : ((amount / totalExpense) * 100).toFixed(1);
+
+          const overallPercent = (totalIncome + totalExpense === 0)
+            ? 0
+            : ((amount / (totalIncome + totalExpense)) * 100).toFixed(1);
+
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${name}</td>
+            <td>${amount.toFixed(2)}</td>
+            <td>${percent}%</td>
+            <td>${overallPercent}%</td>
+            <td class="${type === "income" ? "label-income" : "label-expense"}">
+              ${type === "income" ? "收入" : "支出"}
+            </td>
+          `;
+          detailsBody.appendChild(tr);
+        });
+      }
+
+      const donorsList = document.getElementById("donors-list");
+      if (donorsList) {
+        donorsList.innerHTML = "";
+        donors.forEach(({ name, amount, time, a }) => {
+          const displayName = name.trim() === "" ? "做好事不留名" : name;
+          const item = document.createElement("div");
+          item.className = "donor-item";
+          item.innerHTML = `
+            <div class="donor-name">${displayName}</div>
+            <div class="donor-amount">¥${amount.toFixed(2)}</div>
+            <div class="donor-time">${time}</div>
+            <div class="donor-note">${a ? `<a href="${a}" target="_blank" rel="noopener noreferrer">${a}</a>` : ""}</div>
+          `;
+          donorsList.appendChild(item);
+        });
+      }
+    }
+
+    // 初始页面加载时调用
+    document.addEventListener("DOMContentLoaded", renderRecordsAndDonors);
+
+    // 兼容 PJAX 跳转后调用（根据你使用的 PJAX 框架调整事件名）
+    // 例如：如果用的是 pjax.js（https://github.com/MoOx/pjax）：
+    document.addEventListener("pjax:complete", () => {
+      requestAnimationFrame(() => {
+        renderRecordsAndDonors();
+      });
+    });
+
+    </script>
+
+</body>
+</html>
