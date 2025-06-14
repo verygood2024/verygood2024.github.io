@@ -2,7 +2,7 @@ let deferredPrompt = null;
 
 // 判断是否为 iOS
 function isIOS() {
-  const ua = window.navigator.userAgent.toLowerCase();
+  const ua = navigator.userAgent.toLowerCase();
   return /iphone|ipad|ipod/.test(ua);
 }
 
@@ -14,8 +14,7 @@ function isMobileOrTablet() {
 
 // 判断是否为 Edge 浏览器
 function isEdge() {
-  const ua = navigator.userAgent.toLowerCase();
-  return ua.includes('edg'); // 注意：Chrome 的 UA 中包含 edg
+  return navigator.userAgent.toLowerCase().includes('edg');
 }
 
 // 判断是否在独立窗口（PWA 模式）
@@ -27,7 +26,6 @@ function isInStandaloneMode() {
 function isInstalledCached() {
   return localStorage.getItem('pwaInstalled') === 'true';
 }
-
 function setInstalledCached(value) {
   localStorage.setItem('pwaInstalled', value ? 'true' : 'false');
 }
@@ -38,7 +36,7 @@ function promptInstallEdge() {
   window.open('https://www.microsoft.com/edge', '_blank');
 }
 
-// 统一更新安装相关状态和 UI
+// 统一更新安装状态和 UI
 function updateInstallStatus() {
   const banner = document.getElementById('pwaInstallBanner');
   const installBtn = document.getElementById('installPWA');
@@ -47,6 +45,7 @@ function updateInstallStatus() {
   const installed = isInStandaloneMode() || isIOS() || isInstalledCached();
 
   if (installed) {
+    setInstalledCached(true);
     if (banner) banner.style.display = 'none';
     if (installBtn) {
       installBtn.style.display = 'inline-block';
@@ -56,12 +55,17 @@ function updateInstallStatus() {
     if (altBtn) {
       altBtn.onclick = () => alert('您已安装本站应用 🎉');
     }
+    deferredPrompt = null;
   } else {
     if (banner) banner.style.display = isMobileOrTablet() ? 'flex' : 'none';
     if (installBtn) {
       installBtn.style.display = 'inline-block';
       installBtn.title = '';
       installBtn.onclick = () => {
+        if (isInStandaloneMode() || isInstalledCached()) {
+          alert('您已安装本站应用 🎉');
+          return;
+        }
         if (!isEdge()) {
           promptInstallEdge();
         } else {
@@ -71,7 +75,9 @@ function updateInstallStatus() {
     }
     if (altBtn) {
       altBtn.onclick = () => {
-        if (!isEdge()) {
+        if (isInStandaloneMode() || isInstalledCached()) {
+          alert('您已安装本站应用 🎉');
+        } else if (!isEdge()) {
           promptInstallEdge();
         } else if (deferredPrompt) {
           handleInstallPrompt();
@@ -105,7 +111,7 @@ function handleInstallPrompt() {
   }
 }
 
-// 监听 beforeinstallprompt 事件，捕获安装提示
+// 捕获 beforeinstallprompt 事件
 window.addEventListener('beforeinstallprompt', (e) => {
   console.log('捕获到 beforeinstallprompt 事件');
   e.preventDefault();
@@ -115,13 +121,10 @@ window.addEventListener('beforeinstallprompt', (e) => {
   const banner = document.getElementById('pwaInstallBanner');
 
   if (installBtn) installBtn.style.display = 'inline-block';
-
-  if (banner && isMobileOrTablet()) {
-    banner.style.display = 'flex';
-  }
+  if (banner && isMobileOrTablet()) banner.style.display = 'flex';
 });
 
-// 监听 appinstalled 事件，确认安装成功，更新缓存和界面
+// 捕获 appinstalled 事件
 window.addEventListener('appinstalled', () => {
   console.log('PWA 安装成功');
   deferredPrompt = null;
@@ -131,17 +134,17 @@ window.addEventListener('appinstalled', () => {
   updateInstallStatus();
 });
 
-// 页面切回时重新检测安装状态
+// 页面切换回来时重新检查
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
     updateInstallStatus();
   }
 });
 
-// 持续轮询安装状态（无性能顾虑时可保留）
-setInterval(updateInstallStatus, 1000);
+// ✅ 页面加载前立即判断状态（无闪现）
+updateInstallStatus();
 
-// 初始化按钮事件绑定
+// 初始化按钮绑定
 function setupInstallButtons() {
   const installBtn = document.getElementById('installPWA');
   const altBtn = document.getElementById('pwa-install-btn');
@@ -153,34 +156,37 @@ function setupInstallButtons() {
   if (banner) banner.style.display = 'none';
 
   if (isInStandaloneMode() || isIOS()) {
+    setInstalledCached(true);
     if (installBtn) {
       installBtn.style.display = 'inline-block';
       installBtn.title = isIOS()
         ? '请点击 Safari 底部的分享按钮 → “添加到主屏幕”'
         : '应用已安装';
-      installBtn.addEventListener('click', () => {
+      installBtn.onclick = () => {
         alert(isIOS()
           ? '请点击 Safari 浏览器底部的“分享”图标，然后选择“添加到主屏幕”。'
           : '您已安装本站应用 🎉');
-      });
+      };
     }
   } else {
     if (installBtn) {
       installBtn.style.display = 'inline-block';
-      installBtn.addEventListener('click', () => {
-        if (!isEdge()) {
+      installBtn.onclick = () => {
+        if (isInStandaloneMode() || isInstalledCached()) {
+          alert('您已安装本站应用 🎉');
+        } else if (!isEdge()) {
           promptInstallEdge();
         } else {
           handleInstallPrompt();
         }
-      });
+      };
     }
   }
 
   if (altBtn) {
-    altBtn.addEventListener('click', () => {
-      if (isInStandaloneMode()) {
-        alert('您已经安装过此应用 🎉');
+    altBtn.onclick = () => {
+      if (isInStandaloneMode() || isInstalledCached()) {
+        alert('您已安装本站应用 🎉');
       } else if (!isEdge()) {
         promptInstallEdge();
       } else if (deferredPrompt) {
@@ -188,28 +194,27 @@ function setupInstallButtons() {
       } else {
         alert('安装提示尚未准备好，请稍后再试。');
       }
-    });
+    };
   }
 
   if (confirmBtn) {
-    confirmBtn.addEventListener('click', () => {
+    confirmBtn.onclick = () => {
       if (!isEdge()) {
         promptInstallEdge();
       } else {
         handleInstallPrompt();
       }
-    });
+    };
   }
 
   if (dismissBtn && banner) {
-    dismissBtn.addEventListener('click', () => {
+    dismissBtn.onclick = () => {
       banner.style.display = 'none';
-    });
+    };
   }
 }
 
-// 页面加载完成初始化
+// 页面加载完成后绑定事件
 window.addEventListener('DOMContentLoaded', () => {
   setupInstallButtons();
-  setTimeout(updateInstallStatus, 1000);
 });
