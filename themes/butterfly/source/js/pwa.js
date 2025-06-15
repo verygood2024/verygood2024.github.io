@@ -74,9 +74,22 @@ async function isPWAInstalled() {
 }
 
 // Edge浏览器提示
+// 引导用户使用 Edge 浏览器
 function promptInstallEdge() {
-  alert('请使用 Microsoft Edge 浏览器访问本站以安装应用。');
-  window.open('https://www.microsoft.com/edge', '_blank');
+  const modal = document.getElementById('browserChoiceModal');
+  modal.classList.remove('modal-hidden');
+
+  document.getElementById('installEdgeBtn').onclick = () => {
+    window.open('https://www.microsoft.com/edge', '_blank');
+    modal.classList.add('modal-hidden');
+  };
+  document.getElementById('installChromeBtn').onclick = () => {
+    window.open('https://www.google.com/chrome/', '_blank');
+    modal.classList.add('modal-hidden');
+  };
+  document.getElementById('closeModalBtn').onclick = () => {
+    modal.classList.add('modal-hidden');
+  };
 }
 
 // 触发安装弹窗
