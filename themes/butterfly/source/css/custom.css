@@ -1348,6 +1348,7 @@ html[data-theme='dark'] #rightside > div > a:hover {
 
 /*导航栏*/
 #page-header.nav-fixed #nav {
+  padding: 20px 40px;
   border-radius: 50px;
   position: fixed;
   top: -60px;
