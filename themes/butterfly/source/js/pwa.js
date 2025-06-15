@@ -111,39 +111,6 @@ function handleInstallPrompt() {
   }
 }
 
-// 捕获 beforeinstallprompt 事件
-window.addEventListener('beforeinstallprompt', (e) => {
-  console.log('捕获到 beforeinstallprompt 事件');
-  e.preventDefault();
-  deferredPrompt = e;
-
-  const installBtn = document.getElementById('installPWA');
-  const banner = document.getElementById('pwaInstallBanner');
-
-  if (installBtn) installBtn.style.display = 'inline-block';
-  if (banner && isMobileOrTablet()) banner.style.display = 'flex';
-});
-
-// 捕获 appinstalled 事件
-window.addEventListener('appinstalled', () => {
-  console.log('PWA 安装成功');
-  deferredPrompt = null;
-  setInstalledCached(true);
-  const banner = document.getElementById('pwaInstallBanner');
-  if (banner) banner.style.display = 'none';
-  updateInstallStatus();
-});
-
-// 页面切换回来时重新检查
-document.addEventListener('visibilitychange', () => {
-  if (document.visibilityState === 'visible') {
-    updateInstallStatus();
-  }
-});
-
-// ✅ 页面加载前立即判断状态（无闪现）
-updateInstallStatus();
-
 // 初始化按钮绑定
 function setupInstallButtons() {
   const installBtn = document.getElementById('installPWA');
@@ -176,8 +143,10 @@ function setupInstallButtons() {
           alert('您已安装本站应用 🎉');
         } else if (!isEdge()) {
           promptInstallEdge();
-        } else {
+        } else if (deferredPrompt) {
           handleInstallPrompt();
+        } else {
+          alert('安装提示尚未准备好，请稍后再试。');
         }
       };
     }
@@ -199,10 +168,14 @@ function setupInstallButtons() {
 
   if (confirmBtn) {
     confirmBtn.onclick = () => {
-      if (!isEdge()) {
+      if (isInStandaloneMode() || isInstalledCached()) {
+        alert('您已安装本站应用 🎉');
+      } else if (!isEdge()) {
         promptInstallEdge();
-      } else {
+      } else if (deferredPrompt) {
         handleInstallPrompt();
+      } else {
+        alert('安装提示尚未准备好，请稍后再试。');
       }
     };
   }
@@ -214,7 +187,48 @@ function setupInstallButtons() {
   }
 }
 
-// 页面加载完成后绑定事件
-window.addEventListener('DOMContentLoaded', () => {
+// 捕获 beforeinstallprompt 事件
+window.addEventListener('beforeinstallprompt', (e) => {
+  console.log('捕获到 beforeinstallprompt 事件');
+  e.preventDefault();
+  deferredPrompt = e;
+
+  const installBtn = document.getElementById('installPWA');
+  const banner = document.getElementById('pwaInstallBanner');
+
+  if (installBtn) installBtn.style.display = 'inline-block';
+  if (banner && isMobileOrTablet()) banner.style.display = 'flex';
+});
+
+// 捕获 appinstalled 事件
+window.addEventListener('appinstalled', () => {
+  console.log('PWA 安装成功');
+  deferredPrompt = null;
+  setInstalledCached(true);
+  const banner = document.getElementById('pwaInstallBanner');
+  if (banner) banner.style.display = 'none';
+  updateInstallStatus();
+});
+
+// 切换回页面时重新检测安装状态
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    updateInstallStatus();
+  }
+});
+
+// ✅ 整合初始化逻辑（用于 PJAX & 首次加载）
+function initPWAInstall() {
   setupInstallButtons();
+  updateInstallStatus();
+}
+
+// ✅ 初始加载执行一次
+window.addEventListener('DOMContentLoaded', () => {
+  initPWAInstall();
+});
+
+// ✅ 兼容 Butterfly PJAX 页面切换
+document.addEventListener('pjax:complete', () => {
+  initPWAInstall();
 });
