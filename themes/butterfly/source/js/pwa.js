@@ -42,42 +42,54 @@ async function isPWAInstalled() {
   return false;
 }
 
-// 安装 Edge 浏览器提示，在 DOM 加载完立即隐藏
-document.addEventListener('DOMContentLoaded', () => {
+// 绑定模态窗口事件
+function bindModalEvents() {
   const modal = document.getElementById('browserChoiceModal');
   const modalContent = modal.querySelector('.modal-content');
-  modal.classList.add('modal-hidden');
-  modalContent.classList.add('modal-hidden');
-});
 
-// 显示模态窗口
-function promptInstallEdge() {
-  const modal = document.getElementById('browserChoiceModal');
-  const modalContent = modal.querySelector('.modal-content');
-  modal.classList.remove('modal-hidden');
-  modalContent.classList.remove('modal-hidden');
-
-  // 给按钮绑定事件（每次调用都重新绑定，避免 PJAX 丢失）
+  // 安装 Edge 按钮点击事件
   document.getElementById('installEdgeBtn').onclick = () => {
     window.open('https://www.microsoft.com/edge', '_blank');
-    modal.classList.add('modal-hidden');
-    modalContent.classList.add('modal-hidden');
   };
 
+  // 安装 Chrome 按钮点击事件
   document.getElementById('installChromeBtn').onclick = () => {
     window.open('https://www.google.com/chrome/', '_blank');
-    modal.classList.add('modal-hidden');
-    modalContent.classList.add('modal-hidden');
   };
 
+  // 关闭模态窗口按钮点击事件
   document.getElementById('closeModalBtn').onclick = () => {
-    modal.classList.add('modal-hidden');
-    modalContent.classList.add('modal-hidden');
+    closeModal(modal, modalContent);
   };
 }
 
-// 监听 PJAX 完成事件，重新绑定按钮
-document.addEventListener('pjax:complete', () => {
+// 显示安装提示模态窗口
+function promptInstallEdge() {
+  const modal = document.getElementById('browserChoiceModal');
+  const modalContent = modal.querySelector('.modal-content');
+
+  modal.style.display = 'flex';
+  modalContent.style.display = 'block';
+
+  bindModalEvents(); // 绑定事件
+}
+
+// 关闭模态窗口的通用函数
+function closeModal(modal, modalContent) {
+  modal.style.display = 'none';
+  modalContent.style.display = 'none';
+}
+
+// 页面加载完成后，确保模态窗口初始状态为隐藏
+window.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('browserChoiceModal');
+  const modalContent = modal?.querySelector('.modal-content');
+  if (modal) modal.style.display = 'none';
+  if (modalContent) modalContent.style.display = 'none';
+});
+
+// PJAX 完成后显示安装提示模态窗口
+document.addEventListener('pjax:complete', function () {
   promptInstallEdge();
 });
 
