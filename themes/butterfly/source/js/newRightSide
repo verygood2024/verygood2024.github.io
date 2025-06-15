@@ -1,0 +1,73 @@
+const rightSideFn = {
+  readmode: () => {
+    const $body = document.body
+    const newEle = document.createElement('button')
+    const exitReadMode = () => {
+      $body.classList.remove('read-mode')
+      newEle.remove()
+      newEle.removeEventListener('click', exitReadMode)
+    }
+    $body.classList.add('read-mode')
+    newEle.type = 'button'
+    newEle.className = 'fas fa-sign-out-alt exit-readmode'
+    newEle.addEventListener('click', exitReadMode)
+    $body.appendChild(newEle)
+  },
+
+  darkmode: () => {
+    const willChangeMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+    if (willChangeMode === 'dark') {
+      btf.activateDarkMode()
+      GLOBAL_CONFIG.Snackbar && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+    } else {
+      btf.activateLightMode()
+      GLOBAL_CONFIG.Snackbar && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+    }
+    btf.saveToLocal.set('theme', willChangeMode, 2)
+    handleThemeChange(willChangeMode)
+  },
+
+  translateLink: () => {
+    window.translateFn && window.translateFn.translatePage()
+  },
+
+  'hide-aside-btn': () => {
+    const $htmlDom = document.documentElement.classList
+    const saveStatus = $htmlDom.contains('hide-aside') ? 'show' : 'hide'
+    btf.saveToLocal.set('aside-status', saveStatus, 2)
+    $htmlDom.toggle('hide-aside')
+  }
+}
+
+// ✅ 包装成函数，供初次加载和 PJAX 调用
+function bindRightSideModalEvents() {
+  const modal = document.getElementById('settingsModal')
+  if (!modal) return
+
+  // 绑定按钮点击事件
+  modal.addEventListener('click', e => {
+    const $btn = e.target.closest('button[id]')
+    if (!$btn) return
+
+    const fn = rightSideFn[$btn.id]
+    if (typeof fn === 'function') {
+      fn(e.currentTarget, $btn)
+    }
+  })
+
+  const closeBtn = document.getElementById('closeSettingsModalBtn')
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      const hideLayout = modal.querySelector('.modal-content')
+      hideLayout.classList.remove('show')
+      hideLayout.style.display = 'none'
+      modal.style.display = 'none'
+    })
+  }
+}
+
+// ✅ 初次加载绑定
+document.addEventListener('DOMContentLoaded', bindRightSideModalEvents)
+
+// ✅ PJAX 重新加载后再次绑定
+document.addEventListener('pjax:complete', bindRightSideModalEvents)

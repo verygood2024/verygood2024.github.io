@@ -1,292 +1,310 @@
-// Vanilla JS Liquid Glass Effect - Paste into browser console
-// Created by Shu Ding (https://github.com/shuding/liquid-glass) in 2025.
+document.addEventListener('DOMContentLoaded', () => {
+  let headerContentWidth, $nav
+  let mobileSidebarOpen = false
+  /**
+   * rightside scroll percent
+   */
+  const rightsideScrollPercent = currentTop => {
+    const scrollPercent = btf.getScrollPercent(currentTop, document.body)
+    const goUpElement = document.getElementById('go-up')
 
-(function() {
-  'use strict';
-  
-  // Check if liquid glass already exists and destroy it
-  if (window.liquidGlass) {
-    window.liquidGlass.destroy();
-    console.log('Previous liquid glass effect removed.');
-  }
-  
-  // Utility functions
-  function smoothStep(a, b, t) {
-    t = Math.max(0, Math.min(1, (t - a) / (b - a)));
-    return t * t * (3 - 2 * t);
-  }
-
-  function length(x, y) {
-    return Math.sqrt(x * x + y * y);
+    if (scrollPercent < 95) {
+      goUpElement.classList.add('show-percent')
+      goUpElement.querySelector('.scroll-percent').textContent = scrollPercent
+    } else {
+      goUpElement.classList.remove('show-percent')
+    }
   }
 
-  function roundedRectSDF(x, y, width, height, radius) {
-    const qx = Math.abs(x) - width + radius;
-    const qy = Math.abs(y) - height + radius;
-    return Math.min(Math.max(qx, qy), 0) + length(Math.max(qx, 0), Math.max(qy, 0)) - radius;
-  }
+  /**
+   * 滾動處理
+   */
+  const scrollFn = () => {
+    const $rightside = document.getElementById('rightside')
+    const innerHeight = window.innerHeight + 56
+    let initTop = 0
+    const $header = document.getElementById('page-header')
+    const isChatBtn = typeof chatBtn !== 'undefined'
+    const isShowPercent = GLOBAL_CONFIG.percent.rightside
 
-  function texture(x, y) {
-    return { type: 't', x, y };
-  }
-
-  // Generate unique ID
-  function generateId() {
-    return 'liquid-glass-' + Math.random().toString(36).substr(2, 9);
-  }
-
-  // Main Shader class
-  class Shader {
-    constructor(options = {}) {
-      this.width = options.width || 100;
-      this.height = options.height || 100;
-      this.fragment = options.fragment || ((uv) => texture(uv.x, uv.y));
-      this.canvasDPI = 1;
-      this.id = generateId();
-      this.offset = 10; // Viewport boundary offset
-      
-      this.mouse = { x: 0, y: 0 };
-      this.mouseUsed = false;
-      
-      this.createElement();
-      this.setupEventListeners();
-      this.updateShader();
+    // 檢查文檔高度是否小於視窗高度
+    const checkDocumentHeight = () => {
+      if (document.body.scrollHeight <= innerHeight) {
+        $rightside.classList.add('rightside-show')
+        return true
+      }
+      return false
     }
 
-    createElement() {
-      // Create container
-      this.container = document.createElement('div');
-      this.container.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: ${this.width}px;
-        height: ${this.height}px;
-        overflow: hidden;
-        border-radius: 150px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25), 0 -10px 25px inset rgba(0, 0, 0, 0.15);
-        cursor: grab;
-        backdrop-filter: url(#${this.id}_filter) blur(0.25px) contrast(1.2) brightness(1.05) saturate(1.1);
-        z-index: 9999;
-        pointer-events: auto;
-      `;
+    // 如果文檔高度小於視窗高度,直接返回
+    if (checkDocumentHeight()) return
 
-      // Create SVG filter
-      this.svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      this.svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      this.svg.setAttribute('width', '0');
-      this.svg.setAttribute('height', '0');
-      this.svg.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        z-index: 9998;
-      `;
-
-      const defs = document.createElementNS('http://www.w3.org/2000/svg', 'defs');
-      const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-      filter.setAttribute('id', `${this.id}_filter`);
-      filter.setAttribute('filterUnits', 'userSpaceOnUse');
-      filter.setAttribute('colorInterpolationFilters', 'sRGB');
-      filter.setAttribute('x', '0');
-      filter.setAttribute('y', '0');
-      filter.setAttribute('width', this.width.toString());
-      filter.setAttribute('height', this.height.toString());
-
-      this.feImage = document.createElementNS('http://www.w3.org/2000/svg', 'feImage');
-      this.feImage.setAttribute('id', `${this.id}_map`);
-      this.feImage.setAttribute('width', this.width.toString());
-      this.feImage.setAttribute('height', this.height.toString());
-
-      this.feDisplacementMap = document.createElementNS('http://www.w3.org/2000/svg', 'feDisplacementMap');
-      this.feDisplacementMap.setAttribute('in', 'SourceGraphic');
-      this.feDisplacementMap.setAttribute('in2', `${this.id}_map`);
-      this.feDisplacementMap.setAttribute('xChannelSelector', 'R');
-      this.feDisplacementMap.setAttribute('yChannelSelector', 'G');
-
-      filter.appendChild(this.feImage);
-      filter.appendChild(this.feDisplacementMap);
-      defs.appendChild(filter);
-      this.svg.appendChild(defs);
-
-      // Create canvas for displacement map (hidden)
-      this.canvas = document.createElement('canvas');
-      this.canvas.width = this.width * this.canvasDPI;
-      this.canvas.height = this.height * this.canvasDPI;
-      this.canvas.style.display = 'none';
-
-      this.context = this.canvas.getContext('2d');
+    // find the scroll direction
+    const scrollDirection = currentTop => {
+      const result = currentTop > initTop // true is down & false is up
+      initTop = currentTop
+      return result
     }
 
-    constrainPosition(x, y) {
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      
-      // Calculate boundaries with offset
-      const minX = this.offset;
-      const maxX = viewportWidth - this.width - this.offset;
-      const minY = this.offset;
-      const maxY = viewportHeight - this.height - this.offset;
-      
-      // Constrain position
-      const constrainedX = Math.max(minX, Math.min(maxX, x));
-      const constrainedY = Math.max(minY, Math.min(maxY, y));
-      
-      return { x: constrainedX, y: constrainedY };
-    }
-
-    setupEventListeners() {
-      let isDragging = false;
-      let startX, startY, initialX, initialY;
-
-      this.container.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        this.container.style.cursor = 'grabbing';
-        startX = e.clientX;
-        startY = e.clientY;
-        const rect = this.container.getBoundingClientRect();
-        initialX = rect.left;
-        initialY = rect.top;
-        e.preventDefault();
-      });
-
-      document.addEventListener('mousemove', (e) => {
-        if (isDragging) {
-          const deltaX = e.clientX - startX;
-          const deltaY = e.clientY - startY;
-          
-          // Calculate new position
-          const newX = initialX + deltaX;
-          const newY = initialY + deltaY;
-          
-          // Constrain position within viewport bounds
-          const constrained = this.constrainPosition(newX, newY);
-          
-          this.container.style.left = constrained.x + 'px';
-          this.container.style.top = constrained.y + 'px';
-          this.container.style.transform = 'none';
+    let flag = ''
+    const scrollTask = btf.throttle(() => {
+      const currentTop = window.scrollY || document.documentElement.scrollTop
+      const isDown = scrollDirection(currentTop)
+      if (currentTop > 56) {
+        if (flag === '') {
+          $header.classList.add('nav-fixed')
+          $rightside.classList.add('rightside-show')
         }
 
-        // Update mouse position for shader
-        const rect = this.container.getBoundingClientRect();
-        this.mouse.x = (e.clientX - rect.left) / rect.width;
-        this.mouse.y = (e.clientY - rect.top) / rect.height;
-        
-        if (this.mouseUsed) {
-          this.updateShader();
+        if (isDown) {
+          if (flag !== 'down') {
+            $header.classList.remove('nav-visible')
+            isChatBtn && window.chatBtn.hide()
+            flag = 'down'
+          }
+        } else {
+          if (flag !== 'up') {
+            $header.classList.add('nav-visible')
+            isChatBtn && window.chatBtn.show()
+            flag = 'up'
+          }
         }
-      });
-
-      document.addEventListener('mouseup', () => {
-        isDragging = false;
-        this.container.style.cursor = 'grab';
-      });
-
-      // Handle window resize to maintain constraints
-      window.addEventListener('resize', () => {
-        const rect = this.container.getBoundingClientRect();
-        const constrained = this.constrainPosition(rect.left, rect.top);
-        
-        if (rect.left !== constrained.x || rect.top !== constrained.y) {
-          this.container.style.left = constrained.x + 'px';
-          this.container.style.top = constrained.y + 'px';
-          this.container.style.transform = 'none';
+      } else {
+        flag = ''
+        if (currentTop === 0) {
+          $header.classList.remove('nav-fixed', 'nav-visible')
         }
-      });
-    }
-
-    updateShader() {
-      const mouseProxy = new Proxy(this.mouse, {
-        get: (target, prop) => {
-          this.mouseUsed = true;
-          return target[prop];
-        }
-      });
-
-      this.mouseUsed = false;
-
-      const w = this.width * this.canvasDPI;
-      const h = this.height * this.canvasDPI;
-      const data = new Uint8ClampedArray(w * h * 4);
-
-      let maxScale = 0;
-      const rawValues = [];
-
-      for (let i = 0; i < data.length; i += 4) {
-        const x = (i / 4) % w;
-        const y = Math.floor(i / 4 / w);
-        const pos = this.fragment(
-          { x: x / w, y: y / h },
-          mouseProxy
-        );
-        const dx = pos.x * w - x;
-        const dy = pos.y * h - y;
-        maxScale = Math.max(maxScale, Math.abs(dx), Math.abs(dy));
-        rawValues.push(dx, dy);
+        $rightside.classList.remove('rightside-show')
       }
 
-      maxScale *= 0.5;
+      isShowPercent && rightsideScrollPercent(currentTop)
+      checkDocumentHeight()
+    }, 300)
 
-      let index = 0;
-      for (let i = 0; i < data.length; i += 4) {
-        const r = rawValues[index++] / maxScale + 0.5;
-        const g = rawValues[index++] / maxScale + 0.5;
-        data[i] = r * 255;
-        data[i + 1] = g * 255;
-        data[i + 2] = 0;
-        data[i + 3] = 255;
+    btf.addEventListenerPjax(window, 'scroll', scrollTask, { passive: true })
+  }
+
+  /**
+  * toc,anchor
+  */
+  const scrollFnToDo = () => {
+    const isToc = GLOBAL_CONFIG_SITE.isToc
+    const isAnchor = GLOBAL_CONFIG.isAnchor
+    const $article = document.getElementById('article-container')
+
+    if (!($article && (isToc || isAnchor))) return
+
+    let $tocLink, $cardToc, autoScrollToc, $tocPercentage, isExpand
+
+    if (isToc) {
+      const $cardTocLayout = document.getElementById('card-toc')
+      $cardToc = $cardTocLayout.querySelector('.toc-content')
+      $tocLink = $cardToc.querySelectorAll('.toc-link')
+      $tocPercentage = $cardTocLayout.querySelector('.toc-percentage')
+      isExpand = $cardToc.classList.contains('is-expand')
+
+      // toc元素點擊
+      const tocItemClickFn = e => {
+        const target = e.target.closest('.toc-link')
+        if (!target) return
+
+        e.preventDefault()
+        btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))), 300)
+        if (window.innerWidth < 900) {
+          $cardTocLayout.classList.remove('open')
+        }
       }
 
-      this.context.putImageData(new ImageData(data, w, h), 0, 0);
-      this.feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', this.canvas.toDataURL());
-      this.feDisplacementMap.setAttribute('scale', (maxScale / this.canvasDPI).toString());
+      btf.addEventListenerPjax($cardToc, 'click', tocItemClickFn)
+
+      autoScrollToc = item => {
+        const sidebarHeight = $cardToc.clientHeight
+        const itemOffsetTop = item.offsetTop
+        const itemHeight = item.clientHeight
+        const scrollTop = $cardToc.scrollTop
+        const offset = itemOffsetTop - scrollTop
+        const middlePosition = (sidebarHeight - itemHeight) / 2
+
+        if (offset !== middlePosition) {
+          $cardToc.scrollTop = scrollTop + (offset - middlePosition)
+        }
+      }
+
+      // 處理 hexo-blog-encrypt 事件
+      $cardToc.style.display = 'block'
     }
 
-    appendTo(parent) {
-      parent.appendChild(this.svg);
-      parent.appendChild(this.container);
+    // find head position & add active class
+    const $articleList = $article.querySelectorAll('h1,h2,h3,h4,h5,h6')
+    let detectItem = ''
+
+    const findHeadPosition = top => {
+      if (top === 0) return false
+
+      let currentId = ''
+      let currentIndex = ''
+
+      for (let i = 0; i < $articleList.length; i++) {
+        const ele = $articleList[i]
+        if (top > btf.getEleTop(ele) - 80) {
+          const id = ele.id
+          currentId = id ? '#' + encodeURI(id) : ''
+          currentIndex = i
+        } else {
+          break
+        }
+      }
+
+      if (detectItem === currentIndex) return
+
+      if (isAnchor) btf.updateAnchor(currentId)
+
+      detectItem = currentIndex
+
+      if (isToc) {
+        $cardToc.querySelectorAll('.active').forEach(i => i.classList.remove('active'))
+
+        if (currentId) {
+          const currentActive = $tocLink[currentIndex]
+          currentActive.classList.add('active')
+
+          setTimeout(() => autoScrollToc(currentActive), 0)
+
+          if (!isExpand) {
+            let parent = currentActive.parentNode
+            while (!parent.matches('.toc')) {
+              if (parent.matches('li')) parent.classList.add('active')
+              parent = parent.parentNode
+            }
+          }
+        }
+      }
     }
 
-    destroy() {
-      this.svg.remove();
-      this.container.remove();
-      this.canvas.remove();
+    // main of scroll
+    const tocScrollFn = btf.throttle(() => {
+      const currentTop = window.scrollY || document.documentElement.scrollTop
+      if (isToc && GLOBAL_CONFIG.percent.toc) {
+        $tocPercentage.textContent = btf.getScrollPercent(currentTop, $article)
+      }
+      findHeadPosition(currentTop)
+    }, 100)
+
+    btf.addEventListenerPjax(window, 'scroll', tocScrollFn, { passive: true })
+  }
+
+  const handleThemeChange = mode => {
+    const globalFn = window.globalFn || {}
+    const themeChange = globalFn.themeChange || {}
+    if (!themeChange) {
+      return
+    }
+
+    Object.keys(themeChange).forEach(key => {
+      const themeChangeFn = themeChange[key]
+      if (['disqus', 'disqusjs'].includes(key)) {
+        setTimeout(() => themeChangeFn(mode), 300)
+      } else {
+        themeChangeFn(mode)
+      }
+    })
+  }
+
+  /**
+   * Rightside
+   */
+  const rightSideFn = {
+    readmode: () => { // read mode
+      const $body = document.body
+      const newEle = document.createElement('button')
+
+      const exitReadMode = () => {
+        $body.classList.remove('read-mode')
+        newEle.remove()
+        newEle.removeEventListener('click', exitReadMode)
+      }
+
+      $body.classList.add('read-mode')
+      newEle.type = 'button'
+      newEle.className = 'fas fa-sign-out-alt exit-readmode'
+      newEle.addEventListener('click', exitReadMode)
+      $body.appendChild(newEle)
+    },
+    darkmode: () => { // switch between light and dark mode
+      const willChangeMode = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
+      if (willChangeMode === 'dark') {
+        btf.activateDarkMode()
+        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.day_to_night)
+      } else {
+        btf.activateLightMode()
+        GLOBAL_CONFIG.Snackbar !== undefined && btf.snackbarShow(GLOBAL_CONFIG.Snackbar.night_to_day)
+      }
+      btf.saveToLocal.set('theme', willChangeMode, 2)
+      handleThemeChange(willChangeMode)
+    },
+    'rightside-config': () => {
+      const modal = document.getElementById('settingsModal')
+      const modalContent = modal.querySelector('.modal-content')
+
+      const isShown = modal.style.display === 'flex'
+
+      if (isShown) {
+        modalContent.classList.remove('show')
+        modalContent.style.display = 'none'
+        modal.style.display = 'none'
+      } else {
+        modal.style.display = 'flex'
+        modalContent.style.display = 'block'
+        modalContent.classList.add('show')
+      }
+    },
+    'go-up': () => { // Back to top
+      btf.scrollToDest(0, 500)
+    },
+    'hide-aside-btn': () => { // Hide aside
+      const $htmlDom = document.documentElement.classList
+      const saveStatus = $htmlDom.contains('hide-aside') ? 'show' : 'hide'
+      btf.saveToLocal.set('aside-status', saveStatus, 2)
+      $htmlDom.toggle('hide-aside')
+    },
+    'mobile-toc-button': (p, item) => { // Show mobile toc
+      const tocEle = document.getElementById('card-toc')
+      tocEle.style.transition = 'transform 0.3s ease-in-out'
+
+      const tocEleHeight = tocEle.clientHeight
+      const btData = item.getBoundingClientRect()
+
+      const tocEleBottom = window.innerHeight - btData.bottom - 30
+      if (tocEleHeight > tocEleBottom) {
+        tocEle.style.transformOrigin = `right ${tocEleHeight - tocEleBottom - btData.height / 2}px`
+      }
+
+      tocEle.classList.toggle('open')
+      tocEle.addEventListener('transitionend', () => {
+        tocEle.style.cssText = ''
+      }, { once: true })
+    },
+    'chat-btn': () => { // Show chat
+      window.chatBtnFn()
+    },
+    translateLink: () => { // switch between traditional and simplified chinese
+      window.translateFn.translatePage()
     }
   }
 
-  // Create the liquid glass effect
-  function createLiquidGlass() {
-    // Create shader
-    const shader = new Shader({
-      width: 300,
-      height: 200,
-      fragment: (uv, mouse) => {
-        const ix = uv.x - 0.5;
-        const iy = uv.y - 0.5;
-        const distanceToEdge = roundedRectSDF(
-          ix,
-          iy,
-          0.3,
-          0.2,
-          0.6
-        );
-        const displacement = smoothStep(0.8, 0, distanceToEdge - 0.15);
-        const scaled = smoothStep(0, 1, displacement);
-        return texture(ix * scaled + 0.5, iy * scaled + 0.5);
-      }
-    });
+  document.getElementById('rightside').addEventListener('click', e => {
+    const $target = e.target.closest('[id]')
+    if ($target && rightSideFn[$target.id]) {
+      rightSideFn[$target.id](e.currentTarget, $target)
+    }
+  })
 
-    // Add to page
-    shader.appendTo(document.body);
-
-    console.log('Liquid Glass effect created! Drag the glass around the page.');
-    
-    // Return shader instance so it can be removed if needed
-    window.liquidGlass = shader;
-  }
-
-  // Initialize
-  createLiquidGlass();
-})();
+  // 處理 hexo-blog-encrypt 事件
+  window.addEventListener('hexo-blog-decrypt', e => {
+    forPostFn()
+    window.translateFn.translateInitialization()
+    Object.values(window.globalFn.encrypt).forEach(fn => {
+      fn()
+    })
+  })
+})

@@ -88,11 +88,6 @@ window.addEventListener('DOMContentLoaded', () => {
   if (modalContent) modalContent.style.display = 'none';
 });
 
-// PJAX 完成后显示安装提示模态窗口
-document.addEventListener('pjax:complete', function () {
-  promptInstallEdge();
-});
-
 
 // 弹出安装提示
 function handleInstallPrompt() {

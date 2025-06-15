@@ -518,11 +518,11 @@
   # 不蒜子 PV / UV 统计
   busuanzi:
     # 网站 UV 统计
-    site_uv: true
+    site_uv: false
     # 网站 PV 统计
-    site_pv: true
+    site_pv: false
     # 页面 PV 统计
-    page_pv: true
+    page_pv: false
   
   # --------------------------------------
   # 数学公式设置
@@ -1220,13 +1220,14 @@
   inject:
     head:
         #- <script src="/js/fonts.js"></script>
-        - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4736746_z5gcmog2a3g.css">
+        - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4736746_p3gy154017p.css">
         - <script src="/js/hide-aside.js"></script>
         - <script src="/js/toggleFont.js"></script>
         #- <script src="/js/toggleFont.js"></script>
         #- <script src="/js/card-writer-text.js"></script>
         - <link rel="stylesheet" href="/css/fonts.css">
         - <link rel="stylesheet" href="/css/custom.css">
+
         #- <link rel="stylesheet" href="/css/cache-panel.styl">
     bottom:
         #- <script src="/js/liquid-glass.js"></script>

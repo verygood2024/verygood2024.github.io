@@ -9,6 +9,9 @@ function scrollHandler() {
 
   var footer = document.querySelector('#footer');
   if (footer) {
+    // Set the footer background to a linear gradient
+    footer.style.background = 'linear-gradient(to right, rgb(95, 158, 160), rgb(70, 130, 180), rgb(176, 196, 222))';
+    
     var scrollTop = window.scrollY;
     var footerOffsetTop = footer.getBoundingClientRect().top + scrollTop;
     var docHeight = document.documentElement.scrollHeight;
@@ -28,8 +31,8 @@ function scrollHandler() {
   }
 }
 
-// 只绑定一次 scroll 事件
+// Bind scroll event once
 window.addEventListener('scroll', scrollHandler);
 
-// PJAX 页面切换时重新执行一次（触发一次立即滚动判断）
+// Re-run on PJAX page load
 document.addEventListener('pjax:end', scrollHandler);

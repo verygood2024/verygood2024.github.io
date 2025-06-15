@@ -1,0 +1,47 @@
+#settingsModal(style="display: none;")
+  .modal-content(style="display: none;")
+    .modal-header
+      .modal-title
+        i.iconfont.icon-cog
+        span 设置
+      button#closeSettingsModalBtn(type="button")
+        i.iconfont.icon-times
+
+    .modal-buttons-grid
+      // 📱 视觉与界面
+      if theme.translate && theme.translate.enable
+        button#translateLink(type="button")
+          i.iconfont.icon-jianfanqiehuan
+            | 简繁转换
+      if theme.aside && theme.aside.enable && theme.aside.button && page.aside !== false
+        button#hide-aside-btn(type="button")
+          i.iconfont.icon-expand-arrows-alt
+            | 隐藏侧边
+
+      // 🔠 字体与排版（保留内联函数）
+      button#toggleFont(type="button" onclick="toggleFont()")
+        i.iconfont.icon-font
+          | 切换字体
+      button#fontsizeIncrease(type="button" onclick="increaseFontSize()")
+        i.iconfont.icon-search-plus
+          | 增大字体
+      button#fontsizeDecrease(type="button" onclick="decreaseFontSize()")
+        i.iconfont.icon-search-minus
+          | 减小字体
+
+      // 🌙 模式切换
+      button#darkmode(type="button")
+        i.iconfont.icon-adjust
+          | 夜间模式
+      if is_post() && theme.readmode
+        button#readmode(type="button")
+          i.iconfont.icon-book-open
+            | 阅读模式
+
+      // 📦 缓存与安装（保留内联函数）
+      button#cacheManager(type="button" onclick="cacheManager.clearAll()")
+        i.iconfont.icon-trash
+          | 清除缓存
+      button#installPWA(type="button")
+        i.fas.fa-download
+          | 安装本站应用
