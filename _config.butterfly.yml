@@ -518,11 +518,11 @@
   # 不蒜子 PV / UV 统计
   busuanzi:
     # 网站 UV 统计
-    site_uv: false
+    site_uv: true
     # 网站 PV 统计
-    site_pv: false
+    site_pv: true
     # 页面 PV 统计
-    page_pv: false
+    page_pv: true
   
   # --------------------------------------
   # 数学公式设置
