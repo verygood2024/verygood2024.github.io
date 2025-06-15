@@ -10,7 +10,7 @@ hexo.extend.tag.register('pwainstall', function(args) {
       <i class="fas fa-download"></i> 安装应用
     </div>
     <div class="sponsor-desc">
-      点击这里安装 PWA
+      点击这里安装yesandnoandperhaps的PWA应用程序，享受更流畅的浏览体验！
     </div>
   </div>
 </a>
