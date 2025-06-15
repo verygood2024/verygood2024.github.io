@@ -1220,7 +1220,7 @@
   inject:
     head:
         #- <script src="/js/fonts.js"></script>
-        - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4736746_jufoaig5ohq.css">
+        - <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4736746_z5gcmog2a3g.css">
         - <script src="/js/hide-aside.js"></script>
         - <script src="/js/toggleFont.js"></script>
         #- <script src="/js/toggleFont.js"></script>
