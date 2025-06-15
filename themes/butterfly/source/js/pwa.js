@@ -42,23 +42,45 @@ async function isPWAInstalled() {
   return false;
 }
 
-// 安装 Edge 浏览器提示
-function promptInstallEdge() {
-  const modal = document.getElementById('modal-content');
-  modal.classList.remove('modal-hidden');
+// 安装 Edge 浏览器提示，在 DOM 加载完立即隐藏
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('browserChoiceModal');
+  const modalContent = modal.querySelector('.modal-content');
+  modal.classList.add('modal-hidden');
+  modalContent.classList.add('modal-hidden');
+});
 
+// 显示模态窗口
+function promptInstallEdge() {
+  const modal = document.getElementById('browserChoiceModal');
+  const modalContent = modal.querySelector('.modal-content');
+  modal.classList.remove('modal-hidden');
+  modalContent.classList.remove('modal-hidden');
+
+  // 给按钮绑定事件（每次调用都重新绑定，避免 PJAX 丢失）
   document.getElementById('installEdgeBtn').onclick = () => {
     window.open('https://www.microsoft.com/edge', '_blank');
     modal.classList.add('modal-hidden');
+    modalContent.classList.add('modal-hidden');
   };
+
   document.getElementById('installChromeBtn').onclick = () => {
     window.open('https://www.google.com/chrome/', '_blank');
     modal.classList.add('modal-hidden');
+    modalContent.classList.add('modal-hidden');
   };
+
   document.getElementById('closeModalBtn').onclick = () => {
     modal.classList.add('modal-hidden');
+    modalContent.classList.add('modal-hidden');
   };
 }
+
+// 监听 PJAX 完成事件，重新绑定按钮
+document.addEventListener('pjax:complete', () => {
+  promptInstallEdge();
+});
+
 
 // 弹出安装提示
 function handleInstallPrompt() {
