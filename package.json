@@ -47,6 +47,10 @@
     "hexo-wordcount": "^6.0.1",
     "katex": "^0.16.15",
     "pace-js": "^1.2.4",
-    "pug": "^3.0.3"
+    "pug": "^3.0.3",
+    "workbox-build": "^7.3.0",
+    "workbox-cacheable-response": "^7.3.0",
+    "workbox-expiration": "^7.3.0",
+    "workbox-range-requests": "^7.3.0"
   }
 }

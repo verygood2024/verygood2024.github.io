@@ -2,7 +2,7 @@
     const fontUrl1 = "https://fontsapi.zeoseven.com/285/main/result.css";
     const fontUrl2 = "https://fontsapi.zeoseven.com/467/main/result.css";
   
-    const fontName1 = "Noto Serif SC";
+    const fontName1 = "Noto Serif CJK";
     const fontName2 = "NanoOldSong-A";
   
     let currentFont = localStorage.getItem("selectedFont") || "1";

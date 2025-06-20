@@ -1237,7 +1237,7 @@
         - <script src="/js/cacheManager.js"></script>
         - <script src="/js/homepage.js"></script>
         - <script src="/js/head.js"></script>
-        - <script src="/js/scroll-to-anchor.js"></script>
+        #- <script src="/js/scroll-to-anchor.js"></script>
         #- <script src="/js/service-worker.js"></script>
         #- <script src="/js/tocAndCache.js"></script>
       # - <script src="xxxx"></script>
