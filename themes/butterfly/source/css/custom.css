@@ -1176,7 +1176,7 @@ html[data-theme="dark"] #pwaInstallBanner img {
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: modalFadeIn 0.3s ease-out;
+  /*animation: modalFadeIn 0.3s ease-out;*/
   transition: opacity 0.3s ease;
 }
 
@@ -1203,6 +1203,9 @@ html[data-theme="dark"] #pwaInstallBanner img {
   height: 64px;
   flex-shrink: 0;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 文字区域 */

@@ -6,11 +6,6 @@ function isIOS() {
   return /iphone|ipad|ipod/.test(ua);
 }
 
-// 判断 Edge 浏览器（主要Windows平台）
-function isEdge() {
-  return navigator.userAgent.toLowerCase().includes('edg');
-}
-
 // 判断移动设备或平板
 function isMobileOrTablet() {
   const ua = navigator.userAgent.toLowerCase();
@@ -34,12 +29,28 @@ async function checkRelatedApps() {
   }
 }
 
-// 核心：精准判断PWA是否已安装
+// 判断是否已安装 PWA
 async function isPWAInstalled() {
-  if (isInStandaloneMode()) return true;                // 独立窗口
-  if (isIOS() && window.navigator.standalone === true) return true; // iOS
-  if (await checkRelatedApps()) return true;            // Chrome/Edge相关应用安装
+  if (isInStandaloneMode()) return true;
+  if (isIOS() && window.navigator.standalone === true) return true;
+  if (await checkRelatedApps()) return true;
   return false;
+}
+
+// 是否支持 PWA 安装提示
+function isPWAInstallSupported() {
+  return 'onbeforeinstallprompt' in window;
+}
+
+// 是否支持 getInstalledRelatedApps API
+function isRelatedAppsSupported() {
+  return 'getInstalledRelatedApps' in navigator;
+}
+
+// 是否应该提示更换浏览器（iOS 除外，只要任一 API 不支持）
+async function shouldPromptBrowserChoice() {
+  if (isIOS()) return false;
+  return !(isPWAInstallSupported() && isRelatedAppsSupported());
 }
 
 // 绑定模态窗口事件
@@ -47,17 +58,12 @@ function bindModalEvents() {
   const modal = document.getElementById('browserChoiceModal');
   const modalContent = modal.querySelector('.modal-content');
 
-  // 安装 Edge 按钮点击事件
   document.getElementById('installEdgeBtn').onclick = () => {
     window.open('https://www.microsoft.com/edge', '_blank');
   };
-
-  // 安装 Chrome 按钮点击事件
   document.getElementById('installChromeBtn').onclick = () => {
     window.open('https://www.google.com/chrome/', '_blank');
   };
-
-  // 关闭模态窗口按钮点击事件
   document.getElementById('closeModalBtn').onclick = () => {
     closeModal(modal, modalContent);
   };
@@ -69,25 +75,16 @@ function promptInstallEdge() {
   const modalContent = modal.querySelector('.modal-content');
 
   modal.style.display = 'flex';
-  modalContent.style.display = 'block';
+  modalContent.style.display = 'flex';
 
-  bindModalEvents(); // 绑定事件
+  bindModalEvents();
 }
 
-// 关闭模态窗口的通用函数
+// 通用关闭模态函数
 function closeModal(modal, modalContent) {
   modal.style.display = 'none';
   modalContent.style.display = 'none';
 }
-
-// 页面加载完成后，确保模态窗口初始状态为隐藏
-window.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('browserChoiceModal');
-  const modalContent = modal?.querySelector('.modal-content');
-  if (modal) modal.style.display = 'none';
-  if (modalContent) modalContent.style.display = 'none';
-});
-
 
 // 弹出安装提示
 function handleInstallPrompt() {
@@ -105,7 +102,7 @@ function handleInstallPrompt() {
   });
 }
 
-// 更新安装提示 UI 状态
+// 更新安装提示状态（按钮状态）
 async function updateInstallStatus() {
   const banner = document.getElementById('pwaInstallBanner');
   const installBtn = document.getElementById('installPWA');
@@ -126,34 +123,35 @@ async function updateInstallStatus() {
     return;
   }
 
-  // 未安装，展示安装按钮（仅移动设备显示Banner）
+  const shouldPrompt = await shouldPromptBrowserChoice();
+
   if (banner) banner.style.display = isMobileOrTablet() ? 'flex' : 'none';
   if (installBtn) {
     installBtn.style.display = 'inline-block';
-    installBtn.onclick = () => {
-      if (!isEdge()) return promptInstallEdge();
+    installBtn.onclick = async () => {
+      if (shouldPrompt) return promptInstallEdge();
       if (!deferredPrompt) return alert('安装提示尚未准备好，请稍后再试。');
       handleInstallPrompt();
     };
   }
   if (altBtn) {
-    altBtn.onclick = () => {
-      if (!isEdge()) return promptInstallEdge();
+    altBtn.onclick = async () => {
+      if (shouldPrompt) return promptInstallEdge();
       if (!deferredPrompt) return alert('安装提示尚未准备好，请稍后再试。');
       handleInstallPrompt();
     };
   }
 }
 
-// 绑定安装按钮行为
+// 绑定 banner 按钮行为
 function setupInstallButtons() {
   const confirmBtn = document.getElementById('pwaInstallConfirm');
   const dismissBtn = document.getElementById('pwaInstallDismiss');
   const banner = document.getElementById('pwaInstallBanner');
 
   if (confirmBtn) {
-    confirmBtn.onclick = () => {
-      if (!isEdge()) return promptInstallEdge();
+    confirmBtn.onclick = async () => {
+      if (await shouldPromptBrowserChoice()) return promptInstallEdge();
       if (!deferredPrompt) return alert('安装提示尚未准备好，请稍后再试。');
       handleInstallPrompt();
     };
@@ -166,7 +164,18 @@ function setupInstallButtons() {
   }
 }
 
-// 监听 beforeinstallprompt 事件
+// 页面初始化时隐藏模态
+window.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById('browserChoiceModal');
+  const modalContent = modal?.querySelector('.modal-content');
+  if (modal) modal.style.display = 'none';
+  if (modalContent) modalContent.style.display = 'none';
+
+  updateInstallStatus();
+  setupInstallButtons();
+});
+
+// 捕获 beforeinstallprompt 事件
 window.addEventListener('beforeinstallprompt', (e) => {
   console.log('📦 捕获 beforeinstallprompt');
   e.preventDefault();
@@ -174,7 +183,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
   updateInstallStatus();
 });
 
-// 监听安装完成事件
+// 安装完成事件
 window.addEventListener('appinstalled', () => {
   console.log('✅ 安装完成');
   deferredPrompt = null;
@@ -182,20 +191,14 @@ window.addEventListener('appinstalled', () => {
   updateInstallStatus();
 });
 
-// 页面可见时重新检测
+// 页面返回可见时重新检测
 document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') {
     updateInstallStatus();
   }
 });
 
-// 页面加载完成初始化
-window.addEventListener('DOMContentLoaded', () => {
-  updateInstallStatus();
-  setupInstallButtons();
-});
-
-// Butterfly 主题 PJAX 完成后重新初始化
+// PJAX 加载完成后重新绑定
 document.addEventListener('pjax:complete', () => {
   updateInstallStatus();
   setupInstallButtons();
