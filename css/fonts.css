@@ -1,0 +1,19 @@
+/* 定义 CSS 变量 */
+
+:root {
+  --letter-spacing: 0.02em;
+  --code-font-size: 100%;
+  --font-weight: 500; /* 默认字体粗细 */
+}
+
+/* 应用 CSS 变量 */
+* {
+  font-family: var(--font-family), serif;
+  letter-spacing: var(--letter-spacing);
+  font-weight: var(--font-weight);
+}
+
+/* 代码字体大小 */
+code, pre {
+  font-size: var(--code-font-size);
+}

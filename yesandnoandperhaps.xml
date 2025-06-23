@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>yesandnoandperhaps</title>
+  
+  
+  <link href="https://yesandnoandperhaps.cn/yesandnoandperhaps.xml" rel="self"/>
+  
+  <link href="https://yesandnoandperhaps.cn/"/>
+  <updated>2025-06-23T04:44:18.674Z</updated>
+  <id>https://yesandnoandperhaps.cn/</id>
+  
+  <author>
+    <name>yesandnoandperhaps</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我们的旅程</title>
+    <link href="https://yesandnoandperhaps.cn/posts/51f787de.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/51f787de.html</id>
+    <published>2025-06-22T14:59:43.693Z</published>
+    <updated>2025-06-23T04:44:18.674Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="简言">简言</h2><p>  日光从窗外缓缓地散落在我的脸颊上，它带着温暖而使得我睁开眼睛。起初我不懂技术，AI（人工智能）就是我的老师。在2022年我就开始询问“老师”怎么搭建一个网站呢？“老师”教得很详细，可学生愚笨，只好搁置下来。到了2024年，愚笨的学生在磕磕碰碰下终于下定决心搭建起网站。学生了解了许多，也小心翼翼地搭建，出现报错就“问老师”，老师会很耐心地帮助学生、解答学生的问题——诶呀！我记得可清楚了呢！单单关于网站的Github密钥就忙了一晚上！不过幸运的是，我还是将它搭建了起来。也让它拥有了「yes and no and perhaps」这个名字。讲起来也是有意思，最初的我想在Github中叫「yes and no」可惜它是商标，不允许注册。那也就只好改名，给它加上「perhaps」后就像我们大家中的很多人在生活中常常处于肯定与否定的边缘，可最终的perhaps？或许？让我们找到了歇脚的一间小屋子，它的形状也显现出Hexo梁柱Fluid装修的样貌。</p><p>  随后的每一天，太阳先生从海洋里探出头来，悠闲的在蓝天白云海洋的一线上走动。到了下午的先生，又与月亮先生相见了，也许一闪一闪的星星在太阳的照耀下没了踪影，但在月亮先生的旁边，它们就很其乐融融。镜头还是会转向我们——相机下，它小小的，走得很缓慢。后来呀……我的朋友讲：“我们一起写吧。”——于是，它就变得大大的，越来越充实，步子也有了底气。于是我们的装修就渐渐转向了Butterfly来呵护着这些文字。</p><h2 id="2024-年-·-起步与萌芽">2024 年 · 起步与萌芽</h2><h3 id="5-月-25-日">5 月 25 日</h3><p>  我们建立了<strong>yesandnoandperhaps</strong>网站，采用<a href="https://hexo.io/">Hexo</a>框架与<a href="https://hexo.fluid-dev.com/">Fluid</a>主题，一切从零开始。</p><h3 id="7-月-15-日">7 月 15 日</h3><p>  我们将主题更换为<a href="https://butterfly.js.org/">Butterfly</a>获得更强的自定义能力与视觉表现。</p><h3 id="11-月-5-日">11 月 5 日</h3><p>  我们启用了独立域名<strong><a href="http://yesandnoandperhaps.cn">yesandnoandperhaps.cn</a></strong>，不再依赖GitHub Pages提供的子域名。</p><h3 id="11-月-6-日">11 月 6 日</h3><p>  我们设计了属于自己的<strong>加载动画</strong>，为访问页面赋予节奏感。</p><h3 id="11-月-15-日">11 月 15 日</h3><p>  迎来首位伙伴<a href="http://yamlim.org/">世界钦廉人</a>，内容开始向群体延展。</p><h3 id="11-月-20-日">11 月 20 日</h3><p>  我们开放了<a href="https://yesandnoandperhaps.cn/submission/index.html">在线投稿</a>，接纳更多声音，平台开始具备共建性质。</p><h2 id="2025-年-·-拓展与成型">2025 年 · 拓展与成型</h2><h3 id="1-月-5-日">1 月 5 日</h3><p>  文章总数突破<strong>200 篇</strong>，内容逐渐丰富，风格渐趋稳定。</p><h3 id="2-月-22-日">2 月 22 日</h3><p>  新增<strong>随机访问一篇文章</strong>功能，为读者提供新的探索方式。</p><h3 id="3-月-28-日">3 月 28 日</h3><p>  完善投稿要求<s>当前已废弃该投稿要求，依照最新投稿要求为准</s>，为投稿者进一步明确有关投稿的相关事宜。</p><h3 id="5-月-3-日">5 月 3 日</h3><p>  我们获得新域名<a href="https://yesandno.cn/">yesandno.cn</a>，为日后的发展预留可能。</p><h3 id="5-月-4-日">5 月 4 日</h3><p>  上线全新<a href="https://www.yesandnoandperhaps.cn/">开始页</a>，并统一接入以下域名：</p><ul><li><strong><a href="http://yesandno.cn">yesandno.cn</a></strong></li><li><strong><a href="http://www.yesandno.cn">www.yesandno.cn</a></strong></li><li><strong><a href="http://www.yesandnoandperhaps.cn">www.yesandnoandperhaps.cn</a></strong></li></ul><p>  同时迁出 GitHub Pages，服务器部署于香港，访问速度显著提升。</p><h3 id="5-月-5-日">5 月 5 日</h3><p>  两位新伙伴加入：<a href="https://zhichun.yesandno.cn/">知春社</a>与<a href="https://xlyg.fun/">穸阑隐阁</a>，内容联动日益紧密。</p><h3 id="6-月-8-日">6 月 8 日</h3><p>  上线<strong>响应式多栏布局</strong>：</p><ul><li>手机端：双栏</li><li>平板端：三栏</li><li>电脑端：自适应多栏</li></ul><p>  文字排布更流畅，阅读节奏更舒展。<br>  同日新增<a href="https://yesandnoandperhaps.cn/supporters/index.html">赞助我们</a>页面，回应支持，也传递诚意。</p><h3 id="6-月-14-日">6 月 14 日</h3><p>  我们正式推广<strong>PWA 应用</strong>，致力于将网页体验逼近原生。</p><h3 id="6-月-22-日">6 月 22 日</h3><p>  界面引入大量<strong>圆角与毛玻璃效果</strong>，优化弹窗样式，统一动画细节，整体视觉更具温度。</p>]]></content>
+    
+    
+    <summary type="html">日光从窗外缓缓地散落在我的脸颊上，它带着温暖而使得我睁开眼睛。</summary>
+    
+    
+    
+    <category term="yesandnoandperhaps" scheme="https://yesandnoandperhaps.cn/categories/yesandnoandperhaps/"/>
+    
+    
+    <category term="yesandnoandperhaps" scheme="https://yesandnoandperhaps.cn/tags/yesandnoandperhaps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>清平乐·寓居泾县观雨</title>
+    <link href="https://yesandnoandperhaps.cn/posts/2ddae6d7.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/2ddae6d7.html</id>
+    <published>2025-06-22T06:11:35.752Z</published>
+    <updated>2025-06-22T06:26:00.448Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="清平乐·寓居泾县观雨">清平乐·寓居泾县观雨</h2><p>  寒雨湿透，撒落韶光后，清苦数峰渐消瘦，癯到黄昏时候。<br>  倚栏半日寻山，太息山远难还。便与岩陵轻叹，我心非如石磐。</p>]]></content>
+    
+    
+    <summary type="html">寒雨湿透，撒落韶光后，清苦数峰渐消瘦，癯到黄昏时候。</summary>
+    
+    
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="清平乐" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E6%B8%85%E5%B9%B3%E4%B9%90/"/>
+    
+    <category term="东君" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%B8%9C%E5%90%9B/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="清平乐" scheme="https://yesandnoandperhaps.cn/tags/%E6%B8%85%E5%B9%B3%E4%B9%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>北地春游引</title>
+    <link href="https://yesandnoandperhaps.cn/posts/5a328ddb.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/5a328ddb.html</id>
+    <published>2025-05-18T07:42:54.179Z</published>
+    <updated>2025-05-18T07:53:43.014Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="北地春游引">北地春游引</h2><p>  淡淡疏疏毛草青，东山枯木浸湿苔。卧野金峰小玉丘，三零四点酒雨落月勾。谷底流带河，两堤生雏柳。云中百鸟忽朝凤飞度，山间九阴吹息黄枝活。江载叶舟蓬山去，雾幕疾风路难求。冷袖催人忧。<br>  沿户谁家植西府，三季花开三日又花落。俄顷天边飞暖雪，月华凝冰同星辉碎破。丁香伐煮酒，此物之美在极乐。江中尽落红，风波荡漾似唱和。集芳草投火，香风过境千里去余冬。鸡鸣晓日又东升，霞光映得欢笑桃花红。<br>  北疆小春如蜉蝣，朝高飞去夕当死。何不乘景共畅饮，纵歌舞。且沐晨光起，暂不论尘羁。白桦细枝嬉钟鼓，清风穿崖胜丝竹。花落榻，愿孤葬山岭，野鬼仲春伴树栖。梨白淹碑石，才肯长安息。</p>]]></content>
+    
+    
+    <summary type="html">淡淡疏疏毛草青，东山枯木浸湿苔。卧野金峰小玉丘，三零四点酒雨落月勾。谷底流带河，两堤生雏柳。云中百鸟忽朝凤飞度，山间九阴吹息黄枝活。江载叶舟蓬山去，雾幕疾风路难求。冷袖催人忧。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="古体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="杂言" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/%E6%9D%82%E8%A8%80/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="于唐樾" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%BA%8E%E5%94%90%E6%A8%BE/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
+    
+    <category term="古体" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="中华通韵" scheme="https://yesandnoandperhaps.cn/tags/%E4%B8%AD%E5%8D%8E%E9%80%9A%E9%9F%B5/"/>
+    
+    <category term="杂言" scheme="https://yesandnoandperhaps.cn/tags/%E6%9D%82%E8%A8%80/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>蝶恋花</title>
+    <link href="https://yesandnoandperhaps.cn/posts/3cffcea3.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/3cffcea3.html</id>
+    <published>2025-05-18T07:42:54.147Z</published>
+    <updated>2025-05-18T07:53:43.039Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="蝶恋花">蝶恋花</h2><p>  山海相隔空对忆。万里霜天，落叶飞鸣急。手握荧屏心颤栗。时光水里沉消息。<br>  点检曾经如过翼。一点清光，转向愁中白。独立小楼情脉脉。泪落双睫衣衿湿。</p>]]></content>
+    
+    
+    <summary type="html">山海相隔空对忆。万里霜天，落叶飞鸣急。手握荧屏心颤栗。时光水里沉消息。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="蝶恋花" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E8%9D%B6%E6%81%8B%E8%8A%B1/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="何梦溪" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%BD%95%E6%A2%A6%E6%BA%AA/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="蝶恋花" scheme="https://yesandnoandperhaps.cn/tags/%E8%9D%B6%E6%81%8B%E8%8A%B1/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>黄昏</title>
+    <link href="https://yesandnoandperhaps.cn/posts/ec55c131.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/ec55c131.html</id>
+    <published>2025-05-18T07:42:54.132Z</published>
+    <updated>2025-05-18T07:53:43.043Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="黄昏">黄昏</h2><p>  黄昏独对雨丝丝，风透单衣冷暖时。<br>  曾共小楼花下望，也吟寒夜梦中诗。<br>  回眸已足教肠断，举袂如何不泪垂。<br>  所有相逢之故事，难逃结局是分离。</p>]]></content>
+    
+    
+    <summary type="html">黄昏独对雨丝丝，风透单衣冷暖时。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="律诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="七律" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/%E4%B8%83%E5%BE%8B/"/>
+    
+    <category term="何梦溪" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%BD%95%E6%A2%A6%E6%BA%AA/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
+    
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/tags/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="平水韵" scheme="https://yesandnoandperhaps.cn/tags/%E5%B9%B3%E6%B0%B4%E9%9F%B5/"/>
+    
+    <category term="律诗" scheme="https://yesandnoandperhaps.cn/tags/%E5%BE%8B%E8%AF%97/"/>
+    
+    <category term="七律" scheme="https://yesandnoandperhaps.cn/tags/%E4%B8%83%E5%BE%8B/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>杂感</title>
+    <link href="https://yesandnoandperhaps.cn/posts/8d29bba5.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/8d29bba5.html</id>
+    <published>2025-05-18T07:42:54.116Z</published>
+    <updated>2025-05-18T07:53:43.046Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="杂感">杂感</h2><p>  阖目虚世界，忘言迷假真。<br>  苍茫何逆旅？混沌托吾身。<br>  徊绕蝴蝶梦，濯缨沧海滨。<br>  此宵终幻灭，亘古独精神。</p>]]></content>
+    
+    
+    <summary type="html">阖目虚世界，忘言迷假真。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="律诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="五律" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/%E4%BA%94%E5%BE%8B/"/>
+    
+    <category term="则好" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%88%99%E5%A5%BD/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
+    
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/tags/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="平水韵" scheme="https://yesandnoandperhaps.cn/tags/%E5%B9%B3%E6%B0%B4%E9%9F%B5/"/>
+    
+    <category term="律诗" scheme="https://yesandnoandperhaps.cn/tags/%E5%BE%8B%E8%AF%97/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="五律" scheme="https://yesandnoandperhaps.cn/tags/%E4%BA%94%E5%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>醉花阴·月假早醒遍寻日出而作（其二）</title>
+    <link href="https://yesandnoandperhaps.cn/posts/a99eb537.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/a99eb537.html</id>
+    <published>2025-05-18T07:42:54.085Z</published>
+    <updated>2025-05-18T07:53:43.073Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="醉花阴·月假早醒遍寻日出而作（其二）">醉花阴·月假早醒遍寻日出而作（其二）</h2><p>  极浦轻寒牵雾幔，田野铺绸缎。油菜垄边寻，何处烟波，却惹黄花瓣。<br>  春情如此留人看，嘱咐莺来唤。回去倚阑干，翻覆人情，辗转听不惯。</p>]]></content>
+    
+    
+    <summary type="html">极浦轻寒牵雾幔，田野铺绸缎。油菜垄边寻，何处烟波，却惹黄花瓣。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
+    
+    <category term="子平" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E5%B9%B3/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/tags/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>醉花阴·月假早醒遍寻日出而作（其三）</title>
+    <link href="https://yesandnoandperhaps.cn/posts/e4801665.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/e4801665.html</id>
+    <published>2025-05-18T07:42:54.069Z</published>
+    <updated>2025-05-18T07:53:43.070Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="醉花阴·月假早醒遍寻日出而作（其三）">醉花阴·月假早醒遍寻日出而作（其三）</h2><p>  阶吐深苔贪玉桂，总被人群累。闲语寺中翁，惊讶诗情，山水清音贵。<br>  烂柯言笑陪童戏，忘记晨钟未。天际渡红痕，击鼓波涛，更在山门外。</p>]]></content>
+    
+    
+    <summary type="html">阶吐深苔贪玉桂，总被人群累。闲语寺中翁，惊讶诗情，山水清音贵。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
+    
+    <category term="子平" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E5%B9%B3/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/tags/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>点绛唇·忆中学</title>
+    <link href="https://yesandnoandperhaps.cn/posts/78165568.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/78165568.html</id>
+    <published>2025-05-18T07:42:54.054Z</published>
+    <updated>2025-05-18T07:53:43.064Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="点绛唇·忆中学">点绛唇·忆中学</h2><p>  春带愁来，故园桃蕊应开了。缀绿工巧，弄粉蝴蝶绕。<br>  捻草结绳，反复归期渺。莺啼早，莫将春恼，先把尘浮扫。</p>]]></content>
+    
+    
+    <summary type="html">春带愁来，故园桃蕊应开了。缀绿工巧，弄粉蝴蝶绕。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="点绛唇" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E7%82%B9%E7%BB%9B%E5%94%87/"/>
+    
+    <category term="子平" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E5%B9%B3/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="点绛唇" scheme="https://yesandnoandperhaps.cn/tags/%E7%82%B9%E7%BB%9B%E5%94%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>醉花阴·月假早醒遍寻日出而作（其一）</title>
+    <link href="https://yesandnoandperhaps.cn/posts/998859ef.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/998859ef.html</id>
+    <published>2025-05-18T07:42:54.054Z</published>
+    <updated>2025-05-18T07:53:43.067Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="醉花阴·月假早醒遍寻日出而作（其一）">醉花阴·月假早醒遍寻日出而作（其一）</h2><p>  早醒觉来柔鬓坠，寂静人无寐。闲倚看天空，黛色重帷，难有朝阳美。<br>  出门不管风云晦，雾幔凝成泪。油菜满田畴，穿过回头，一地摧花罪。</p>]]></content>
+    
+    
+    <summary type="html">早醒觉来柔鬓坠，寂静人无寐。闲倚看天空，黛色重帷，难有朝阳美。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
+    
+    <category term="子平" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E5%B9%B3/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/tags/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>忆三月一日行</title>
+    <link href="https://yesandnoandperhaps.cn/posts/7cd24f0f.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/7cd24f0f.html</id>
+    <published>2025-05-18T07:42:54.038Z</published>
+    <updated>2025-05-18T07:53:43.048Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="忆三月一日行">忆三月一日行</h2><p>  无意寻幽径，荒宅倚木扉。<br>  泉枯深草漫，瓮底古音稀。<br>  落日留残瓦，影斜渡院围。<br>  而今尘世里，只是补春衣。</p>]]></content>
+    
+    
+    <summary type="html">无意寻幽径，荒宅倚木扉。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="古体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="五言" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/%E4%BA%94%E8%A8%80/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="子平" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E5%B9%B3/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
+    
+    <category term="古体" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="平水韵" scheme="https://yesandnoandperhaps.cn/tags/%E5%B9%B3%E6%B0%B4%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="五言" scheme="https://yesandnoandperhaps.cn/tags/%E4%BA%94%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>菩萨蛮·秋梦</title>
+    <link href="https://yesandnoandperhaps.cn/posts/7aae3a53.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/7aae3a53.html</id>
+    <published>2025-05-18T07:42:54.007Z</published>
+    <updated>2025-05-18T07:53:43.081Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="菩萨蛮·秋梦">菩萨蛮·秋梦</h2><p>  浪横水破苍穹隐，推澜携棹轻舟近。回首落花津，浮波溜碎银。<br>  远山云缀少，山堕忽生晓。青雨点秋灯，空窗露恁凝？</p>]]></content>
+    
+    
+    <summary type="html">浪横水破苍穹隐，推澜携棹轻舟近。回首落花津，浮波溜碎银。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="菩萨蛮" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E8%8F%A9%E8%90%A8%E8%9B%AE/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="子远" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E8%BF%9C/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="菩萨蛮" scheme="https://yesandnoandperhaps.cn/tags/%E8%8F%A9%E8%90%A8%E8%9B%AE/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>水龙吟·北齐</title>
+    <link href="https://yesandnoandperhaps.cn/posts/459b3865.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/459b3865.html</id>
+    <published>2025-05-18T07:42:53.991Z</published>
+    <updated>2025-05-18T07:53:43.077Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="水龙吟·北齐">水龙吟·北齐</h2><p>  暮云烟尽残阳透，空破纷飞胡镞。血歌玉璧，河桥兵峪，小关骨肉。夜雨春秋，几番宫变，几声嘶吼。月明水东流，木深草暗，斛律恨、兰陵柩。<br>  欲问晋阳谁守？望宫栏、箫笙依旧。亘古狂沙，更凋流蕊，何堪虚陋。旷野西风，青裙难舞，忠心难就。越汾河泗水，太行山外，败营昏垢。</p>]]></content>
+    
+    
+    <summary type="html">暮云烟尽残阳透，空破纷飞胡镞。血歌玉璧，河桥兵峪，小关骨肉。夜雨春秋，几番宫变，几声嘶吼。月明水东流，木深草暗，斛律恨、兰陵柩。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="水龙吟" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E6%B0%B4%E9%BE%99%E5%90%9F/"/>
+    
+    <category term="子远" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E8%BF%9C/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="水龙吟" scheme="https://yesandnoandperhaps.cn/tags/%E6%B0%B4%E9%BE%99%E5%90%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>长相思</title>
+    <link href="https://yesandnoandperhaps.cn/posts/acc2262c.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/acc2262c.html</id>
+    <published>2025-05-18T07:42:53.975Z</published>
+    <updated>2025-05-18T07:53:43.081Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="长相思">长相思</h2><p>  梦三番，醒三番。梦里幽芳梦外寒。屏深露月残。<br>  风连山，雨连山。半醉求得一夜安。蜡息余泪干。</p>]]></content>
+    
+    
+    <summary type="html">梦三番，醒三番。梦里幽芳梦外寒。屏深露月残。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="长相思" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E9%95%BF%E7%9B%B8%E6%80%9D/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="子远" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%AD%90%E8%BF%9C/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="长相思" scheme="https://yesandnoandperhaps.cn/tags/%E9%95%BF%E7%9B%B8%E6%80%9D/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>八声甘州·铜马</title>
+    <link href="https://yesandnoandperhaps.cn/posts/70e12ae8.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/70e12ae8.html</id>
+    <published>2025-05-18T07:42:53.944Z</published>
+    <updated>2025-05-18T07:53:43.098Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="八声甘州·铜马">八声甘州·铜马</h2><p>序言：甲辰冬末，闲翻旧匣，偶得儿时铜马，锈影斑驳，尽覆尘灰。作词以寄思。<br>  忆当年鼓角动边陲，风起洛阳台。正金戈万里，冰河一梦，剑碎残盔。犹报关山几度，誓按玉龙回。暂罢琵琶曲，倏尔相催。<br>  伏念狼烟行路，踏秋声飒飒，红败黄腓。泣燕然将老，无计狩冬归。叹而今、华轩空锁，剩阁中、冷月照帘帷。还听取、雁鸣征塞，身锈尘灰。</p>]]></content>
+    
+    
+    <summary type="html">序言：甲辰冬末，闲翻旧匣，偶得儿时铜马，锈影斑驳，尽覆尘灰。作词以寄思。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="八声甘州" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E5%85%AB%E5%A3%B0%E7%94%98%E5%B7%9E/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E6%91%9B%E7%BF%B0/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="八声甘州" scheme="https://yesandnoandperhaps.cn/tags/%E5%85%AB%E5%A3%B0%E7%94%98%E5%B7%9E/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>山上喜春聊寄冉二君</title>
+    <link href="https://yesandnoandperhaps.cn/posts/6587190c.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/6587190c.html</id>
+    <published>2025-05-18T07:42:53.944Z</published>
+    <updated>2025-05-18T07:53:43.100Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="山上喜春聊寄冉二君">山上喜春聊寄冉二君</h2><p>  尺素染新笺，相知愈二年。<br>  春风多喜雨，水色好连天。<br>  但识长门赋，希闻未绝弦。<br>  山高如更上？鸾驾斗牛间。</p>]]></content>
+    
+    
+    <summary type="html">尺素染新笺，相知愈二年。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="古体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="五言" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/%E4%BA%94%E8%A8%80/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E6%91%9B%E7%BF%B0/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
+    
+    <category term="古体" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="平水韵" scheme="https://yesandnoandperhaps.cn/tags/%E5%B9%B3%E6%B0%B4%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="五言" scheme="https://yesandnoandperhaps.cn/tags/%E4%BA%94%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>江城子·赋别</title>
+    <link href="https://yesandnoandperhaps.cn/posts/d3ab031b.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/d3ab031b.html</id>
+    <published>2025-05-18T07:42:53.928Z</published>
+    <updated>2025-05-18T07:53:43.103Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="江城子·赋别">江城子·赋别</h2><p>  寒山凝翠雪盈楼，满轻舟，古桥头。飞絮无声、风乱楚天收。云卷杏帘犹在望，阳关后，欲浇愁。<br>  煮炉推盏待冬流，忆春秋，更何求？酒上三分、击箸唱休休。醉问梨花归梦处，卿不语，过渝州。</p>]]></content>
+    
+    
+    <summary type="html">寒山凝翠雪盈楼，满轻舟，古桥头。飞絮无声、风乱楚天收。云卷杏帘犹在望，阳关后，欲浇愁。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="江城子" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E6%B1%9F%E5%9F%8E%E5%AD%90/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E6%91%9B%E7%BF%B0/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="江城子" scheme="https://yesandnoandperhaps.cn/tags/%E6%B1%9F%E5%9F%8E%E5%AD%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>做客醉中有感</title>
+    <link href="https://yesandnoandperhaps.cn/posts/b2bf04d4.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/b2bf04d4.html</id>
+    <published>2025-05-18T07:42:53.913Z</published>
+    <updated>2025-05-18T07:53:43.081Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="做客醉中有感">做客醉中有感</h2><p>  行酒故人家，扫庭煎醒茶。<br>  春风应是客，一夜万千花。</p>]]></content>
+    
+    
+    <summary type="html">行酒故人家，扫庭煎醒茶。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="绝句" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E7%BB%9D%E5%8F%A5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="五绝" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E7%BB%9D%E5%8F%A5/%E4%BA%94%E7%BB%9D/"/>
+    
+    <category term="摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E6%91%9B%E7%BF%B0/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
+    
+    <category term="绝句" scheme="https://yesandnoandperhaps.cn/tags/%E7%BB%9D%E5%8F%A5/"/>
+    
+    <category term="五绝" scheme="https://yesandnoandperhaps.cn/tags/%E4%BA%94%E7%BB%9D/"/>
+    
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/tags/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="平水韵" scheme="https://yesandnoandperhaps.cn/tags/%E5%B9%B3%E6%B0%B4%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>行香子·絮</title>
+    <link href="https://yesandnoandperhaps.cn/posts/3f20d1aa.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/3f20d1aa.html</id>
+    <published>2025-05-18T07:42:53.897Z</published>
+    <updated>2025-05-18T07:53:43.110Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="行香子·絮">行香子·絮</h2><p>  堆雪云轻，碎玉无鸣。飞绒过、惹乱娇莺。千丝万缕，徒系风情。是晓春后，仲春里，晚春行。<br>  芳尘委去，回首秋生。凝愁阻、何处归程。芭蕉覆梦，小阁拦声。总故乡远，近乡怯，在乡城。</p>]]></content>
+    
+    
+    <summary type="html">堆雪云轻，碎玉无鸣。飞绒过、惹乱娇莺。千丝万缕，徒系风情。是晓春后，仲春里，晚春行。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="行香子" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E8%A1%8C%E9%A6%99%E5%AD%90/"/>
+    
+    <category term="摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E6%91%9B%E7%BF%B0/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="行香子" scheme="https://yesandnoandperhaps.cn/tags/%E8%A1%8C%E9%A6%99%E5%AD%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浣溪沙</title>
+    <link href="https://yesandnoandperhaps.cn/posts/23107d83a77c.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/23107d83a77c.html</id>
+    <published>2025-05-18T07:42:53.882Z</published>
+    <updated>2025-05-18T07:53:43.108Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="浣溪沙">浣溪沙</h2><p>  落雪曾经梅谢红。故园归鹤白云中。人间岁晚怎相逢？<br>  青冢空留残月在，不堪惜别苦吟风。寒声渐入晓春浓。</p>]]></content>
+    
+    
+    <summary type="html">落雪曾经梅谢红。故园归鹤白云中。人间岁晚怎相逢？</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="浣溪沙" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E6%B5%A3%E6%BA%AA%E6%B2%99/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E6%91%9B%E7%BF%B0/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="浣溪沙" scheme="https://yesandnoandperhaps.cn/tags/%E6%B5%A3%E6%BA%AA%E6%B2%99/"/>
+    
+  </entry>
+  
+</feed>
