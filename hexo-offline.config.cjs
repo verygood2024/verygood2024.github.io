@@ -22,9 +22,9 @@ module.exports = {
       handler: 'NetworkFirst',
       options: {
         cacheName: 'hexo-v1-homepage-cache',
-        networkTimeoutSeconds: 5,
+        networkTimeoutSeconds: 10,
         expiration: {
-          maxAgeSeconds: 2 * 60 * 60
+          maxAgeSeconds: 12 * 60 * 60
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -40,9 +40,9 @@ module.exports = {
       handler: 'NetworkFirst',
       options: {
         cacheName: 'hexo-v1-pagination-cache',
-        networkTimeoutSeconds: 5,
+        networkTimeoutSeconds: 10,
         expiration: {
-          maxAgeSeconds: 6 * 60 * 60
+          maxAgeSeconds: 12 * 60 * 60
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -58,7 +58,7 @@ module.exports = {
       handler: 'NetworkFirst',
       options: {
         cacheName: 'hexo-v1-article-cache',
-        networkTimeoutSeconds: 5,
+        networkTimeoutSeconds: 10,
         expiration: {
           maxAgeSeconds: 24 * 60 * 60
         },
@@ -76,9 +76,9 @@ module.exports = {
       handler: 'NetworkFirst',
       options: {
         cacheName: 'hexo-v1-html-cache',
-        networkTimeoutSeconds: 5,
+        networkTimeoutSeconds: 10,
         expiration: {
-          maxAgeSeconds: 12 * 60 * 60
+          maxAgeSeconds: 24 * 60 * 60
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -166,7 +166,7 @@ module.exports = {
       handler: 'NetworkFirst',
       options: {
         cacheName: 'hexo-v1-config-cache',
-        networkTimeoutSeconds: 5,
+        networkTimeoutSeconds: 10,
         expiration: {
           maxEntries: 1,
           maxAgeSeconds: 24 * 60 * 60
