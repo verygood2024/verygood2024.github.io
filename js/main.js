@@ -681,7 +681,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { once: true });
       }
     },
-
     'go-up': () => { // Back to top
       btf.scrollToDest(0, 500)
     },
