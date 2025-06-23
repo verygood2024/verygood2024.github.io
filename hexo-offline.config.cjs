@@ -24,7 +24,7 @@ module.exports = {
         cacheName: 'hexo-v1-homepage-cache',
         networkTimeoutSeconds: 10,
         expiration: {
-          maxAgeSeconds: 12 * 60 * 60
+          maxAgeSeconds: 24 * 60 * 60
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -42,7 +42,7 @@ module.exports = {
         cacheName: 'hexo-v1-pagination-cache',
         networkTimeoutSeconds: 10,
         expiration: {
-          maxAgeSeconds: 12 * 60 * 60
+          maxAgeSeconds: 24 * 60 * 60
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
