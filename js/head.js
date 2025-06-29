@@ -36,3 +36,8 @@ window.addEventListener('scroll', scrollHandler);
 
 // Re-run on PJAX page load
 document.addEventListener('pjax:end', scrollHandler);
+
+document.querySelectorAll('.author-info-description').forEach(el => {
+  el.textContent = "左右相望、前后相顾、稳步向前";
+});
+

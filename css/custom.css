@@ -1201,14 +1201,14 @@ html[data-theme="dark"] #pwaInstallBanner img {
 
 /* 淡入动画 */
 @keyframes browserChoiceModalFadeIn {
-  from { backdrop-filter: blur(0px); transform: scale(0); }
-  to { backdrop-filter: blur(10px); transform: scale(1); }
+  from { -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px); transform: scale(0); }
+  to { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transform: scale(1); }
 }
 
 /* 淡出动画 */
 @keyframes browserChoiceModalFadeOut {
-  from { backdrop-filter: blur(10px); transform: scale(1); }
-  to { backdrop-filter: blur(0px); transform: scale(0); }
+  from { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); transform: scale(1); }
+  to { -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px); transform: scale(0); }
 }
 
 #browserChoiceModal .modal-content.show-animation {
@@ -1515,6 +1515,7 @@ html[data-theme='dark'] #rightside > div > a:hover {
   transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
   will-change: transform;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 #nav .menus_items .menus_item .menus_item_child {
@@ -1525,6 +1526,7 @@ html[data-theme='dark'] #rightside > div > a:hover {
   padding: 0;
   width: max-content;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.5);
   -webkit-box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
   box-shadow: 0 5px 20px -4px rgba(0,0,0,0.5);
@@ -1664,6 +1666,7 @@ html[data-theme='dark'] .site-data > a:hover div {
     -ms-transform: scale(1);
     transform: scale(1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
 .layout .pagination > *:not(.space) {
@@ -1694,6 +1697,7 @@ html[data-theme='dark'] #aside-content #card-toc .toc-content .toc-link:hover {
 #recent-posts .recent-post-item .post_cover:before {
       background-color: rgb(18 18 18 / 40%);
           backdrop-filter: blur(0px); 
+          -webkit-backdrop-filter: blur(0px);
 }
 
 #recent-posts .recent-post-item >.recent-post-info > .article-title:hover {
