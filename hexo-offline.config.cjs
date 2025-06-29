@@ -21,7 +21,7 @@ module.exports = {
       urlPattern: /^\/(?:index\.html)?$/i,
       handler: 'NetworkFirst',
       options: {
-        cacheName: 'hexo-v1-homepage-cache',
+        cacheName: 'hexo-v2-homepage-cache',
         networkTimeoutSeconds: 10,
         expiration: {
           maxAgeSeconds: 24 * 60 * 60
@@ -39,7 +39,7 @@ module.exports = {
       urlPattern: /^\/page\/\d+\/index\.html$/i,
       handler: 'NetworkFirst',
       options: {
-        cacheName: 'hexo-v1-pagination-cache',
+        cacheName: 'hexo-v2-pagination-cache',
         networkTimeoutSeconds: 10,
         expiration: {
           maxAgeSeconds: 24 * 60 * 60
@@ -97,7 +97,7 @@ module.exports = {
       options: {
         cacheName: 'hexo-v1-static-cache',
         expiration: {
-          maxAgeSeconds: 7 * 24 * 60 * 60
+          maxAgeSeconds: 3 * 24 * 60 * 60
         }
       }
     },
