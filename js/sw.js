@@ -1,39 +1,39 @@
 if ('serviceWorker' in navigator) {
-  // 先注销所有已注册的旧的 Service Worker
-  navigator.serviceWorker.getRegistrations().then(function(registrations) {
-    for (let registration of registrations) {
-      registration.unregister().then(() => {
-        console.log('旧的 Service Worker 被注销');
-      }).catch((error) => {
-        console.log('注销旧 Service Worker 失败', error);
-      });
+  // 防止 PJAX 重复注册
+  if (!navigator.serviceWorker.controller) {
+    registerSW();
+  }
+
+  // 监听 PJAX 完成（Butterfly 自带 PJAX 事件）
+  document.addEventListener('pjax:complete', () => {
+    if (!navigator.serviceWorker.controller) {
+      registerSW();
     }
-  });
-
-  // 注册新的 Service Worker
-  navigator.serviceWorker.register('/service-worker.js?v=' + new Date().getTime()).then(function(registration) {
-    console.log('新的 Service Worker 已注册:', registration);
-
-    // 激活新的 Service Worker
-    if (registration.waiting) {
-      registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-    }
-
-    // 当新的 Service Worker 安装成功后，立即激活
-    registration.onupdatefound = () => {
-      const newWorker = registration.installing;
-
-      newWorker.onstatechange = () => {
-        if (newWorker.state === 'installed') {
-          if (navigator.serviceWorker.controller) {
-            console.log('新的 Service Worker 已安装');
-            newWorker.postMessage({ type: 'SKIP_WAITING' });
-          }
-        }
-      };
-    };
-  }).catch(function(error) {
-    console.error('Service Worker 注册失败:', error);
   });
 }
 
+function registerSW() {
+  navigator.serviceWorker.register('/service-worker.js').then(registration => {
+    console.log('Service Worker 注册成功:', registration);
+
+    // 监听新版本更新
+    registration.onupdatefound = () => {
+      const newWorker = registration.installing;
+      if (newWorker) {
+        newWorker.onstatechange = () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            console.log('检测到新版本，正在激活...');
+            btf.snackbarShow('检测到新版本，正在自动刷新...');
+            window.location.reload();
+          }
+        };
+      }
+    };
+  }).catch(error => {
+    btf.snackbarShow('缓存器加载失败，请检查网络连接或清除浏览器缓存后重试。');
+    setTimeout(() => {
+                btf.snackbarShow('还可尝试手动刷新当前界面。');
+            }, 300);
+    console.error('Service Worker 注册失败:', error);
+  });
+}
