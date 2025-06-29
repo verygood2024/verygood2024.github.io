@@ -27,8 +27,21 @@
 }
 
 @media (min-width: 992px) {
-  .card-widget.card-info {
+  
+  .card-widget.card-info .author-info-name {
     display: none !important;
+  }
+  .card-widget.card-info .author-info-description {
+    display: none !important;
+  }
+  .card-widget.card-info .site-data {
+    display: none !important;
+  }
+  .card-widget.card-info #card-info-btn {
+    display: none !important;
+  }
+  .webinfo {
+    margin-top: 0px !important;
   }
 }
 /* 滚动条样式 */
@@ -1676,4 +1689,13 @@ html[data-theme='dark'] #aside-content #card-toc .toc-content .toc-link:hover {
 
 #nav.show {
   caret-color: transparent;
+}
+
+#recent-posts .recent-post-item .post_cover:before {
+      background-color: rgb(18 18 18 / 40%);
+          backdrop-filter: blur(0px); 
+}
+
+#recent-posts .recent-post-item >.recent-post-info > .article-title:hover {
+    color: #caccff;
 }
