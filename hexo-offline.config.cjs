@@ -2,7 +2,7 @@ const CACHE_VERSION = 'v1.1.0'; // 每次部署请改这里
 
 module.exports = {
   globDirectory: '.',
-  swDest: 'service-worker.js',
+  swDest: `service-worker-${CACHE_VERSION}.js`,
 
   globPatterns: [
     '**/*.{js,css,png,jpg,jpeg,gif,svg,webp,eot,ttf,woff,woff2,mp3}'
