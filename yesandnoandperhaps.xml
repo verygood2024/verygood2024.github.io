@@ -96,9 +96,9 @@
     
     <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
     
-    <category term="清平乐" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E6%B8%85%E5%B9%B3%E4%B9%90/"/>
-    
     <category term="东君" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%B8%9C%E5%90%9B/"/>
+    
+    <category term="清平乐" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E6%B8%85%E5%B9%B3%E4%B9%90/"/>
     
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
@@ -216,11 +216,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="蝶恋花" scheme="https://yesandnoandperhaps.cn/tags/%E8%9D%B6%E6%81%8B%E8%8A%B1/"/>
     
@@ -276,55 +276,6 @@
   </entry>
   
   <entry>
-    <title>杂感</title>
-    <link href="https://yesandnoandperhaps.cn/posts/8d29bba5.html"/>
-    <id>https://yesandnoandperhaps.cn/posts/8d29bba5.html</id>
-    <published>2025-05-18T14:40:57.000Z</published>
-    <updated>2025-06-29T01:16:57.110Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  阖目虚世界，忘言迷假真。<br>  苍茫何逆旅？混沌托吾身。<br>  徊绕蝴蝶梦，濯缨沧海滨。<br>  此宵终幻灭，亘古独精神。</p>]]></content>
-    
-    
-    <summary type="html">阖目虚世界，忘言迷假真。</summary>
-    
-    
-    
-    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
-    
-    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
-    
-    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
-    
-    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
-    
-    <category term="近体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/"/>
-    
-    <category term="律诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
-    
-    <category term="五律" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/%E4%BA%94%E5%BE%8B/"/>
-    
-    <category term="则好" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%88%99%E5%A5%BD/"/>
-    
-    
-    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
-    
-    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
-    
-    <category term="近体" scheme="https://yesandnoandperhaps.cn/tags/%E8%BF%91%E4%BD%93/"/>
-    
-    <category term="平水韵" scheme="https://yesandnoandperhaps.cn/tags/%E5%B9%B3%E6%B0%B4%E9%9F%B5/"/>
-    
-    <category term="律诗" scheme="https://yesandnoandperhaps.cn/tags/%E5%BE%8B%E8%AF%97/"/>
-    
-    <category term="五律" scheme="https://yesandnoandperhaps.cn/tags/%E4%BA%94%E5%BE%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>蝶恋花</title>
     <link href="https://yesandnoandperhaps.cn/posts/3cffcea3hmx.html"/>
     <id>https://yesandnoandperhaps.cn/posts/3cffcea3hmx.html</id>
@@ -355,13 +306,62 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
     
+    <category term="蝶恋花" scheme="https://yesandnoandperhaps.cn/tags/%E8%9D%B6%E6%81%8B%E8%8A%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>杂感</title>
+    <link href="https://yesandnoandperhaps.cn/posts/8d29bba5.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/8d29bba5.html</id>
+    <published>2025-05-18T14:40:57.000Z</published>
+    <updated>2025-06-29T01:16:57.110Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  阖目虚世界，忘言迷假真。<br>  苍茫何逆旅？混沌托吾身。<br>  徊绕蝴蝶梦，濯缨沧海滨。<br>  此宵终幻灭，亘古独精神。</p>]]></content>
+    
+    
+    <summary type="html">阖目虚世界，忘言迷假真。</summary>
+    
+    
+    
+    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
+    
+    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
+    
+    <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
+    
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="律诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/"/>
+    
+    <category term="五律" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E8%BF%91%E4%BD%93/%E5%BE%8B%E8%AF%97/%E4%BA%94%E5%BE%8B/"/>
+    
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
+    <category term="则好" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E5%88%99%E5%A5%BD/"/>
+    
+    
+    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
+    
+    <category term="古诗集" scheme="https://yesandnoandperhaps.cn/tags/%E5%8F%A4%E8%AF%97%E9%9B%86/"/>
+    
     <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
-    <category term="蝶恋花" scheme="https://yesandnoandperhaps.cn/tags/%E8%9D%B6%E6%81%8B%E8%8A%B1/"/>
+    <category term="近体" scheme="https://yesandnoandperhaps.cn/tags/%E8%BF%91%E4%BD%93/"/>
+    
+    <category term="平水韵" scheme="https://yesandnoandperhaps.cn/tags/%E5%B9%B3%E6%B0%B4%E9%9F%B5/"/>
+    
+    <category term="律诗" scheme="https://yesandnoandperhaps.cn/tags/%E5%BE%8B%E8%AF%97/"/>
+    
+    <category term="五律" scheme="https://yesandnoandperhaps.cn/tags/%E4%BA%94%E5%BE%8B/"/>
     
   </entry>
   
@@ -396,11 +396,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/tags/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
     
@@ -437,11 +437,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/tags/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
     
@@ -478,11 +478,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="醉花阴" scheme="https://yesandnoandperhaps.cn/tags/%E9%86%89%E8%8A%B1%E9%98%B4/"/>
     
@@ -519,11 +519,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="点绛唇" scheme="https://yesandnoandperhaps.cn/tags/%E7%82%B9%E7%BB%9B%E5%94%87/"/>
     
@@ -605,11 +605,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="菩萨蛮" scheme="https://yesandnoandperhaps.cn/tags/%E8%8F%A9%E8%90%A8%E8%9B%AE/"/>
     
@@ -646,11 +646,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="水龙吟" scheme="https://yesandnoandperhaps.cn/tags/%E6%B0%B4%E9%BE%99%E5%90%9F/"/>
     
@@ -687,13 +687,13 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
-    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
-    
-    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
     <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
+    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
+    
     <category term="长相思" scheme="https://yesandnoandperhaps.cn/tags/%E9%95%BF%E7%9B%B8%E6%80%9D/"/>
+    
+    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
     
   </entry>
   
@@ -773,11 +773,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="八声甘州" scheme="https://yesandnoandperhaps.cn/tags/%E5%85%AB%E5%A3%B0%E7%94%98%E5%B7%9E/"/>
     
@@ -814,11 +814,11 @@
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
     
+    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
+    
     <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
     
     <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="知春集·乙巳" scheme="https://yesandnoandperhaps.cn/tags/%E7%9F%A5%E6%98%A5%E9%9B%86%C2%B7%E4%B9%99%E5%B7%B3/"/>
     
     <category term="江城子" scheme="https://yesandnoandperhaps.cn/tags/%E6%B1%9F%E5%9F%8E%E5%AD%90/"/>
     
