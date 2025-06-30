@@ -1,11 +1,13 @@
-// 获取首页文章卡片（需要反复动画）
+// 获取元素
 var postItems = document.querySelectorAll('.recent-post-item');
-
-// 获取侧栏卡片（只动画一次，排除 TOC）
 var cardWidgets = document.querySelectorAll('.card-widget');
+var animationToggleBtn = document.getElementById('animationToggleBtn');
 
 // 缓冲阈值
 var threshold = 50;
+
+// 动画状态，支持本地存储记忆
+var animationEnabled = localStorage.getItem('animationEnabled') !== 'false'; // 默认为 true
 
 // 初始化状态
 postItems.forEach(function (el) {
@@ -15,7 +17,6 @@ postItems.forEach(function (el) {
 });
 
 cardWidgets.forEach(function (el) {
-    // 跳过 TOC 卡片
     if (el.id === 'card-toc' || el.classList.contains('toc')) return;
 
     el.style.opacity = 0;
@@ -33,6 +34,8 @@ function isInViewport(element) {
 
 // 滚动动画处理
 function handleScrollAnimation() {
+    if (!animationEnabled) return;
+
     // 处理首页文章卡片（反复进出）
     postItems.forEach(function (el) {
         var currentState = el.getAttribute('data-animated');
@@ -49,7 +52,7 @@ function handleScrollAnimation() {
         }
     });
 
-    // 处理侧栏卡片（只进不出，排除 TOC）
+    // 处理侧栏卡片（只进不出）
     cardWidgets.forEach(function (el) {
         if (el.id === 'card-toc' || el.classList.contains('toc')) return;
 
@@ -67,8 +70,10 @@ function handleScrollAnimation() {
     });
 }
 
-// 播放动画（文章卡片，支持反复）
+// 播放动画（首页卡片，支持反复）
 function playAnimation(el, direction) {
+    if (!animationEnabled) return;
+
     el.setAttribute('data-animating', 'true');
 
     if (direction === 'in') {
@@ -96,16 +101,58 @@ function playAnimation(el, direction) {
     }
 }
 
+// 动画开关按钮逻辑
+animationToggleBtn.addEventListener('click', function () {
+    animationEnabled = !animationEnabled;
+    localStorage.setItem('animationEnabled', animationEnabled);
 
+    if (!animationEnabled) {
+        btf.snackbarShow("已关闭缩放出入动画效果。")
+        // 关闭动画：立刻清除动画类、恢复显示
+        postItems.forEach(function (el) {
+            el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
+            el.style.opacity = 1;
+            el.setAttribute('data-animated', 'in');
+            el.setAttribute('data-animating', 'false');
+        });
+
+        cardWidgets.forEach(function (el) {
+            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
+
+            el.classList.remove('animate__animated', 'animate__zoomIn');
+            el.style.opacity = 1;
+            el.setAttribute('data-animated-once', 'true');
+        });
+    } else {
+        btf.snackbarShow("已开启缩放出入动画效果。")
+        // 重新开启动画，重新初始化状态
+        postItems.forEach(function (el) {
+            el.style.opacity = 0;
+            el.setAttribute('data-animated', 'out');
+            el.setAttribute('data-animating', 'false');
+        });
+
+        cardWidgets.forEach(function (el) {
+            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
+
+            el.style.opacity = 0;
+            el.setAttribute('data-animated', 'out');
+            el.setAttribute('data-animated-once', 'false');
+        });
+
+        handleScrollAnimation();
+    }
+});
+
+// 事件绑定
 window.addEventListener('scroll', handleScrollAnimation);
-
 window.addEventListener('load', handleScrollAnimation);
-
 window.addEventListener('DOMContentLoaded', handleScrollAnimation);
-
 window.addEventListener('pageshow', function (event) {
     if (!event.persisted) {
         handleScrollAnimation();
     }
 });
+
+// 页面加载后立即检测
 handleScrollAnimation();
