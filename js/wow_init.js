@@ -6,39 +6,43 @@ var animationToggleBtn = document.getElementById('animationToggleBtn');
 // 缓冲阈值
 var threshold = 50;
 
-// 动画状态，支持本地存储记忆，默认为开启
-var animationEnabled = localStorage.getItem('animationEnabled') !== 'false';
-
-// 初始化状态（根据动画开关区分处理）
-function initAnimationState() {
-    if (animationEnabled) {
-        // 动画开启时，初始化为隐藏状态
-        postItems.forEach(function (el) {
-            el.style.opacity = 0;
-            el.setAttribute('data-animated', 'out');
-            el.setAttribute('data-animating', 'false');
-        });
-
-        cardWidgets.forEach(function (el) {
-            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
-
-            el.style.opacity = 0;
-            el.setAttribute('data-animated', 'out');
-            el.setAttribute('data-animated-once', 'false');
-        });
+var legacySetting = localStorage.getItem('animationEnabled');
+if (legacySetting !== null) {
+    // 自动转换旧值为新模式
+    localStorage.removeItem('animationEnabled');
+    if (legacySetting === 'false') {
+        localStorage.setItem('animationMode', 'off');
     } else {
-        // 动画关闭时，初始化直接显示
+        localStorage.setItem('animationMode', 'once'); // 你默认喜欢单次动画
+    }
+}
+
+// 三种动画模式：repeat（反复）、once（单次）、off（关闭）
+var animationMode = localStorage.getItem('animationMode') || 'once';
+
+// 初始化状态（根据动画模式区分处理）
+function initAnimationState() {
+    if (animationMode === 'off') {
         postItems.forEach(function (el) {
             el.style.opacity = 1;
             el.setAttribute('data-animated', 'in');
             el.setAttribute('data-animating', 'false');
         });
-
         cardWidgets.forEach(function (el) {
             if (el.id === 'card-toc' || el.classList.contains('toc')) return;
-
             el.style.opacity = 1;
             el.setAttribute('data-animated-once', 'true');
+        });
+    } else {
+        postItems.forEach(function (el) {
+            el.style.opacity = 0;
+            el.setAttribute('data-animated', 'out');
+            el.setAttribute('data-animating', 'false');
+        });
+        cardWidgets.forEach(function (el) {
+            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
+            el.style.opacity = 0;
+            el.setAttribute('data-animated-once', 'false');
         });
     }
 }
@@ -46,16 +50,14 @@ function initAnimationState() {
 // 判断是否进入视口（缓冲阈值）
 function isInViewport(element) {
     var rect = element.getBoundingClientRect();
-    return (
-        rect.top < window.innerHeight - threshold && rect.bottom > threshold
-    );
+    return rect.top < window.innerHeight - threshold && rect.bottom > threshold;
 }
 
 // 滚动动画处理
 function handleScrollAnimation() {
-    if (!animationEnabled) return;
+    if (animationMode === 'off') return;
 
-    // 处理首页文章卡片（反复进出）
+    // 首页文章卡片处理
     postItems.forEach(function (el) {
         var currentState = el.getAttribute('data-animated');
         var isAnimating = el.getAttribute('data-animating') === 'true';
@@ -64,14 +66,14 @@ function handleScrollAnimation() {
             if (currentState !== 'in' && !isAnimating) {
                 playAnimation(el, 'in');
             }
-        } else {
+        } else if (animationMode === 'repeat') {
             if (currentState !== 'out' && !isAnimating) {
                 playAnimation(el, 'out');
             }
         }
     });
 
-    // 处理侧栏卡片（只进不出）
+    // 侧栏卡片处理（只进不出）
     cardWidgets.forEach(function (el) {
         if (el.id === 'card-toc' || el.classList.contains('toc')) return;
 
@@ -89,10 +91,8 @@ function handleScrollAnimation() {
     });
 }
 
-// 播放动画（首页卡片，支持反复）
+// 播放动画（首页卡片）
 function playAnimation(el, direction) {
-    if (!animationEnabled) return;
-
     el.setAttribute('data-animating', 'true');
 
     if (direction === 'in') {
@@ -120,42 +120,38 @@ function playAnimation(el, direction) {
     }
 }
 
-// 动画开关按钮逻辑
+// 三种模式切换按钮逻辑
 animationToggleBtn.addEventListener('click', function () {
-    animationEnabled = !animationEnabled;
-    localStorage.setItem('animationEnabled', animationEnabled);
-
-    if (!animationEnabled) {
-        btf.snackbarShow("已关闭缩放出入动画效果。");
-        // 关闭动画：立即显示所有元素，移除动画类
-        postItems.forEach(function (el) {
-            el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
-            el.style.opacity = 1;
-            el.setAttribute('data-animated', 'in');
-            el.setAttribute('data-animating', 'false');
-        });
-
-        cardWidgets.forEach(function (el) {
-            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
-
-            el.classList.remove('animate__animated', 'animate__zoomIn');
-            el.style.opacity = 1;
-            el.setAttribute('data-animated-once', 'true');
-        });
+    if (animationMode === 'repeat') {
+        animationMode = 'once';
+        btf.snackbarShow("已切换为动画单次模式。");
+    } else if (animationMode === 'once') {
+        animationMode = 'off';
+        btf.snackbarShow("已切换为动画关闭模式。");
     } else {
-        btf.snackbarShow("已开启缩放出入动画效果。");
-        // 开启动画，重新初始化状态并触发检测动画
-        initAnimationState();
-        forceCheckAnimation();
+        animationMode = 'repeat';
+        btf.snackbarShow("已切换为动画反复模式。");
     }
+
+    localStorage.setItem('animationMode', animationMode);
+
+    // 清除现有动画类
+    postItems.forEach(function (el) {
+        el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
+    });
+
+    cardWidgets.forEach(function (el) {
+        el.classList.remove('animate__animated', 'animate__zoomIn');
+    });
+
+    initAnimationState();
+    forceCheckAnimation();
 });
 
-// 强制连续检查动画，确保更及时
+// 强制连续检测动画
 function forceCheckAnimation(retryCount = 10) {
     if (retryCount <= 0) return;
-
     handleScrollAnimation();
-
     requestAnimationFrame(() => {
         forceCheckAnimation(retryCount - 1);
     });
