@@ -6,23 +6,42 @@ var animationToggleBtn = document.getElementById('animationToggleBtn');
 // 缓冲阈值
 var threshold = 50;
 
-// 动画状态，支持本地存储记忆
-var animationEnabled = localStorage.getItem('animationEnabled') !== 'false'; // 默认为 true
+// 动画状态，支持本地存储记忆，默认为开启
+var animationEnabled = localStorage.getItem('animationEnabled') !== 'false';
 
-// 初始化状态
-postItems.forEach(function (el) {
-    el.style.opacity = 0;
-    el.setAttribute('data-animated', 'out');
-    el.setAttribute('data-animating', 'false');
-});
+// 初始化状态（根据动画开关区分处理）
+function initAnimationState() {
+    if (animationEnabled) {
+        // 动画开启时，初始化为隐藏状态
+        postItems.forEach(function (el) {
+            el.style.opacity = 0;
+            el.setAttribute('data-animated', 'out');
+            el.setAttribute('data-animating', 'false');
+        });
 
-cardWidgets.forEach(function (el) {
-    if (el.id === 'card-toc' || el.classList.contains('toc')) return;
+        cardWidgets.forEach(function (el) {
+            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
 
-    el.style.opacity = 0;
-    el.setAttribute('data-animated', 'out');
-    el.setAttribute('data-animated-once', 'false');
-});
+            el.style.opacity = 0;
+            el.setAttribute('data-animated', 'out');
+            el.setAttribute('data-animated-once', 'false');
+        });
+    } else {
+        // 动画关闭时，初始化直接显示
+        postItems.forEach(function (el) {
+            el.style.opacity = 1;
+            el.setAttribute('data-animated', 'in');
+            el.setAttribute('data-animating', 'false');
+        });
+
+        cardWidgets.forEach(function (el) {
+            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
+
+            el.style.opacity = 1;
+            el.setAttribute('data-animated-once', 'true');
+        });
+    }
+}
 
 // 判断是否进入视口（缓冲阈值）
 function isInViewport(element) {
@@ -107,8 +126,8 @@ animationToggleBtn.addEventListener('click', function () {
     localStorage.setItem('animationEnabled', animationEnabled);
 
     if (!animationEnabled) {
-        btf.snackbarShow("已关闭缩放出入动画效果。")
-        // 关闭动画：立刻清除动画类、恢复显示
+        btf.snackbarShow("已关闭缩放出入动画效果。");
+        // 关闭动画：立即显示所有元素，移除动画类
         postItems.forEach(function (el) {
             el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
             el.style.opacity = 1;
@@ -124,35 +143,45 @@ animationToggleBtn.addEventListener('click', function () {
             el.setAttribute('data-animated-once', 'true');
         });
     } else {
-        btf.snackbarShow("已开启缩放出入动画效果。")
-        // 重新开启动画，重新初始化状态
-        postItems.forEach(function (el) {
-            el.style.opacity = 0;
-            el.setAttribute('data-animated', 'out');
-            el.setAttribute('data-animating', 'false');
-        });
-
-        cardWidgets.forEach(function (el) {
-            if (el.id === 'card-toc' || el.classList.contains('toc')) return;
-
-            el.style.opacity = 0;
-            el.setAttribute('data-animated', 'out');
-            el.setAttribute('data-animated-once', 'false');
-        });
-
-        handleScrollAnimation();
+        btf.snackbarShow("已开启缩放出入动画效果。");
+        // 开启动画，重新初始化状态并触发检测动画
+        initAnimationState();
+        forceCheckAnimation();
     }
 });
 
+// 强制连续检查动画，确保更及时
+function forceCheckAnimation(retryCount = 10) {
+    if (retryCount <= 0) return;
+
+    handleScrollAnimation();
+
+    requestAnimationFrame(() => {
+        forceCheckAnimation(retryCount - 1);
+    });
+}
+
+// 初始化
+initAnimationState();
+
 // 事件绑定
 window.addEventListener('scroll', handleScrollAnimation);
-window.addEventListener('load', handleScrollAnimation);
-window.addEventListener('DOMContentLoaded', handleScrollAnimation);
+
+document.addEventListener('readystatechange', () => {
+    if (document.readyState === 'interactive') {
+        forceCheckAnimation();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    forceCheckAnimation();
+});
+
 window.addEventListener('pageshow', function (event) {
     if (!event.persisted) {
-        handleScrollAnimation();
+        forceCheckAnimation();
     }
 });
 
 // 页面加载后立即检测
-handleScrollAnimation();
+forceCheckAnimation();
