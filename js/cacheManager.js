@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
               await caches.delete(key);
             }
 
+            await this.fetchLatestContent();
+
             location.reload();
 
           } catch (e) {
@@ -44,6 +46,24 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       );
+    },
+
+    // 强制从服务器获取最新内容
+    async fetchLatestContent() {
+      try {
+        const response = await fetch(window.location.href, {
+          method: 'GET',
+          cache: 'no-store',
+        });
+
+        if (response.ok) {
+          console.log('已从服务器加载最新内容');
+        } else {
+          console.error('服务器响应失败:', response.status);
+        }
+      } catch (e) {
+        console.error('获取最新内容时发生错误:', e);
+      }
     },
 
     showConfirm(message, onConfirm) {

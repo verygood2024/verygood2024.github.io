@@ -1,48 +1,27 @@
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.addEventListener('message', event => {
-    const data = event.data;
-    if (data.type === 'showSnackbar' && data.text) {
-      if (typeof btf !== 'undefined' && typeof btf.snackbarShow === 'function') {
-        btf.snackbarShow(data.text);
-      } else {
-        console.warn('btf.snackbarShow 不存在');
-      }
-    }
-  });
+// sw.js
+self.addEventListener('install', event => {
+  self.skipWaiting();
+});
 
-  // 你已有的注册代码
-  if (!navigator.serviceWorker.controller) {
-    registerSW();
-  }
+self.addEventListener('activate', event => {
+  self.clients.claim();
+});
 
-  document.addEventListener('pjax:complete', () => {
-    if (!navigator.serviceWorker.controller) {
-      registerSW();
-    }
-  });
-
-  function registerSW() {
-    navigator.serviceWorker.register('/service-worker.js').then(registration => {
-      console.log('Service Worker 注册成功:', registration);
-
-      registration.onupdatefound = () => {
-        const newWorker = registration.installing;
-        if (newWorker) {
-          newWorker.onstatechange = () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              // 这里页面环境，直接调用可以
-              btf.snackbarShow('检测到新版本，正在自动刷新...');
-              window.location.reload();
-            }
-          };
-        }
-      };
-    }).catch(error => {
-      btf.snackbarShow('缓存器加载失败，请检查网络连接或清除浏览器缓存后重试。');
-      setTimeout(() => {
-        btf.snackbarShow('还可尝试手动刷新当前界面。');
-      }, 3000);
-      console.error('Service Worker 注册失败:', error);
+// 定义一个函数来发送消息到所有的客户端（浏览器窗口）
+function sendMessageToClients(msg) {
+  self.clients.matchAll().then(clients => {
+    clients.forEach(client => {
+      client.postMessage({
+        type: 'showSnackbar',
+        text: msg
+      });
     });
-  }
+  });
 }
+
+// 示例：当 Service Worker 更新时，发出更新提示
+self.addEventListener('updatefound', () => {
+  sendMessageToClients('检测到新版本，正在自动刷新...');
+  // 例如，在安装过程中发送消息
+  self.skipWaiting();
+});

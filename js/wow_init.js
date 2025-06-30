@@ -1,7 +1,12 @@
-// 获取元素
-var postItems = document.querySelectorAll('.recent-post-item');
-var cardWidgets = document.querySelectorAll('.card-widget');
-var animationToggleBtn = document.getElementById('animationToggleBtn');
+// 获取元素（仅初始化时查询一次）
+var postItemsA, cardWidgets, animationToggleBtn;
+
+// 初始化元素
+function initializeElements() {
+    postItemsA = document.querySelectorAll('.recent-post-item');
+    cardWidgets = document.querySelectorAll('.card-widget');
+    animationToggleBtn = document.getElementById('animationToggleBtn');
+}
 
 // 缓冲阈值
 var threshold = 50;
@@ -23,7 +28,7 @@ var animationMode = localStorage.getItem('animationMode') || 'once';
 // 初始化状态（根据动画模式区分处理）
 function initAnimationState() {
     if (animationMode === 'off') {
-        postItems.forEach(function (el) {
+        postItemsA.forEach(function (el) {
             el.style.opacity = 1;
             el.setAttribute('data-animated', 'in');
             el.setAttribute('data-animating', 'false');
@@ -34,7 +39,7 @@ function initAnimationState() {
             el.setAttribute('data-animated-once', 'true');
         });
     } else {
-        postItems.forEach(function (el) {
+        postItemsA.forEach(function (el) {
             el.style.opacity = 0;
             el.setAttribute('data-animated', 'out');
             el.setAttribute('data-animating', 'false');
@@ -58,7 +63,7 @@ function handleScrollAnimation() {
     if (animationMode === 'off') return;
 
     // 首页文章卡片处理
-    postItems.forEach(function (el) {
+    postItemsA.forEach(function (el) {
         var currentState = el.getAttribute('data-animated');
         var isAnimating = el.getAttribute('data-animating') === 'true';
 
@@ -120,33 +125,35 @@ function playAnimation(el, direction) {
     }
 }
 
-// 三种模式切换按钮逻辑
-animationToggleBtn.addEventListener('click', function () {
-    if (animationMode === 'repeat') {
-        animationMode = 'once';
-        btf.snackbarShow("已切换为动画单次模式。");
-    } else if (animationMode === 'once') {
-        animationMode = 'off';
-        btf.snackbarShow("已切换为动画关闭模式。");
-    } else {
-        animationMode = 'repeat';
-        btf.snackbarShow("已切换为动画反复模式。");
-    }
+document.addEventListener('DOMContentLoaded', function () {
+    // 三种模式切换按钮逻辑
+    animationToggleBtn.addEventListener('click', function () {
+        if (animationMode === 'repeat') {
+            animationMode = 'once';
+            btf.snackbarShow("已切换为动画单次模式。");
+        } else if (animationMode === 'once') {
+            animationMode = 'off';
+            btf.snackbarShow("已切换为动画关闭模式。");
+        } else {
+            animationMode = 'repeat';
+            btf.snackbarShow("已切换为动画反复模式。");
+        }
 
-    localStorage.setItem('animationMode', animationMode);
+        localStorage.setItem('animationMode', animationMode);
 
-    // 清除现有动画类
-    postItems.forEach(function (el) {
-        el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
+        // 清除现有动画类
+        postItemsA.forEach(function (el) {
+            el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
+        });
+
+        cardWidgets.forEach(function (el) {
+            el.classList.remove('animate__animated', 'animate__zoomIn');
+        });
+
+        initAnimationState();
+        forceCheckAnimation();
     });
-
-    cardWidgets.forEach(function (el) {
-        el.classList.remove('animate__animated', 'animate__zoomIn');
-    });
-
-    initAnimationState();
-    forceCheckAnimation();
-});
+})
 
 // 强制连续检测动画
 function forceCheckAnimation(retryCount = 10) {
@@ -158,7 +165,21 @@ function forceCheckAnimation(retryCount = 10) {
 }
 
 // 初始化
+initializeElements();
 initAnimationState();
+
+// 页面加载时检测和初始化
+function onPageLoad() {
+    initializeElements();  // 确保每次页面加载都重新初始化元素
+    initAnimationState();  // 设置初始状态
+    forceCheckAnimation();  // 强制检测动画
+}
+
+// 如果是PJAX页面加载完成时（如果使用了PJAX库）
+document.addEventListener('pjax:complete', onPageLoad);
+
+// 页面加载后立即检测（防止首次加载时遗漏）
+window.addEventListener('load', onPageLoad);
 
 // 事件绑定
 window.addEventListener('scroll', handleScrollAnimation);
