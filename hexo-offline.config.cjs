@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1.1.0'; // 每次部署请改这里
+const CACHE_VERSION = 'v1.1.1'; // 每次部署请改这里
 
 module.exports = {
   globDirectory: '.',

@@ -11,6 +11,7 @@
   font-family: var(--font-family), serif;
   letter-spacing: var(--letter-spacing);
   font-weight: var(--font-weight);
+  will-change: font-family;
 }
 
 /* 代码字体大小 */
