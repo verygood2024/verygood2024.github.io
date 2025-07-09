@@ -1884,6 +1884,9 @@ input:-webkit-autofill {
   color: rgb(0 0 0);
   outline: none;
   transition: all 0.3s ease;
+  -webkit-appearance: none; /* 禁用 iOS 原生样式 */
+  appearance: none;
+  line-height: normal; /* 防止 iOS 自动增加行高 */
 }
 
 .search-bar-glass input:hover {
