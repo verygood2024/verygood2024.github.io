@@ -2041,20 +2041,21 @@ input:-webkit-autofill {
 
 @media (max-width: 320px) {
   .search-bar-glass {
-    padding: 6px;
+    padding: 4px;
   }
-
   .search-bar-glass input {
-    font-size: 12px;
-    padding: 6px 10px;
+    font-size: 11px; /* 可以适当再减小字体大小 */
+    padding: 5px 6px; /* 减小内边距 */
   }
-
+  .search-bar-glass input::placeholder {
+    font-size: 11px; /* 如果需要，调整placeholder的字体大小 */
+  }
   .search-bar-glass button {
-    width: 32px;
-    height: 32px;
-    font-size: 13px;
+    width: 28px;
+    height: 28px;
+    font-size: 11px; /* 调整按钮内图标的大小 */
+    margin-left: 5px; /* 减小按钮与输入框的间距 */
   }
-
   .tooltip .tooltip-text {
     font-size: 10px;
     padding: 4px 8px;
@@ -2271,4 +2272,8 @@ html[data-theme='dark'] .card-anthology-overlay {
   display: inline-block;
   justify-content: center;
   align-items: center;
+}
+
+.toggle-btn {
+  color: var(--font-color);
 }
