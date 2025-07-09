@@ -71,8 +71,33 @@ function bindModalEvents() {
   };
 }
 
+function closeSettingsModal() {
+  const settingsModal = document.getElementById('settingsModal');
+  const settingsModalContent = settingsModal.querySelector('.modal-content');
+  if (settingsModal.style.display === 'flex') {
+    settingsModal.classList.add('modalFadeOut');
+    settingsModalContent.classList.add('modalFadeOut');
+
+    settingsModalContent.addEventListener('animationend', () => {
+      settingsModal.style.display = 'none';
+      settingsModalContent.style.display = 'none';
+      settingsModal.classList.remove('modalFadeOut');
+      settingsModalContent.classList.remove('modalFadeOut');
+    }, { once: true });
+  }
+}
+
+function openSettingsModal() {
+  const settingsModal = document.getElementById('settingsModal');
+  const settingsModalContent = settingsModal.querySelector('.modal-content');
+  settingsModal.style.display = 'flex';
+  settingsModalContent.style.display = 'block';
+}
+
 // 显示安装提示模态窗口
 function promptInstallEdge() {
+  handleNavAndRightside({ hideNav: true, hideRightside: true, hidePwa: true });
+  closeSettingsModal();
   const modal = document.getElementById('browserChoiceModal');
   const modalContent = modal.querySelector('.modal-content');
 
@@ -85,7 +110,6 @@ function promptInstallEdge() {
   bindModalEvents();
 }
 
-
 // 通用关闭模态函数
 function closeModal(modal, modalContent) {
   modalContent.classList.remove('show-animation');
@@ -96,6 +120,8 @@ function closeModal(modal, modalContent) {
     modalContent.style.display = 'none';
     modalContent.classList.remove('hide-animation');
   }, { once: true });
+  openSettingsModal();
+  handleNavAndRightside({ hideNav: false, hideRightside: false, hidePwa: false });
 }
 
 
@@ -142,9 +168,15 @@ async function updateInstallStatus() {
     const dismissedUntil = parseInt(localStorage.getItem('pwaBannerDismissedUntil'), 10);
     const now = Date.now();
     const isDismissed = dismissedUntil && now < dismissedUntil;
+
     if (isMobileOrTablet() && !isDismissed) {
-      banner.classList.remove('hide');
+      banner.classList.remove('hide'); // 移除隐藏状态
       banner.style.display = 'flex';
+
+      // ⭐ 添加显示动画类名
+      banner.classList.remove('show'); // 清除可能残留的
+      void banner.offsetWidth; // 触发重绘，确保动画生效
+      banner.classList.add('show');
     } else {
       animateBannerHide(banner);
     }
@@ -195,18 +227,26 @@ function setupInstallButtons() {
 
 // 动画隐藏横幅
 function animateBannerHide(banner) {
+  banner.classList.remove('show'); // ⭐ 移除出现动画类
   banner.classList.add('hide');
   banner.addEventListener('transitionend', () => {
     banner.style.display = 'none';
   }, { once: true });
 }
 
+
 // 页面初始化时隐藏模态
 window.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('browserChoiceModal');
   const modalContent = modal?.querySelector('.modal-content');
+  const banner = document.getElementById('pwaInstallBanner');
+
   if (modal) modal.style.display = 'none';
   if (modalContent) modalContent.style.display = 'none';
+  if (banner) {
+    banner.classList.remove('show', 'hide');
+    banner.style.display = 'none';
+  }
 
   updateInstallStatus();
   setupInstallButtons();

@@ -2,6 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const settingsModal = document.getElementById('settingsModal');
   const settingsModalContent = settingsModal.querySelector('.modal-content');
   const rightsideConfigBtn = document.getElementById('rightside-config');
+  let cachedRightsideConfigBtnCenter = null;
+
+  if (rightsideConfigBtn) {
+    const rect = rightsideConfigBtn.getBoundingClientRect();
+    cachedRightsideConfigBtnCenter = {
+      x: rect.left + rect.width / 2,
+      y: rect.top + rect.height / 2
+    };
+  }
+
 
   window.cacheManager = {
     _modal: document.getElementById('customConfirm'),
@@ -67,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     showConfirm(message, onConfirm) {
+      handleNavAndRightside({ hideNav: true, hideRightside: true, hidePwa: true });
       this._onConfirm = onConfirm;
       this._modal.querySelector('.custom-modal-content p').innerHTML = message;
 
@@ -90,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this._modalContent.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.1)`;
       this._modalContent.offsetWidth;
 
+
       requestAnimationFrame(() => {
         this._modalContent.style.transition = 'transform 0.4s ease';
         this._modalContent.style.transform = 'translate(0, 0) scale(1)';
@@ -112,14 +124,28 @@ document.addEventListener('DOMContentLoaded', () => {
           );
         };
 
-        // 如果 cacheManager 不可见，就用 rightside-config
-        if (!isBtnVisible(targetBtn)) {
-          targetBtn = rightsideConfigBtn;
+        let btnCenterX, btnCenterY;
+
+        // 优先使用可见按钮的位置
+        if (isBtnVisible(this._triggerBtn)) {
+          const rect = this._triggerBtn.getBoundingClientRect();
+          btnCenterX = rect.left + rect.width / 2;
+          btnCenterY = rect.top + rect.height / 2;
+        } else if (isBtnVisible(rightsideConfigBtn)) {
+          const rect = rightsideConfigBtn.getBoundingClientRect();
+          btnCenterX = rect.left + rect.width / 2;
+          btnCenterY = rect.top + rect.height / 2;
+        } else if (cachedRightsideConfigBtnCenter) {
+          // 使用缓存位置
+          btnCenterX = cachedRightsideConfigBtnCenter.x;
+          btnCenterY = cachedRightsideConfigBtnCenter.y;
+        } else {
+          // 兜底：使用屏幕中央
+          btnCenterX = window.innerWidth / 2;
+          btnCenterY = window.innerHeight / 2;
         }
 
-        const btnRect = targetBtn.getBoundingClientRect();
-        const btnCenterX = btnRect.left + btnRect.width / 2;
-        const btnCenterY = btnRect.top + btnRect.height / 2;
+        handleNavAndRightside({ hideNav: false, hideRightside: false, hidePwa: false });
 
         const viewportWidth = window.innerWidth;
         const viewportHeight = window.innerHeight;
@@ -141,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this._modalContent.addEventListener('transitionend', onTransitionEnd);
       });
     },
+
 
     closeSettingsModal() {
       if (settingsModal.style.display === 'flex') {

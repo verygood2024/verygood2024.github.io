@@ -1052,17 +1052,23 @@ html[data-theme="dark"] .submission-form-wrapper .checkbox-container a {
   padding: 12px 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
   z-index: 0;
+  opacity: 0;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
   box-sizing: border-box;
-  transform: translateY(0);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(20px);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 #pwaInstallBanner.hide {
   opacity: 0;
-  transform: translateY(-20px);
+  transform: translateY(20px);
+}
+
+#pwaInstallBanner.show {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 #pwaInstallBanner img {
@@ -1193,7 +1199,8 @@ html[data-theme="dark"] #pwaInstallBanner img {
 
 /*自定义提示框*/
 
-#browserChoiceModal {
+#browserChoiceModal,
+#customConfirm {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -1268,7 +1275,7 @@ html[data-theme="dark"] #pwaInstallBanner img {
 }
 
 /* 暗黑模式 */
-html[data-theme="dark"] #browserChoiceModal {
+html[data-theme="dark"] #browserChoiceModal,html[data-theme="dark"] #customConfirm {
   background: rgba(0, 0, 0, 0.6);
 }
 
@@ -1379,7 +1386,7 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
   flex-wrap: nowrap;
 }
 
-#browserChoiceModal .modal-content{
+#browserChoiceModal .modal-content,#customConfirm .modal-content{
   display: flex;
   flex-direction: initial;
   align-items: center;
@@ -1649,7 +1656,7 @@ html[data-theme='dark'] .site-data > a:hover div {
   margin: 0 auto;
   width: 110px;
   height: 110px;
-  border-radius: 24px;
+  border-radius: 32px;
 }
 
 
@@ -1752,7 +1759,7 @@ html[data-theme='dark'] #aside-content #card-toc .toc-content .toc-link:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 999;
 }
 
 /* 弹窗内容区域，毛玻璃效果 */
@@ -2109,4 +2116,159 @@ html[data-theme='dark'] .tooltip .tooltip-text {
 
 .container .tabs {
   border-radius: 12px;
+}
+
+/* abthology.js 优化版 */
+
+/* 卡片基础样式 */
+.card-widget.card-anthology-card {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+}
+
+/* 图片样式 */
+.card-widget.card-anthology-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+/* 悬浮放大效果 */
+.card-widget.card-anthology-card:hover img {
+  transform: scale(1.05);
+}
+
+/* 遮罩层：白色背景 + 模糊 + 无滚动条 */
+.card-anthology-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+  color: #333;
+  text-align: left;
+  font-size: 0.85rem;         /* ↓ 缩小正文字号 */
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 8px;
+  box-sizing: border-box;
+  pointer-events: none;
+  will-change: opacity;
+  overflow: hidden;           /* 🚫 关闭滚动条 */
+  text-overflow: ellipsis;   /* 可选：内容过多时尾部省略 */
+}
+
+/* 悬浮显示遮罩 */
+.card-widget.card-anthology-card:hover .card-anthology-overlay {
+  opacity: 1;
+}
+
+/* 小标题（h5 样式） */
+.card-anthology-overlay h1,
+.card-anthology-overlay h2,
+.card-anthology-overlay h3 {
+  margin: 0 0 0.4em 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.4;
+  color: var(--text-highlight-color);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* 正文段落（无缩进 + 缩小字体） */
+.card-anthology-overlay p {
+  margin: 0.4em 0;
+  font-size: 0.85rem;   /* 同正文 font-size */
+  line-height: 1.5;
+  color: var(--font-color);
+  text-indent: 0;
+}
+
+/* 强调文本 */
+.card-anthology-overlay strong {
+  color: #c40000;
+  font-weight: bold;
+}
+
+/* 斜体文本 */
+.card-anthology-overlay em {
+  font-style: italic;
+  color: #666;
+}
+
+/* 分段间视觉分隔（可选） */
+.card-anthology-overlay p + p {
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+  padding-top: 0.4em;
+}
+
+.card-widget.card-anthology-card.touched .card-anthology-overlay {
+  opacity: 1;
+}
+
+html[data-theme='dark'] .card-anthology-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/*menus*/
+
+#sidebar #sidebar-menus {
+  backdrop-filter: blur(5.6px); /* 更柔和的模糊效果 */
+  background-color: rgba(255, 255, 255, 0.4); /* 稍微更高的透明度 */
+}
+
+#sidebar #menu-mask {
+  position: fixed;
+  z-index: 102;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1); /* 给遮罩层添加一定透明度 */
+}
+
+#sidebar #sidebar-menus .menus_items {
+  margin: 20px;
+  padding: 15px;
+  background: rgb(255 255 255 / 45%);
+  border-radius: 24px;
+}
+
+#nav {
+  transition: all 0.5s ease;
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+#nav.nav-hidden {
+  transform: translate3d(0, 100%, 0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-modal-content .modal-icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
 }

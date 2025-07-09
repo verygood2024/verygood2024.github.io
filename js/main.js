@@ -387,69 +387,90 @@ document.addEventListener('DOMContentLoaded', () => {
    * 滾動處理
    */
   const scrollFn = () => {
-    const $rightside = document.getElementById('rightside')
-    const innerHeight = window.innerHeight + 56
-    let initTop = 0
-    const $header = document.getElementById('page-header')
-    const isChatBtn = typeof chatBtn !== 'undefined'
-    const isShowPercent = GLOBAL_CONFIG.percent.rightside
+    const $rightside = document.getElementById('rightside');
+    const innerHeight = window.innerHeight + 56;
+    let initTop = 0;
+    const $header = document.getElementById('page-header');
+    const isChatBtn = typeof chatBtn !== 'undefined';
+    const isShowPercent = GLOBAL_CONFIG.percent.rightside;
+    const $sidebar = document.getElementById('sidebar-menus');
 
-    // 檢查文檔高度是否小於視窗高度
     const checkDocumentHeight = () => {
       if (document.body.scrollHeight <= innerHeight) {
-        $rightside.classList.add('rightside-show')
-        return true
+        $rightside.classList.add('rightside-show');
+        return true;
       }
-      return false
-    }
+      return false;
+    };
 
-    // 如果文檔高度小於視窗高度,直接返回
-    if (checkDocumentHeight()) return
+    if (checkDocumentHeight()) return;
 
-    // find the scroll direction
     const scrollDirection = currentTop => {
-      const result = currentTop > initTop // true is down & false is up
-      initTop = currentTop
-      return result
-    }
+      const result = currentTop > initTop;
+      initTop = currentTop;
+      return result;
+    };
 
-    let flag = ''
+    let flag = '';
     const scrollTask = btf.throttle(() => {
-      const currentTop = window.scrollY || document.documentElement.scrollTop
-      const isDown = scrollDirection(currentTop)
+      const currentTop = window.scrollY || document.documentElement.scrollTop;
+
+      // ✅ 如果菜单处于打开状态，跳过 nav 控制，仅允许滚动百分比等
+      if ($sidebar && $sidebar.classList.contains('open')) {
+        isShowPercent && rightsideScrollPercent(currentTop);
+        checkDocumentHeight();
+        return;
+      }
+
+      const isDown = scrollDirection(currentTop);
+
       if (currentTop > 56) {
         if (flag === '') {
-          $header.classList.add('nav-fixed')
-          $rightside.classList.add('rightside-show')
+          $header.classList.add('nav-fixed');
+          $rightside.classList.add('rightside-show');
         }
 
-        if (isDown) {
-          if (flag !== 'down') {
-            $header.classList.remove('nav-visible')
-            isChatBtn && window.chatBtn.hide()
-            flag = 'down'
-          }
+        if (navLockState === false) {
+          // 🔒 锁定隐藏
+          $header.classList.remove('nav-visible');
+          isChatBtn && window.chatBtn.hide();
+          flag = 'down';
+        } else if (navLockState === true) {
+          // 🔒 锁定显示（如果你以后又启用）
+          $header.classList.add('nav-visible');
+          isChatBtn && window.chatBtn.show();
+          flag = 'up';
         } else {
-          if (flag !== 'up') {
-            $header.classList.add('nav-visible')
-            isChatBtn && window.chatBtn.show()
-            flag = 'up'
+          // 🔓 自由控制
+          if (isDown) {
+            if (flag !== 'down') {
+              $header.classList.remove('nav-visible');
+              isChatBtn && window.chatBtn.hide();
+              flag = 'down';
+            }
+          } else {
+            if (flag !== 'up') {
+              $header.classList.add('nav-visible');
+              isChatBtn && window.chatBtn.show();
+              flag = 'up';
+            }
           }
         }
       } else {
-        flag = ''
+        // 滚动到顶部
+        flag = '';
         if (currentTop === 0) {
-          $header.classList.remove('nav-fixed', 'nav-visible')
+          $header.classList.remove('nav-fixed', 'nav-visible');
         }
-        $rightside.classList.remove('rightside-show')
+        $rightside.classList.remove('rightside-show');
       }
 
-      isShowPercent && rightsideScrollPercent(currentTop)
-      checkDocumentHeight()
-    }, 300)
+      isShowPercent && rightsideScrollPercent(currentTop);
+      checkDocumentHeight();
+    }, 300);
 
-    btf.addEventListenerPjax(window, 'scroll', scrollTask, { passive: true })
-  }
+    btf.addEventListenerPjax(window, 'scroll', scrollTask, { passive: true });
+  };
 
   /**
   * toc,anchor
@@ -479,6 +500,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))), 300)
         if (window.innerWidth < 900) {
           $cardTocLayout.classList.remove('open')
+          if (typeof updateInstallStatus === 'function') {
+            updateInstallStatus()
+          }
         }
       }
 
@@ -643,6 +667,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
           tocEle.style.transition = 'transform 0.3s ease-in-out';
           tocEle.classList.remove('open');
+          handleNavAndRightside({ hideNav: false, hideRightside: false });
+          updateInstallStatus(); // 同时更新 PWA 安装状态
 
           tocEle.addEventListener('transitionend', () => {
             tocEle.style.cssText = '';
@@ -694,6 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const tocEle = document.getElementById('card-toc');
       const modal = document.getElementById('settingsModal');
       const modalContent = modal.querySelector('.modal-content');
+      const banner = document.getElementById('pwaInstallBanner'); // 获取 PWA 安装横幅
 
       // 提前独立层处理
       tocEle.style.willChange = 'transform';
@@ -729,6 +756,20 @@ document.addEventListener('DOMContentLoaded', () => {
         tocEle.style.cssText = '';
         tocEle.style.willChange = '';
       }, { once: true });
+      
+      // 同时处理导航栏
+      handleNavAndRightside({ hideNav: true, hideRightside: false });
+
+      // 如果 TOC 打开并且横幅可见，则隐藏 PWA 安装横幅
+      if (tocEle.classList.contains('open') && banner && banner.style.display !== 'none') {
+        animateBannerHide(banner);
+      } else {
+        // 同时处理导航栏
+        handleNavAndRightside({ hideNav: false, hideRightside: false });
+
+        // 当 TOC 关闭时，重新显示 PWA 安装横幅
+        updateInstallStatus(); 
+      }
     },
     'chat-btn': () => { // Show chat
       window.chatBtnFn()
