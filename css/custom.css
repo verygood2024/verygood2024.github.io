@@ -1998,6 +1998,7 @@ input:-webkit-autofill {
   .search-bar-glass input {
     font-size: 14px;
     padding: 10px 16px;
+    width: 10px;
   }
 
   .search-bar-glass button {
@@ -2253,6 +2254,14 @@ html[data-theme='dark'] .card-anthology-overlay {
   padding: 15px;
   background: rgb(255 255 255 / 45%);
   border-radius: 24px;
+}
+
+html[data-theme='dark'] #sidebar #sidebar-menus .menus_items {
+  background: rgba(0, 0, 0, 0.4); /* 深色模式下的背景 */
+}
+
+html[data-theme='dark'] #sidebar #sidebar-menus {
+  background-color: rgba(0, 0, 0, 0.4); /* 深色模式下的背景颜色 */
 }
 
 #nav {
