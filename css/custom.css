@@ -1668,18 +1668,22 @@ html[data-theme='dark'] .site-data > a:hover div {
 }
 
 #aside-content #card-toc.open {
-    visibility: visible;
-    -ms-filter: none;
-    filter: none;
-    background: rgba(255, 255, 255, 0.4);
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
+  visibility: visible;
+  -ms-filter: none;
+  filter: none;
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#aside-content #card-toc {
+  background: rgba(255, 255, 255, 0.4);
+}
 
 @media screen and (max-width: 900px) {
   #aside-content #card-toc {
@@ -1727,6 +1731,11 @@ html[data-theme='dark'] .site-data > a:hover div {
 }
 
 html[data-theme='dark'] #aside-content #card-toc.open {
+    background-color: rgba(0, 0, 0, 0.5); /* 深色背景 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 更深的阴影 */
+}
+
+html[data-theme='dark'] #aside-content #card-toc {
     background-color: rgba(0, 0, 0, 0.5); /* 深色背景 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* 更深的阴影 */
 }
