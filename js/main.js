@@ -729,59 +729,61 @@ document.addEventListener('DOMContentLoaded', () => {
       $htmlDom.toggle('hide-aside')
     },
     'mobile-toc-button': (p, item) => {
-      const tocEle = document.getElementById('card-toc');
-      const modal = document.getElementById('settingsModal');
-      const modalContent = modal.querySelector('.modal-content');
-      const banner = document.getElementById('pwaInstallBanner'); // 获取 PWA 安装横幅
+      const tocEle = document.getElementById('card-toc');
+      const modal = document.getElementById('settingsModal');
+      const modalContent = modal.querySelector('.modal-content');
+      const banner = document.getElementById('pwaInstallBanner');
 
-      // 提前独立层处理
-      tocEle.style.willChange = 'transform';
-      modal.style.willChange = 'transform';
+      const isOpening = !tocEle.classList.contains('open'); // 预判接下来是“打开”还是“关闭”
 
-      // 同时关闭 modal
-      if (modal.style.display === 'flex') {
-        modal.classList.add('modalFadeOut');
-        modalContent.classList.add('modalFadeOut');
-        modalContent.addEventListener('animationend', () => {
-          modal.style.display = 'none';
-          modalContent.style.display = 'none';
-          modal.classList.remove('modalFadeOut');
-          modalContent.classList.remove('modalFadeOut');
-          modal.style.willChange = '';
-        }, { once: true });
-      }
+      // 🔹提前关闭导航栏
+      if (isOpening) {
+        handleNavAndRightside({ hideNav: true, hideRightside: false });
+      }
 
-      // 同时开始 TOC 动画
-      tocEle.style.transition = 'transform 0.3s ease-in-out';
+      // 🔸关闭 modal 动画
+      if (modal.style.display === 'flex') {
+        modal.classList.add('modalFadeOut');
+        modalContent.classList.add('modalFadeOut');
+        modalContent.addEventListener('animationend', () => {
+          modal.style.display = 'none';
+          modalContent.style.display = 'none';
+          modal.classList.remove('modalFadeOut');
+          modalContent.classList.remove('modalFadeOut');
+          modal.style.willChange = '';
+        }, { once: true });
+      }
 
-      const tocEleHeight = tocEle.clientHeight;
-      const btData = item ? item.getBoundingClientRect() : { bottom: 0, height: 0 };  // 默认值处理
-      const tocEleBottom = window.innerHeight - btData.bottom - 30;
+      // 🔸准备 TOC 动画
+      tocEle.style.willChange = 'transform';
+      tocEle.style.transition = 'transform 0.3s ease-in-out';
 
-      // 如果 item 存在，则计算 transformOrigin；否则使用默认值
-      if (tocEleHeight > tocEleBottom) {
-        tocEle.style.transformOrigin = `right ${tocEleHeight - tocEleBottom - btData.height / 2}px`;
-      }
+      const tocEleHeight = tocEle.clientHeight;
+      const btData = item ? item.getBoundingClientRect() : { bottom: 0, height: 0 };
+      const tocEleBottom = window.innerHeight - btData.bottom - 30;
 
-      tocEle.classList.toggle('open');
-      tocEle.addEventListener('transitionend', () => {
-        tocEle.style.cssText = '';
-        tocEle.style.willChange = '';
-      }, { once: true });
-      
-      // 同时处理导航栏
-      handleNavAndRightside({ hideNav: true, hideRightside: false });
+      if (tocEleHeight > tocEleBottom) {
+        tocEle.style.transformOrigin = `right ${tocEleHeight - tocEleBottom - btData.height / 2}px`;
+      }
 
-      // 如果 TOC 打开并且横幅可见，则隐藏 PWA 安装横幅
-      if (tocEle.classList.contains('open') && banner && banner.style.display !== 'none') {
-        animateBannerHide(banner);
-      } else {
-        // 同时处理导航栏
-        handleNavAndRightside({ hideNav: false, hideRightside: false });
+      tocEle.classList.toggle('open'); // 切换 open 状态
 
-        // 当 TOC 关闭时，重新显示 PWA 安装横幅
-        updateInstallStatus(); 
-      }
+      // 🔸动画结束后恢复样式 + 控制导航栏和 PWA 横幅
+      tocEle.addEventListener('transitionend', () => {
+        tocEle.style.cssText = '';
+        tocEle.style.willChange = '';
+
+        if (!tocEle.classList.contains('open')) {
+          // 🔸关闭 TOC 后恢复导航栏和横幅
+          handleNavAndRightside({ hideNav: false, hideRightside: false });
+          updateInstallStatus();
+        } else {
+          // 🔸打开 TOC 时隐藏横幅（此时导航已在前面隐藏）
+          if (banner && banner.style.display !== 'none') {
+            animateBannerHide(banner);
+          }
+        }
+      }, { once: true });
     },
     'chat-btn': () => { // Show chat
       window.chatBtnFn()

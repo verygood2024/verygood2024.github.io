@@ -30,20 +30,26 @@ document.addEventListener('DOMContentLoaded', function () {
     const { hideNav = false, hideRightside = false, hideModal = null, hidePwa = null } = options;
     const isFullPage = pageHeader.classList.contains('full_page');
     const isFixed = pageHeader.classList.contains('nav-fixed');
+    const isVisible = pageHeader.classList.contains('nav-visible');
     const pwaBanner = document.getElementById('pwaInstallBanner');
+    const toc = document.getElementById('card-toc');
 
-    /** 🔹 控制导航栏 **/
+    /** 🔹 导航栏控制 **/
     if (hideNav) {
       navLockState = false;
-      if (!(isFullPage && !isFixed)) {
+      pageHeader.classList.remove('nav-visible');  // 始终移除 nav-visible
+    } else {
+      navLockState = null;
+
+      // 仅当导航栏是固定状态时才允许显示 nav-visible
+      if (isFixed) {
+        pageHeader.classList.add('nav-visible');
+      } else {
+        // 防止非法状态出现（如果外部误加）
         pageHeader.classList.remove('nav-visible');
       }
-    } else {
-      navLockState = null; // 不锁定，恢复 scroll 控制
-      if (!(isFullPage && !isFixed)) {
-        pageHeader.classList.add('nav-visible'); // 显示一次
-      }
     }
+
 
     /** 🔹 控制右侧栏 **/
     if (hideRightside) {

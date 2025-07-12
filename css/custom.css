@@ -2143,7 +2143,7 @@ html[data-theme='dark'] .tooltip .tooltip-text {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   width: 100%;
-  max-width: 400px;
+  aspect-ratio: 1 / 1.618; 
   background: #fff;
 }
 
@@ -2199,11 +2199,16 @@ html[data-theme='dark'] .tooltip .tooltip-text {
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.4;
-  color: var(--text-highlight-color);
-
+  color: #000000;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+html[data-theme='dark'] .card-anthology-overlay h1,
+html[data-theme='dark'] .card-anthology-overlay h2,
+html[data-theme='dark'] .card-anthology-overlay h3 {
+  color: #ffffff;
 }
 
 
@@ -2212,8 +2217,12 @@ html[data-theme='dark'] .tooltip .tooltip-text {
   margin: 0.4em 0;
   font-size: 0.85rem;   /* 同正文 font-size */
   line-height: 1.5;
-  color: var(--font-color);
+  color: #000000;
   text-indent: 0;
+}
+
+html[data-theme='dark'] .card-anthology-overlay p {
+  color: #ffffff;
 }
 
 /* 强调文本 */
@@ -2297,4 +2306,10 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
 
 .toggle-btn {
   color: var(--font-color);
+}
+
+@media screen and (min-width: 901px) {
+  html[data-theme='dark'] #aside-content #card-toc {
+    background-color: var(--card-bg);
+  }
 }
