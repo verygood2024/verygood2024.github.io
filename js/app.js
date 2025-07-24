@@ -3,9 +3,14 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.addEventListener('message', event => {
     const data = event.data;
     if (data.type === 'showSnackbar' && data.text) {
-      // 通过主线程调用 btf.snackbarShow
       safeSnackbar(data.text);
     }
+  });
+
+  // 监听控制器变更，刷新页面
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    console.log('控制器变更，新 SW 已接管，刷新页面...');
+    window.location.reload();
   });
 
   // 注册 Service Worker
@@ -27,10 +32,14 @@ if ('serviceWorker' in navigator) {
         const newWorker = registration.installing;
         if (newWorker) {
           newWorker.onstatechange = () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              console.log('检测到新版本的 Service Worker，正在刷新页面...');
-              safeSnackbar('检测到新版本，正在自动刷新...');
-              window.location.reload();
+            if (newWorker.state === 'installed') {
+              if (navigator.serviceWorker.controller) {
+                // 旧 SW 控制页面，通知新 SW 跳过等待
+                newWorker.postMessage({ type: 'SKIP_WAITING' });
+                safeSnackbar('检测到新版本，正在自动刷新...');
+              } else {
+                safeSnackbar('内容已缓存，可离线使用');
+              }
             }
           };
         }
@@ -46,19 +55,18 @@ if ('serviceWorker' in navigator) {
     });
   }
 
-  // 安全地调用 btf.snackbarShow
+  // 安全调用 btf.snackbarShow
   function safeSnackbar(text) {
     if (typeof btf !== 'undefined' && typeof btf.snackbarShow === 'function') {
       btf.snackbarShow(text);
     } else {
       console.warn('btf.snackbarShow 不存在，尝试重试...');
-      // 延迟重试，直到 btf.snackbarShow 可用
       const interval = setInterval(() => {
         if (typeof btf !== 'undefined' && typeof btf.snackbarShow === 'function') {
           btf.snackbarShow(text);
-          clearInterval(interval);  // 成功后清除定时器
+          clearInterval(interval);
         }
-      }, 500); // 每500ms检查一次
+      }, 500);
     }
   }
 }
