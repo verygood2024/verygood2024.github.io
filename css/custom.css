@@ -2313,3 +2313,19 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
     background-color: var(--card-bg);
   }
 }
+
+#nav #blog-info .site-icon {
+  margin-right: 6px;
+  height: 36px;
+  vertical-align: middle;
+  border-radius: 24px;
+}
+
+@media (max-width: 768px) {
+    #page-header.full_page {
+      height: 280px
+    }
+    #page-header #scroll-down {
+      display: none
+    }
+}

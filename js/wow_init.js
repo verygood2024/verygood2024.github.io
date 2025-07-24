@@ -112,34 +112,50 @@ function playAnimation(el, direction) {
   }
 }
 
-// 切换按钮逻辑
-document.addEventListener('DOMContentLoaded', function () {
-  animationToggleBtn?.addEventListener('click', function () {
-    if (animationMode === 'repeat') {
-      animationMode = 'once';
-      btf.snackbarShow("已切换为动画单次模式。");
-    } else if (animationMode === 'once') {
-      animationMode = 'off';
-      btf.snackbarShow("已切换为动画关闭模式。");
-    } else {
-      animationMode = 'repeat';
-      btf.snackbarShow("已切换为动画反复模式。");
+// 按钮点击处理函数
+function handleAnimationToggle() {
+  if (animationMode === 'repeat') {
+    animationMode = 'once';
+    if (window.btf && window.btf.snackbarShow) {
+      window.btf.snackbarShow("已切换为动画单次模式。");
     }
+  } else if (animationMode === 'once') {
+    animationMode = 'off';
+    if (window.btf && window.btf.snackbarShow) {
+      window.btf.snackbarShow("已切换为动画关闭模式。");
+    }
+  } else {
+    animationMode = 'repeat';
+    if (window.btf && window.btf.snackbarShow) {
+      window.btf.snackbarShow("已切换为动画反复模式。");
+    }
+  }
 
-    localStorage.setItem('animationMode', animationMode);
+  localStorage.setItem('animationMode', animationMode);
 
-    postItemsA.forEach(el => {
-      el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
-    });
-
-    cardWidgets.forEach(el => {
-      el.classList.remove('animate__animated', 'animate__zoomIn');
-    });
-
-    initAnimationState();
-    forceCheckUntilStable();
+  // 重置所有动画类
+  postItemsA.forEach(el => {
+    el.classList.remove('animate__animated', 'animate__zoomIn', 'animate__zoomOut');
   });
-});
+
+  cardWidgets.forEach(el => {
+    if (el.id === 'card-toc' || el.classList.contains('toc')) return;
+    el.classList.remove('animate__animated', 'animate__zoomIn');
+  });
+
+  initAnimationState();
+  forceCheckUntilStable();
+}
+
+// 绑定按钮事件
+function bindToggleButton() {
+  if (animationToggleBtn) {
+    // 移除旧监听器避免重复绑定
+    animationToggleBtn.removeEventListener('click', handleAnimationToggle);
+    // 添加新监听器
+    animationToggleBtn.addEventListener('click', handleAnimationToggle);
+  }
+}
 
 // 强制持续检测直到稳定
 function forceCheckUntilStable(retryCount = 30) {
@@ -159,6 +175,7 @@ function forceCheckUntilStable(retryCount = 30) {
 function onPageLoad() {
   initializeElements();
   initAnimationState();
+  bindToggleButton(); // 确保每次加载都重新绑定
   forceCheckUntilStable();
 }
 
@@ -201,4 +218,5 @@ window.addEventListener('pageshow', event => {
 // 初始化调用
 initializeElements();
 initAnimationState();
+bindToggleButton(); // 添加按钮绑定
 forceCheckUntilStable();

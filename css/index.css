@@ -3759,7 +3759,9 @@ figure.highlight pre .javascript .function {
   -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
   box-shadow: 0 5px 6px -5px rgba(133,133,133,0.6);
 }
-#page-header.not-top-img #nav a,
+#page-header.not-top-img #nav .a {
+  color: var(--font-color);
+}
 #page-header.not-top-img #nav span.site-page,
 #page-header.not-top-img #nav .site-name {
   color: var(--font-color);
