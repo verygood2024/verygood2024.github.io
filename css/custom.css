@@ -1374,7 +1374,6 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
   z-index: 90;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 20px 24px;
@@ -1384,6 +1383,7 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
   max-width: 90vw;
   box-sizing: border-box;
   flex-wrap: nowrap;
+  align-items: center;
 }
 
 #browserChoiceModal .modal-content,#customConfirm .modal-content{
@@ -1477,7 +1477,7 @@ html[data-theme="dark"] .modal-content {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  color: #2d1d45;
+  color: #222;
   font-size: 16px;
   line-height: 35px;
   text-align: center;
