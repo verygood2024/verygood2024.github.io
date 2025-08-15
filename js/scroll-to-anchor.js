@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   const scrollToHash = (hash) => {
     const decodedHash = decodeURIComponent(hash);
-    const target = document.querySelector(decodedHash);
+    // 使用 getElementById 替代 querySelector，避免特殊字符问题
+    const target = document.getElementById(decodedHash.slice(1));
     if (!target) return;
 
     setTimeout(() => {
       smoothScrollTo(target, 600, 20); // 滚动时间：600ms，顶部偏移：20px
-    }, 100); // 等待 DOM 渲染完成
+    }, 100);
   };
 
   // 页面首次加载滚动到锚点
@@ -19,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     anchor.addEventListener("click", function (e) {
       const hash = this.getAttribute("href");
       const decodedHash = decodeURIComponent(hash);
-      const target = document.querySelector(decodedHash);
+      const target = document.getElementById(decodedHash.slice(1));
       if (target) {
         e.preventDefault();
         history.pushState(null, '', decodedHash);

@@ -4794,6 +4794,16 @@ figure.highlight pre .javascript .function {
 .medium-zoom-overlay {
   z-index: 99999 !important;
 }
+.mermaid-wrap {
+  margin: 0 0 20px;
+  text-align: center;
+}
+.mermaid-wrap > svg {
+  height: 100%;
+}
+pre > code.mermaid {
+  display: none;
+}
 .utterances,
 .fb-comments iframe {
   width: 100% !important;
@@ -9062,5 +9072,29 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
     }
     #page-header #scroll-down {
       display: none
+    }
+}
+
+.delyaRange {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.delyaRange span#deltaValue {
+    margin-left: 8px;
+    font-weight: bold;
+}
+
+/* 移动端适配：小屏幕上下排列 */
+@media (max-width: 480px) {
+    .delyaRange {
+        font-size: 14px;
+        flex-wrap: wrap;  /* 小屏幕换行 */
+    }
+    input[type="range"] {
+        min-width: 100px;
+        margin-top: 5px;
     }
 }
