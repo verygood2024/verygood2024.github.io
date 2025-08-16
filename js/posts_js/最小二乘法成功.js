@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         series: [
             { name: "演示数据坐标", color: 'rgba(119, 152, 191, .5)', data: scatterData },
-            { type: 'line', name: '拟合直线', color: '#e74c3c', data: lineData, marker: { enabled: false }, enableMouseTracking: false }
+            { type: 'line', name: '拟合直线', color: '#e74c3c', data: lineData, marker: { enabled: false }}
         ]
     });
 });

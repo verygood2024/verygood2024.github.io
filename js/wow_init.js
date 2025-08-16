@@ -1,10 +1,10 @@
 // 获取元素（仅初始化时查询一次）
 var postItemsA, cardWidgets, animationToggleBtn;
 
-// 初始化元素
+// 初始化元素（排除 mermaid-wrap）
 function initializeElements() {
-  postItemsA = document.querySelectorAll('.recent-post-item');
-  cardWidgets = document.querySelectorAll('.card-widget');
+  postItemsA = document.querySelectorAll('.recent-post-item:not(.mermaid-wrap)');
+  cardWidgets = document.querySelectorAll('.card-widget:not(.mermaid-wrap)');
   animationToggleBtn = document.getElementById('animationToggleBtn');
 }
 
@@ -150,9 +150,7 @@ function handleAnimationToggle() {
 // 绑定按钮事件
 function bindToggleButton() {
   if (animationToggleBtn) {
-    // 移除旧监听器避免重复绑定
     animationToggleBtn.removeEventListener('click', handleAnimationToggle);
-    // 添加新监听器
     animationToggleBtn.addEventListener('click', handleAnimationToggle);
   }
 }
@@ -175,7 +173,7 @@ function forceCheckUntilStable(retryCount = 30) {
 function onPageLoad() {
   initializeElements();
   initAnimationState();
-  bindToggleButton(); // 确保每次加载都重新绑定
+  bindToggleButton();
   forceCheckUntilStable();
 }
 
@@ -183,11 +181,9 @@ function onPageLoad() {
 window.addEventListener('load', onPageLoad);
 document.addEventListener('pjax:complete', onPageLoad);
 
-// 高速滚动增强触发
 window.addEventListener('wheel', handleScrollAnimation, { passive: true });
 window.addEventListener('touchmove', handleScrollAnimation, { passive: true });
 
-// scroll 节流 + 动画帧触发
 let scrollAnimationScheduled = false;
 function onScrollHandler() {
   if (!scrollAnimationScheduled) {
@@ -200,7 +196,6 @@ function onScrollHandler() {
 }
 window.addEventListener('scroll', onScrollHandler);
 
-// 各种加载状态补丁检测
 document.addEventListener('readystatechange', () => {
   if (document.readyState === 'interactive') {
     forceCheckUntilStable();
@@ -218,5 +213,5 @@ window.addEventListener('pageshow', event => {
 // 初始化调用
 initializeElements();
 initAnimationState();
-bindToggleButton(); // 添加按钮绑定
+bindToggleButton();
 forceCheckUntilStable();

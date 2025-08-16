@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data: scatterData
         },
         { 
-            name: 'f(x) = x', 
+            name: 'f(x)=x', 
             type: 'line', 
             color: '#e74c3c', 
             marker: { enabled: false }, 

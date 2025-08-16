@@ -18,6 +18,8 @@
 code, pre {
   font-size: var(--code-font-size);
 }
+
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html {
   line-height: 1.15;
@@ -33,7 +35,32 @@ main {
 }
 
 h1 {
+  font-size: 2.5em;
+  margin: .67em 0
+}
+
+h2 {
   font-size: 2em;
+  margin: .67em 0
+}
+
+h3 {
+  font-size: 1.8em;
+  margin: .67em 0
+}
+
+h4 {
+  font-size: 1.5em;
+  margin: .67em 0
+}
+
+h5 {
+  font-size: 1.3em;
+  margin: .67em 0
+}
+
+h6 {
+  font-size: 1em;
   margin: .67em 0
 }
 
@@ -197,6 +224,35 @@ template {
 
 [hidden] {
   display: none
+}
+h1 {
+  font-size: 2.5em;
+  margin: .67em 0
+}
+
+h2 {
+  font-size: 2em;
+  margin: .67em 0
+}
+
+h3 {
+  font-size: 1.8em;
+  margin: .67em 0
+}
+
+h4 {
+  font-size: 1.5em;
+  margin: .67em 0
+}
+
+h5 {
+  font-size: 1.3em;
+  margin: .67em 0
+}
+
+h6 {
+  font-size: 1em;
+  margin: .67em 0
 }
 .limit-one-line,
 .container .flink .flink-item-name,
@@ -4800,9 +4856,6 @@ figure.highlight pre .javascript .function {
 }
 .mermaid-wrap > svg {
   height: 100%;
-}
-pre > code.mermaid {
-  display: none;
 }
 .utterances,
 .fb-comments iframe {
