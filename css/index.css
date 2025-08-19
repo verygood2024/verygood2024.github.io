@@ -2362,7 +2362,7 @@ figure.highlight pre .javascript .function {
   flex: 1 auto;
   margin: 0 auto;
   padding: 40px 15px;
-  max-width: 1200px;
+  max-width: 100%;
   width: 100%;
 }
 @media screen and (max-width: 900px) {
@@ -2382,7 +2382,7 @@ figure.highlight pre .javascript .function {
 }
 @media screen and (min-width: 2000px) {
   .layout {
-    max-width: 70%;
+    max-width: 100%;
   }
 }
 .layout > div:first-child:not(.nc) {
@@ -7066,6 +7066,15 @@ html[data-theme='dark'] #sidebar #sidebar-menus .menus_items {
     }
   }
 
+  @media (min-width: 1439.98px) {
+    .recent-post-items.grid-layout {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    html.hide-aside .recent-post-items.grid-layout {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
   /* 1440px 及以上时：六列 */
   @media (min-width: 1440px) {
     html.hide-aside .recent-post-items.grid-layout {
@@ -7118,6 +7127,7 @@ html[data-theme='dark'] #sidebar #sidebar-menus .menus_items {
 }
 
 .sponsor-name,
+.rectangle-name,
 .install-message {
   font-size: 18px;
   font-weight: 600;
@@ -7129,6 +7139,11 @@ html[data-theme='dark'] #sidebar #sidebar-menus .menus_items {
 
 .sponsor-name i {
   color: #e25565;
+}
+
+.rectangle-name i {
+  position: relative;
+  top: 1px;
 }
 
 .pwa-install-button i {
@@ -9150,4 +9165,8 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
         min-width: 100px;
         margin-top: 5px;
     }
+}
+
+.layout {
+  max-width: 90%;
 }
