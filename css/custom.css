@@ -297,15 +297,18 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.04);
   padding: 16px 20px;
   text-decoration: none;
-  color: #333;
+  color: #99a9bf;
   transition: all 0.25s ease-in-out;
   margin-bottom: 2rem;
+  
 }
 
 .card-base:hover {
+  color: #99a9bf;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   border-color: #ccc;
+  text-decoration: underline;
 }
 
 /* logo 样式 */
@@ -2371,4 +2374,9 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
 
 .layout {
   max-width: 90%;
+}
+
+.hbe-input-up {
+	overflow: hidden;
+	padding-top: 2.8em !important;
 }
