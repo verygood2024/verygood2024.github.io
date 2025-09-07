@@ -20,6 +20,7 @@ function createRectangleCard(link, img, text, iconHTML, desc) {
 // JS 中使用示例
 document.addEventListener("DOMContentLoaded", function() {
   var post = document.getElementById("post");
+  if (window.location.pathname !== "/posts/cb559e1b.html") return;
   if (!post) return;
 
   var svgIcon = `
