@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
   `;
 
   var cardHTML = createRectangleCard(
-    "https://mp.weixin.qq.com/xxx",
+    "https://mp.weixin.qq.com/s/Q_mr9p6cAe3AmJwushRcRg",
     "/img/app_ic-playstore.png",
     "购买文章",
     svgIcon,
