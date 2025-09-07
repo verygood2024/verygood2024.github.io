@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v2.6.7';
+const CACHE_VERSION = 'v2.6.8';
 
 module.exports = {
   globDirectory: '.',
