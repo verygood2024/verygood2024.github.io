@@ -1,23 +1,23 @@
 (function () {
-  if (!('serviceWorker' in navigator)) return;
+    if (!('serviceWorker' in navigator)) return;
 
   // ---------------------------
-  // 🔹 版本号检测逻辑
+  // 🔹 正式版版本号检测逻辑
   // ---------------------------
   const LOCAL_CACHE_VERSION_KEY = 'hexo_cache_version';
 
   async function getRemoteVersion() {
     try {
-      const response = await fetch('/cache-version.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error('无法获取远程版本号');
+      // 固定使用正式版 JSON
+      const response = await fetch('/cache-version-prod.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error('无法获取远程正式版本号');
       const { version } = await response.json();
       return version;
     } catch (err) {
-      console.warn('远程版本获取失败:', err);
+      console.warn('远程正式版本获取失败:', err);
       return null;
     }
   }
-
   async function checkCacheVersion() {
     try {
       const remoteVersion = await getRemoteVersion();
