@@ -1,4 +1,15 @@
-const CACHE_VERSION = 'v2.6.13';
+const fs = require('fs');
+const path = require('path');
+
+// 读取动态生成的版本号
+const versionFile = path.join(__dirname, 'source', 'cache-version.json');
+let CACHE_VERSION = 'v2.6.13'; // 默认值
+try {
+  const data = JSON.parse(fs.readFileSync(versionFile, 'utf-8'));
+  CACHE_VERSION = data.version || CACHE_VERSION;
+} catch (e) {
+  console.warn('⚠️ 未找到 cache-version.json，使用默认版本号');
+}
 
 module.exports = {
   globDirectory: '.',
@@ -163,6 +174,16 @@ module.exports = {
             statuses: [0, 200]
           })
         ]
+      }
+    },
+    {
+      urlPattern: ({ request }) => request.destination === 'font' || /\.(eot|ttf|woff|woff2)$/i.test(request.url),
+      handler: 'CacheFirst',
+      options: {
+        cacheName: `hexo-${CACHE_VERSION}-font-cache`,
+        expiration: {
+          maxAgeSeconds: 30 * 24 * 60 * 60 // 保留一个月
+        }
       }
     }
   ]
