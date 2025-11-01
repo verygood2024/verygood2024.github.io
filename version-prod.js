@@ -1,1 +1,1 @@
-window.__SITE_VERSION__ = "2025.10.25 v2.7.3";
+window.__SITE_VERSION__ = "2025.11.01 v2.7.0";

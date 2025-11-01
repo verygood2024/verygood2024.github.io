@@ -8016,6 +8016,7 @@ html[data-theme="dark"] #pwaInstallBanner img {
 /*自定义提示框*/
 
 #browserChoiceModal,
+#browserChoiceModal-IOS,
 #customConfirm {
   position: fixed;
   inset: 0;
@@ -8037,11 +8038,13 @@ html[data-theme="dark"] #pwaInstallBanner img {
   to { -webkit-backdrop-filter: blur(0px); backdrop-filter: blur(0px); transform: scale(0); }
 }
 
-#browserChoiceModal .modal-content.show-animation {
+#browserChoiceModal .modal-content.show-animation,
+#browserChoiceModal-IOS .modal-content.show-animation {
   animation: browserChoiceModalFadeIn 0.5s ease forwards;
 }
 
-#browserChoiceModal .modal-content.hide-animation {
+#browserChoiceModal .modal-content.hide-animation,
+#browserChoiceModal-IOS .modal-content.hide-animation {
   animation: browserChoiceModalFadeOut 0.5s ease forwards;
 }
 
@@ -8091,7 +8094,7 @@ html[data-theme="dark"] #pwaInstallBanner img {
 }
 
 /* 暗黑模式 */
-html[data-theme="dark"] #browserChoiceModal,html[data-theme="dark"] #customConfirm {
+html[data-theme="dark"] #browserChoiceModal-IOS,html[data-theme="dark"] #browserChoiceModal,html[data-theme="dark"] #customConfirm {
   background: rgba(0, 0, 0, 0.6);
 }
 
@@ -8202,7 +8205,7 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
   align-items: center;
 }
 
-#browserChoiceModal .modal-content,#customConfirm .modal-content{
+#browserChoiceModal-IOS .modal-content, #browserChoiceModal .modal-content,#customConfirm .modal-content{
   display: flex;
   flex-direction: initial;
   align-items: center;

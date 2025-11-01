@@ -1,29 +1,24 @@
-// 发现有时会和当前页面重复，加一个判断
+let cachedUrls = null;
+
 function randomPost() {
-    fetch('/baidusitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
-        let ls = data.querySelectorAll('url loc');
-        while (true) {
-            let url = ls[Math.floor(Math.random() * ls.length)].innerHTML;
-            if (location.href === url) continue;
-            location.href = url;
-            btf.snackbarShow("已随机访问一篇文章~")
-            return;
-        }
-    })
+    if (!cachedUrls) {
+        fetch('/baidusitemap.xml')
+            .then(res => res.text())
+            .then(str => {
+                let data = (new window.DOMParser()).parseFromString(str, "text/xml");
+                cachedUrls = Array.from(data.querySelectorAll('url loc')).map(i => i.innerHTML);
+                redirectToRandomPost();
+            });
+    } else {
+        redirectToRandomPost();
+    }
 }
-// 阅读文章时看了一遍写的代码，发现加个数组和一个遍历完全没必要，改成下面这个即可。
-// function randomPost() {
-//     fetch('/baidusitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
-//         let ls = data.querySelectorAll('url loc');
-//         location.href = ls[Math.floor(Math.random() * ls.length)].innerHTML
-//     })
-// }
-// 旧代码
-// function randomPost() {
-    // fetch('/baidusitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
-    //     let ls = data.querySelectorAll('url loc');
-    //     let list = [];
-    //     ls.forEach(i => list.push(i.innerHTML))
-    //     location.href = list[Math.floor(Math.random() * ls.length)]
-    // })
-// }
+
+function redirectToRandomPost() {
+    let url;
+    do {
+        url = cachedUrls[Math.floor(Math.random() * cachedUrls.length)];
+    } while (location.href === url);
+    location.href = url;
+    btf.snackbarShow("已随机访问一篇文章~");
+}

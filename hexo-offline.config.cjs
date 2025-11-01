@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // 读取动态生成的版本号
-const versionFile = path.join(__dirname, 'source', 'cache-version.json');
-let CACHE_VERSION = 'v2.6.13'; // 默认值
+const versionFile = path.join(__dirname,'cache-version-prod.json');
+let CACHE_VERSION = 'v2.6.13';
 try {
   const data = JSON.parse(fs.readFileSync(versionFile, 'utf-8'));
   CACHE_VERSION = data.version || CACHE_VERSION;
@@ -13,13 +13,24 @@ try {
 
 module.exports = {
   globDirectory: '.',
-  swDest: `service-worker-${CACHE_VERSION}.js`,
+  swDest: `service-worker-${CACHE_VERSION}.js`,  // 生成带有版本号的 service worker 文件
 
   globPatterns: [
     '**/*.{js,css,png,jpg,jpeg,gif,svg,webp,eot,ttf,woff,woff2,mp3}'
   ],
   globIgnores: [
-    'hexo-offline.config.cjs'
+    'hexo-offline.config.cjs',
+    'cache-version-preview.json',
+    'cache-version-prod.json',
+    'service-worker-*.js',
+    'service-worker-*.js.map',
+    'version-counter.json',
+    'version-prod.js',
+    'version-preview.js',
+    'workbox-*.js',
+    'workbox-*.js.map',
+    'cache-version.json',
+    '**/app.js'
   ],
 
   maximumFileSizeToCacheInBytes: 209715200, // 200MB
@@ -29,6 +40,16 @@ module.exports = {
   cleanupOutdatedCaches: true,
 
   runtimeCaching: [
+    // 防止缓存版本号文件
+    {
+      urlPattern: /cache-version\.json$/,
+      handler: 'NetworkOnly',
+      options: {
+        cacheName: `hexo-${CACHE_VERSION}-version-cache`,
+      }
+    },
+
+    // 首页缓存
     {
       urlPattern: ({ url }) => url.pathname === '/' || url.pathname.endsWith('/index.html'),
       handler: 'NetworkFirst',
@@ -46,6 +67,7 @@ module.exports = {
         ]
       }
     },
+    // 普通 HTML 页面缓存
     {
       urlPattern: /\.html$/i,
       handler: 'StaleWhileRevalidate',
@@ -62,6 +84,7 @@ module.exports = {
         ]
       }
     },
+    // 分页缓存
     {
       urlPattern: /^\/page\/\d+\/index\.html$/i,
       handler: 'StaleWhileRevalidate',
@@ -78,6 +101,7 @@ module.exports = {
         ]
       }
     },
+    // 文章页面缓存
     {
       urlPattern: /^\/posts\/.*\.html$/i,
       handler: 'StaleWhileRevalidate',
@@ -94,6 +118,7 @@ module.exports = {
         ]
       }
     },
+    // 脚本和样式缓存
     {
       urlPattern: ({ request }) => request.destination === 'script' || request.destination === 'style',
       handler: 'StaleWhileRevalidate',
@@ -109,6 +134,7 @@ module.exports = {
         ]
       }
     },
+    // 图片缓存
     {
       urlPattern: ({ request }) => request.destination === 'image',
       handler: 'StaleWhileRevalidate',
@@ -120,6 +146,7 @@ module.exports = {
         }
       }
     },
+    // 音频缓存
     {
       urlPattern: ({ request }) =>
         request.destination === 'audio' || /\.(mp3|wav|ogg)$/i.test(request.url),
@@ -137,6 +164,7 @@ module.exports = {
         ]
       }
     },
+    // 外部 CDN 缓存
     {
       urlPattern: /^https:\/\/cdn\.yesandnoandperhaps\.cn\/.*/i,
       handler: 'CacheFirst',
@@ -147,6 +175,7 @@ module.exports = {
         }
       }
     },
+    // 外部 API 缓存
     {
       urlPattern: /^https:\/\/yesandnoandperhaps\.cn\/api\/.*/i,
       handler: 'NetworkFirst',
@@ -159,6 +188,7 @@ module.exports = {
         }
       }
     },
+    // 配置文件缓存
     {
       urlPattern: /hexo-offline\.config\.cjs$/i,
       handler: 'NetworkFirst',
@@ -176,6 +206,7 @@ module.exports = {
         ]
       }
     },
+    // 字体缓存
     {
       urlPattern: ({ request }) => request.destination === 'font' || /\.(eot|ttf|woff|woff2)$/i.test(request.url),
       handler: 'CacheFirst',
