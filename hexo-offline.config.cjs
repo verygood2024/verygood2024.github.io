@@ -48,68 +48,15 @@ module.exports = {
         cacheName: `hexo-${CACHE_VERSION}-version-cache`,
       }
     },
-
-    // 首页缓存
+    // 统一的 7 天缓存配置
     {
-      urlPattern: ({ url }) => url.pathname === '/' || url.pathname.endsWith('/index.html'),
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-homepage-cache`,
-        networkTimeoutSeconds: 10,
-        expiration: {
-          maxAgeSeconds: 15 * 60,
-          maxEntries: 1
-        },
-        plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
-            statuses: [0, 200]
-          })
-        ]
-      }
-    },
-    // 普通 HTML 页面缓存
-    {
-      urlPattern: /\.html$/i,
+      urlPattern: ({ url }) => url.pathname === '/' || url.pathname.endsWith('.html'),
       handler: 'StaleWhileRevalidate',
       options: {
-        cacheName: `hexo-${CACHE_VERSION}-pjax-html-cache`,
+        cacheName: `hexo-${CACHE_VERSION}-html-cache`,
         networkTimeoutSeconds: 10,
         expiration: {
-          maxAgeSeconds: 60 * 60
-        },
-        plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
-            statuses: [0, 200]
-          })
-        ]
-      }
-    },
-    // 分页缓存
-    {
-      urlPattern: /^\/page\/\d+\/index\.html$/i,
-      handler: 'StaleWhileRevalidate',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-pagination-cache`,
-        networkTimeoutSeconds: 10,
-        expiration: {
-          maxAgeSeconds: 60 * 60
-        },
-        plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
-            statuses: [0, 200]
-          })
-        ]
-      }
-    },
-    // 文章页面缓存
-    {
-      urlPattern: /^\/posts\/.*\.html$/i,
-      handler: 'StaleWhileRevalidate',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-article-cache`,
-        networkTimeoutSeconds: 10,
-        expiration: {
-          maxAgeSeconds: 60 * 60
+          maxAgeSeconds: 7 * 24 * 60 * 60, // 7 天
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -137,12 +84,11 @@ module.exports = {
     // 图片缓存
     {
       urlPattern: ({ request }) => request.destination === 'image',
-      handler: 'StaleWhileRevalidate',
+      handler: 'CacheFirst',
       options: {
         cacheName: `hexo-${CACHE_VERSION}-image-cache`,
         expiration: {
-          maxAgeSeconds: 3 * 24 * 60 * 60,
-          maxEntries: 100
+          maxAgeSeconds: 30 * 24 * 60 * 60,
         }
       }
     },
@@ -154,7 +100,7 @@ module.exports = {
       options: {
         cacheName: `hexo-${CACHE_VERSION}-audio-cache`,
         expiration: {
-          maxAgeSeconds: 7 * 24 * 60 * 60
+          maxAgeSeconds: 30 * 24 * 60 * 60
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
@@ -213,7 +159,7 @@ module.exports = {
       options: {
         cacheName: `hexo-${CACHE_VERSION}-font-cache`,
         expiration: {
-          maxAgeSeconds: 30 * 24 * 60 * 60 // 保留一个月
+          maxAgeSeconds: 3 * 30 * 24 * 60 * 60 // 保留三个月
         }
       }
     }

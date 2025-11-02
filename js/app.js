@@ -26,7 +26,7 @@
         try {
             const remoteVersion = await getRemoteVersion();
             const localVersion = localStorage.getItem(LOCAL_CACHE_VERSION_KEY);
-            const currentVersion = window.__SITE_VERSION__ || remoteVersion;
+            const currentVersion = window.__SITE_VERSION_PROD__ || remoteVersion;
 
             if (remoteVersion === null) {
                 console.log('没有新版本，使用当前版本:', currentVersion);
