@@ -44,41 +44,40 @@
     margin-top: 0px !important;
   }
 }
-/* 滚动条样式 */
-/* 滚动条整体 */
+/* 滚动条 */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-/* 滚动条轨道 */
 ::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.05); /* 极浅灰 */
+  background-color: rgba(0, 0, 0, 0.05);
   border-radius: 2em;
 }
 
-/* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2); /* 半透明深灰 */
-  background-image: none; /* 移除渐变条纹 */
+  background-color: rgba(0, 0, 0, 0.2);
+  background-image: none;
   border-radius: 2em;
 }
 
-/* 滚动条右下角 */
 ::-webkit-scrollbar-corner {
   background-color: transparent;
 }
 
 /* 文字选中时颜色 */
 ::-moz-selection {
-  color: inherit; /* 保持文字原色 */
-  background-color: rgba(0, 0, 0, 0.1); /* 淡灰色背景 */
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 ::selection {
   color: inherit;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+}
 
 /* 公众号 Start */
 
@@ -96,15 +95,6 @@
   border: none;
   height: 110px;
 }
-
-/* 如果你设置了aside 的 mobile 为 false，记得放开下面这段注释；
- 如果你设置了aside 的 mobile 为 true ，不需要改动。 */
-
-/* @media screen and (max-width: 768px) {
-  #aside-content .card-widget#card-wechat {
-      display: none !important;
-  }
-} */
 
 @media screen and (min-width: 1300px) {
   #aside-content .card-widget {
@@ -160,20 +150,20 @@
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 默认：手机端两列 */
+  grid-template-columns: repeat(2, 1fr); /* 手机端 */
   gap: 16px;
   padding: 10px;
   box-sizing: border-box;
 }
 
-/* 平板端（769px - 1024px）：三列 */
+/* 平板端（769px - 1024px） */
 @media (min-width: 768px) and (max-width: 1024px) {
   .card-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* 桌面端（1025px及以上）：四列 */
+/* 桌面端（1025px及以上） */
 @media (min-width: 1024px) {
   .card-container {
     grid-template-columns: repeat(5, 1fr);
@@ -228,22 +218,22 @@
 }
 
 /* 新首页面 */
-/* 首页关闭右侧侧边栏（index-layout 四列显示时） */
+/* 首页关闭右侧侧边栏（index-layout 显示时） */
 
 .recent-post-items.grid-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 默认：手机端两列 */
+  grid-template-columns: repeat(2, 1fr); /* 手机端 */
   gap: 1rem;
 }
 
 .recent-post-item .article-meta-wrap {
   flex-direction: column;
-  gap: 1rem; /* 可选：手机端更紧凑，非必须 */
+  gap: 1rem;
 }
 
 @media (min-width: 768px) {
   .recent-post-items.grid-layout {
-    grid-template-columns: repeat(3, 1fr); /* 平板端三列 */
+    grid-template-columns: repeat(3, 1fr); /* 平板端 */
   }
 
   .recent-post-item .article-meta-wrap {
@@ -254,7 +244,7 @@
 
 @media (min-width: 1024px) {
   .recent-post-items.grid-layout {
-    grid-template-columns: repeat(4, 1fr); /* 默认电脑端四列 */
+    grid-template-columns: repeat(4, 1fr); /* 电脑端 */
   }
 
   html.hide-aside .layout {
@@ -352,7 +342,7 @@
 }
 
 .pwa-install-button i {
-  color: #639ebc; /* PWA 安装按钮图标颜色 */
+  color: #639ebc;
 }
 
 .sponsor-desc {
@@ -388,8 +378,7 @@ html[data-theme="dark"] .sponsor-name i {
 }
 
 html[data-theme="dark"] .pwa-install-button i {
-  color: #7fa8bd; /* 柔和蓝 */
-  /* 或者更内敛：#6d99b1 / #80adc2 */
+  color: #7fa8bd;
 }
 
 
@@ -402,7 +391,7 @@ html[data-theme="dark"] .pwa-install-button i {
 }
 
 .menus_item i {
-  margin-right: 4px; /* 给图标和文字之间一点间距 */
+  margin-right: 4px;
   line-height: 1;
 }
 
@@ -1268,6 +1257,9 @@ html[data-theme="dark"] #pwaInstallBanner img {
   align-items: center;
 }
 
+html[data-theme="dark"] .modal-text {
+  color: #eee;
+}
 
 /* 垂直按钮组 */
 .modal-buttons-vertical {
@@ -1350,7 +1342,7 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
 
 
 /* 📱 移动端适配：垂直堆叠排布 */
-@media (max-width: 540px) {
+@media (max-width: 768px) {
   .modal-content {
     flex-direction: column !important;
     text-align: center;
@@ -1383,7 +1375,7 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
 #settingsModal {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1587,10 +1579,6 @@ html[data-theme='dark'] #nav .menus_items .menus_item .menus_item_child {
 }
 
 .relatedPosts > .relatedPosts-list > a {
-  border-radius: 24px;
-}
-
-#post .post-copyright {
   border-radius: 24px;
 }
 
@@ -2054,7 +2042,6 @@ input:-webkit-autofill {
   }
 }
 
-/* 超小屏适配（320px 以下） */
 @media (max-width: 375px) {
   .search-bar-glass input {
     font-size: 13px;
@@ -2078,17 +2065,17 @@ input:-webkit-autofill {
     padding: 4px;
   }
   .search-bar-glass input {
-    font-size: 11px; /* 可以适当再减小字体大小 */
-    padding: 5px 6px; /* 减小内边距 */
+    font-size: 11px;
+    padding: 5px 6px;
   }
   .search-bar-glass input::placeholder {
-    font-size: 11px; /* 如果需要，调整placeholder的字体大小 */
+    font-size: 11px;
   }
   .search-bar-glass button {
     width: 28px;
     height: 28px;
-    font-size: 11px; /* 调整按钮内图标的大小 */
-    margin-left: 5px; /* 减小按钮与输入框的间距 */
+    font-size: 11px;
+    margin-left: 5px;
   }
   .tooltip .tooltip-text {
     font-size: 10px;
@@ -2096,7 +2083,7 @@ input:-webkit-autofill {
   }
 }
 
-/* 黑暗模式整体适配 */
+/* 黑暗适配 */
 html[data-theme='dark'] .search-bar-glass {
   background-color: rgba(0, 0, 0, 0.3);
   border: 0.8px solid rgba(255, 255, 255, 0.2);
@@ -2168,7 +2155,6 @@ html[data-theme='dark'] .tooltip .tooltip-text {
   background: #fff;
 }
 
-/* 图片样式 */
 .card-widget.card-anthology-card img {
   display: block;
   width: 100%;
@@ -2178,12 +2164,10 @@ html[data-theme='dark'] .tooltip .tooltip-text {
   pointer-events: none;
 }
 
-/* 悬浮放大效果 */
 .card-widget.card-anthology-card:hover img {
   transform: scale(1.05);
 }
 
-/* 遮罩层：白色背景 + 模糊 + 无滚动条 */
 .card-anthology-overlay {
   position: absolute;
   top: 0;
@@ -2195,7 +2179,7 @@ html[data-theme='dark'] .tooltip .tooltip-text {
   backdrop-filter: blur(2px);
   color: #333;
   text-align: left;
-  font-size: 0.85rem;         /* ↓ 缩小正文字号 */
+  font-size: 0.85rem;
   line-height: 1.5;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -2203,16 +2187,14 @@ html[data-theme='dark'] .tooltip .tooltip-text {
   box-sizing: border-box;
   pointer-events: none;
   will-change: opacity;
-  overflow: hidden;           /* 🚫 关闭滚动条 */
-  text-overflow: ellipsis;   /* 可选：内容过多时尾部省略 */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* 悬浮显示遮罩 */
 .card-widget.card-anthology-card:hover .card-anthology-overlay {
   opacity: 1;
 }
 
-/* 小标题（h5 样式） */
 .card-anthology-overlay h1,
 .card-anthology-overlay h2,
 .card-anthology-overlay h3 {
@@ -2232,11 +2214,9 @@ html[data-theme='dark'] .card-anthology-overlay h3 {
   color: #ffffff;
 }
 
-
-/* 正文段落（无缩进 + 缩小字体） */
 .card-anthology-overlay p {
   margin: 0.4em 0;
-  font-size: 0.85rem;   /* 同正文 font-size */
+  font-size: 0.85rem;
   line-height: 1.5;
   color: #000000;
   text-indent: 0;
@@ -2246,19 +2226,16 @@ html[data-theme='dark'] .card-anthology-overlay p {
   color: #ffffff;
 }
 
-/* 强调文本 */
 .card-anthology-overlay strong {
   color: #c40000;
   font-weight: bold;
 }
 
-/* 斜体文本 */
 .card-anthology-overlay em {
   font-style: italic;
   color: #666;
 }
 
-/* 分段间视觉分隔（可选） */
 .card-anthology-overlay p + p {
   border-top: 1px dashed rgba(0, 0, 0, 0.08);
   padding-top: 0.4em;
@@ -2275,8 +2252,8 @@ html[data-theme='dark'] .card-anthology-overlay {
 /*menus*/
 
 #sidebar #sidebar-menus {
-  backdrop-filter: blur(5.6px); /* 更柔和的模糊效果 */
-  background-color: rgba(255, 255, 255, 0.4); /* 稍微更高的透明度 */
+  backdrop-filter: blur(5.6px);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 #sidebar #menu-mask {
@@ -2285,7 +2262,7 @@ html[data-theme='dark'] .card-anthology-overlay {
   display: none;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.1); /* 给遮罩层添加一定透明度 */
+  background: rgba(0, 0, 0, 0.1);
 }
 
 #sidebar #sidebar-menus .menus_items {
@@ -2296,11 +2273,11 @@ html[data-theme='dark'] .card-anthology-overlay {
 }
 
 html[data-theme='dark'] #sidebar #sidebar-menus .menus_items {
-  background: rgba(0, 0, 0, 0.4); /* 深色模式下的背景 */
+  background: rgba(0, 0, 0, 0.4);
 }
 
 html[data-theme='dark'] #sidebar #sidebar-menus {
-  background-color: rgba(0, 0, 0, 0.4); /* 深色模式下的背景颜色 */
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 #nav {
@@ -2363,11 +2340,11 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
     font-weight: bold;
 }
 
-/* 移动端适配：小屏幕上下排列 */
+/* 小屏幕上下排列 */
 @media (max-width: 480px) {
     .delyaRange {
         font-size: 14px;
-        flex-wrap: wrap;  /* 小屏幕换行 */
+        flex-wrap: wrap;
     }
     input[type="range"] {
         min-width: 100px;
@@ -2382,4 +2359,154 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
 .hbe-input-up {
 	overflow: hidden;
 	padding-top: 2.8em !important;
+}
+
+.modal-content-IOS{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#browserChoiceModal-IOS .modal-icon {
+  width: auto;
+  height: 50vw;
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#browserChoiceModal-IOS .modal-content {
+    flex-direction: column !important;
+    text-align: center;
+    align-items: center;
+    gap: 0px;
+  }
+
+#browserChoiceModal-IOS .modal-text {
+    text-align: center;
+  }
+
+#browserChoiceModal-IOS .modal-buttons-vertical {
+    width: 100%;
+    align-items: center;
+  }
+
+#browserChoiceModal-IOS .modal-buttons-vertical button {
+    width: 100%;
+  }
+
+/* ----------------------------
+   404
+----------------------------- */
+
+.type-404 .error-info .random-post-area {
+  margin-top: 1.2em;
+  width: 100%;
+}
+
+.type-404 .error-info .random-post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media screen and (min-width: 769px) {
+  .type-404 .error-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .type-404 .error-content .error-img {
+    flex: 1;
+    height: 100%;
+    width: auto;
+    max-width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .type-404 .error-content .error-info {
+    flex: 1;
+    max-width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+.type-404 .random-post-list li {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  box-shadow: var(--card-box-shadow);
+  transition: all 0.25s ease;
+  min-height: 36px;
+  flex-shrink: 0;
+}
+
+.type-404 .random-post-list li:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-hover-box-shadow);
+}
+
+.type-404 .random-post-list a {
+  color: var(--font-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: block;
+  word-break: break-word;
+}
+
+.type-404 .random-post-list a:hover {
+  color: var(--accent-color);
+}
+
+@media screen and (max-width: 768px) {
+  .type-404 .error-content {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .type-404 .error-content .error-img {
+    height: auto;
+    width: 100%;
+  }
+
+  .type-404 .error-content .error-info {
+    width: 100%;
+    height: 300px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .type-404 .error-info .random-post-area {
+    margin-top: 0.8em;
+  }
+}
+
+.type-404 .error-content .error-info .error_subtitle {
+  margin-top: auto !important;
+  word-break: break-word;
+  font-size: 1.6em;
+  -webkit-line-clamp: 2;
+}
+.post-copyright-m-info {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: auto;
+  column-gap: 12px;
 }

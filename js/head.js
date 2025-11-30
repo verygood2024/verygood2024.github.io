@@ -1,33 +1,28 @@
-function scrollHandler() {
-  var pageHeader = document.querySelector('#page-header.full_page');
-  if (pageHeader) {
-    var scrollTop = window.scrollY;
-    var maxHeight = 300;
-    var isMobile = window.innerWidth < 768;
+// 缓存 DOM 元素
+var pageHeader = document.querySelector('#page-header.full_page');
+var footer = document.querySelector('#footer');
 
+function scrollHandler() {
+  var scrollTop = window.scrollY;
+  var maxHeight = 300;
+  var isMobile = window.innerWidth < 768;
+
+  // 优化：避免重复查询 DOM 元素
+  if (pageHeader) {
     if (isMobile) {
       pageHeader.style.height = '280px';
+      pageHeader.style.borderRadius = '0 0 30px 30px';
     } else {
       pageHeader.style.height = '100vh';
-    }
-
-    // 移动设备：固定30px圆角
-    if (isMobile) {
-      pageHeader.style.borderRadius = '0 0 30px 30px';
-    } 
-    // 桌面设备：初始0 + 滚动增加圆角（最大35px）
-    else {
       var radius = Math.min((scrollTop / maxHeight) * 35, 35);
       pageHeader.style.borderRadius = `0 0 ${radius}px ${radius}px`;
     }
   }
 
-  // 页脚效果保持不变
-  var footer = document.querySelector('#footer');
   if (footer) {
+    // 页脚的背景和圆角变化
     footer.style.background = 'linear-gradient(to right, rgb(95, 158, 160), rgb(70, 130, 180), rgb(176, 196, 222))';
-    
-    var scrollTop = window.scrollY;
+
     var footerOffsetTop = footer.getBoundingClientRect().top + scrollTop;
     var docHeight = document.documentElement.scrollHeight;
     var winHeight = window.innerHeight;
@@ -46,9 +41,20 @@ function scrollHandler() {
   }
 }
 
+// 使用 requestAnimationFrame 以优化滚动事件的性能
+var scrollTimeout;
+function optimizedScrollHandler() {
+  if (!scrollTimeout) {
+    scrollTimeout = requestAnimationFrame(function() {
+      scrollHandler();
+      scrollTimeout = null;
+    });
+  }
+}
+
 // 添加事件监听器
 window.addEventListener('resize', scrollHandler);
-window.addEventListener('scroll', scrollHandler);
+window.addEventListener('scroll', optimizedScrollHandler);  // 使用优化后的滚动事件处理函数
 document.addEventListener('DOMContentLoaded', scrollHandler);
 document.addEventListener('pjax:end', scrollHandler);
 

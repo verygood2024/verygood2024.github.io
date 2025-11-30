@@ -30,7 +30,7 @@ module.exports = {
     'workbox-*.js',
     'workbox-*.js.map',
     'cache-version.json',
-    '**/app.js'
+    'js/app.js'
   ],
 
   maximumFileSizeToCacheInBytes: 209715200, // 200MB
@@ -72,7 +72,7 @@ module.exports = {
       options: {
         cacheName: `hexo-${CACHE_VERSION}-static-cache`,
         expiration: {
-          maxAgeSeconds: 7 * 24 * 60 * 60
+          maxAgeSeconds: 3 * 24 * 60 * 60
         },
         plugins: [
           new workbox.cacheableResponse.CacheableResponsePlugin({
