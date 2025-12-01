@@ -530,6 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
       $tocLink = $cardToc.querySelectorAll('.toc-link')
       $tocPercentage = $cardTocLayout.querySelector('.toc-percentage')
       isExpand = $cardToc.classList.contains('is-expand')
+      const tocEle = document.getElementById('card-toc');
 
       // toc元素點擊
       const tocItemClickFn = e => {
@@ -539,7 +540,21 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault()
         btf.scrollToDest(btf.getEleTop(document.getElementById(decodeURI(target.getAttribute('href')).replace('#', ''))), 300)
         if (window.innerWidth < 900) {
+          const tocBtn = document.querySelector('#rightside #mobile-toc-button');
+          const btData = tocBtn ? tocBtn.getBoundingClientRect() : { bottom: window.innerHeight / 2, height: 40 };
+          const tocEleHeight = tocEle.clientHeight;
+          const tocEleBottom = window.innerHeight - btData.bottom - 30;
+
+          if (tocEleHeight > tocEleBottom) {
+            tocEle.style.transformOrigin = `right ${tocEleHeight - tocEleBottom - btData.height / 2}px`;
+          }
+
+          tocEle.style.transition = 'transform 0.3s ease-in-out';
           $cardTocLayout.classList.remove('open')
+          handleNavAndRightside({ hideNav: false, hideRightside: false});
+          if (typeof updateInstallStatus === 'function') {
+            updateInstallStatus()
+          }
         }
       }
 
