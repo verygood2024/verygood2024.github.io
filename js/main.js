@@ -604,20 +604,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
       detectItem = currentIndex
 
-      if (isToc) {
-        $cardToc.querySelectorAll('.active').forEach(i => i.classList.remove('active'))
+      if (isToc && $cardToc) {
+        $cardToc.querySelectorAll('.active').forEach(i => i.classList.remove('active'));
 
-        if (currentId) {
-          const currentActive = $tocLink[currentIndex]
-          currentActive.classList.add('active')
+        if (currentId && $tocLink && $tocLink[currentIndex]) {
+          const currentActive = $tocLink[currentIndex];
+          currentActive.classList.add('active');
 
-          setTimeout(() => autoScrollToc(currentActive), 0)
+          setTimeout(() => {
+            if (typeof autoScrollToc === 'function') {
+              autoScrollToc(currentActive);
+            }
+          }, 0);
 
           if (!isExpand) {
-            let parent = currentActive.parentNode
-            while (!parent.matches('.toc')) {
-              if (parent.matches('li')) parent.classList.add('active')
-              parent = parent.parentNode
+            let parent = currentActive.parentNode;
+            while (parent && !parent.matches('.toc')) {
+              if (parent.matches('li')) parent.classList.add('active');
+              parent = parent.parentNode;
             }
           }
         }

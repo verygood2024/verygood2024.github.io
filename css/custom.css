@@ -899,82 +899,98 @@ html[data-theme="dark"] .submission-form-wrapper .checkbox-container a {
 /* supporters结束 */
 
 /* yesandno.pug */
-/* 渐变动画 */
+
 @keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0%   { background-position:   0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position:   0% 50%; }
 }
 
-/* 渐变加载器样式 */
+@keyframes slideY {
+  0%   { transform: translateY(60%); opacity: 0; }
+  50%  { transform: translateY(0);  opacity: 1; }
+  100% { transform: translateY(60%); opacity: 0; }
+}
+
 .gradient-loader {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: var(--font-family), serif;
-  font-size: 2rem;
-  color: white;
-  /*text-transform: uppercase;*/
-  background: linear-gradient(45deg, #5F9EA0, #4682B4, #B0C4DE);
-  background-size: 300% 300%;
-  animation: gradientAnimation 6s ease infinite;
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 9999;
-  overflow: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    45deg,
+    #5f9ea0,
+    #4682b4,
+    #b0c4de
+  );
+  background-size: 200% 200%;
+  animation: gradientAnimation 6s ease infinite;
+
+  font-size: clamp(14px, 1.2vw, 18px);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+
+  transition:
+    opacity .45s ease,
+    visibility 0s linear 0s;
 }
 
-/* 默认隐藏样式 */
 .gradient-loader.hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+
+  transition:
+    opacity .45s ease,
+    visibility 0s linear .45s;
 }
 
-/* 文本样式 */
-.loader-text {
-  position: relative;
-  z-index: 1;
+.loader-inner {
   text-align: center;
-  letter-spacing: 0.1em;
+  color: #fff;
+  font-family: var(--font-family), serif;
+  text-transform: uppercase;
+  user-select: none;
 }
 
-/* 文本滑动动画（使用 translateY） */
-.loader-text::after {
-  content: '正在加载中';
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 100%);
-  animation: slideY 3s ease-in-out infinite;
-  font-size: 1.5rem;
+.loader-title {
+  font-size: clamp(1.6em, 3vw, 2.6em);
+  letter-spacing: 0.08em;
+  line-height: 1.2;
 }
 
-@keyframes slideY {
-  0%   { transform: translate(-50%, 150%); opacity: 0; }
-  50%  { transform: translate(-50%, 100%); opacity: 1; }
-  100% { transform: translate(-50%, 150%); opacity: 0; }
+.loader-status {
+  margin-top: 0.5em;
+  font-size: clamp(1em, 2vw, 1.4em);
+  opacity: .85;
+  animation: slideY 2.5s ease-in-out infinite;
 }
 
-/* 响应式适配 */
-@media (max-width: 768px) {
+@media (max-width: 360px) {
   .gradient-loader {
-    font-size: 1.5rem;
-  }
-  .loader-text::after {
-    font-size: 1rem;
+    font-size: 13px;
   }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 1920px) {
   .gradient-loader {
-    font-size: 1rem;
+    font-size: 19px;
   }
-  .loader-text::after {
-    font-size: 0.8rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradient-loader {
+    animation: none;
+  }
+
+  .loader-status {
+    animation: none;
   }
 }
 
@@ -1327,7 +1343,7 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
 }
 
 .modalFadeIn {
-  animation: modalFadeIn 0.5s ease forwards;
+  animation: modalFadeIn 0.3s ease forwards;
   transform-origin: center center;
   position: fixed;
 }
@@ -1337,9 +1353,6 @@ html[data-theme="dark"] .modal-buttons-vertical button:hover {
   transform-origin: center center;
   position: fixed;
 }
-
-
-
 
 /* 📱 移动端适配：垂直堆叠排布 */
 @media (max-width: 768px) {
@@ -2509,4 +2522,60 @@ html[data-theme='dark'] #sidebar #sidebar-menus {
   grid-template-columns: auto auto;
   grid-auto-rows: auto;
   column-gap: 12px;
+}
+
+/* new_note_css */
+
+.new-note-container {
+    /* 修复背景变白：将不透明度从 0.08 提高到 0.12 - 0.15 */
+    --note-bg-opacity: 0.1;
+    --note-border-opacity: 1;
+    background-color: rgba(var(--note-rgb), var(--note-bg-opacity));
+    border-radius: 3px;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-left: 5px solid var(--note-accent);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 标题样式 */
+.new-note-header {
+    display: flex;
+    align-items: center;
+    color: var(--note-accent);
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    filter: brightness(0.9);
+}
+
+/* 黑夜模式 */
+html[data-theme='dark'] .new-note-container {
+    --note-bg-opacity: 0.15;
+    filter: brightness(1.1); /* 提亮 */
+}
+
+/* 正文颜色智能切换 */
+.new-note-body {
+    color: var(--font-color);
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+/* 图标 */
+.new-note-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.new-note-icon svg {
+    stroke: var(--note-accent);
+}
+
+.new-note-body p {
+    margin: 0 0 10px 0;
+}
+.new-note-body p:last-child {
+    margin: 0;
 }

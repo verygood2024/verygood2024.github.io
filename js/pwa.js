@@ -1,9 +1,11 @@
-let deferredPrompt = null;
+/* ---------------------------
+   全局变量（PJAX 安全）
+--------------------------- */
+window.deferredPrompt = window.deferredPrompt || null;
 
 /* ---------------------------
    设备与支持检测
 --------------------------- */
-
 function isIOS() {
   const ua = navigator.userAgent.toLowerCase();
   return /iphone|ipad|ipod/.test(ua);
@@ -50,9 +52,8 @@ async function shouldPromptBrowserChoice() {
 }
 
 /* ---------------------------
-   模态窗口控制部分
+   模态窗口控制
 --------------------------- */
-
 function bindModalEvents(modal, reopenSettings = false) {
   if (!modal) return;
   const modalContent = modal.querySelector('.modal-content');
@@ -92,18 +93,18 @@ function openSettingsModal() {
 /* ---------------------------
    安装提示逻辑
 --------------------------- */
-
 function handleInstallPrompt() {
-  if (!deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then((choiceResult) => {
+  if (!window.deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
+
+  window.deferredPrompt.prompt();
+  window.deferredPrompt.userChoice.then((choiceResult) => {
     if (choiceResult.outcome === 'accepted') {
       console.log('✅ 用户接受安装');
       sessionStorage.setItem('pwaInstalled', 'true');
     } else {
       console.log('❌ 用户取消安装');
     }
-    deferredPrompt = null;
+    window.deferredPrompt = null;
     updateInstallStatus();
   });
 }
@@ -145,14 +146,14 @@ async function updateInstallStatus() {
   if (installBtn) {
     installBtn.style.display = 'inline-block';
     installBtn.onclick = async () => {
-      if (!deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
+      if (!window.deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
       handleInstallPrompt();
     };
   }
 
   if (altBtn) {
     altBtn.onclick = async () => {
-      if (!deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
+      if (!window.deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
       handleInstallPrompt();
     };
   }
@@ -161,7 +162,6 @@ async function updateInstallStatus() {
 /* ---------------------------
    横幅与按钮逻辑
 --------------------------- */
-
 function setupInstallButtons() {
   const confirmBtn = document.getElementById('pwaInstallConfirm');
   const dismissBtn = document.getElementById('pwaInstallDismiss');
@@ -169,7 +169,7 @@ function setupInstallButtons() {
 
   if (confirmBtn) {
     confirmBtn.onclick = async () => {
-      if (!deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
+      if (!window.deferredPrompt) return btf.snackbarShow("安装尚未准备好或已完成，请稍后再试。");
       handleInstallPrompt();
     };
   }
@@ -198,8 +198,7 @@ function animateBannerHide(banner) {
 /* ---------------------------
    页面初始化与事件绑定
 --------------------------- */
-
-window.addEventListener('DOMContentLoaded', () => {
+function initPWA() {
   const modals = [
     document.getElementById('browserChoiceModal'),
     document.getElementById('browserChoiceModal-IOS')
@@ -220,18 +219,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
   updateInstallStatus();
   setupInstallButtons();
-});
+}
 
+// DOMReady 初始化
+window.addEventListener('DOMContentLoaded', initPWA);
+
+// 捕获 PWA 安装事件
 window.addEventListener('beforeinstallprompt', (e) => {
   console.log('📦 捕获 beforeinstallprompt');
   e.preventDefault();
-  deferredPrompt = e;
+  window.deferredPrompt = e;
   updateInstallStatus();
 });
 
 window.addEventListener('appinstalled', () => {
   console.log('✅ 安装完成');
-  deferredPrompt = null;
+  window.deferredPrompt = null;
   sessionStorage.setItem('pwaInstalled', 'true');
   updateInstallStatus();
 });
@@ -240,7 +243,7 @@ document.addEventListener('visibilitychange', () => {
   if (document.visibilityState === 'visible') updateInstallStatus();
 });
 
+// PJAX 完成后重新初始化按钮和状态
 document.addEventListener('pjax:complete', () => {
-  updateInstallStatus();
-  setupInstallButtons();
+  initPWA();
 });
