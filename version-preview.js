@@ -1,1 +1,1 @@
-window.__SITE_VERSION__ = "2026.07.04 vv2.7.2";
+window.__SITE_VERSION__ = "2026.07.04 vv2.7.1";
