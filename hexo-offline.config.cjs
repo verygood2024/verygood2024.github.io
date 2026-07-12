@@ -1,167 +1,156 @@
 const fs = require('fs');
 const path = require('path');
 
-// 读取动态生成的版本号
-const versionFile = path.join(__dirname,'cache-version-prod.json');
-let CACHE_VERSION = 'v2.6.13';
+const rootDir = path.resolve(__dirname, '..');
+const publicDir = path.join(rootDir, 'public');
+const versionFile = path.join(publicDir, 'cache-version-prod.json');
+
+let CACHE_VERSION = 'v2.7.1';
+
 try {
-  const data = JSON.parse(fs.readFileSync(versionFile, 'utf-8'));
-  CACHE_VERSION = data.version || CACHE_VERSION;
+    const data = JSON.parse(fs.readFileSync(versionFile, 'utf-8'));
+    CACHE_VERSION = data.version || CACHE_VERSION;
 } catch (e) {
-  console.warn('⚠️ 未找到 cache-version.json，使用默认版本号');
+    console.warn('[Workbox] 未找到版本文件，使用默认版本:', CACHE_VERSION);
 }
 
 module.exports = {
-  globDirectory: '.',
-  swDest: `service-worker-${CACHE_VERSION}.js`,  // 生成带有版本号的 service worker 文件
+    // Hexo生成目录
+    globDirectory: publicDir,
+    // 输出 Service Worker
+    swDest: path.join(publicDir, 'service-worker.js'),
+    // 只预缓存核心资源，图片、音频走runtime缓存
+    globPatterns: [
+        '**/*.{js,css,svg,eot,ttf,woff,woff2}'
+    ],
+    globIgnores: [
+        'cache-version*.json',
+        'service-worker.js',
+        'workbox-*.js',
+        'workbox-*.js.map'
+    ],
+    // 最大单文件缓存大小
+    maximumFileSizeToCacheInBytes: 209715200,
+    // 新SW立即接管
+    skipWaiting: true,
+    clientsClaim: true,
+    cleanupOutdatedCaches: true,
 
-  globPatterns: [
-    '**/*.{js,css,png,jpg,jpeg,gif,svg,webp,eot,ttf,woff,woff2,mp3}'
-  ],
-  globIgnores: [
-    'hexo-offline.config.cjs',
-    'cache-version-preview.json',
-    'cache-version-prod.json',
-    'service-worker-*.js',
-    'service-worker-*.js.map',
-    'version-counter.json',
-    'version-prod.js',
-    'version-preview.js',
-    'workbox-*.js',
-    'workbox-*.js.map',
-    'cache-version.json',
-    'js/app.js'
-  ],
+    runtimeCaching: [
+        // =========================
+        // 版本检测文件，永远请求最新
+        // =========================
+        {
+            urlPattern: /cache-version-prod\.json$/,
+            handler: 'NetworkOnly'
+        },
 
-  maximumFileSizeToCacheInBytes: 209715200, // 200MB
+        // =========================
+        // HTML页面，网络优先，GitHub失败使用缓存
+        // =========================
+        {
+            urlPattern: ({request, url}) => {
+                return (
+                    request.mode === 'navigate' ||
+                    url.pathname === '/' ||
+                    url.pathname.endsWith('.html')
+                );
+            },
+            handler: 'NetworkFirst',
+            options: {
+                cacheName: `hexo-${CACHE_VERSION}-html`,
+                networkTimeoutSeconds: 8,
+                expiration: {
+                    maxAgeSeconds: 7 * 24 * 60 * 60
+                }
+            }
+        },
 
-  skipWaiting: true,
-  clientsClaim: true,
-  cleanupOutdatedCaches: true,
+        // =========================
+        // JS CSS
+        // =========================
+        {
+            urlPattern: ({request}) => {
+                return (
+                    request.destination === 'script' ||
+                    request.destination === 'style'
+                );
+            },
+            handler: 'StaleWhileRevalidate',
+            options: {
+                cacheName: `hexo-${CACHE_VERSION}-static`,
+                expiration: {
+                    maxAgeSeconds: 180 * 24 * 60 * 60
+                }
+            }
+        },
 
-  runtimeCaching: [
-    // 防止缓存版本号文件
-    {
-      urlPattern: /cache-version\.json$/,
-      handler: 'NetworkOnly',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-version-cache`,
-      }
-    },
-    // 统一的 7 天缓存配置
-    {
-      urlPattern: ({ url }) => url.pathname === '/' || url.pathname.endsWith('.html'),
-      handler: 'StaleWhileRevalidate',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-html-cache`,
-        networkTimeoutSeconds: 10,
-        expiration: {
-          maxAgeSeconds: 7 * 24 * 60 * 60, // 7 天
+        // =========================
+        // 图片，浏览后缓存
+        // =========================
+        {
+            urlPattern: ({request}) => {
+                return request.destination === 'image';
+            },
+            handler: 'CacheFirst',
+            options: {
+                cacheName: `hexo-${CACHE_VERSION}-images`,
+                expiration: {
+                    maxAgeSeconds: 365 * 24 * 60 * 60
+                }
+            }
         },
-        plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
-            statuses: [0, 200]
-          })
-        ]
-      }
-    },
-    // 脚本和样式缓存
-    {
-      urlPattern: ({ request }) => request.destination === 'script' || request.destination === 'style',
-      handler: 'StaleWhileRevalidate',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-static-cache`,
-        expiration: {
-          maxAgeSeconds: 3 * 24 * 60 * 60
+
+        // =========================
+        // 字体
+        // =========================
+        {
+            urlPattern: ({request}) => {
+                return (
+                    request.destination === 'font' ||
+                    /\.(woff2?|ttf|eot)$/i.test(request.url)
+                );
+            },
+            handler: 'CacheFirst',
+            options: {
+                cacheName: `hexo-${CACHE_VERSION}-fonts`,
+                expiration: {
+                    maxAgeSeconds: 365 * 24 * 60 * 60
+                }
+            }
         },
-        plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
-            statuses: [0, 200]
-          })
-        ]
-      }
-    },
-    // 图片缓存
-    {
-      urlPattern: ({ request }) => request.destination === 'image',
-      handler: 'CacheFirst',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-image-cache`,
-        expiration: {
-          maxAgeSeconds: 30 * 24 * 60 * 60,
-        }
-      }
-    },
-    // 音频缓存
-    {
-      urlPattern: ({ request }) =>
-        request.destination === 'audio' || /\.(mp3|wav|ogg)$/i.test(request.url),
-      handler: 'StaleWhileRevalidate',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-audio-cache`,
-        expiration: {
-          maxAgeSeconds: 30 * 24 * 60 * 60
+
+        // =========================
+        // 音频
+        // =========================
+        {
+            urlPattern: ({request}) => {
+                return (
+                    request.destination === 'audio' ||
+                    /\.(mp3|wav|ogg)$/i.test(request.url)
+                );
+            },
+            handler: 'CacheFirst',
+            options: {
+                cacheName: `hexo-${CACHE_VERSION}-audio`,
+                expiration: {
+                    maxAgeSeconds: 180 * 24 * 60 * 60
+                }
+            }
         },
-        plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
-            statuses: [0, 200]
-          }),
-          new workbox.rangeRequests.RangeRequestsPlugin()
-        ]
-      }
-    },
-    // 外部 CDN 缓存
-    {
-      urlPattern: /^https:\/\/cdn\.yesandnoandperhaps\.cn\/.*/i,
-      handler: 'CacheFirst',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-cdn-cache`,
-        expiration: {
-          maxAgeSeconds: 30 * 24 * 60 * 60
+
+        // =========================
+        // 自建CDN
+        // =========================
+        {
+            urlPattern: /^https:\/\/cdn\.yesandnoandperhaps\.cn\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+                cacheName: `hexo-${CACHE_VERSION}-cdn`,
+                expiration: {
+                    maxAgeSeconds: 365 * 24 * 60 * 60
+                }
+            }
         }
-      }
-    },
-    // 外部 API 缓存
-    {
-      urlPattern: /^https:\/\/yesandnoandperhaps\.cn\/api\/.*/i,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-api-cache`,
-        networkTimeoutSeconds: 5,
-        expiration: {
-          maxEntries: 100,
-          maxAgeSeconds: 60 * 60
-        }
-      }
-    },
-    // 配置文件缓存
-    {
-      urlPattern: /hexo-offline\.config\.cjs$/i,
-      handler: 'NetworkFirst',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-config-cache`,
-        networkTimeoutSeconds: 10,
-        expiration: {
-          maxEntries: 1,
-          maxAgeSeconds: 24 * 60 * 60
-        },
-        plugins: [
-          new workbox.cacheableResponse.CacheableResponsePlugin({
-            statuses: [0, 200]
-          })
-        ]
-      }
-    },
-    // 字体缓存
-    {
-      urlPattern: ({ request }) => request.destination === 'font' || /\.(eot|ttf|woff|woff2)$/i.test(request.url),
-      handler: 'CacheFirst',
-      options: {
-        cacheName: `hexo-${CACHE_VERSION}-font-cache`,
-        expiration: {
-          maxAgeSeconds: 3 * 30 * 24 * 60 * 60 // 保留三个月
-        }
-      }
-    }
-  ]
+    ]
 };
