@@ -23,7 +23,7 @@
 
             try {
                 const response = await fetch(
-                    `/cache-version-prod.json?t=${Date.now()}`,
+                    `/cache-version-prod.json`,
                     {
                         cache: 'no-store'
                     }
