@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       this.closeSettingsModal();
 
       this.showConfirm(
-        '确认要清除本站所有缓存吗？<br>此操作将会清除缓存数据、localStorage、sessionStorage，且不可恢复。',
+        '',
         async () => {
           try {
             await this.closeAnimation();
@@ -44,6 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const keys = await caches.keys();
             for (const key of keys) {
               await caches.delete(key);
+            }
+
+            if ('serviceWorker' in navigator) {
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                for (const registration of registrations) {
+                    await registration.unregister();
+                    console.log('Service Worker 已注销:', registration.scope);
+                }
             }
 
             await this.fetchLatestContent();
@@ -79,8 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
     showConfirm(message, onConfirm) {
       handleNavAndRightside({ hideNav: true, hideRightside: true, hidePwa: true });
       this._onConfirm = onConfirm;
-      this._modal.querySelector('.custom-modal-content p').innerHTML = message;
-
+      if (message && message.trim() !== '') {
+        this._modal.querySelector('.custom-modal-content p').innerHTML = message;
+      }
       this._modal.style.display = 'flex';
 
       const btnRect = this._triggerBtn.getBoundingClientRect();
