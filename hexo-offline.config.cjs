@@ -14,12 +14,26 @@ try {
     console.warn('[Workbox] 未找到版本文件，使用默认版本:', CACHE_VERSION);
 }
 
+// ===============================
+// 只允许正常响应进入缓存
+// 防止404/500等污染缓存
+// ===============================
+const validResponsePlugin = {
+    cacheWillUpdate: async ({response}) => {
+        if (response.status === 200 || response.status === 0) {
+            return response;
+        }
+        console.warn('[SW] 跳过异常缓存:', response.status, response.url);
+        return null;
+    }
+};
+
 module.exports = {
     // Hexo生成目录
     globDirectory: publicDir,
-    // 输出 Service Worker
+    // 输出Service Worker
     swDest: path.join(publicDir, 'service-worker.js'),
-    // 只预缓存核心资源，图片、音频走runtime缓存
+    // 只预缓存核心文件，图片、音频运行时缓存
     globPatterns: [
         '**/*.{js,css,svg,eot,ttf,woff,woff2}'
     ],
@@ -29,16 +43,15 @@ module.exports = {
         'workbox-*.js',
         'workbox-*.js.map'
     ],
-    // 最大单文件缓存大小
     maximumFileSizeToCacheInBytes: 209715200,
-    // 新SW立即接管
     skipWaiting: true,
     clientsClaim: true,
     cleanupOutdatedCaches: true,
 
     runtimeCaching: [
         // =========================
-        // 版本检测文件，永远请求最新
+        // 版本文件
+        // 永远获取最新
         // =========================
         {
             urlPattern: /cache-version-prod\.json$/,
@@ -46,7 +59,8 @@ module.exports = {
         },
 
         // =========================
-        // HTML页面，网络优先，GitHub失败使用缓存
+        // HTML页面
+        // 网络优先，GitHub失败使用缓存
         // =========================
         {
             urlPattern: ({request, url}) => {
@@ -59,15 +73,19 @@ module.exports = {
             handler: 'NetworkFirst',
             options: {
                 cacheName: `hexo-${CACHE_VERSION}-html`,
-                networkTimeoutSeconds: 8,
+                networkTimeoutSeconds: 5,
                 expiration: {
                     maxAgeSeconds: 7 * 24 * 60 * 60
-                }
+                },
+                plugins: [
+                    validResponsePlugin
+                ]
             }
         },
 
         // =========================
         // JS CSS
+        // 后台更新
         // =========================
         {
             urlPattern: ({request}) => {
@@ -81,23 +99,28 @@ module.exports = {
                 cacheName: `hexo-${CACHE_VERSION}-static`,
                 expiration: {
                     maxAgeSeconds: 180 * 24 * 60 * 60
-                }
+                },
+                plugins: [
+                    validResponsePlugin
+                ]
             }
         },
 
         // =========================
-        // 图片，浏览后缓存
+        // 图片
+        // 浏览后缓存
         // =========================
         {
-            urlPattern: ({request}) => {
-                return request.destination === 'image';
-            },
+            urlPattern: ({request}) => request.destination === 'image',
             handler: 'CacheFirst',
             options: {
                 cacheName: `hexo-${CACHE_VERSION}-images`,
                 expiration: {
                     maxAgeSeconds: 365 * 24 * 60 * 60
-                }
+                },
+                plugins: [
+                    validResponsePlugin
+                ]
             }
         },
 
@@ -116,7 +139,10 @@ module.exports = {
                 cacheName: `hexo-${CACHE_VERSION}-fonts`,
                 expiration: {
                     maxAgeSeconds: 365 * 24 * 60 * 60
-                }
+                },
+                plugins: [
+                    validResponsePlugin
+                ]
             }
         },
 
@@ -135,7 +161,10 @@ module.exports = {
                 cacheName: `hexo-${CACHE_VERSION}-audio`,
                 expiration: {
                     maxAgeSeconds: 180 * 24 * 60 * 60
-                }
+                },
+                plugins: [
+                    validResponsePlugin
+                ]
             }
         },
 
@@ -149,7 +178,10 @@ module.exports = {
                 cacheName: `hexo-${CACHE_VERSION}-cdn`,
                 expiration: {
                     maxAgeSeconds: 365 * 24 * 60 * 60
-                }
+                },
+                plugins: [
+                    validResponsePlugin
+                ]
             }
         }
     ]
