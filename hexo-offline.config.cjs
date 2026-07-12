@@ -41,7 +41,9 @@ module.exports = {
         'cache-version*.json',
         'service-worker.js',
         'workbox-*.js',
-        'workbox-*.js.map'
+        'workbox-*.js.map',
+        'version-prod.js',
+        'version-preview.js'
     ],
     maximumFileSizeToCacheInBytes: 209715200,
     skipWaiting: true,
@@ -72,7 +74,7 @@ module.exports = {
             },
             handler: 'NetworkFirst',
             options: {
-                cacheName: `hexo-${CACHE_VERSION}-html`,
+                cacheName: `hexo-html`,
                 networkTimeoutSeconds: 5,
                 expiration: {
                     maxAgeSeconds: 7 * 24 * 60 * 60
@@ -96,7 +98,7 @@ module.exports = {
             },
             handler: 'StaleWhileRevalidate',
             options: {
-                cacheName: `hexo-${CACHE_VERSION}-static`,
+                cacheName: `hexo-static`,
                 expiration: {
                     maxAgeSeconds: 180 * 24 * 60 * 60
                 },
@@ -112,9 +114,9 @@ module.exports = {
         // =========================
         {
             urlPattern: ({request}) => request.destination === 'image',
-            handler: 'CacheFirst',
+            handler: 'StaleWhileRevalidate',
             options: {
-                cacheName: `hexo-${CACHE_VERSION}-images`,
+                cacheName: `hexo-images`,
                 expiration: {
                     maxAgeSeconds: 365 * 24 * 60 * 60
                 },
@@ -136,7 +138,7 @@ module.exports = {
             },
             handler: 'CacheFirst',
             options: {
-                cacheName: `hexo-${CACHE_VERSION}-fonts`,
+                cacheName: `hexo-fonts`,
                 expiration: {
                     maxAgeSeconds: 365 * 24 * 60 * 60
                 },
@@ -158,7 +160,7 @@ module.exports = {
             },
             handler: 'CacheFirst',
             options: {
-                cacheName: `hexo-${CACHE_VERSION}-audio`,
+                cacheName: `hexo-audio`,
                 expiration: {
                     maxAgeSeconds: 180 * 24 * 60 * 60
                 },
@@ -175,7 +177,7 @@ module.exports = {
             urlPattern: /^https:\/\/cdn\.yesandnoandperhaps\.cn\/.*/i,
             handler: 'CacheFirst',
             options: {
-                cacheName: `hexo-${CACHE_VERSION}-cdn`,
+                cacheName: `hexo-cdn`,
                 expiration: {
                     maxAgeSeconds: 365 * 24 * 60 * 60
                 },
