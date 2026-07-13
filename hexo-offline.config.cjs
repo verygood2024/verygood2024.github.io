@@ -43,7 +43,8 @@ module.exports = {
         'workbox-*.js',
         'workbox-*.js.map',
         'version-prod.js',
-        'version-preview.js'
+        'version-preview.js',
+        'app.js'
     ],
     maximumFileSizeToCacheInBytes: 209715200,
     skipWaiting: true,
