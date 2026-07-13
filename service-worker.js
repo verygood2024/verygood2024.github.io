@@ -2152,6 +2152,405 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
     addRoute(options);
   }
 
+  // node_modules/workbox-strategies/utils/messages.js
+  var messages2 = {
+    strategyStart: (strategyName, request) => `Using ${strategyName} to respond to '${getFriendlyURL(request.url)}'`,
+    printFinalResponse: (response) => {
+      if (response) {
+        logger.groupCollapsed(`View the final response here.`);
+        logger.log(response || "[No response returned]");
+        logger.groupEnd();
+      }
+    }
+  };
+
+  // node_modules/workbox-strategies/CacheFirst.js
+  var CacheFirst = class extends Strategy {
+    /**
+     * @private
+     * @param {Request|string} request A request to run this strategy for.
+     * @param {workbox-strategies.StrategyHandler} handler The event that
+     *     triggered the request.
+     * @return {Promise<Response>}
+     */
+    async _handle(request, handler) {
+      const logs = [];
+      if (true) {
+        finalAssertExports.isInstance(request, Request, {
+          moduleName: "workbox-strategies",
+          className: this.constructor.name,
+          funcName: "makeRequest",
+          paramName: "request"
+        });
+      }
+      let response = await handler.cacheMatch(request);
+      let error = void 0;
+      if (!response) {
+        if (true) {
+          logs.push(`No response found in the '${this.cacheName}' cache. Will respond with a network request.`);
+        }
+        try {
+          response = await handler.fetchAndCachePut(request);
+        } catch (err) {
+          if (err instanceof Error) {
+            error = err;
+          }
+        }
+        if (true) {
+          if (response) {
+            logs.push(`Got response from network.`);
+          } else {
+            logs.push(`Unable to get a response from the network.`);
+          }
+        }
+      } else {
+        if (true) {
+          logs.push(`Found a cached response in the '${this.cacheName}' cache.`);
+        }
+      }
+      if (true) {
+        logger.groupCollapsed(messages2.strategyStart(this.constructor.name, request));
+        for (const log of logs) {
+          logger.log(log);
+        }
+        messages2.printFinalResponse(response);
+        logger.groupEnd();
+      }
+      if (!response) {
+        throw new WorkboxError("no-response", { url: request.url, error });
+      }
+      return response;
+    }
+  };
+
+  // node_modules/workbox-strategies/plugins/cacheOkAndOpaquePlugin.js
+  var cacheOkAndOpaquePlugin = {
+    /**
+     * Returns a valid response (to allow caching) if the status is 200 (OK) or
+     * 0 (opaque).
+     *
+     * @param {Object} options
+     * @param {Response} options.response
+     * @return {Response|null}
+     *
+     * @private
+     */
+    cacheWillUpdate: async ({ response }) => {
+      if (response.status === 200 || response.status === 0) {
+        return response;
+      }
+      return null;
+    }
+  };
+
+  // node_modules/workbox-strategies/NetworkFirst.js
+  var NetworkFirst = class extends Strategy {
+    /**
+     * @param {Object} [options]
+     * @param {string} [options.cacheName] Cache name to store and retrieve
+     * requests. Defaults to cache names provided by
+     * {@link workbox-core.cacheNames}.
+     * @param {Array<Object>} [options.plugins] [Plugins]{@link https://developers.google.com/web/tools/workbox/guides/using-plugins}
+     * to use in conjunction with this caching strategy.
+     * @param {Object} [options.fetchOptions] Values passed along to the
+     * [`init`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters)
+     * of [non-navigation](https://github.com/GoogleChrome/workbox/issues/1796)
+     * `fetch()` requests made by this strategy.
+     * @param {Object} [options.matchOptions] [`CacheQueryOptions`](https://w3c.github.io/ServiceWorker/#dictdef-cachequeryoptions)
+     * @param {number} [options.networkTimeoutSeconds] If set, any network requests
+     * that fail to respond within the timeout will fallback to the cache.
+     *
+     * This option can be used to combat
+     * "[lie-fi]{@link https://developers.google.com/web/fundamentals/performance/poor-connectivity/#lie-fi}"
+     * scenarios.
+     */
+    constructor(options = {}) {
+      super(options);
+      if (!this.plugins.some((p) => "cacheWillUpdate" in p)) {
+        this.plugins.unshift(cacheOkAndOpaquePlugin);
+      }
+      this._networkTimeoutSeconds = options.networkTimeoutSeconds || 0;
+      if (true) {
+        if (this._networkTimeoutSeconds) {
+          finalAssertExports.isType(this._networkTimeoutSeconds, "number", {
+            moduleName: "workbox-strategies",
+            className: this.constructor.name,
+            funcName: "constructor",
+            paramName: "networkTimeoutSeconds"
+          });
+        }
+      }
+    }
+    /**
+     * @private
+     * @param {Request|string} request A request to run this strategy for.
+     * @param {workbox-strategies.StrategyHandler} handler The event that
+     *     triggered the request.
+     * @return {Promise<Response>}
+     */
+    async _handle(request, handler) {
+      const logs = [];
+      if (true) {
+        finalAssertExports.isInstance(request, Request, {
+          moduleName: "workbox-strategies",
+          className: this.constructor.name,
+          funcName: "handle",
+          paramName: "makeRequest"
+        });
+      }
+      const promises = [];
+      let timeoutId;
+      if (this._networkTimeoutSeconds) {
+        const { id, promise } = this._getTimeoutPromise({ request, logs, handler });
+        timeoutId = id;
+        promises.push(promise);
+      }
+      const networkPromise = this._getNetworkPromise({
+        timeoutId,
+        request,
+        logs,
+        handler
+      });
+      promises.push(networkPromise);
+      const response = await handler.waitUntil((async () => {
+        return await handler.waitUntil(Promise.race(promises)) || // If Promise.race() resolved with null, it might be due to a network
+        // timeout + a cache miss. If that were to happen, we'd rather wait until
+        // the networkPromise resolves instead of returning null.
+        // Note that it's fine to await an already-resolved promise, so we don't
+        // have to check to see if it's still "in flight".
+        await networkPromise;
+      })());
+      if (true) {
+        logger.groupCollapsed(messages2.strategyStart(this.constructor.name, request));
+        for (const log of logs) {
+          logger.log(log);
+        }
+        messages2.printFinalResponse(response);
+        logger.groupEnd();
+      }
+      if (!response) {
+        throw new WorkboxError("no-response", { url: request.url });
+      }
+      return response;
+    }
+    /**
+     * @param {Object} options
+     * @param {Request} options.request
+     * @param {Array} options.logs A reference to the logs array
+     * @param {Event} options.event
+     * @return {Promise<Response>}
+     *
+     * @private
+     */
+    _getTimeoutPromise({ request, logs, handler }) {
+      let timeoutId;
+      const timeoutPromise = new Promise((resolve) => {
+        const onNetworkTimeout = async () => {
+          if (true) {
+            logs.push(`Timing out the network response at ${this._networkTimeoutSeconds} seconds.`);
+          }
+          resolve(await handler.cacheMatch(request));
+        };
+        timeoutId = setTimeout(onNetworkTimeout, this._networkTimeoutSeconds * 1e3);
+      });
+      return {
+        promise: timeoutPromise,
+        id: timeoutId
+      };
+    }
+    /**
+     * @param {Object} options
+     * @param {number|undefined} options.timeoutId
+     * @param {Request} options.request
+     * @param {Array} options.logs A reference to the logs Array.
+     * @param {Event} options.event
+     * @return {Promise<Response>}
+     *
+     * @private
+     */
+    async _getNetworkPromise({ timeoutId, request, logs, handler }) {
+      let error;
+      let response;
+      try {
+        response = await handler.fetchAndCachePut(request);
+      } catch (fetchError) {
+        if (fetchError instanceof Error) {
+          error = fetchError;
+        }
+      }
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      if (true) {
+        if (response) {
+          logs.push(`Got response from network.`);
+        } else {
+          logs.push(`Unable to get a response from the network. Will respond with a cached response.`);
+        }
+      }
+      if (error || !response) {
+        response = await handler.cacheMatch(request);
+        if (true) {
+          if (response) {
+            logs.push(`Found a cached response in the '${this.cacheName}' cache.`);
+          } else {
+            logs.push(`No response found in the '${this.cacheName}' cache.`);
+          }
+        }
+      }
+      return response;
+    }
+  };
+
+  // node_modules/workbox-strategies/NetworkOnly.js
+  var NetworkOnly = class extends Strategy {
+    /**
+     * @param {Object} [options]
+     * @param {Array<Object>} [options.plugins] [Plugins]{@link https://developers.google.com/web/tools/workbox/guides/using-plugins}
+     * to use in conjunction with this caching strategy.
+     * @param {Object} [options.fetchOptions] Values passed along to the
+     * [`init`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters)
+     * of [non-navigation](https://github.com/GoogleChrome/workbox/issues/1796)
+     * `fetch()` requests made by this strategy.
+     * @param {number} [options.networkTimeoutSeconds] If set, any network requests
+     * that fail to respond within the timeout will result in a network error.
+     */
+    constructor(options = {}) {
+      super(options);
+      this._networkTimeoutSeconds = options.networkTimeoutSeconds || 0;
+    }
+    /**
+     * @private
+     * @param {Request|string} request A request to run this strategy for.
+     * @param {workbox-strategies.StrategyHandler} handler The event that
+     *     triggered the request.
+     * @return {Promise<Response>}
+     */
+    async _handle(request, handler) {
+      if (true) {
+        finalAssertExports.isInstance(request, Request, {
+          moduleName: "workbox-strategies",
+          className: this.constructor.name,
+          funcName: "_handle",
+          paramName: "request"
+        });
+      }
+      let error = void 0;
+      let response;
+      try {
+        const promises = [
+          handler.fetch(request)
+        ];
+        if (this._networkTimeoutSeconds) {
+          const timeoutPromise = timeout(this._networkTimeoutSeconds * 1e3);
+          promises.push(timeoutPromise);
+        }
+        response = await Promise.race(promises);
+        if (!response) {
+          throw new Error(`Timed out the network response after ${this._networkTimeoutSeconds} seconds.`);
+        }
+      } catch (err) {
+        if (err instanceof Error) {
+          error = err;
+        }
+      }
+      if (true) {
+        logger.groupCollapsed(messages2.strategyStart(this.constructor.name, request));
+        if (response) {
+          logger.log(`Got response from network.`);
+        } else {
+          logger.log(`Unable to get a response from the network.`);
+        }
+        messages2.printFinalResponse(response);
+        logger.groupEnd();
+      }
+      if (!response) {
+        throw new WorkboxError("no-response", { url: request.url, error });
+      }
+      return response;
+    }
+  };
+
+  // node_modules/workbox-strategies/StaleWhileRevalidate.js
+  var StaleWhileRevalidate = class extends Strategy {
+    /**
+     * @param {Object} [options]
+     * @param {string} [options.cacheName] Cache name to store and retrieve
+     * requests. Defaults to cache names provided by
+     * {@link workbox-core.cacheNames}.
+     * @param {Array<Object>} [options.plugins] [Plugins]{@link https://developers.google.com/web/tools/workbox/guides/using-plugins}
+     * to use in conjunction with this caching strategy.
+     * @param {Object} [options.fetchOptions] Values passed along to the
+     * [`init`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters)
+     * of [non-navigation](https://github.com/GoogleChrome/workbox/issues/1796)
+     * `fetch()` requests made by this strategy.
+     * @param {Object} [options.matchOptions] [`CacheQueryOptions`](https://w3c.github.io/ServiceWorker/#dictdef-cachequeryoptions)
+     */
+    constructor(options = {}) {
+      super(options);
+      if (!this.plugins.some((p) => "cacheWillUpdate" in p)) {
+        this.plugins.unshift(cacheOkAndOpaquePlugin);
+      }
+    }
+    /**
+     * @private
+     * @param {Request|string} request A request to run this strategy for.
+     * @param {workbox-strategies.StrategyHandler} handler The event that
+     *     triggered the request.
+     * @return {Promise<Response>}
+     */
+    async _handle(request, handler) {
+      const logs = [];
+      if (true) {
+        finalAssertExports.isInstance(request, Request, {
+          moduleName: "workbox-strategies",
+          className: this.constructor.name,
+          funcName: "handle",
+          paramName: "request"
+        });
+      }
+      const fetchAndCachePromise = handler.fetchAndCachePut(request).catch(() => {
+      });
+      void handler.waitUntil(fetchAndCachePromise);
+      let response = await handler.cacheMatch(request);
+      let error;
+      if (response) {
+        if (true) {
+          logs.push(`Found a cached response in the '${this.cacheName}' cache. Will update with the network response in the background.`);
+        }
+      } else {
+        if (true) {
+          logs.push(`No response found in the '${this.cacheName}' cache. Will wait for the network response.`);
+        }
+        try {
+          response = await fetchAndCachePromise;
+        } catch (err) {
+          if (err instanceof Error) {
+            error = err;
+          }
+        }
+      }
+      if (true) {
+        logger.groupCollapsed(messages2.strategyStart(this.constructor.name, request));
+        for (const log of logs) {
+          logger.log(log);
+        }
+        messages2.printFinalResponse(response);
+        logger.groupEnd();
+      }
+      if (!response) {
+        throw new WorkboxError("no-response", { url: request.url, error });
+      }
+      return response;
+    }
+  };
+
+  // node_modules/workbox-core/_private/dontWaitFor.js
+  function dontWaitFor(promise) {
+    void promise.then(() => {
+    });
+  }
+
   // node_modules/idb/build/wrap-idb-value.js
   var instanceOfAny = (object, constructors) => constructors.some((c) => object instanceof c);
   var idbProxyableTypes;
@@ -2296,6 +2695,43 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
   var unwrap = (value) => reverseTransformCache.get(value);
 
   // node_modules/idb/build/index.js
+  function openDB(name, version, { blocked, upgrade, blocking, terminated } = {}) {
+    const request = indexedDB.open(name, version);
+    const openPromise = wrap(request);
+    if (upgrade) {
+      request.addEventListener("upgradeneeded", (event) => {
+        upgrade(wrap(request.result), event.oldVersion, event.newVersion, wrap(request.transaction), event);
+      });
+    }
+    if (blocked) {
+      request.addEventListener("blocked", (event) => blocked(
+        // Casting due to https://github.com/microsoft/TypeScript-DOM-lib-generator/pull/1405
+        event.oldVersion,
+        event.newVersion,
+        event
+      ));
+    }
+    openPromise.then((db) => {
+      if (terminated)
+        db.addEventListener("close", () => terminated());
+      if (blocking) {
+        db.addEventListener("versionchange", (event) => blocking(event.oldVersion, event.newVersion, event));
+      }
+    }).catch(() => {
+    });
+    return openPromise;
+  }
+  function deleteDB(name, { blocked } = {}) {
+    const request = indexedDB.deleteDatabase(name);
+    if (blocked) {
+      request.addEventListener("blocked", (event) => blocked(
+        // Casting due to https://github.com/microsoft/TypeScript-DOM-lib-generator/pull/1405
+        event.oldVersion,
+        event
+      ));
+    }
+    return wrap(request).then(() => void 0);
+  }
   var readMethods = ["get", "getKey", "getAll", "getAllKeys", "count"];
   var writeMethods = ["put", "add", "delete", "clear"];
   var cachedMethods = /* @__PURE__ */ new Map();
@@ -2339,10 +2775,627 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
   } catch (e) {
   }
 
+  // node_modules/workbox-expiration/models/CacheTimestampsModel.js
+  var DB_NAME = "workbox-expiration";
+  var CACHE_OBJECT_STORE = "cache-entries";
+  var normalizeURL = (unNormalizedUrl) => {
+    const url = new URL(unNormalizedUrl, location.href);
+    url.hash = "";
+    return url.href;
+  };
+  var CacheTimestampsModel = class {
+    /**
+     *
+     * @param {string} cacheName
+     *
+     * @private
+     */
+    constructor(cacheName) {
+      this._db = null;
+      this._cacheName = cacheName;
+    }
+    /**
+     * Performs an upgrade of indexedDB.
+     *
+     * @param {IDBPDatabase<CacheDbSchema>} db
+     *
+     * @private
+     */
+    _upgradeDb(db) {
+      const objStore = db.createObjectStore(CACHE_OBJECT_STORE, { keyPath: "id" });
+      objStore.createIndex("cacheName", "cacheName", { unique: false });
+      objStore.createIndex("timestamp", "timestamp", { unique: false });
+    }
+    /**
+     * Performs an upgrade of indexedDB and deletes deprecated DBs.
+     *
+     * @param {IDBPDatabase<CacheDbSchema>} db
+     *
+     * @private
+     */
+    _upgradeDbAndDeleteOldDbs(db) {
+      this._upgradeDb(db);
+      if (this._cacheName) {
+        void deleteDB(this._cacheName);
+      }
+    }
+    /**
+     * @param {string} url
+     * @param {number} timestamp
+     *
+     * @private
+     */
+    async setTimestamp(url, timestamp) {
+      url = normalizeURL(url);
+      const entry = {
+        url,
+        timestamp,
+        cacheName: this._cacheName,
+        // Creating an ID from the URL and cache name won't be necessary once
+        // Edge switches to Chromium and all browsers we support work with
+        // array keyPaths.
+        id: this._getId(url)
+      };
+      const db = await this.getDb();
+      const tx = db.transaction(CACHE_OBJECT_STORE, "readwrite", {
+        durability: "relaxed"
+      });
+      await tx.store.put(entry);
+      await tx.done;
+    }
+    /**
+     * Returns the timestamp stored for a given URL.
+     *
+     * @param {string} url
+     * @return {number | undefined}
+     *
+     * @private
+     */
+    async getTimestamp(url) {
+      const db = await this.getDb();
+      const entry = await db.get(CACHE_OBJECT_STORE, this._getId(url));
+      return entry === null || entry === void 0 ? void 0 : entry.timestamp;
+    }
+    /**
+     * Iterates through all the entries in the object store (from newest to
+     * oldest) and removes entries once either `maxCount` is reached or the
+     * entry's timestamp is less than `minTimestamp`.
+     *
+     * @param {number} minTimestamp
+     * @param {number} maxCount
+     * @return {Array<string>}
+     *
+     * @private
+     */
+    async expireEntries(minTimestamp, maxCount) {
+      const db = await this.getDb();
+      let cursor = await db.transaction(CACHE_OBJECT_STORE).store.index("timestamp").openCursor(null, "prev");
+      const entriesToDelete = [];
+      let entriesNotDeletedCount = 0;
+      while (cursor) {
+        const result = cursor.value;
+        if (result.cacheName === this._cacheName) {
+          if (minTimestamp && result.timestamp < minTimestamp || maxCount && entriesNotDeletedCount >= maxCount) {
+            entriesToDelete.push(cursor.value);
+          } else {
+            entriesNotDeletedCount++;
+          }
+        }
+        cursor = await cursor.continue();
+      }
+      const urlsDeleted = [];
+      for (const entry of entriesToDelete) {
+        await db.delete(CACHE_OBJECT_STORE, entry.id);
+        urlsDeleted.push(entry.url);
+      }
+      return urlsDeleted;
+    }
+    /**
+     * Takes a URL and returns an ID that will be unique in the object store.
+     *
+     * @param {string} url
+     * @return {string}
+     *
+     * @private
+     */
+    _getId(url) {
+      return this._cacheName + "|" + normalizeURL(url);
+    }
+    /**
+     * Returns an open connection to the database.
+     *
+     * @private
+     */
+    async getDb() {
+      if (!this._db) {
+        this._db = await openDB(DB_NAME, 1, {
+          upgrade: this._upgradeDbAndDeleteOldDbs.bind(this)
+        });
+      }
+      return this._db;
+    }
+  };
+
+  // node_modules/workbox-expiration/CacheExpiration.js
+  var CacheExpiration = class {
+    /**
+     * To construct a new CacheExpiration instance you must provide at least
+     * one of the `config` properties.
+     *
+     * @param {string} cacheName Name of the cache to apply restrictions to.
+     * @param {Object} config
+     * @param {number} [config.maxEntries] The maximum number of entries to cache.
+     * Entries used the least will be removed as the maximum is reached.
+     * @param {number} [config.maxAgeSeconds] The maximum age of an entry before
+     * it's treated as stale and removed.
+     * @param {Object} [config.matchOptions] The [`CacheQueryOptions`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/delete#Parameters)
+     * that will be used when calling `delete()` on the cache.
+     */
+    constructor(cacheName, config = {}) {
+      this._isRunning = false;
+      this._rerunRequested = false;
+      if (true) {
+        finalAssertExports.isType(cacheName, "string", {
+          moduleName: "workbox-expiration",
+          className: "CacheExpiration",
+          funcName: "constructor",
+          paramName: "cacheName"
+        });
+        if (!(config.maxEntries || config.maxAgeSeconds)) {
+          throw new WorkboxError("max-entries-or-age-required", {
+            moduleName: "workbox-expiration",
+            className: "CacheExpiration",
+            funcName: "constructor"
+          });
+        }
+        if (config.maxEntries) {
+          finalAssertExports.isType(config.maxEntries, "number", {
+            moduleName: "workbox-expiration",
+            className: "CacheExpiration",
+            funcName: "constructor",
+            paramName: "config.maxEntries"
+          });
+        }
+        if (config.maxAgeSeconds) {
+          finalAssertExports.isType(config.maxAgeSeconds, "number", {
+            moduleName: "workbox-expiration",
+            className: "CacheExpiration",
+            funcName: "constructor",
+            paramName: "config.maxAgeSeconds"
+          });
+        }
+      }
+      this._maxEntries = config.maxEntries;
+      this._maxAgeSeconds = config.maxAgeSeconds;
+      this._matchOptions = config.matchOptions;
+      this._cacheName = cacheName;
+      this._timestampModel = new CacheTimestampsModel(cacheName);
+    }
+    /**
+     * Expires entries for the given cache and given criteria.
+     */
+    async expireEntries() {
+      if (this._isRunning) {
+        this._rerunRequested = true;
+        return;
+      }
+      this._isRunning = true;
+      const minTimestamp = this._maxAgeSeconds ? Date.now() - this._maxAgeSeconds * 1e3 : 0;
+      const urlsExpired = await this._timestampModel.expireEntries(minTimestamp, this._maxEntries);
+      const cache = await self.caches.open(this._cacheName);
+      for (const url of urlsExpired) {
+        await cache.delete(url, this._matchOptions);
+      }
+      if (true) {
+        if (urlsExpired.length > 0) {
+          logger.groupCollapsed(`Expired ${urlsExpired.length} ${urlsExpired.length === 1 ? "entry" : "entries"} and removed ${urlsExpired.length === 1 ? "it" : "them"} from the '${this._cacheName}' cache.`);
+          logger.log(`Expired the following ${urlsExpired.length === 1 ? "URL" : "URLs"}:`);
+          urlsExpired.forEach((url) => logger.log(`    ${url}`));
+          logger.groupEnd();
+        } else {
+          logger.debug(`Cache expiration ran and found no entries to remove.`);
+        }
+      }
+      this._isRunning = false;
+      if (this._rerunRequested) {
+        this._rerunRequested = false;
+        dontWaitFor(this.expireEntries());
+      }
+    }
+    /**
+     * Update the timestamp for the given URL. This ensures the when
+     * removing entries based on maximum entries, most recently used
+     * is accurate or when expiring, the timestamp is up-to-date.
+     *
+     * @param {string} url
+     */
+    async updateTimestamp(url) {
+      if (true) {
+        finalAssertExports.isType(url, "string", {
+          moduleName: "workbox-expiration",
+          className: "CacheExpiration",
+          funcName: "updateTimestamp",
+          paramName: "url"
+        });
+      }
+      await this._timestampModel.setTimestamp(url, Date.now());
+    }
+    /**
+     * Can be used to check if a URL has expired or not before it's used.
+     *
+     * This requires a look up from IndexedDB, so can be slow.
+     *
+     * Note: This method will not remove the cached entry, call
+     * `expireEntries()` to remove indexedDB and Cache entries.
+     *
+     * @param {string} url
+     * @return {boolean}
+     */
+    async isURLExpired(url) {
+      if (!this._maxAgeSeconds) {
+        if (true) {
+          throw new WorkboxError(`expired-test-without-max-age`, {
+            methodName: "isURLExpired",
+            paramName: "maxAgeSeconds"
+          });
+        }
+        return false;
+      } else {
+        const timestamp = await this._timestampModel.getTimestamp(url);
+        const expireOlderThan = Date.now() - this._maxAgeSeconds * 1e3;
+        return timestamp !== void 0 ? timestamp < expireOlderThan : true;
+      }
+    }
+    /**
+     * Removes the IndexedDB object store used to keep track of cache expiration
+     * metadata.
+     */
+    async delete() {
+      this._rerunRequested = false;
+      await this._timestampModel.expireEntries(Infinity);
+    }
+  };
+
+  // node_modules/workbox-core/registerQuotaErrorCallback.js
+  function registerQuotaErrorCallback(callback) {
+    if (true) {
+      finalAssertExports.isType(callback, "function", {
+        moduleName: "workbox-core",
+        funcName: "register",
+        paramName: "callback"
+      });
+    }
+    quotaErrorCallbacks.add(callback);
+    if (true) {
+      logger.log("Registered a callback to respond to quota errors.", callback);
+    }
+  }
+
+  // node_modules/workbox-expiration/ExpirationPlugin.js
+  var ExpirationPlugin = class {
+    /**
+     * @param {ExpirationPluginOptions} config
+     * @param {number} [config.maxEntries] The maximum number of entries to cache.
+     * Entries used the least will be removed as the maximum is reached.
+     * @param {number} [config.maxAgeSeconds] The maximum age of an entry before
+     * it's treated as stale and removed.
+     * @param {Object} [config.matchOptions] The [`CacheQueryOptions`](https://developer.mozilla.org/en-US/docs/Web/API/Cache/delete#Parameters)
+     * that will be used when calling `delete()` on the cache.
+     * @param {boolean} [config.purgeOnQuotaError] Whether to opt this cache in to
+     * automatic deletion if the available storage quota has been exceeded.
+     */
+    constructor(config = {}) {
+      this.cachedResponseWillBeUsed = async ({ event, request, cacheName, cachedResponse }) => {
+        if (!cachedResponse) {
+          return null;
+        }
+        const isFresh = this._isResponseDateFresh(cachedResponse);
+        const cacheExpiration = this._getCacheExpiration(cacheName);
+        dontWaitFor(cacheExpiration.expireEntries());
+        const updateTimestampDone = cacheExpiration.updateTimestamp(request.url);
+        if (event) {
+          try {
+            event.waitUntil(updateTimestampDone);
+          } catch (error) {
+            if (true) {
+              if ("request" in event) {
+                logger.warn(`Unable to ensure service worker stays alive when updating cache entry for '${getFriendlyURL(event.request.url)}'.`);
+              }
+            }
+          }
+        }
+        return isFresh ? cachedResponse : null;
+      };
+      this.cacheDidUpdate = async ({ cacheName, request }) => {
+        if (true) {
+          finalAssertExports.isType(cacheName, "string", {
+            moduleName: "workbox-expiration",
+            className: "Plugin",
+            funcName: "cacheDidUpdate",
+            paramName: "cacheName"
+          });
+          finalAssertExports.isInstance(request, Request, {
+            moduleName: "workbox-expiration",
+            className: "Plugin",
+            funcName: "cacheDidUpdate",
+            paramName: "request"
+          });
+        }
+        const cacheExpiration = this._getCacheExpiration(cacheName);
+        await cacheExpiration.updateTimestamp(request.url);
+        await cacheExpiration.expireEntries();
+      };
+      if (true) {
+        if (!(config.maxEntries || config.maxAgeSeconds)) {
+          throw new WorkboxError("max-entries-or-age-required", {
+            moduleName: "workbox-expiration",
+            className: "Plugin",
+            funcName: "constructor"
+          });
+        }
+        if (config.maxEntries) {
+          finalAssertExports.isType(config.maxEntries, "number", {
+            moduleName: "workbox-expiration",
+            className: "Plugin",
+            funcName: "constructor",
+            paramName: "config.maxEntries"
+          });
+        }
+        if (config.maxAgeSeconds) {
+          finalAssertExports.isType(config.maxAgeSeconds, "number", {
+            moduleName: "workbox-expiration",
+            className: "Plugin",
+            funcName: "constructor",
+            paramName: "config.maxAgeSeconds"
+          });
+        }
+      }
+      this._config = config;
+      this._maxAgeSeconds = config.maxAgeSeconds;
+      this._cacheExpirations = /* @__PURE__ */ new Map();
+      if (config.purgeOnQuotaError) {
+        registerQuotaErrorCallback(() => this.deleteCacheAndMetadata());
+      }
+    }
+    /**
+     * A simple helper method to return a CacheExpiration instance for a given
+     * cache name.
+     *
+     * @param {string} cacheName
+     * @return {CacheExpiration}
+     *
+     * @private
+     */
+    _getCacheExpiration(cacheName) {
+      if (cacheName === cacheNames.getRuntimeName()) {
+        throw new WorkboxError("expire-custom-caches-only");
+      }
+      let cacheExpiration = this._cacheExpirations.get(cacheName);
+      if (!cacheExpiration) {
+        cacheExpiration = new CacheExpiration(cacheName, this._config);
+        this._cacheExpirations.set(cacheName, cacheExpiration);
+      }
+      return cacheExpiration;
+    }
+    /**
+     * @param {Response} cachedResponse
+     * @return {boolean}
+     *
+     * @private
+     */
+    _isResponseDateFresh(cachedResponse) {
+      if (!this._maxAgeSeconds) {
+        return true;
+      }
+      const dateHeaderTimestamp = this._getDateHeaderTimestamp(cachedResponse);
+      if (dateHeaderTimestamp === null) {
+        return true;
+      }
+      const now = Date.now();
+      return dateHeaderTimestamp >= now - this._maxAgeSeconds * 1e3;
+    }
+    /**
+     * This method will extract the data header and parse it into a useful
+     * value.
+     *
+     * @param {Response} cachedResponse
+     * @return {number|null}
+     *
+     * @private
+     */
+    _getDateHeaderTimestamp(cachedResponse) {
+      if (!cachedResponse.headers.has("date")) {
+        return null;
+      }
+      const dateHeader = cachedResponse.headers.get("date");
+      const parsedDate = new Date(dateHeader);
+      const headerTime = parsedDate.getTime();
+      if (isNaN(headerTime)) {
+        return null;
+      }
+      return headerTime;
+    }
+    /**
+     * This is a helper method that performs two operations:
+     *
+     * - Deletes *all* the underlying Cache instances associated with this plugin
+     * instance, by calling caches.delete() on your behalf.
+     * - Deletes the metadata from IndexedDB used to keep track of expiration
+     * details for each Cache instance.
+     *
+     * When using cache expiration, calling this method is preferable to calling
+     * `caches.delete()` directly, since this will ensure that the IndexedDB
+     * metadata is also cleanly removed and open IndexedDB instances are deleted.
+     *
+     * Note that if you're *not* using cache expiration for a given cache, calling
+     * `caches.delete()` and passing in the cache's name should be sufficient.
+     * There is no Workbox-specific method needed for cleanup in that case.
+     */
+    async deleteCacheAndMetadata() {
+      for (const [cacheName, cacheExpiration] of this._cacheExpirations) {
+        await self.caches.delete(cacheName);
+        await cacheExpiration.delete();
+      }
+      this._cacheExpirations = /* @__PURE__ */ new Map();
+    }
+  };
+
   // node_modules/workbox-cacheable-response/_version.js
   try {
     self["workbox:cacheable-response:7.4.0"] && _();
   } catch (e) {
+  }
+
+  // node_modules/workbox-cacheable-response/CacheableResponse.js
+  var CacheableResponse = class {
+    /**
+     * To construct a new CacheableResponse instance you must provide at least
+     * one of the `config` properties.
+     *
+     * If both `statuses` and `headers` are specified, then both conditions must
+     * be met for the `Response` to be considered cacheable.
+     *
+     * @param {Object} config
+     * @param {Array<number>} [config.statuses] One or more status codes that a
+     * `Response` can have and be considered cacheable.
+     * @param {Object<string,string>} [config.headers] A mapping of header names
+     * and expected values that a `Response` can have and be considered cacheable.
+     * If multiple headers are provided, only one needs to be present.
+     */
+    constructor(config = {}) {
+      if (true) {
+        if (!(config.statuses || config.headers)) {
+          throw new WorkboxError("statuses-or-headers-required", {
+            moduleName: "workbox-cacheable-response",
+            className: "CacheableResponse",
+            funcName: "constructor"
+          });
+        }
+        if (config.statuses) {
+          finalAssertExports.isArray(config.statuses, {
+            moduleName: "workbox-cacheable-response",
+            className: "CacheableResponse",
+            funcName: "constructor",
+            paramName: "config.statuses"
+          });
+        }
+        if (config.headers) {
+          finalAssertExports.isType(config.headers, "object", {
+            moduleName: "workbox-cacheable-response",
+            className: "CacheableResponse",
+            funcName: "constructor",
+            paramName: "config.headers"
+          });
+        }
+      }
+      this._statuses = config.statuses;
+      this._headers = config.headers;
+    }
+    /**
+     * Checks a response to see whether it's cacheable or not, based on this
+     * object's configuration.
+     *
+     * @param {Response} response The response whose cacheability is being
+     * checked.
+     * @return {boolean} `true` if the `Response` is cacheable, and `false`
+     * otherwise.
+     */
+    isResponseCacheable(response) {
+      if (true) {
+        finalAssertExports.isInstance(response, Response, {
+          moduleName: "workbox-cacheable-response",
+          className: "CacheableResponse",
+          funcName: "isResponseCacheable",
+          paramName: "response"
+        });
+      }
+      let cacheable = true;
+      if (this._statuses) {
+        cacheable = this._statuses.includes(response.status);
+      }
+      if (this._headers && cacheable) {
+        cacheable = Object.keys(this._headers).some((headerName) => {
+          return response.headers.get(headerName) === this._headers[headerName];
+        });
+      }
+      if (true) {
+        if (!cacheable) {
+          logger.groupCollapsed(`The request for '${getFriendlyURL(response.url)}' returned a response that does not meet the criteria for being cached.`);
+          logger.groupCollapsed(`View cacheability criteria here.`);
+          logger.log(`Cacheable statuses: ` + JSON.stringify(this._statuses));
+          logger.log(`Cacheable headers: ` + JSON.stringify(this._headers, null, 2));
+          logger.groupEnd();
+          const logFriendlyHeaders = {};
+          response.headers.forEach((value, key) => {
+            logFriendlyHeaders[key] = value;
+          });
+          logger.groupCollapsed(`View response status and headers here.`);
+          logger.log(`Response status: ${response.status}`);
+          logger.log(`Response headers: ` + JSON.stringify(logFriendlyHeaders, null, 2));
+          logger.groupEnd();
+          logger.groupCollapsed(`View full response details here.`);
+          logger.log(response.headers);
+          logger.log(response);
+          logger.groupEnd();
+          logger.groupEnd();
+        }
+      }
+      return cacheable;
+    }
+  };
+
+  // node_modules/workbox-cacheable-response/CacheableResponsePlugin.js
+  var CacheableResponsePlugin = class {
+    /**
+     * To construct a new CacheableResponsePlugin instance you must provide at
+     * least one of the `config` properties.
+     *
+     * If both `statuses` and `headers` are specified, then both conditions must
+     * be met for the `Response` to be considered cacheable.
+     *
+     * @param {Object} config
+     * @param {Array<number>} [config.statuses] One or more status codes that a
+     * `Response` can have and be considered cacheable.
+     * @param {Object<string,string>} [config.headers] A mapping of header names
+     * and expected values that a `Response` can have and be considered cacheable.
+     * If multiple headers are provided, only one needs to be present.
+     */
+    constructor(config) {
+      this.cacheWillUpdate = async ({ response }) => {
+        if (this._cacheableResponse.isResponseCacheable(response)) {
+          return response;
+        }
+        return null;
+      };
+      this._cacheableResponse = new CacheableResponse(config);
+    }
+  };
+
+  // node_modules/workbox-core/_private/resultingClientExists.js
+  var MAX_RETRY_TIME = 2e3;
+  async function resultingClientExists(resultingClientId) {
+    if (!resultingClientId) {
+      return;
+    }
+    let existingWindows = await self.clients.matchAll({ type: "window" });
+    const existingWindowIds = new Set(existingWindows.map((w) => w.id));
+    let resultingWindow;
+    const startTime = performance.now();
+    while (performance.now() - startTime < MAX_RETRY_TIME) {
+      existingWindows = await self.clients.matchAll({ type: "window" });
+      resultingWindow = existingWindows.find((w) => {
+        if (resultingClientId) {
+          return w.id === resultingClientId;
+        } else {
+          return !existingWindowIds.has(w.id);
+        }
+      });
+      if (resultingWindow) {
+        break;
+      }
+      await timeout(100);
+    }
+    return resultingWindow;
   }
 
   // node_modules/workbox-broadcast-update/_version.js
@@ -2351,31 +3404,201 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
   } catch (e) {
   }
 
+  // node_modules/workbox-broadcast-update/responsesAreSame.js
+  var responsesAreSame = (firstResponse, secondResponse, headersToCheck) => {
+    if (true) {
+      if (!(firstResponse instanceof Response && secondResponse instanceof Response)) {
+        throw new WorkboxError("invalid-responses-are-same-args");
+      }
+    }
+    const atLeastOneHeaderAvailable = headersToCheck.some((header) => {
+      return firstResponse.headers.has(header) && secondResponse.headers.has(header);
+    });
+    if (!atLeastOneHeaderAvailable) {
+      if (true) {
+        logger.warn(`Unable to determine where the response has been updated because none of the headers that would be checked are present.`);
+        logger.debug(`Attempting to compare the following: `, firstResponse, secondResponse, headersToCheck);
+      }
+      return true;
+    }
+    return headersToCheck.every((header) => {
+      const headerStateComparison = firstResponse.headers.has(header) === secondResponse.headers.has(header);
+      const headerValueComparison = firstResponse.headers.get(header) === secondResponse.headers.get(header);
+      return headerStateComparison && headerValueComparison;
+    });
+  };
+
+  // node_modules/workbox-broadcast-update/utils/constants.js
+  var CACHE_UPDATED_MESSAGE_TYPE = "CACHE_UPDATED";
+  var CACHE_UPDATED_MESSAGE_META = "workbox-broadcast-update";
+  var NOTIFY_ALL_CLIENTS = true;
+  var DEFAULT_HEADERS_TO_CHECK = [
+    "content-length",
+    "etag",
+    "last-modified"
+  ];
+
   // node_modules/workbox-broadcast-update/BroadcastCacheUpdate.js
   var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  function defaultPayloadGenerator(data) {
+    return {
+      cacheName: data.cacheName,
+      updatedURL: data.request.url
+    };
+  }
+  var BroadcastCacheUpdate = class {
+    /**
+     * Construct a BroadcastCacheUpdate instance with a specific `channelName` to
+     * broadcast messages on
+     *
+     * @param {Object} [options]
+     * @param {Array<string>} [options.headersToCheck=['content-length', 'etag', 'last-modified']]
+     *     A list of headers that will be used to determine whether the responses
+     *     differ.
+     * @param {string} [options.generatePayload] A function whose return value
+     *     will be used as the `payload` field in any cache update messages sent
+     *     to the window clients.
+     * @param {boolean} [options.notifyAllClients=true] If true (the default) then
+     *     all open clients will receive a message. If false, then only the client
+     *     that make the original request will be notified of the update.
+     */
+    constructor({ generatePayload, headersToCheck, notifyAllClients } = {}) {
+      this._headersToCheck = headersToCheck || DEFAULT_HEADERS_TO_CHECK;
+      this._generatePayload = generatePayload || defaultPayloadGenerator;
+      this._notifyAllClients = notifyAllClients !== null && notifyAllClients !== void 0 ? notifyAllClients : NOTIFY_ALL_CLIENTS;
+    }
+    /**
+     * Compares two [Responses](https://developer.mozilla.org/en-US/docs/Web/API/Response)
+     * and sends a message (via `postMessage()`) to all window clients if the
+     * responses differ. Neither of the Responses can be
+     * [opaque](https://developer.chrome.com/docs/workbox/caching-resources-during-runtime/#opaque-responses).
+     *
+     * The message that's posted has the following format (where `payload` can
+     * be customized via the `generatePayload` option the instance is created
+     * with):
+     *
+     * ```
+     * {
+     *   type: 'CACHE_UPDATED',
+     *   meta: 'workbox-broadcast-update',
+     *   payload: {
+     *     cacheName: 'the-cache-name',
+     *     updatedURL: 'https://example.com/'
+     *   }
+     * }
+     * ```
+     *
+     * @param {Object} options
+     * @param {Response} [options.oldResponse] Cached response to compare.
+     * @param {Response} options.newResponse Possibly updated response to compare.
+     * @param {Request} options.request The request.
+     * @param {string} options.cacheName Name of the cache the responses belong
+     *     to. This is included in the broadcast message.
+     * @param {Event} options.event event The event that triggered
+     *     this possible cache update.
+     * @return {Promise} Resolves once the update is sent.
+     */
+    async notifyIfUpdated(options) {
+      if (true) {
+        finalAssertExports.isType(options.cacheName, "string", {
+          moduleName: "workbox-broadcast-update",
+          className: "BroadcastCacheUpdate",
+          funcName: "notifyIfUpdated",
+          paramName: "cacheName"
+        });
+        finalAssertExports.isInstance(options.newResponse, Response, {
+          moduleName: "workbox-broadcast-update",
+          className: "BroadcastCacheUpdate",
+          funcName: "notifyIfUpdated",
+          paramName: "newResponse"
+        });
+        finalAssertExports.isInstance(options.request, Request, {
+          moduleName: "workbox-broadcast-update",
+          className: "BroadcastCacheUpdate",
+          funcName: "notifyIfUpdated",
+          paramName: "request"
+        });
+      }
+      if (!options.oldResponse) {
+        return;
+      }
+      if (!responsesAreSame(options.oldResponse, options.newResponse, this._headersToCheck)) {
+        if (true) {
+          logger.log(`Newer response found (and cached) for:`, options.request.url);
+        }
+        const messageData = {
+          type: CACHE_UPDATED_MESSAGE_TYPE,
+          meta: CACHE_UPDATED_MESSAGE_META,
+          payload: this._generatePayload(options)
+        };
+        if (options.request.mode === "navigate") {
+          let resultingClientId;
+          if (options.event instanceof FetchEvent) {
+            resultingClientId = options.event.resultingClientId;
+          }
+          const resultingWin = await resultingClientExists(resultingClientId);
+          if (!resultingWin || isSafari) {
+            await timeout(3500);
+          }
+        }
+        if (this._notifyAllClients) {
+          const windows = await self.clients.matchAll({ type: "window" });
+          for (const win of windows) {
+            win.postMessage(messageData);
+          }
+        } else {
+          if (options.event instanceof FetchEvent) {
+            const client = await self.clients.get(options.event.clientId);
+            client === null || client === void 0 ? void 0 : client.postMessage(messageData);
+          }
+        }
+      }
+    }
+  };
+
+  // node_modules/workbox-broadcast-update/BroadcastUpdatePlugin.js
+  var BroadcastUpdatePlugin = class {
+    /**
+     * Construct a {@link workbox-broadcast-update.BroadcastUpdate} instance with
+     * the passed options and calls its `notifyIfUpdated` method whenever the
+     * plugin's `cacheDidUpdate` callback is invoked.
+     *
+     * @param {Object} [options]
+     * @param {Array<string>} [options.headersToCheck=['content-length', 'etag', 'last-modified']]
+     *     A list of headers that will be used to determine whether the responses
+     *     differ.
+     * @param {string} [options.generatePayload] A function whose return value
+     *     will be used as the `payload` field in any cache update messages sent
+     *     to the window clients.
+     */
+    constructor(options) {
+      this.cacheDidUpdate = async (options2) => {
+        dontWaitFor(this._broadcastUpdate.notifyIfUpdated(options2));
+      };
+      this._broadcastUpdate = new BroadcastCacheUpdate(options);
+    }
+  };
 
   // service-worker/custom-service-worker.js
-  precacheAndRoute([{"revision":"aa33d6c78c71ce1c9438c9cbd3d618cb","url":"workbox-86637ee2.js"},{"revision":"4dfc3b60be87a3a9c9065e335e911b8f","url":"version-prod.js"},{"revision":"c29c092c5c3775053819f707490ef488","url":"version-preview.js"},{"revision":"de63970719fb650aee5e0fc7da2d2e6f","url":"pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"},{"revision":"dbed8b09fd85cceca77f58abdcdc8867","url":"pluginsSrc/valine/dist/Valine.min.js"},{"revision":"3ba6a3f6e22122d8f5ed22c423299981","url":"pluginsSrc/typed.js/dist/typed.umd.js"},{"revision":"0869ece290a2470b9e13dba8bff42ea2","url":"pluginsSrc/twikoo/dist/twikoo.all.min.js"},{"revision":"7659a5599c2cb206218bcb4b1389d26e","url":"pluginsSrc/prismjs/prism.js"},{"revision":"ffdf7bdb8ddaf0c89a4e4225e1086264","url":"pluginsSrc/prismjs/plugins/line-numbers/prism-line-numbers.min.js"},{"revision":"4f48958b1802a9d99581aa5ab1e3f621","url":"pluginsSrc/prismjs/plugins/autoloader/prism-autoloader.min.js"},{"revision":"d810aff16a7f45392bdeec5493ebee8e","url":"pluginsSrc/pjax/pjax.min.js"},{"revision":"094ce2780af2906e8916dc4c4eab6ee1","url":"pluginsSrc/pace-js/pace.min.js"},{"revision":"7bba84cb68736f6ea9ae77cd934d995a","url":"pluginsSrc/pace-js/themes/blue/pace-theme-minimal.css"},{"revision":"8f19a3527021a6268cd8488a5debe7f8","url":"pluginsSrc/node-snackbar/dist/snackbar.min.js"},{"revision":"4220368aced9a5ce011f2ce9bd8b1035","url":"pluginsSrc/node-snackbar/dist/snackbar.min.css"},{"revision":"32ff6ba78bb3380c4130f3d7dfeb864f","url":"pluginsSrc/mermaid/dist/mermaid.min.js"},{"revision":"348914dc9144b3441a2a0c9687604a16","url":"pluginsSrc/medium-zoom/dist/medium-zoom.min.js"},{"revision":"3a5119912cc48753a6c9aba5c6102236","url":"pluginsSrc/mathjax/tex-mml-chtml.js"},{"revision":"6fe3b762afa431533f1a0d933c5bee1d","url":"pluginsSrc/katex/dist/katex.min.css"},{"revision":"b8b8393d2e65fcebda5fa99fa3264f41","url":"pluginsSrc/katex/dist/fonts/KaTeX_Typewriter-Regular.woff2"},{"revision":"0e0460587676d22eae09accd6dcfebc6","url":"pluginsSrc/katex/dist/fonts/KaTeX_Typewriter-Regular.woff"},{"revision":"6bf4287568e1d3004b54d5d60f9f08f9","url":"pluginsSrc/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"},{"revision":"61522cd3d9043622e235ab57762754f2","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size4-Regular.woff2"},{"revision":"3045a61f722bc4b198450ce69b3e3824","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size4-Regular.woff"},{"revision":"27a23ee69999affa55491c7dab8e53bf","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size4-Regular.ttf"},{"revision":"9108a400f4787cffdcc3a3b813401e6a","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size3-Regular.woff2"},{"revision":"4de844d4552e941f6b9c38837a8d487b","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size3-Regular.woff"},{"revision":"963af864cbb10611ba33267ba7953777","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size3-Regular.ttf"},{"revision":"95a1da914c20455a07b7c9e2dcf2836d","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size2-Regular.woff2"},{"revision":"b0628bfd27c979a09f702a2277979888","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size2-Regular.woff"},{"revision":"1fdda0e59ed35495ebac28badf210574","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size2-Regular.ttf"},{"revision":"82ef26dc680ba60d884e051c73d9a42d","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size1-Regular.woff2"},{"revision":"4788ba5b6247e336f734b742fe9900d5","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size1-Regular.woff"},{"revision":"0d8d9204004bdf126342605f7bbdffe6","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size1-Regular.ttf"},{"revision":"1b3161eb8cc67462d6e8c2fb96c68507","url":"pluginsSrc/katex/dist/fonts/KaTeX_Script-Regular.woff2"},{"revision":"a82fa2a7e18b8c7a1a9f6069844ebfb9","url":"pluginsSrc/katex/dist/fonts/KaTeX_Script-Regular.woff"},{"revision":"a189c37d73ffce63464635dc12cbbc96","url":"pluginsSrc/katex/dist/fonts/KaTeX_Script-Regular.ttf"},{"revision":"1ac3ed6ebe34e473519ca1da86f7a384","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Regular.woff2"},{"revision":"5f8637ee731482c44a37789723f5e499","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Regular.woff"},{"revision":"3243452ee6817acd761c9757aef93c29","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf"},{"revision":"e934cbc86e2d59ceaf04102c43dc0b50","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Italic.woff2"},{"revision":"ef725de572b71381dccf53918e300744","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Italic.woff"},{"revision":"f60b4a34842bb524b562df092917a542","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf"},{"revision":"ad546b4719bcf690a3604944b90b7e42","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Bold.woff2"},{"revision":"0e897d27f063facef504667290e408bd","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Bold.woff"},{"revision":"f2ac73121357210d91e5c3eaa42f72ea","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Bold.ttf"},{"revision":"d8b7a801bd87b324efcbae7394119c24","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-Italic.woff2"},{"revision":"ed7aea12d765f9e2d0f9bc7fa2be626c","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-Italic.woff"},{"revision":"fe5ed5875d95b18c98546cb4f47304ff","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-Italic.ttf"},{"revision":"1320454d951ec809a7dbccb4f23fccf0","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-BoldItalic.woff2"},{"revision":"48155e43d9a284b54753e50e4ba586dc","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-BoldItalic.woff"},{"revision":"6589c4f1f587f73f0ad0af8ae35ccb53","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-BoldItalic.ttf"},{"revision":"f8a7f19f45060f7a177314855b8c7aa3","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Regular.woff2"},{"revision":"f1cdb692ee31c10b37262caffced5271","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Regular.woff"},{"revision":"818582dae57e6fac46202cfd844afabb","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Regular.ttf"},{"revision":"652970624cde999882102fa2b6a8871f","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Italic.woff2"},{"revision":"8ffd28f6390231548ead99d7835887fa","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Italic.woff"},{"revision":"39349e0a2b366f38e2672b45aded2030","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Italic.ttf"},{"revision":"d873734390c716d6e18ff3f71ac6eb8b","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-BoldItalic.woff2"},{"revision":"5f875f986a9bce1264e8c42417b56f74","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-BoldItalic.woff"},{"revision":"52fb39b0434c463d5df32419608ab08a","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-BoldItalic.ttf"},{"revision":"a9382e25bcf75d856718fcef54d7acdb","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Bold.woff2"},{"revision":"4cdba6465ab9fac5d3833c6cdba7a8c3","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Bold.woff"},{"revision":"8e431f7ece346b6282dae3d9d0e7a970","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Bold.ttf"},{"revision":"f9e6a99f4a543b7d6cad1efb6cf1e4b1","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Regular.woff2"},{"revision":"e435cda5784e21b26ab2d03fbcb56a99","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Regular.woff"},{"revision":"97a699d83318e9334a0deaea6ae5eda2","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf"},{"revision":"796f3797cdf36fcaea18c3070a608378","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Bold.woff2"},{"revision":"40934fc076960bb989d590db044fef62","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Bold.woff"},{"revision":"b9d7c4497cab3702487214651ab03744","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Bold.ttf"},{"revision":"08d95d99bf4a2b2dc7a876653857f154","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff2"},{"revision":"a25140fbe6692bffe71a2ab861572eb3","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff"},{"revision":"e6fb499fc8f9925eea3138cccba17fff","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf"},{"revision":"a9e9b0953b078cd40f5e19ef4face6fc","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff2"},{"revision":"de2ba279933d60f7819ff61f71c17bed","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff"},{"revision":"497bf407c4c609c6cf1f1ad38f437f7f","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf"},{"revision":"66c678209ce93b6e2b583f02ce41529e","url":"pluginsSrc/katex/dist/fonts/KaTeX_AMS-Regular.woff2"},{"revision":"10824af77e9961cfd548c8a458f10851","url":"pluginsSrc/katex/dist/fonts/KaTeX_AMS-Regular.woff"},{"revision":"56573229753fad48910bda2ea1a6dd54","url":"pluginsSrc/katex/dist/fonts/KaTeX_AMS-Regular.ttf"},{"revision":"6be74da2bd31a1975da5090d5926cd54","url":"pluginsSrc/katex/dist/contrib/copy-tex.min.js"},{"revision":"ae11493d70a8ce9fa776cc7aec1be764","url":"pluginsSrc/instant.page/instantpage.js"},{"revision":"8a817782fe4a94b4d2499bcfce04f8c3","url":"pluginsSrc/gitalk/dist/gitalk.min.js"},{"revision":"8476031a633732dff9875feae0890070","url":"pluginsSrc/gitalk/dist/gitalk.css"},{"revision":"ef690ba60b284a6e4434fdfcc8a6272a","url":"pluginsSrc/disqusjs/dist/browser/disqusjs.es2015.umd.min.js"},{"revision":"8c991997bc8dfef3cacb9ee848fae764","url":"pluginsSrc/disqusjs/dist/browser/styles/disqusjs.css"},{"revision":"61095ed4dc231d385757e1295f41ad95","url":"pluginsSrc/chart.js/dist/chart.umd.js"},{"revision":"1b9c8fe18c6fd8438d3442efb18c4694","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js"},{"revision":"3871ed57ba207fd8432d3e029d5b45a5","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/fonts/iconfont.woff2"},{"revision":"4ac164a6d6ff134e2600fa3a6d11e9f0","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/fonts/iconfont.woff"},{"revision":"172f0a3556b752ca681d536279b73315","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/fonts/iconfont.ttf"},{"revision":"5785a05fa891074972f95826d44175cc","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css"},{"revision":"7b5e05378aa5c4dbdccbe9a34cf30adb","url":"pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js"},{"revision":"30b2f5d43759302605d593c1b8b3c027","url":"pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"},{"revision":"19aa40f9f44d5f568ad200be3909b2a0","url":"pluginsSrc/butterfly-extsrc/dist/click-show-text.min.js"},{"revision":"77369a5a3007bd7bec3ff51ae9c80f51","url":"pluginsSrc/butterfly-extsrc/dist/click-heart.min.js"},{"revision":"d22e1a843a3797c4023047018a269e94","url":"pluginsSrc/butterfly-extsrc/dist/canvas-ribbon.min.js"},{"revision":"f481421e648d310e785b04ec6cdb6fdf","url":"pluginsSrc/butterfly-extsrc/dist/canvas-nest.min.js"},{"revision":"67f8ae7130ba7e392b8c4206cc49f059","url":"pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"},{"revision":"19f8a70f31a9b9c54815c4398a6d614e","url":"pluginsSrc/butterfly-extsrc/dist/activate-power-mode.min.js"},{"revision":"2f577924085ebbe12e29f3ff706397d0","url":"pluginsSrc/blueimp-md5/js/md5.min.js"},{"revision":"0a63ba0c60354069bd5036a20ce1f8f0","url":"pluginsSrc/artalk/dist/Artalk.js"},{"revision":"a36b54260ba5c899bab763ff1949803f","url":"pluginsSrc/artalk/dist/Artalk.css"},{"revision":"8f1017e7a73737e631ff95fa51e4e7d7","url":"pluginsSrc/aplayer/dist/APlayer.min.js"},{"revision":"fbe994054426fadb2dff69d824c5c67a","url":"pluginsSrc/aplayer/dist/APlayer.min.css"},{"revision":"67a0fbe78a9329ad16324445a6d7cb50","url":"pluginsSrc/algoliasearch/dist/lite/builds/browser.umd.js"},{"revision":"3d887a9f3ad6d6d5eb9f08b1d72f4b5f","url":"pluginsSrc/abcjs/dist/abcjs-basic-min.js"},{"revision":"7f9d9fe44aefb541b005371e98e94324","url":"pluginsSrc/@waline/client/dist/waline.js"},{"revision":"e8a4534f899312ba553034fb1216546b","url":"pluginsSrc/@waline/client/dist/waline.css"},{"revision":"6b6b455b96ea52d70d69fb54e265803b","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"},{"revision":"9209428ae208e223b94b9172802e97a7","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"},{"revision":"ce76b7aa92724e57c94982ffbbc9a4a1","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"},{"revision":"523f833a8b5bdd6079b88981425e31a7","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"},{"revision":"2a16261ad0706f6f7fbf4cb04e487611","url":"pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"},{"revision":"3c04b697824aee4ebe05a75509d2d591","url":"pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"},{"revision":"d4e3df64d639d509cef61bbf4665d887","url":"pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css"},{"revision":"1e4571560f743acd7070f9bd3c2bb679","url":"pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js"},{"revision":"7ee5a1792ec488061739666d84140fbe","url":"pluginsSrc/@docsearch/js/dist/umd/index.js"},{"revision":"fb7939e312d8861ceed093573b796d77","url":"pluginsSrc/@docsearch/css/dist/style.css"},{"revision":"cb004426c9bd62ba16e200b048462887","url":"lib/hbe.js"},{"revision":"2a0c775f99c73d7223a6a68631cdc883","url":"js/wow_init.js"},{"revision":"e84a69b53c7dd1ff5b6b330d9fb2044f","url":"js/utils.js"},{"revision":"c01d09126567452460ca80a4341f5f99","url":"js/tw_cn.js"},{"revision":"d2be0d8866877454674f3e102be652b4","url":"js/toggleSettingsModal.js"},{"revision":"0ed8ceab4ef20e5225c49a994242aad0","url":"js/toggleFontSize.js"},{"revision":"d2c813be41cdd9625fed2cc27a3e51d5","url":"js/toggleFont.js"},{"revision":"aaed2c6f3e83befaef1d94bbc574a6ae","url":"js/scroll-to-anchor.js"},{"revision":"fd772360f5695bc71719475c1dc6513d","url":"js/randomPost.js"},{"revision":"ef632184a8bdaec0d6e4e0383d368ee6","url":"js/pwa.js"},{"revision":"5dc36f8a93197abf09bd725cddd97921","url":"js/popup.js"},{"revision":"c1f20310307d33e41be3b787ef85e345","url":"js/pjaxAplayer.js"},{"revision":"f52073ee95c3f319e57532eac06f16ca","url":"js/Meting.min.js"},{"revision":"8284403085727620b481f046288fa3f7","url":"js/menus.js"},{"revision":"5e75560ff107c85cc9c3344b46bcb683","url":"js/main.js"},{"revision":"f6bb1034184b338ea022930d3d0229d4","url":"js/homepage.js"},{"revision":"745260d8561768ee1b6c9c4fe2c2d569","url":"js/head.js"},{"revision":"880968da5d5a7eb166c03531e8a4f6c5","url":"js/card-anthology.js"},{"revision":"af628b32f2b8b83143c8085c6ca2de3e","url":"js/cacheManager.js"},{"revision":"30ca434a40652c55cb7ca7cd4386f431","url":"js/app.js"},{"revision":"8f1017e7a73737e631ff95fa51e4e7d7","url":"js/APlayer.min.js"},{"revision":"53b093fc411e6861751450dc57f5c3c7","url":"js/search/local-search.js"},{"revision":"44848bf50caf33e4e9d1dbbf705ea5e2","url":"js/search/algolia.js"},{"revision":"49ed2faf014183ea3bf347500c0572c6","url":"js/posts_js/演示数据.js"},{"revision":"7fb02a820aed429dbc97514d6060757d","url":"js/posts_js/梯度下降线性回归.js"},{"revision":"19d879e90f9a232710099df29f43ec8c","url":"js/posts_js/梯度下降比较.js"},{"revision":"ba32016e0f95b3c6c0b020f170af2175","url":"js/posts_js/梯度下降图解.js"},{"revision":"ddaadb578049ccc6f3fd9361b1ff078a","url":"js/posts_js/最小二乘法成功.js"},{"revision":"5c2432396899fd45cea77d891a1d802c","url":"js/posts_js/最小二乘法.js"},{"revision":"e750a91e98ca4dfc37fe1c86e437c266","url":"js/posts_js/从0开始的机器学习·线性回归·最小二乘法.js"},{"revision":"ad79d8b5819819e15e5dd97089dba7a6","url":"js/posts_js/从0开始的机器学习·损失函数图.js"},{"revision":"a35b551055d75cdb4f3d7aeebfec16d8","url":"js/posts_js/从0开始的机器学习·什么是机器学习·线性回归通俗解释.js"},{"revision":"098aa4a7425a3b247eb3532a0d2b786e","url":"js/posts_js/从0开始的机器学习·二分类叉熵损失图.js"},{"revision":"21fe90eedcbaafb4ed529d78418d30bd","url":"js/mod/wow.min.js"},{"revision":"271138733214648bd35015f2e3186107","url":"js/mod/email.min.js"},{"revision":"d41d8cd98f00b204e9800998ecf8427e","url":"css/var.css"},{"revision":"61f4a6637d1fc3ac247d880fcbb3e0b6","url":"css/index.css"},{"revision":"f1245164f762ee83309fa797a63fb868","url":"css/hbe.style.css"},{"revision":"a4743cd2a7b80582470eb78532807357","url":"css/h.css"},{"revision":"a90e7f2688ce54ae4ffc27ff759ce422","url":"css/fonts.css"},{"revision":"6c70fb4be0dd330a0ab891330496193a","url":"css/custom.css"},{"revision":"6ce219f5556af48d61ce5fb6090020ce","url":"css/cache-panel.css"},{"revision":"fbe994054426fadb2dff69d824c5c67a","url":"css/APlayer.min.css"},{"revision":"c0be8e53226ac34833fd9b5dbc01ebc5","url":"css/animate.min.css"}]);
-  var validResponsePlugin = new cacheableResponse.CacheableResponsePlugin({
+  precacheAndRoute([{"revision":"aa33d6c78c71ce1c9438c9cbd3d618cb","url":"workbox-86637ee2.js"},{"revision":"e8b63212743dfc013ce9f8bc08575e9d","url":"version-prod.js"},{"revision":"c29c092c5c3775053819f707490ef488","url":"version-preview.js"},{"revision":"de63970719fb650aee5e0fc7da2d2e6f","url":"pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"},{"revision":"dbed8b09fd85cceca77f58abdcdc8867","url":"pluginsSrc/valine/dist/Valine.min.js"},{"revision":"3ba6a3f6e22122d8f5ed22c423299981","url":"pluginsSrc/typed.js/dist/typed.umd.js"},{"revision":"0869ece290a2470b9e13dba8bff42ea2","url":"pluginsSrc/twikoo/dist/twikoo.all.min.js"},{"revision":"7659a5599c2cb206218bcb4b1389d26e","url":"pluginsSrc/prismjs/prism.js"},{"revision":"ffdf7bdb8ddaf0c89a4e4225e1086264","url":"pluginsSrc/prismjs/plugins/line-numbers/prism-line-numbers.min.js"},{"revision":"4f48958b1802a9d99581aa5ab1e3f621","url":"pluginsSrc/prismjs/plugins/autoloader/prism-autoloader.min.js"},{"revision":"d810aff16a7f45392bdeec5493ebee8e","url":"pluginsSrc/pjax/pjax.min.js"},{"revision":"094ce2780af2906e8916dc4c4eab6ee1","url":"pluginsSrc/pace-js/pace.min.js"},{"revision":"7bba84cb68736f6ea9ae77cd934d995a","url":"pluginsSrc/pace-js/themes/blue/pace-theme-minimal.css"},{"revision":"8f19a3527021a6268cd8488a5debe7f8","url":"pluginsSrc/node-snackbar/dist/snackbar.min.js"},{"revision":"4220368aced9a5ce011f2ce9bd8b1035","url":"pluginsSrc/node-snackbar/dist/snackbar.min.css"},{"revision":"32ff6ba78bb3380c4130f3d7dfeb864f","url":"pluginsSrc/mermaid/dist/mermaid.min.js"},{"revision":"348914dc9144b3441a2a0c9687604a16","url":"pluginsSrc/medium-zoom/dist/medium-zoom.min.js"},{"revision":"3a5119912cc48753a6c9aba5c6102236","url":"pluginsSrc/mathjax/tex-mml-chtml.js"},{"revision":"6fe3b762afa431533f1a0d933c5bee1d","url":"pluginsSrc/katex/dist/katex.min.css"},{"revision":"b8b8393d2e65fcebda5fa99fa3264f41","url":"pluginsSrc/katex/dist/fonts/KaTeX_Typewriter-Regular.woff2"},{"revision":"0e0460587676d22eae09accd6dcfebc6","url":"pluginsSrc/katex/dist/fonts/KaTeX_Typewriter-Regular.woff"},{"revision":"6bf4287568e1d3004b54d5d60f9f08f9","url":"pluginsSrc/katex/dist/fonts/KaTeX_Typewriter-Regular.ttf"},{"revision":"61522cd3d9043622e235ab57762754f2","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size4-Regular.woff2"},{"revision":"3045a61f722bc4b198450ce69b3e3824","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size4-Regular.woff"},{"revision":"27a23ee69999affa55491c7dab8e53bf","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size4-Regular.ttf"},{"revision":"9108a400f4787cffdcc3a3b813401e6a","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size3-Regular.woff2"},{"revision":"4de844d4552e941f6b9c38837a8d487b","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size3-Regular.woff"},{"revision":"963af864cbb10611ba33267ba7953777","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size3-Regular.ttf"},{"revision":"95a1da914c20455a07b7c9e2dcf2836d","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size2-Regular.woff2"},{"revision":"b0628bfd27c979a09f702a2277979888","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size2-Regular.woff"},{"revision":"1fdda0e59ed35495ebac28badf210574","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size2-Regular.ttf"},{"revision":"82ef26dc680ba60d884e051c73d9a42d","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size1-Regular.woff2"},{"revision":"4788ba5b6247e336f734b742fe9900d5","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size1-Regular.woff"},{"revision":"0d8d9204004bdf126342605f7bbdffe6","url":"pluginsSrc/katex/dist/fonts/KaTeX_Size1-Regular.ttf"},{"revision":"1b3161eb8cc67462d6e8c2fb96c68507","url":"pluginsSrc/katex/dist/fonts/KaTeX_Script-Regular.woff2"},{"revision":"a82fa2a7e18b8c7a1a9f6069844ebfb9","url":"pluginsSrc/katex/dist/fonts/KaTeX_Script-Regular.woff"},{"revision":"a189c37d73ffce63464635dc12cbbc96","url":"pluginsSrc/katex/dist/fonts/KaTeX_Script-Regular.ttf"},{"revision":"1ac3ed6ebe34e473519ca1da86f7a384","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Regular.woff2"},{"revision":"5f8637ee731482c44a37789723f5e499","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Regular.woff"},{"revision":"3243452ee6817acd761c9757aef93c29","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Regular.ttf"},{"revision":"e934cbc86e2d59ceaf04102c43dc0b50","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Italic.woff2"},{"revision":"ef725de572b71381dccf53918e300744","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Italic.woff"},{"revision":"f60b4a34842bb524b562df092917a542","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Italic.ttf"},{"revision":"ad546b4719bcf690a3604944b90b7e42","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Bold.woff2"},{"revision":"0e897d27f063facef504667290e408bd","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Bold.woff"},{"revision":"f2ac73121357210d91e5c3eaa42f72ea","url":"pluginsSrc/katex/dist/fonts/KaTeX_SansSerif-Bold.ttf"},{"revision":"d8b7a801bd87b324efcbae7394119c24","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-Italic.woff2"},{"revision":"ed7aea12d765f9e2d0f9bc7fa2be626c","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-Italic.woff"},{"revision":"fe5ed5875d95b18c98546cb4f47304ff","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-Italic.ttf"},{"revision":"1320454d951ec809a7dbccb4f23fccf0","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-BoldItalic.woff2"},{"revision":"48155e43d9a284b54753e50e4ba586dc","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-BoldItalic.woff"},{"revision":"6589c4f1f587f73f0ad0af8ae35ccb53","url":"pluginsSrc/katex/dist/fonts/KaTeX_Math-BoldItalic.ttf"},{"revision":"f8a7f19f45060f7a177314855b8c7aa3","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Regular.woff2"},{"revision":"f1cdb692ee31c10b37262caffced5271","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Regular.woff"},{"revision":"818582dae57e6fac46202cfd844afabb","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Regular.ttf"},{"revision":"652970624cde999882102fa2b6a8871f","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Italic.woff2"},{"revision":"8ffd28f6390231548ead99d7835887fa","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Italic.woff"},{"revision":"39349e0a2b366f38e2672b45aded2030","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Italic.ttf"},{"revision":"d873734390c716d6e18ff3f71ac6eb8b","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-BoldItalic.woff2"},{"revision":"5f875f986a9bce1264e8c42417b56f74","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-BoldItalic.woff"},{"revision":"52fb39b0434c463d5df32419608ab08a","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-BoldItalic.ttf"},{"revision":"a9382e25bcf75d856718fcef54d7acdb","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Bold.woff2"},{"revision":"4cdba6465ab9fac5d3833c6cdba7a8c3","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Bold.woff"},{"revision":"8e431f7ece346b6282dae3d9d0e7a970","url":"pluginsSrc/katex/dist/fonts/KaTeX_Main-Bold.ttf"},{"revision":"f9e6a99f4a543b7d6cad1efb6cf1e4b1","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Regular.woff2"},{"revision":"e435cda5784e21b26ab2d03fbcb56a99","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Regular.woff"},{"revision":"97a699d83318e9334a0deaea6ae5eda2","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Regular.ttf"},{"revision":"796f3797cdf36fcaea18c3070a608378","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Bold.woff2"},{"revision":"40934fc076960bb989d590db044fef62","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Bold.woff"},{"revision":"b9d7c4497cab3702487214651ab03744","url":"pluginsSrc/katex/dist/fonts/KaTeX_Fraktur-Bold.ttf"},{"revision":"08d95d99bf4a2b2dc7a876653857f154","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff2"},{"revision":"a25140fbe6692bffe71a2ab861572eb3","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Regular.woff"},{"revision":"e6fb499fc8f9925eea3138cccba17fff","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Regular.ttf"},{"revision":"a9e9b0953b078cd40f5e19ef4face6fc","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff2"},{"revision":"de2ba279933d60f7819ff61f71c17bed","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Bold.woff"},{"revision":"497bf407c4c609c6cf1f1ad38f437f7f","url":"pluginsSrc/katex/dist/fonts/KaTeX_Caligraphic-Bold.ttf"},{"revision":"66c678209ce93b6e2b583f02ce41529e","url":"pluginsSrc/katex/dist/fonts/KaTeX_AMS-Regular.woff2"},{"revision":"10824af77e9961cfd548c8a458f10851","url":"pluginsSrc/katex/dist/fonts/KaTeX_AMS-Regular.woff"},{"revision":"56573229753fad48910bda2ea1a6dd54","url":"pluginsSrc/katex/dist/fonts/KaTeX_AMS-Regular.ttf"},{"revision":"6be74da2bd31a1975da5090d5926cd54","url":"pluginsSrc/katex/dist/contrib/copy-tex.min.js"},{"revision":"ae11493d70a8ce9fa776cc7aec1be764","url":"pluginsSrc/instant.page/instantpage.js"},{"revision":"8a817782fe4a94b4d2499bcfce04f8c3","url":"pluginsSrc/gitalk/dist/gitalk.min.js"},{"revision":"8476031a633732dff9875feae0890070","url":"pluginsSrc/gitalk/dist/gitalk.css"},{"revision":"ef690ba60b284a6e4434fdfcc8a6272a","url":"pluginsSrc/disqusjs/dist/browser/disqusjs.es2015.umd.min.js"},{"revision":"8c991997bc8dfef3cacb9ee848fae764","url":"pluginsSrc/disqusjs/dist/browser/styles/disqusjs.css"},{"revision":"61095ed4dc231d385757e1295f41ad95","url":"pluginsSrc/chart.js/dist/chart.umd.js"},{"revision":"1b9c8fe18c6fd8438d3442efb18c4694","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js"},{"revision":"3871ed57ba207fd8432d3e029d5b45a5","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/fonts/iconfont.woff2"},{"revision":"4ac164a6d6ff134e2600fa3a6d11e9f0","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/fonts/iconfont.woff"},{"revision":"172f0a3556b752ca681d536279b73315","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/fonts/iconfont.ttf"},{"revision":"5785a05fa891074972f95826d44175cc","url":"pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css"},{"revision":"7b5e05378aa5c4dbdccbe9a34cf30adb","url":"pluginsSrc/butterfly-extsrc/metingjs/dist/Meting.min.js"},{"revision":"30b2f5d43759302605d593c1b8b3c027","url":"pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"},{"revision":"19aa40f9f44d5f568ad200be3909b2a0","url":"pluginsSrc/butterfly-extsrc/dist/click-show-text.min.js"},{"revision":"77369a5a3007bd7bec3ff51ae9c80f51","url":"pluginsSrc/butterfly-extsrc/dist/click-heart.min.js"},{"revision":"d22e1a843a3797c4023047018a269e94","url":"pluginsSrc/butterfly-extsrc/dist/canvas-ribbon.min.js"},{"revision":"f481421e648d310e785b04ec6cdb6fdf","url":"pluginsSrc/butterfly-extsrc/dist/canvas-nest.min.js"},{"revision":"67f8ae7130ba7e392b8c4206cc49f059","url":"pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"},{"revision":"19f8a70f31a9b9c54815c4398a6d614e","url":"pluginsSrc/butterfly-extsrc/dist/activate-power-mode.min.js"},{"revision":"2f577924085ebbe12e29f3ff706397d0","url":"pluginsSrc/blueimp-md5/js/md5.min.js"},{"revision":"0a63ba0c60354069bd5036a20ce1f8f0","url":"pluginsSrc/artalk/dist/Artalk.js"},{"revision":"a36b54260ba5c899bab763ff1949803f","url":"pluginsSrc/artalk/dist/Artalk.css"},{"revision":"8f1017e7a73737e631ff95fa51e4e7d7","url":"pluginsSrc/aplayer/dist/APlayer.min.js"},{"revision":"fbe994054426fadb2dff69d824c5c67a","url":"pluginsSrc/aplayer/dist/APlayer.min.css"},{"revision":"67a0fbe78a9329ad16324445a6d7cb50","url":"pluginsSrc/algoliasearch/dist/lite/builds/browser.umd.js"},{"revision":"3d887a9f3ad6d6d5eb9f08b1d72f4b5f","url":"pluginsSrc/abcjs/dist/abcjs-basic-min.js"},{"revision":"7f9d9fe44aefb541b005371e98e94324","url":"pluginsSrc/@waline/client/dist/waline.js"},{"revision":"e8a4534f899312ba553034fb1216546b","url":"pluginsSrc/@waline/client/dist/waline.css"},{"revision":"6b6b455b96ea52d70d69fb54e265803b","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"},{"revision":"9209428ae208e223b94b9172802e97a7","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2"},{"revision":"ce76b7aa92724e57c94982ffbbc9a4a1","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2"},{"revision":"523f833a8b5bdd6079b88981425e31a7","url":"pluginsSrc/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2"},{"revision":"2a16261ad0706f6f7fbf4cb04e487611","url":"pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"},{"revision":"3c04b697824aee4ebe05a75509d2d591","url":"pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"},{"revision":"d4e3df64d639d509cef61bbf4665d887","url":"pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css"},{"revision":"1e4571560f743acd7070f9bd3c2bb679","url":"pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js"},{"revision":"7ee5a1792ec488061739666d84140fbe","url":"pluginsSrc/@docsearch/js/dist/umd/index.js"},{"revision":"fb7939e312d8861ceed093573b796d77","url":"pluginsSrc/@docsearch/css/dist/style.css"},{"revision":"cb004426c9bd62ba16e200b048462887","url":"lib/hbe.js"},{"revision":"2a0c775f99c73d7223a6a68631cdc883","url":"js/wow_init.js"},{"revision":"e84a69b53c7dd1ff5b6b330d9fb2044f","url":"js/utils.js"},{"revision":"c01d09126567452460ca80a4341f5f99","url":"js/tw_cn.js"},{"revision":"d2be0d8866877454674f3e102be652b4","url":"js/toggleSettingsModal.js"},{"revision":"0ed8ceab4ef20e5225c49a994242aad0","url":"js/toggleFontSize.js"},{"revision":"d2c813be41cdd9625fed2cc27a3e51d5","url":"js/toggleFont.js"},{"revision":"aaed2c6f3e83befaef1d94bbc574a6ae","url":"js/scroll-to-anchor.js"},{"revision":"fd772360f5695bc71719475c1dc6513d","url":"js/randomPost.js"},{"revision":"ef632184a8bdaec0d6e4e0383d368ee6","url":"js/pwa.js"},{"revision":"5dc36f8a93197abf09bd725cddd97921","url":"js/popup.js"},{"revision":"c1f20310307d33e41be3b787ef85e345","url":"js/pjaxAplayer.js"},{"revision":"f52073ee95c3f319e57532eac06f16ca","url":"js/Meting.min.js"},{"revision":"8284403085727620b481f046288fa3f7","url":"js/menus.js"},{"revision":"5e75560ff107c85cc9c3344b46bcb683","url":"js/main.js"},{"revision":"f6bb1034184b338ea022930d3d0229d4","url":"js/homepage.js"},{"revision":"745260d8561768ee1b6c9c4fe2c2d569","url":"js/head.js"},{"revision":"880968da5d5a7eb166c03531e8a4f6c5","url":"js/card-anthology.js"},{"revision":"af628b32f2b8b83143c8085c6ca2de3e","url":"js/cacheManager.js"},{"revision":"30ca434a40652c55cb7ca7cd4386f431","url":"js/app.js"},{"revision":"8f1017e7a73737e631ff95fa51e4e7d7","url":"js/APlayer.min.js"},{"revision":"53b093fc411e6861751450dc57f5c3c7","url":"js/search/local-search.js"},{"revision":"44848bf50caf33e4e9d1dbbf705ea5e2","url":"js/search/algolia.js"},{"revision":"49ed2faf014183ea3bf347500c0572c6","url":"js/posts_js/演示数据.js"},{"revision":"7fb02a820aed429dbc97514d6060757d","url":"js/posts_js/梯度下降线性回归.js"},{"revision":"19d879e90f9a232710099df29f43ec8c","url":"js/posts_js/梯度下降比较.js"},{"revision":"ba32016e0f95b3c6c0b020f170af2175","url":"js/posts_js/梯度下降图解.js"},{"revision":"ddaadb578049ccc6f3fd9361b1ff078a","url":"js/posts_js/最小二乘法成功.js"},{"revision":"5c2432396899fd45cea77d891a1d802c","url":"js/posts_js/最小二乘法.js"},{"revision":"e750a91e98ca4dfc37fe1c86e437c266","url":"js/posts_js/从0开始的机器学习·线性回归·最小二乘法.js"},{"revision":"ad79d8b5819819e15e5dd97089dba7a6","url":"js/posts_js/从0开始的机器学习·损失函数图.js"},{"revision":"a35b551055d75cdb4f3d7aeebfec16d8","url":"js/posts_js/从0开始的机器学习·什么是机器学习·线性回归通俗解释.js"},{"revision":"098aa4a7425a3b247eb3532a0d2b786e","url":"js/posts_js/从0开始的机器学习·二分类叉熵损失图.js"},{"revision":"21fe90eedcbaafb4ed529d78418d30bd","url":"js/mod/wow.min.js"},{"revision":"271138733214648bd35015f2e3186107","url":"js/mod/email.min.js"},{"revision":"d41d8cd98f00b204e9800998ecf8427e","url":"css/var.css"},{"revision":"61f4a6637d1fc3ac247d880fcbb3e0b6","url":"css/index.css"},{"revision":"f1245164f762ee83309fa797a63fb868","url":"css/hbe.style.css"},{"revision":"a4743cd2a7b80582470eb78532807357","url":"css/h.css"},{"revision":"a90e7f2688ce54ae4ffc27ff759ce422","url":"css/fonts.css"},{"revision":"6c70fb4be0dd330a0ab891330496193a","url":"css/custom.css"},{"revision":"6ce219f5556af48d61ce5fb6090020ce","url":"css/cache-panel.css"},{"revision":"fbe994054426fadb2dff69d824c5c67a","url":"css/APlayer.min.css"},{"revision":"c0be8e53226ac34833fd9b5dbc01ebc5","url":"css/animate.min.css"}]);
+  var validResponsePlugin = new CacheableResponsePlugin({
     statuses: [200]
   });
-  routing.registerRoute(
+  registerRoute(
     ({ url }) => url.pathname.endsWith("/version-counter.json") || url.pathname.endsWith("/cache-version-prod.json"),
-    new strategies.NetworkOnly()
+    new NetworkOnly()
   );
-  routing.registerRoute(
+  registerRoute(
     ({ url }) => url.pathname.endsWith("/app.js"),
-    new strategies.NetworkFirst({
+    new NetworkFirst({
       cacheName: "hexo-register",
       networkTimeoutSeconds: 10,
-      plugins: [
-        validResponsePlugin
-      ]
+      plugins: [validResponsePlugin]
     })
   );
-  routing.registerRoute(
+  registerRoute(
     ({ request }) => request.mode === "navigate",
-    new strategies.NetworkFirst({
+    new NetworkFirst({
       cacheName: "hexo-html",
       networkTimeoutSeconds: 10,
       plugins: [
@@ -2394,50 +3617,50 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
       ]
     })
   );
-  routing.registerRoute(
+  registerRoute(
     ({ request }) => request.destination === "script" || request.destination === "style",
-    new strategies.StaleWhileRevalidate({
+    new StaleWhileRevalidate({
       cacheName: "hexo-static",
       plugins: [
         validResponsePlugin,
-        new broadcastUpdate.BroadcastUpdatePlugin({
+        new BroadcastUpdatePlugin({
           channelName: "hexo-static-update"
         })
       ]
     })
   );
-  routing.registerRoute(
+  registerRoute(
     ({ request }) => request.destination === "image",
-    new strategies.CacheFirst({
+    new CacheFirst({
       cacheName: "hexo-images",
       plugins: [
         validResponsePlugin,
-        new expiration.ExpirationPlugin({
+        new ExpirationPlugin({
           maxAgeSeconds: 365 * 24 * 60 * 60
         })
       ]
     })
   );
-  routing.registerRoute(
+  registerRoute(
     ({ request }) => request.destination === "font",
-    new strategies.CacheFirst({
+    new CacheFirst({
       cacheName: "hexo-fonts",
       plugins: [
         validResponsePlugin,
-        new expiration.ExpirationPlugin({
+        new ExpirationPlugin({
           maxEntries: 50,
           maxAgeSeconds: 365 * 24 * 60 * 60
         })
       ]
     })
   );
-  routing.registerRoute(
+  registerRoute(
     ({ request }) => request.destination === "audio",
-    new strategies.CacheFirst({
+    new CacheFirst({
       cacheName: "hexo-audio",
       plugins: [
         validResponsePlugin,
-        new expiration.ExpirationPlugin({
+        new ExpirationPlugin({
           maxEntries: 50,
           maxAgeSeconds: 180 * 24 * 60 * 60
         })
