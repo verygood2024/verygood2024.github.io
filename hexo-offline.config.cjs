@@ -63,7 +63,6 @@ module.exports = {
 
         // =========================
         // HTML页面
-        // 网络优先，GitHub失败使用缓存
         // =========================
         {
             urlPattern: ({request, url}) => {
@@ -76,7 +75,7 @@ module.exports = {
             handler: 'NetworkFirst',
             options: {
                 cacheName: `hexo-html`,
-                networkTimeoutSeconds: 5,
+                networkTimeoutSeconds: 10,
                 expiration: {
                     maxAgeSeconds: 7 * 24 * 60 * 60
                 },
@@ -88,7 +87,6 @@ module.exports = {
 
         // =========================
         // JS CSS
-        // 后台更新
         // =========================
         {
             urlPattern: ({request}) => {
@@ -111,11 +109,10 @@ module.exports = {
 
         // =========================
         // 图片
-        // 浏览后缓存
         // =========================
         {
             urlPattern: ({request}) => request.destination === 'image',
-            handler: 'StaleWhileRevalidate',
+            handler: 'CacheFirst',
             options: {
                 cacheName: `hexo-images`,
                 expiration: {
