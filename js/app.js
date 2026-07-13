@@ -4,11 +4,10 @@
     const VERSION_KEY = 'hexo_cache_version';
     const STATUS_KEY = 'hexo_sw_status';
 
-    let refreshing = false;
     let registered = false;
+    let refreshing = false;
     let updating = false;
     let currentVersion = null;
-    let updateTimer = null;
 
     function showSnackbar(text) {
         if (window.btf?.snackbarShow) {
@@ -35,9 +34,11 @@
                 }
                 currentVersion = data.version;
                 return data.version;
-            } catch(e) {
-                console.warn(`[SW]版本获取失败 ${retry}`);
-                await new Promise(r => setTimeout(r, Math.min(retry * 500, 5000)));
+            } catch (e) {
+                console.warn(`[SW]版本获取失败(${retry})`);
+                await new Promise(resolve =>
+                    setTimeout(resolve, Math.min(retry * 500, 5000))
+                );
             }
         }
     }
@@ -49,20 +50,23 @@
         const local = localStorage.getItem(VERSION_KEY);
         const controller = navigator.serviceWorker.controller;
 
-        // 第一次安装
+        // 没有SW
+        // 可能: 1.第一次访问 2.用户清除了SW
         if (!controller) {
-            console.log('[SW]首次安装');
+            if (!local) {
+                showSnackbar('正在初始化离线缓存...');
+            }
             return;
         }
 
-        // 已经是最新
+        // 版本一致
         if (remote === local) {
-            console.log('[SW]版本一致:', remote);
+            console.log('[SW]版本一致', remote);
             return;
         }
 
         updating = true;
-        localStorage.setItem(STATUS_KEY, 'updating');
+        sessionStorage.setItem(STATUS_KEY, 'updating');
         showSnackbar('发现网站更新，正在后台下载关键资源...');
         await registration.update();
     }
@@ -76,13 +80,11 @@
 
             worker.addEventListener('statechange', () => {
                 console.log('[SW]', worker.state);
-                if (worker.state === 'installed') {
-                    if (navigator.serviceWorker.controller) {
-                        showSnackbar('关键资源更新完成，正在应用...');
-                        worker.postMessage({
-                            type: 'SKIP_WAITING'
-                        });
-                    }
+                if (worker.state === 'installed' && navigator.serviceWorker.controller) {
+                    showSnackbar('关键资源更新完成，正在应用...');
+                    worker.postMessage({
+                        type: 'SKIP_WAITING'
+                    });
                 }
             });
         });
@@ -99,42 +101,34 @@
 
             console.log('[SW]注册成功');
             watchUpdate(registration);
-
-            // 检查版本
             await checkVersion(registration);
 
-            // 定期检查
-            if (!updateTimer) {
-                updateTimer = setInterval(() => {
-                    checkVersion(registration);
-                }, 1 * 60 * 1000);
-            }
+            setInterval(() => {
+                checkVersion(registration);
+            }, 1 * 60 * 1000);
         } catch(e) {
-            console.error('[SW注册失败]', e);
             registered = false;
+            console.error('[SW]注册失败', e);
         }
     }
 
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (refreshing) return;
+        if (refreshing || !updating) {
+            return;
+        }
         refreshing = true;
 
         if (currentVersion) {
             localStorage.setItem(VERSION_KEY, currentVersion);
-            localStorage.setItem(STATUS_KEY, 'installed');
         }
+        sessionStorage.removeItem(STATUS_KEY);
 
         showSnackbar('网站更新完成，正在刷新...');
         setTimeout(() => {
             location.reload();
-        }, 1200);
+        }, 1000);
     });
 
-    // 页面加载
     window.addEventListener('load', registerSW);
-
-    // PJAX
-    document.addEventListener('pjax:complete', () => {
-        registerSW();
-    });
+    document.addEventListener('pjax:complete', registerSW);
 })();

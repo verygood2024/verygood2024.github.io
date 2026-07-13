@@ -1,216 +1,182 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const settingsModal = document.getElementById('settingsModal');
-  const settingsModalContent = settingsModal.querySelector('.modal-content');
-  const rightsideConfigBtn = document.getElementById('rightside-config');
-  let cachedRightsideConfigBtnCenter = null;
+    const settingsModal = document.getElementById('settingsModal');
+    const settingsModalContent = settingsModal?.querySelector('.modal-content');
+    const rightsideConfigBtn = document.getElementById('rightside-config');
+    let cachedRightsideConfigBtnCenter = null;
 
-  if (rightsideConfigBtn) {
-    const rect = rightsideConfigBtn.getBoundingClientRect();
-    cachedRightsideConfigBtnCenter = {
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2
-    };
-  }
+    if (rightsideConfigBtn) {
+        const rect = rightsideConfigBtn.getBoundingClientRect();
+        cachedRightsideConfigBtnCenter = {
+            x: rect.left + rect.width / 2,
+            y: rect.top + rect.height / 2
+        };
+    }
 
+    window.cacheManager = {
+        _modal: document.getElementById('customConfirm'),
+        _modalContent: document.querySelector('#customConfirm .custom-modal-content'),
+        _triggerBtn: document.getElementById('cacheManager'),
+        _onConfirm: null,
 
-  window.cacheManager = {
-    _modal: document.getElementById('customConfirm'),
-    _modalContent: document.querySelector('#customConfirm .custom-modal-content'),
-    _triggerBtn: document.getElementById('cacheManager'),
+        async clearAll() {
+            this.closeSettingsModal();
 
-    _onConfirm: null,
+            this.showConfirm('', async () => {
+                try {
+                    await this.closeAnimation();
 
-    async clearAll() {
-      this.closeSettingsModal();
+                    // 保存PWA版本状态，防止清除后误认为更新
+                    const savedVersion = localStorage.getItem('hexo_cache_version');
 
-      this.showConfirm(
-        '',
-        async () => {
-          try {
-            await this.closeAnimation();
+                    // 清理LocalStorage
+                    localStorage.clear();
+                    if (savedVersion) {
+                        localStorage.setItem('hexo_cache_version', savedVersion);
+                    }
 
-            localStorage.clear();
-            sessionStorage.clear();
+                    // 清理Session状态
+                    sessionStorage.clear();
 
-            const databases = await indexedDB.databases();
-            for (const { name } of databases) {
-              if (name) await indexedDB.deleteDatabase(name);
-            }
+                    // 删除IndexedDB
+                    if (indexedDB.databases) {
+                        try {
+                            const databases = await indexedDB.databases();
+                            for (const db of databases) {
+                                if (db.name) {
+                                    await indexedDB.deleteDatabase(db.name);
+                                }
+                            }
+                        } catch(e) {
+                            console.warn('[Cache] IndexedDB清理失败', e);
+                        }
+                    }
 
-            document.cookie.split(";").forEach(c => {
-              document.cookie = c.trim().split("=")[0] + "=;expires=" + new Date(0).toUTCString() + ";path=/";
+                    // 清理Cookie
+                    document.cookie.split(';').forEach(cookie => {
+                        const name = cookie.split('=')[0].trim();
+                        if (name) {
+                            document.cookie = `${name}=;expires=${new Date(0).toUTCString()};path=/`;
+                        }
+                    });
+
+                    // 清理Cache Storage
+                    if ('caches' in window) {
+                        const keys = await caches.keys();
+                        await Promise.all(keys.map(key => caches.delete(key)));
+                    }
+
+                    // 注销Service Worker
+                    if ('serviceWorker' in navigator) {
+                        const registrations = await navigator.serviceWorker.getRegistrations();
+                        for (const registration of registrations) {
+                            await registration.unregister();
+                            console.log('[SW]已注销:', registration.scope);
+                        }
+                    }
+
+                    // 等浏览器释放SW
+                    await new Promise(resolve => setTimeout(resolve, 800));
+
+                    // 重新初始化
+                    location.reload();
+                } catch(e) {
+                    console.error('[Cache]清理失败:', e);
+                    alert('❌ 清除缓存失败，请稍后重试');
+                }
+            });
+        },
+
+        showConfirm(message, onConfirm) {
+            if (!this._modal) return;
+
+            handleNavAndRightside({
+                hideNav: true,
+                hideRightside: true,
+                hidePwa: true
             });
 
-            const keys = await caches.keys();
-            for (const key of keys) {
-              await caches.delete(key);
+            this._onConfirm = onConfirm;
+
+            if (message && message.trim()) {
+                this._modal.querySelector('.custom-modal-content p').innerHTML = message;
             }
 
-            if ('serviceWorker' in navigator) {
-                const registrations = await navigator.serviceWorker.getRegistrations();
-                for (const registration of registrations) {
-                    await registration.unregister();
-                    console.log('Service Worker 已注销:', registration.scope);
+            this._modal.style.display = 'flex';
+
+            const btnRect = this._triggerBtn.getBoundingClientRect();
+            const btnCenterX = btnRect.left + btnRect.width / 2;
+            const btnCenterY = btnRect.top + btnRect.height / 2;
+            const deltaX = btnCenterX - window.innerWidth / 2;
+            const deltaY = btnCenterY - window.innerHeight / 2;
+
+            this._modalContent.style.transition = 'none';
+            this._modalContent.style.transform = `translate(${deltaX}px,${deltaY}px) scale(0.1)`;
+            this._modalContent.offsetWidth;
+
+            requestAnimationFrame(() => {
+                this._modalContent.style.transition = 'transform .4s ease';
+                this._modalContent.style.transform = 'translate(0,0) scale(1)';
+            });
+        },
+
+        async closeAnimation() {
+            return new Promise(resolve => {
+                const btn = this._triggerBtn;
+                let x = window.innerWidth / 2;
+                let y = window.innerHeight / 2;
+
+                if (btn) {
+                    const rect = btn.getBoundingClientRect();
+                    x = rect.left + rect.width / 2;
+                    y = rect.top + rect.height / 2;
                 }
+
+                handleNavAndRightside({
+                    hideNav: false,
+                    hideRightside: false,
+                    hidePwa: false
+                });
+
+                const deltaX = x - window.innerWidth / 2;
+                const deltaY = y - window.innerHeight / 2;
+
+                this._modalContent.style.transition = 'transform .4s ease';
+                this._modalContent.style.transform = `translate(${deltaX}px,${deltaY}px) scale(0.1)`;
+
+                this._modalContent.addEventListener('transitionend', () => {
+                    this._modal.style.display = 'none';
+                    resolve();
+                }, { once: true });
+            });
+        },
+
+        closeSettingsModal() {
+            if (settingsModal && settingsModal.style.display === 'flex') {
+                settingsModal.classList.add('modalFadeOut');
+                settingsModalContent.classList.add('modalFadeOut');
             }
+        },
 
-            await this.fetchLatestContent();
-
-            location.reload();
-
-          } catch (e) {
-            alert('❌ 清除缓存时发生错误');
-            console.error('缓存清除失败:', e);
-          }
+        openSettingsModal() {
+            if (!settingsModal) return;
+            settingsModal.style.display = 'flex';
+            settingsModalContent.style.display = 'block';
         }
-      );
-    },
+    };
 
-    // 强制从服务器获取最新内容
-    async fetchLatestContent() {
-      try {
-        const response = await fetch(window.location.href, {
-          method: 'GET',
-          cache: 'no-store',
-        });
+    window.handleConfirm = function(result) {
+        if (!window.cacheManager) return;
 
-        if (response.ok) {
-          console.log('已从服务器加载最新内容');
+        if (result) {
+            window.cacheManager._onConfirm && window.cacheManager._onConfirm();
         } else {
-          console.error('服务器响应失败:', response.status);
+            window.cacheManager.closeAnimation().then(() => {
+                window.cacheManager.openSettingsModal();
+            });
         }
-      } catch (e) {
-        console.error('获取最新内容时发生错误:', e);
-      }
-    },
+    };
 
-    showConfirm(message, onConfirm) {
-      handleNavAndRightside({ hideNav: true, hideRightside: true, hidePwa: true });
-      this._onConfirm = onConfirm;
-      if (message && message.trim() !== '') {
-        this._modal.querySelector('.custom-modal-content p').innerHTML = message;
-      }
-      this._modal.style.display = 'flex';
-
-      const btnRect = this._triggerBtn.getBoundingClientRect();
-      const btnCenterX = btnRect.left + btnRect.width / 2;
-      const btnCenterY = btnRect.top + btnRect.height / 2;
-
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      const modalCenterX = viewportWidth / 2;
-      const modalCenterY = viewportHeight / 2;
-
-      const deltaX = btnCenterX - modalCenterX;
-      const deltaY = btnCenterY - modalCenterY;
-
-      this._modalContent.style.transition = 'none';
-      this._modalContent.style.transformOrigin = 'center center';
-      this._modalContent.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.1)`;
-      this._modalContent.offsetWidth;
-
-
-      requestAnimationFrame(() => {
-        this._modalContent.style.transition = 'transform 0.4s ease';
-        this._modalContent.style.transform = 'translate(0, 0) scale(1)';
-      });
-    },
-
-    async closeAnimation() {
-      return new Promise((resolve) => {
-        let targetBtn = this._triggerBtn;
-
-        const isBtnVisible = (btn) => {
-          const rect = btn.getBoundingClientRect();
-          return (
-            rect.width > 0 &&
-            rect.height > 0 &&
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-          );
-        };
-
-        let btnCenterX, btnCenterY;
-
-        // 优先使用可见按钮的位置
-        if (isBtnVisible(this._triggerBtn)) {
-          const rect = this._triggerBtn.getBoundingClientRect();
-          btnCenterX = rect.left + rect.width / 2;
-          btnCenterY = rect.top + rect.height / 2;
-        } else if (isBtnVisible(rightsideConfigBtn)) {
-          const rect = rightsideConfigBtn.getBoundingClientRect();
-          btnCenterX = rect.left + rect.width / 2;
-          btnCenterY = rect.top + rect.height / 2;
-        } else if (cachedRightsideConfigBtnCenter) {
-          // 使用缓存位置
-          btnCenterX = cachedRightsideConfigBtnCenter.x;
-          btnCenterY = cachedRightsideConfigBtnCenter.y;
-        } else {
-          // 兜底：使用屏幕中央
-          btnCenterX = window.innerWidth / 2;
-          btnCenterY = window.innerHeight / 2;
-        }
-
-        handleNavAndRightside({ hideNav: false, hideRightside: false, hidePwa: false });
-
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-
-        const modalCenterX = viewportWidth / 2;
-        const modalCenterY = viewportHeight / 2;
-
-        const deltaX = btnCenterX - modalCenterX;
-        const deltaY = btnCenterY - modalCenterY;
-
-        this._modalContent.style.transition = 'transform 0.4s ease';
-        this._modalContent.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.1)`;
-
-        const onTransitionEnd = () => {
-          this._modal.style.display = 'none';
-          this._modalContent.removeEventListener('transitionend', onTransitionEnd);
-          resolve();
-        };
-        this._modalContent.addEventListener('transitionend', onTransitionEnd);
-      });
-    },
-
-
-    closeSettingsModal() {
-      if (settingsModal.style.display === 'flex') {
-        settingsModal.classList.add('modalFadeOut');
-        settingsModalContent.classList.add('modalFadeOut');
-
-        settingsModalContent.addEventListener('animationend', () => {
-          settingsModal.style.display = 'none';
-          settingsModalContent.style.display = 'none';
-          settingsModal.classList.remove('modalFadeOut');
-          settingsModalContent.classList.remove('modalFadeOut');
-        }, { once: true });
-      }
-    },
-
-    openSettingsModal() {
-      settingsModal.style.display = 'flex';
-      settingsModalContent.style.display = 'block';
-    }
-  };
-
-  window.handleConfirm = function (result) {
-    if (window.cacheManager) {
-      if (result) {
-        window.cacheManager._onConfirm && window.cacheManager._onConfirm();
-      } else {
-        window.cacheManager.closeAnimation().then(() => {
-          window.cacheManager.openSettingsModal();
-        });
-      }
-    }
-  };
-
-  document.getElementById('cacheManager').addEventListener('click', () => {
-    window.cacheManager.clearAll();
-  });
+    document.getElementById('cacheManager')?.addEventListener('click', () => {
+        window.cacheManager.clearAll();
+    });
 });
