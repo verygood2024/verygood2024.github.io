@@ -687,25 +687,34 @@ class="remove-article">
     }
     let articles = [];
     document.querySelectorAll(".article-box").forEach((box, index) => {
-      articles.push(
-`【作品${index+1}】
+      const title = box.querySelector(".article-title").value;
+      const type = box.querySelector(".article-type").value;
+      const content = box.querySelector(".article-content").value;
+      const purpose = box.querySelector(".article-purpose").value;
+      const extra = box.querySelector(".article-message")?.value || "";
 
-标题：
-${box.querySelector(".article-title").value}
+      const lines = [
+        `【作品${index + 1}】`,
+        `标题：${title}`,
+        `类型：${type}`,
+        `正文：`,
+        content,
+      ];
 
-类型：
-${box.querySelector(".article-type").value}
+      // 仅当可选项有实质内容时才添加
+      if (purpose.trim().length > 0) {
+        lines.push(
+          `说明：`,
+          purpose,
+        );
+      }
+      if (extra.trim().length > 0) {
+        lines.push(`额外要求：${extra}`);
+      }
 
-正文：
-${box.querySelector(".article-content").value}
-
-说明：
-${box.querySelector(".article-purpose").value}
-
-额外要求：
-${box.querySelector(".article-message")?.value || ""}`
-      );
+      articles.push(lines.join("\n"));
     });
+
     const finalMessage = document.getElementById("final_message");
     if (finalMessage) {
       finalMessage.value = articles.join("\n\n");
@@ -716,7 +725,7 @@ ${box.querySelector(".article-message")?.value || ""}`
       btn.disabled = true;
       btn.textContent = "投稿上传中...";
       await emailjs.sendForm("service_5mlsoqf", "template_t37c95g", form);
-      alert("投稿成功，请等待审核。\n预计七日内完成审核。");
+      alert("投稿成功，请等待审核。\n预计九个工作日内完成审核。");
       form.reset();
       const list = document.getElementById("article-list");
       if (list) {

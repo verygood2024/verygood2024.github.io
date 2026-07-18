@@ -323,109 +323,150 @@ btf.addGlobalFn('pjaxComplete', () => {
 </div>
 
 <script>
-  // 动态加载 EmailJS 脚本
-  function loadEmailJSScript(callback) {
-    if (typeof emailjs !== 'undefined') {
-      callback();
-      return;
-    }
-    const script = document.createElement("script");
-    script.src = "https://yesandnoandperhaps.cn/js/mod/email.min.js";
-    script.onload = callback;
-    script.onerror = () => {
-      console.error("EmailJS 脚本加载失败");
-    };
-    document.head.appendChild(script);
-  }
-
-  // 初始化 EmailJS，防止重复初始化
-  function initEmailJS() {
-    if (typeof emailjs !== 'undefined' && !window.emailjs_inited) {
-      emailjs.init("uBtCMeYBjwcI61uvw");
-      window.emailjs_inited = true;
-      console.log("EmailJS 初始化成功");
-    }
-  }
-
-  // 表单提交处理
-  async function onSubmitHandler(event) {
-    event.preventDefault();
-    const form = event.target;
-    const submitBtn = form.querySelector(".submit-button");
-
-    if (submitBtn.disabled) {
-      console.warn("表单提交被阻止：按钮处于禁用状态。");
-      return;
+  (function () {
+    /**
+     * 动态加载 EmailJS
+     */
+    function loadEmailJSScript(callback) {
+      if (typeof emailjs !== "undefined") {
+        callback();
+        return;
+      }
+      const script = document.createElement("script");
+      script.src = "https://yesandnoandperhaps.cn/js/mod/email.min.js";
+      script.onload = callback;
+      script.onerror = function () {
+        console.error("EmailJS 脚本加载失败");
+        alert("反馈系统加载失败，请刷新页面重试。");
+      };
+      document.head.appendChild(script);
     }
 
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
+    /**
+     * 初始化 EmailJS（仅一次）
+     */
+    function initEmailJS() {
+      if (typeof emailjs !== "undefined" && !window.emailjs_inited) {
+        emailjs.init("uBtCMeYBjwcI61uvw");
+        window.emailjs_inited = true;
+        console.log("EmailJS 初始化成功");
+      }
     }
 
-    const email = form.feedback_provider_email.value.trim();
-    const type = form.feedback_type.value;
-    const content = form.feedback_content.value.trim();
+    /**
+     * 验证反馈表单（返回 boolean）
+     */
+    function validateFeedbackForm(form) {
+      // 获取所有字段，若缺失则报错
+      const nameInput = document.getElementById("feedback_provider_name");
+      const emailInput = document.getElementById("feedback_provider_email");
+      const typeSelect = document.getElementById("feedback_type");
+      const contentTextarea = document.getElementById("feedback_content");
 
-    if (!email) {
-      alert("反馈者邮箱是必填项，请填写邮箱。");
-      form.feedback_provider_email.focus();
-      return;
-    }
-    if (!type) {
-      alert("请选择反馈类型。");
-      form.feedback_type.focus();
-      return;
-    }
-    if (!content) {
-      alert("反馈内容是必填项，请填写反馈内容。");
-      form.feedback_content.focus();
-      return;
+      if (!emailInput || !typeSelect || !contentTextarea) {
+        alert("表单结构错误，请刷新页面重试。");
+        return false;
+      }
+
+      const email = emailInput.value.trim();
+      const type = typeSelect.value;
+      const content = contentTextarea.value.trim();
+
+      if (!email) {
+        alert("反馈者邮箱是必填项，请填写邮箱。");
+        emailInput.focus();
+        return false;
+      }
+      // 简单邮箱格式校验
+      const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailReg.test(email)) {
+        alert("请输入正确的邮箱地址。");
+        emailInput.focus();
+        return false;
+      }
+      if (!type) {
+        alert("请选择反馈类型。");
+        typeSelect.focus();
+        return false;
+      }
+      if (!content) {
+        alert("反馈内容是必填项，请填写反馈内容。");
+        contentTextarea.focus();
+        return false;
+      }
+      return true;
     }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = "反馈上传中...";
+    /**
+     * 提交处理
+     */
+    async function onSubmitHandler(e) {
+      e.preventDefault();
+      const form = e.target;
 
-    try {
-      await emailjs.sendForm("service_5mlsoqf", "template_0zmxfp6", form);
-      alert("反馈成功，感谢您的付出让我们更好地改进网站。");
-      form.reset();
-    } catch (error) {
-      console.error("反馈提交失败:", error);
-      alert("提交遇到了一些问题，请稍后再试。\n若实在无法提交，请通过邮箱联系：yesandnoandperhaps@yesandnoandperhaps.cn。");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "反馈";
+      // 自定义验证
+      if (!validateFeedbackForm(form)) {
+        return;
+      }
+
+      const submitBtn = form.querySelector(".submit-button");
+      if (submitBtn.disabled) {
+        return;
+      }
+
+      // 检查 EmailJS 是否就绪
+      if (typeof emailjs === "undefined") {
+        alert("反馈系统尚未加载完成，请稍后再试。");
+        return;
+      }
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "反馈上传中...";
+
+        await emailjs.sendForm("service_5mlsoqf", "template_0zmxfp6", form);
+
+        alert("反馈成功，感谢您的付出让我们更好地改进网站。");
+        form.reset();
+      } catch (error) {
+        console.error("反馈提交失败:", error);
+        alert("提交遇到了一些问题，请稍后再试。\n若实在无法提交，请通过邮箱联系：yesandnoandperhaps@yesandnoandperhaps.cn。");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "反馈";
+      }
     }
-  }
 
-  let isFormBound = false;
-  function bindEmailForm2() {
-    const form = document.getElementById("email-form");
-    if (!form) return;
-    if (isFormBound) {
+    /**
+     * 绑定表单事件（移除旧监听，避免重复）
+     */
+    function bindForm() {
+      const form = document.getElementById("email-form");
+      if (!form) return;
+      // 移除已有监听（若存在），防止多次绑定
       form.removeEventListener("submit", onSubmitHandler);
-      isFormBound = false;
+      form.addEventListener("submit", onSubmitHandler);
     }
-    form.addEventListener("submit", onSubmitHandler);
-    isFormBound = true;
-  }
 
-  // 页面初始化函数
-  function setupPage() {
-    loadEmailJSScript(() => {
-      initEmailJS();
-      bindEmailForm2();
-    });
-  }
+    /**
+     * 页面初始化
+     */
+    function setupPage() {
+      loadEmailJSScript(function () {
+        initEmailJS();
+        bindForm();
+      });
+    }
 
-  document.addEventListener("DOMContentLoaded", setupPage);
-  document.addEventListener("pjax:end", setupPage);
+    // 常规加载 & PJAX 重载
+    document.addEventListener("DOMContentLoaded", setupPage);
+    document.addEventListener("pjax:end", setupPage);
+    document.addEventListener("pjax:complete", setupPage);
+  })();
 </script>
 
 </body>
-</html>
-</div><div class="aside-content" id="aside-content"><!--!=partial('includes/widget/card_author', {}, {cache: true})--><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/d6587330.html" title="风"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-peter-blake-HuE1QXFy_fY-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风"/></a><div class="content"><a class="title" href="/posts/d6587330.html" title="风">风</a><time datetime="2026-07-12T12:27:16.000Z" title="发表于 2026-07-12 20:27:16">2026-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5fcaee89.html" title="2026公告"><img src="/img/img/yesandno/freecompress-slimane-kadi-KVAVuPXl_JE-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2026公告"/></a><div class="content"><a class="title" href="/posts/5fcaee89.html" title="2026公告">2026公告</a><time datetime="2026-07-03T21:00:01.000Z" title="发表于 2026-07-04 05:00:01">2026-07-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月"><img src="/img/img/%E6%B3%A0%E4%BA%BA/sander-dewerte--jcP3xbN88w-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="献给黑夜的女儿——月"/></a><div class="content"><a class="title" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月">献给黑夜的女儿——月</a><time datetime="2026-07-03T15:39:16.000Z" title="发表于 2026-07-03 23:39:16">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/80b6274f.html" title="花园"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-dl314-lin-SuHmvPbeMAk-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="花园"/></a><div class="content"><a class="title" href="/posts/80b6274f.html" title="花园">花园</a><time datetime="2026-07-03T15:39:15.000Z" title="发表于 2026-07-03 23:39:15">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b005e4da.html" title="遐方怨"><img src="/img/img/%E6%9D%8E%E5%B2%9A%E9%9C%8F/freecompress-%E5%B0%8Foriol-hausmann-jo2ScPwRnvA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="遐方怨"/></a><div class="content"><a class="title" href="/posts/b005e4da.html" title="遐方怨">遐方怨</a><time datetime="2026-04-06T03:01:21.000Z" title="发表于 2026-04-06 11:01:21">2026-04-06</time></div></div></div></div><div class="card-widget card-info text-center"><!-- 作者名（带链接）--><div class="author-info-name"><a class="author-name-link" href="/about/">yesandnoandperhaps</a></div><!-- 作者描述--><div class="author-info-description">随后的每一天，太阳先生从海洋里探出头来，缓缓的顺着山脊走到工位上。到了下午的先生，又与月亮先生相见了，也许一闪一闪的星星在先生的照耀下没了踪影，但在月亮先生的旁边，它们会很开心。</div><!-- 投稿按钮--><a id="card-info-btn" href="/submission/"><i class="iconfont icon-edit"></i><span>投稿</span></a><!-- 社交链接--><!-- 三大类统计：文章 / 标签 / 分类--><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">407</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">110</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">197</div></a></div><!-- 以下为 Web 信息整合展示--><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">407</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">264.8k</div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(45deg, #5a3549, #7d4755, #a05a60, #c56e6c);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By yesandnoandperhaps</div><div class="footer_custom_text">左右相望、前后相顾</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="iconfont icon-cog"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="iconfont icon-arrows-alt-h"></i></button><button class="randomPost" type="button" title="随机访问一篇文章" onclick="randomPost()"><i class="iconfont icon-random"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="iconfont icon-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://instant.page/5.2.0" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+</html></div><div class="aside-content" id="aside-content"><!--!=partial('includes/widget/card_author', {}, {cache: true})--><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/d6587330.html" title="风"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-peter-blake-HuE1QXFy_fY-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风"/></a><div class="content"><a class="title" href="/posts/d6587330.html" title="风">风</a><time datetime="2026-07-12T12:27:16.000Z" title="发表于 2026-07-12 20:27:16">2026-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5fcaee89.html" title="2026公告"><img src="/img/img/yesandno/freecompress-slimane-kadi-KVAVuPXl_JE-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2026公告"/></a><div class="content"><a class="title" href="/posts/5fcaee89.html" title="2026公告">2026公告</a><time datetime="2026-07-03T21:00:01.000Z" title="发表于 2026-07-04 05:00:01">2026-07-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月"><img src="/img/img/%E6%B3%A0%E4%BA%BA/sander-dewerte--jcP3xbN88w-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="献给黑夜的女儿——月"/></a><div class="content"><a class="title" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月">献给黑夜的女儿——月</a><time datetime="2026-07-03T15:39:16.000Z" title="发表于 2026-07-03 23:39:16">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/80b6274f.html" title="花园"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-dl314-lin-SuHmvPbeMAk-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="花园"/></a><div class="content"><a class="title" href="/posts/80b6274f.html" title="花园">花园</a><time datetime="2026-07-03T15:39:15.000Z" title="发表于 2026-07-03 23:39:15">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b005e4da.html" title="遐方怨"><img src="/img/img/%E6%9D%8E%E5%B2%9A%E9%9C%8F/freecompress-%E5%B0%8Foriol-hausmann-jo2ScPwRnvA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="遐方怨"/></a><div class="content"><a class="title" href="/posts/b005e4da.html" title="遐方怨">遐方怨</a><time datetime="2026-04-06T03:01:21.000Z" title="发表于 2026-04-06 11:01:21">2026-04-06</time></div></div></div></div><div class="card-widget card-info text-center"><!-- 作者名（带链接）--><div class="author-info-name"><a class="author-name-link" href="/about/">yesandnoandperhaps</a></div><!-- 作者描述--><div class="author-info-description">随后的每一天，太阳先生从海洋里探出头来，缓缓的顺着山脊走到工位上。到了下午的先生，又与月亮先生相见了，也许一闪一闪的星星在先生的照耀下没了踪影，但在月亮先生的旁边，它们会很开心。</div><!-- 投稿按钮--><a id="card-info-btn" href="/submission/"><i class="iconfont icon-edit"></i><span>投稿</span></a><!-- 社交链接--><!-- 三大类统计：文章 / 标签 / 分类--><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">407</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">110</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">197</div></a></div><!-- 以下为 Web 信息整合展示--><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">407</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">264.8k</div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(45deg, #5a3549, #7d4755, #a05a60, #c56e6c);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By yesandnoandperhaps</div><div class="footer_custom_text">左右相望、前后相顾</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="iconfont icon-cog"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="iconfont icon-arrows-alt-h"></i></button><button class="randomPost" type="button" title="随机访问一篇文章" onclick="randomPost()"><i class="iconfont icon-random"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="iconfont icon-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://instant.page/5.2.0" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const runMermaid = ele => {
     window.loadMermaid = true
     const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
