@@ -9090,7 +9090,7 @@ html[data-theme="dark"] .submission-form-wrapper select {
 }
 
 .submission-form-wrapper .submit-button {
-  background: linear-gradient(135deg, #adfff6, #5dade2);
+  background: linear-gradient(135deg, #6eff8cd6, #f3f3f3);
   padding: 16px 28px;
   border: none;
   border-radius: 10px;
@@ -9115,7 +9115,7 @@ html[data-theme="dark"] .submission-form-wrapper select {
 }
 
 html[data-theme="dark"] .submission-form-wrapper .submit-button {
-  background: linear-gradient(135deg, #5dade2, #8367AB);
+  background: linear-gradient(to left, #66bb6a, #43a047);
   color: #fff;
 }
 
@@ -9191,7 +9191,103 @@ html[data-theme="dark"] .submission-form-wrapper .checkbox-container a {
   color: #8ab4f8;
 }
 
-/* supporters结束 */
+/* submission新增 */
+/* 投稿升级 */
+.submission-card {
+  border-radius: 18px;
+  padding: 15px;
+}
+
+.submission-card h2 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.add-article-area {
+  display: flex;
+  justify-content: center;
+}
+
+#addArticle {
+  background: linear-gradient(135deg,  rgb(70, 130, 180), #f3f3f3);
+  padding: 16px 28px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #2c3e50;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+html[data-theme="dark"] #addArticle{
+  background: #333333;
+  color: #fff;
+}
+
+#addArticle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.article-box {
+  padding: 15px;
+  border-radius: 16px;
+  background: rgba(240,240,240,.65);
+  margin-top: 20px;
+}
+
+.article-box h3 {
+  margin-top: 0;
+}
+
+.article-box details {
+  margin-bottom: 20px;
+}
+
+.article-box summary {
+  cursor: pointer;
+  color: #5dade2;
+}
+
+html[data-theme="dark"] .article-box summary {
+  cursor: pointer;
+  color: #8ab4f8;
+}
+
+.remove-article {
+  background: #eee !important;
+  color: #666 !important;
+  box-shadow: none !important;
+}
+
+.collection-panel label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.collection-panel input[type=radio] {
+  width: auto;
+  margin-right: 10px;
+}
+
+/* dark */
+
+html[data-theme="dark"] .article-box {
+  background: rgb(60 60 60 / 20%);
+}
+
+html[data-theme="dark"] .remove-article {
+  background: #333 !important;
+  color: #ccc !important;
+  border: none !important;
+}
+/* submission新增结束 */
+
+/* submission结束 */
 
 /* yesandno.pug */
 

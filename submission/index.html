@@ -298,144 +298,462 @@ btf.addGlobalFn('pjaxComplete', () => {
 
 <div class="submission-form-wrapper">
   <form id="email-form" novalidate>
-    <label for="author_name">作者姓名：</label>
-    <input type="text" id="author_name" name="author_name" placeholder="请输入作者姓名" required />
-
-    <label for="author_email">作者邮箱：</label>
-    <input type="email" id="author_email" name="author_email" placeholder="请输入作者邮箱" required />
-
-    <label for="article_title">文学作品标题：</label>
-    <input type="text" id="article_title" name="article_title" placeholder="请输入文学作品标题" required autocomplete="off"/>
-
-    <label for="article_type">投稿类型：</label>
-    <select id="article_type" name="article_type" required>
-      <option value="" disabled selected>请选择投稿类型</option>
-      <option value="近体诗">近体诗</option>
-      <option value="古体诗">古体诗</option>
-      <option value="词">词</option>
-      <option value="曲">曲</option>
-      <option value="联">联</option>
-      <option value="文言文">文言文</option>
-      <option value="现代诗">现代诗</option>
-      <option value="四不像文">四不像文</option>
-      <option value="记叙文">记叙文</option>
-      <option value="议论文">议论文</option>
-      <option value="散文">散文</option>
-      <option value="人文">人文</option>
-      <option value="算卦案例">算卦案例</option>
-      <option value="其它">其它</option>
-    </select>
-
-    <label for="article_content">文学作品正文：</label>
-    <textarea id="article_content" name="article_content" rows="5" placeholder="请输入文学作品正文" required></textarea>
-
-    <label for="article_purpose">文学作品意思：</label>
-    <textarea id="article_purpose" name="article_purpose" rows="5" placeholder="请输入文学作品意思"></textarea>
-
-    <label for="message">额外要求：</label>
-    <textarea id="message" name="message" rows="4" placeholder="请输入信息"></textarea>
-
-    <div class="checkbox-container">
-      <input type="checkbox" id="agreement" name="agreement" required />
-      <label for="agreement">我已充分阅读并同意 <a href="https://yesandnoandperhaps.cn/posts/604f057e.html" target="_blank" rel="noopener noreferrer">投稿要求</a></label>
+    <!-- 作者 -->
+    <div class="submission-card">
+      <h2>作者基本信息</h2>
+      <input id="author_name" name="author_name" placeholder="请输入作者姓名" required>
+      <input id="author_email" name="author_email" type="email" placeholder="请输入作者邮箱" required>
     </div>
+    <hr>
+    <!-- 作品 -->
+    <div class="submission-card">
+      <div class="submission-title">
+        <h2>作品投稿</h2>
+      </div>
+      <div id="article-list">
+        <div class="article-box">
+          <h3>作品 1</h3>
+          <input class="article-title" placeholder="作品标题" required>
+          <select class="article-type">
+            <option value="近体诗">近体诗</option>
+            <option value="古体诗">古体诗</option>
+            <option value="词">词</option>
+            <option value="曲">曲</option>
+            <option value="联">联</option>
+            <option value="文言文">文言文</option>
+            <option value="现代诗">现代诗</option>
+            <option value="散文">散文</option>
+            <option value="小说">小说</option>
+            <option value="人文">人文</option>
+            <option value="其它">其它</option>
+          </select>
+          <textarea class="article-content" rows="10" placeholder="请输入作品正文" required></textarea>
+          <textarea class="article-purpose" placeholder="作品意思（可选）"></textarea>
+          <details>
+            <summary>额外要求（可选）</summary>
+            <textarea class="article-message" placeholder="例如排版要求、发布时间等"></textarea>
+          </details>
+          <button type="button" class="remove-article">删除作品</button> 
+        </div>
+      </div>
+      <div class="add-article-area">
+            <button type="button" id="addArticle">＋ 添加作品</button>
+        </div>
+    </div>
+    <!-- 文集 -->
+    <div class="submission-card collection-panel" id="collection-panel">
+      <h2>投稿方式</h2>
+      <select id="submission-mode" name="submission_mode">
+        <option value="单篇投稿">单篇投稿</option>
+        <option value="文集投稿">文集投稿</option>
+        <option value="创建文集">创建文集</option>
+      </select>
 
-    <button type="submit" class="submit-button">投稿</button>
+      <!-- 已有文集 -->
+      <div id="existing-collection-box" style="display:none;">
+        <select id="existing-collection" name="existing_collection">
+          <option value="">请选择投稿文集</option>
+          <option value="残芰朱萼">残芰朱萼</option>
+        </select>
+      </div>
+
+      <!-- 创建文集 -->
+      <div id="create-collection-box" style="display:none;">
+        <input id="collection_title" placeholder="请输入文集名称" name="collection_title">
+        <textarea id="collection_intro" name="collection_intro" placeholder="请输入文集简介"></textarea>
+      </div>
+    </div>
+    <hr>
+    <!-- 协议 -->
+    <div class="submission-card">
+      <textarea name="message" id="final_message" style="display:none"></textarea>
+      <div class="checkbox-container">
+        <input type="checkbox" id="agreement" required>
+        <label for="agreement">我已阅读并同意 <a href="https://yesandnoandperhaps.cn/posts/604f057e.html" target="_blank">投稿要求</a></label>
+      </div>
+      <button type="submit" class="submit-button">提交投稿</button>
+    </div>
   </form>
 </div>
 
 <script>
-  // 动态加载 EmailJS 脚本，加载完调用 callback
+(function () {
+  /**
+   * 动态加载 EmailJS
+   * 支持 Butterfly PJAX
+   */
   function loadEmailJSScript(callback) {
-    if (typeof emailjs !== 'undefined') {
+    if (typeof emailjs !== "undefined") {
       callback();
       return;
     }
     const script = document.createElement("script");
     script.src = "https://yesandnoandperhaps.cn/js/mod/email.min.js";
     script.onload = callback;
-    script.onerror = () => {
+    script.onerror = function () {
       console.error("EmailJS 脚本加载失败");
+      alert("投稿系统加载失败，请刷新页面重试。");
     };
     document.head.appendChild(script);
   }
 
-  // 初始化 EmailJS
+  /**
+   * 初始化 EmailJS
+   */
   function initEmailJS() {
-    if (typeof emailjs !== 'undefined' && !window.emailjs_inited) {
+    if (typeof emailjs !== "undefined" && !window.emailjs_inited) {
       emailjs.init("uBtCMeYBjwcI61uvw");
-      window.emailjs_inited = true; // 防止重复初始化
+      window.emailjs_inited = true;
       console.log("EmailJS 初始化成功");
     }
   }
 
-  // 表单绑定
-  function bindEmailForm() {
+  /**
+   * 初始化投稿页面
+   */
+  function setupSubmissionPage() {
     const form = document.getElementById("email-form");
     if (!form) return;
-
-    // 解绑旧的提交事件，防止多次绑定
+    initArticleList();
+    updateSubmissionMode();
     form.removeEventListener("submit", onSubmitHandler);
     form.addEventListener("submit", onSubmitHandler);
   }
 
-  async function onSubmitHandler(event) {
-    event.preventDefault();
-    const form = event.target;
-    const submitBtn = form.querySelector(".submit-button");
-
-    if (submitBtn.disabled) {
-      console.warn("重复提交阻止");
-      return;
+  /**
+   * 初始化作品列表
+   */
+  function initArticleList() {
+    const list = document.getElementById("article-list");
+    if (!list) return;
+    if (list.children.length === 0) {
+      createArticle();
     }
-
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const agreement = form.querySelector("#agreement");
-    if (!agreement.checked) {
-      alert("请勾选“我已充分阅读投稿要求”。");
-      agreement.focus();
-      return;
-    }
-
-    try {
-      submitBtn.disabled = true;
-      submitBtn.textContent = "投稿上传中...";
-
-      await emailjs.sendForm("service_5mlsoqf", "template_t37c95g", form);
-
-      alert("投稿成功，请等待审核。\n预计在七日内完成审核。");
-      form.reset();
-    } catch (error) {
-      console.error("投稿提交失败:", error);
-      alert("投稿暂时遇到了一些问题，请您稍后再试，感谢您的耐心与支持。");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = "投稿";
-    }
+    refreshArticleNumber();
   }
 
-  // 页面初始化绑定函数
-  function setupPage() {
-    loadEmailJSScript(() => {
-      initEmailJS();
-      bindEmailForm();
+  /**
+   * 添加删除作品
+   */
+  /**
+ * 添加删除作品
+ * 自动平滑滚动
+ */
+  document.addEventListener("click", function(e) {
+    /**
+     * 平滑滚动到作品
+     */
+    function scrollToArticle(article) {
+      if (!article) return;
+      setTimeout(() => {
+        article.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 80);
+    }
+
+    /**
+     * 添加作品
+     */
+    if (e.target.id === "addArticle") {
+      const list = document.getElementById("article-list");
+      if (!list) return;
+      createArticle();
+      refreshArticleNumber();
+      const articles = list.querySelectorAll(".article-box");
+      const newArticle = articles[articles.length - 1];
+      scrollToArticle(newArticle);
+    }
+
+    /**
+     * 删除作品
+     */
+    if (e.target.classList.contains("remove-article")) {
+      const article = e.target.closest(".article-box");
+      if (!article) return;
+      const list = document.getElementById("article-list");
+      const articles = Array.from(list.querySelectorAll(".article-box"));
+      const index = articles.indexOf(article);
+      article.remove();
+      refreshArticleNumber();
+      const remain = Array.from(list.querySelectorAll(".article-box"));
+      if (remain.length === 0) {
+        createArticle();
+        refreshArticleNumber();
+        scrollToArticle(list.firstElementChild);
+        return;
+      }
+      let target;
+      /*
+        删除逻辑：
+        作品1 作品2 作品3
+        删除作品2 → 作品1
+        删除作品1 → 新作品1
+        删除作品3 → 作品2
+      */
+      if (index > 0) {
+        target = remain[index - 1];
+      } else {
+        target = remain[0];
+      }
+      scrollToArticle(target);
+    }
+  });
+
+  /**
+   * 创建作品
+   */
+  function createArticle() {
+    const list = document.getElementById("article-list");
+    if (!list) return;
+    const box = document.createElement("div");
+    box.className = "article-box";
+    box.innerHTML = `
+<h3 class="article-number">
+作品
+</h3>
+<input 
+class="article-title"
+placeholder="作品标题"
+required>
+<select class="article-type" required>
+<option value="近体诗">近体诗</option>
+<option value="古体诗">古体诗</option>
+<option value="词">词</option>
+<option value="曲">曲</option>
+<option value="联">联</option>
+<option value="文言文">文言文</option>
+<option value="现代诗">现代诗</option>
+<option value="散文">散文</option>
+<option value="小说">小说</option>
+<option value="人文">人文</option>
+<option value="其它">其它</option>
+</select>
+<textarea
+class="article-content"
+rows="10"
+placeholder="作品正文"
+required></textarea>
+<textarea
+class="article-purpose"
+placeholder="作品意思（可选）"></textarea>
+<details>
+<summary>
+额外要求（可选）
+</summary>
+<textarea
+class="article-message"
+placeholder="例如排版要求、发布时间等">
+</textarea>
+</details>
+<button
+type="button"
+class="remove-article">
+删除作品
+</button>
+`;
+    list.appendChild(box);
+  }
+
+  /**
+   * 更新作品编号
+   */
+  function refreshArticleNumber() {
+    const articles = document.querySelectorAll(".article-box");
+    const count = articles.length;
+    articles.forEach((article, index) => {
+      const number = article.querySelector(".article-number");
+      if (number) {
+        number.textContent = "作品 " + (index + 1);
+      }
+      const remove = article.querySelector(".remove-article");
+      if (remove) {
+        remove.style.display = count <= 1 ? "none" : "block";
+      }
     });
   }
 
-  // DOM首次加载完成初始化
-  document.addEventListener("DOMContentLoaded", setupPage);
+  /**
+   * 投稿方式切换
+   */
+  function updateSubmissionMode() {
+    const mode = document.getElementById("submission-mode");
+    if (!mode) return;
+    const existing = document.getElementById("existing-collection-box");
+    const create = document.getElementById("create-collection-box");
+    if (existing) existing.style.display = "none";
+    if (create) create.style.display = "none";
+    if (mode.value === "文集投稿" && existing) {
+      existing.style.display = "block";
+    }
+    if (mode.value === "创建文集" && create) {
+      create.style.display = "block";
+    }
+  }
 
-  // 监听 PJAX 结束事件重新初始化
-  document.addEventListener("pjax:end", setupPage);
+  document.addEventListener("change", function(e) {
+    if (e.target.id === "submission-mode") {
+      updateSubmissionMode();
+    }
+  });
+
+  /**
+   * 提交前验证
+   */
+  function validateSubmissionForm() {
+    const name = document.getElementById("author_name");
+    const email = document.getElementById("author_email");
+    if (!name.value.trim()) {
+      alert("请输入作者姓名");
+      name.focus();
+      return false;
+    }
+    if (!email.value.trim()) {
+      alert("请输入作者邮箱");
+      email.focus();
+      return false;
+    }
+    const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailReg.test(email.value.trim())) {
+      alert("请输入正确的邮箱地址");
+      email.focus();
+      return false;
+    }
+    const articles = document.querySelectorAll(".article-box");
+    for (let i = 0; i < articles.length; i++) {
+      const box = articles[i];
+      const title = box.querySelector(".article-title");
+      const type = box.querySelector(".article-type");
+      const content = box.querySelector(".article-content");
+      if (!title.value.trim()) {
+        alert("请输入作品 " + (i + 1) + " 标题");
+        title.focus();
+        return false;
+      }
+      if (!type.value.trim()) {
+        alert("请选择作品 " + (i + 1) + " 类型");
+        type.focus();
+        return false;
+      }
+      if (!content.value.trim()) {
+        alert("请输入作品 " + (i + 1) + " 正文");
+        content.focus();
+        return false;
+      }
+    }
+    const mode = document.getElementById("submission-mode");
+    if (mode.value === "文集投稿") {
+      const collection = document.getElementById("existing-collection");
+      if (!collection.value.trim()) {
+        alert("请选择投稿文集");
+        collection.focus();
+        return false;
+      }
+    }
+    if (mode.value === "创建文集") {
+      const title = document.getElementById("collection_title");
+      const intro = document.getElementById("collection_intro");
+      if (!title.value.trim()) {
+        alert("请输入文集名称");
+        title.focus();
+        return false;
+      }
+      if (!intro.value.trim()) {
+        alert("请输入文集简介");
+        intro.focus();
+        return false;
+      }
+    }
+    const agreement = document.getElementById("agreement");
+    if (!agreement.checked) {
+      alert("请阅读并同意投稿要求");
+      agreement.focus();
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * 提交处理
+   */
+  async function onSubmitHandler(e) {
+    e.preventDefault();
+    const form = e.target;
+    if (!validateSubmissionForm()) return;
+    if (typeof emailjs === "undefined") {
+      alert("投稿系统尚未加载完成，请稍后再试。");
+      return;
+    }
+    let articles = [];
+    document.querySelectorAll(".article-box").forEach((box, index) => {
+      articles.push(
+`【作品${index+1}】
+
+标题：
+${box.querySelector(".article-title").value}
+
+类型：
+${box.querySelector(".article-type").value}
+
+正文：
+${box.querySelector(".article-content").value}
+
+说明：
+${box.querySelector(".article-purpose").value}
+
+额外要求：
+${box.querySelector(".article-message")?.value || ""}`
+      );
+    });
+    const finalMessage = document.getElementById("final_message");
+    if (finalMessage) {
+      finalMessage.value = articles.join("\n\n");
+    }
+    const btn = form.querySelector(".submit-button");
+    if (btn.disabled) return;
+    try {
+      btn.disabled = true;
+      btn.textContent = "投稿上传中...";
+      await emailjs.sendForm("service_5mlsoqf", "template_t37c95g", form);
+      alert("投稿成功，请等待审核。\n预计七日内完成审核。");
+      form.reset();
+      const list = document.getElementById("article-list");
+      if (list) {
+        list.innerHTML = "";
+        createArticle();
+        refreshArticleNumber();
+      }
+      updateSubmissionMode();
+    } catch (error) {
+      console.error("投稿失败:", error);
+      alert("投稿失败，请稍后再试。");
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "提交投稿";
+    }
+  }
+
+  /**
+   * 页面初始化
+   */
+  function boot() {
+    loadEmailJSScript(function() {
+      initEmailJS();
+      setupSubmissionPage();
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", boot);
+  // Butterfly PJAX
+  document.addEventListener("pjax:end", boot);
+  document.addEventListener("pjax:complete", boot);
+})();
 </script>
 
 </body>
 </html>
-</div><div class="aside-content" id="aside-content"><!--!=partial('includes/widget/card_author', {}, {cache: true})--><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/d6587330.html" title="风"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-peter-blake-HuE1QXFy_fY-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风"/></a><div class="content"><a class="title" href="/posts/d6587330.html" title="风">风</a><time datetime="2026-07-12T12:27:16.000Z" title="发表于 2026-07-12 20:27:16">2026-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5fcaee89.html" title="2026公告"><img src="/img/img/yesandno/freecompress-slimane-kadi-KVAVuPXl_JE-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2026公告"/></a><div class="content"><a class="title" href="/posts/5fcaee89.html" title="2026公告">2026公告</a><time datetime="2026-07-03T21:00:01.000Z" title="发表于 2026-07-04 05:00:01">2026-07-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月"><img src="/img/img/%E6%B3%A0%E4%BA%BA/sander-dewerte--jcP3xbN88w-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="献给黑夜的女儿——月"/></a><div class="content"><a class="title" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月">献给黑夜的女儿——月</a><time datetime="2026-07-03T15:39:16.000Z" title="发表于 2026-07-03 23:39:16">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/80b6274f.html" title="花园"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-dl314-lin-SuHmvPbeMAk-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="花园"/></a><div class="content"><a class="title" href="/posts/80b6274f.html" title="花园">花园</a><time datetime="2026-07-03T15:39:15.000Z" title="发表于 2026-07-03 23:39:15">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b005e4da.html" title="遐方怨"><img src="/img/img/%E6%9D%8E%E5%B2%9A%E9%9C%8F/freecompress-%E5%B0%8Foriol-hausmann-jo2ScPwRnvA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="遐方怨"/></a><div class="content"><a class="title" href="/posts/b005e4da.html" title="遐方怨">遐方怨</a><time datetime="2026-04-06T03:01:21.000Z" title="发表于 2026-04-06 11:01:21">2026-04-06</time></div></div></div></div><div class="card-widget card-info text-center"><!-- 作者名（带链接）--><div class="author-info-name"><a class="author-name-link" href="/about/">yesandnoandperhaps</a></div><!-- 作者描述--><div class="author-info-description">随后的每一天，太阳先生从海洋里探出头来，缓缓的顺着山脊走到工位上。到了下午的先生，又与月亮先生相见了，也许一闪一闪的星星在先生的照耀下没了踪影，但在月亮先生的旁边，它们会很开心。</div><!-- 投稿按钮--><a id="card-info-btn" href="/submission/"><i class="iconfont icon-edit"></i><span>投稿</span></a><!-- 社交链接--><!-- 三大类统计：文章 / 标签 / 分类--><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">407</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">110</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">197</div></a></div><!-- 以下为 Web 信息整合展示--><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">407</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">264.5k</div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(45deg, #20002c, #cbb4d4);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By yesandnoandperhaps</div><div class="footer_custom_text">左右相望、前后相顾</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="iconfont icon-cog"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="iconfont icon-arrows-alt-h"></i></button><button class="randomPost" type="button" title="随机访问一篇文章" onclick="randomPost()"><i class="iconfont icon-random"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="iconfont icon-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://instant.page/5.2.0" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+</div><div class="aside-content" id="aside-content"><!--!=partial('includes/widget/card_author', {}, {cache: true})--><div class="card-widget tzy-right-widget" id="card-wechat"><div id="flip-wrapper"><div id="flip-content"><div class="face"></div><div class="back face"></div></div></div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/d6587330.html" title="风"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-peter-blake-HuE1QXFy_fY-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="风"/></a><div class="content"><a class="title" href="/posts/d6587330.html" title="风">风</a><time datetime="2026-07-12T12:27:16.000Z" title="发表于 2026-07-12 20:27:16">2026-07-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/5fcaee89.html" title="2026公告"><img src="/img/img/yesandno/freecompress-slimane-kadi-KVAVuPXl_JE-unsplash%E5%B0%8F.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2026公告"/></a><div class="content"><a class="title" href="/posts/5fcaee89.html" title="2026公告">2026公告</a><time datetime="2026-07-03T21:00:01.000Z" title="发表于 2026-07-04 05:00:01">2026-07-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月"><img src="/img/img/%E6%B3%A0%E4%BA%BA/sander-dewerte--jcP3xbN88w-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="献给黑夜的女儿——月"/></a><div class="content"><a class="title" href="/posts/9ffc5acb.html" title="献给黑夜的女儿——月">献给黑夜的女儿——月</a><time datetime="2026-07-03T15:39:16.000Z" title="发表于 2026-07-03 23:39:16">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/80b6274f.html" title="花园"><img src="/img/img/%E6%B3%A0%E4%BA%BA/freecompress-dl314-lin-SuHmvPbeMAk-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="花园"/></a><div class="content"><a class="title" href="/posts/80b6274f.html" title="花园">花园</a><time datetime="2026-07-03T15:39:15.000Z" title="发表于 2026-07-03 23:39:15">2026-07-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/b005e4da.html" title="遐方怨"><img src="/img/img/%E6%9D%8E%E5%B2%9A%E9%9C%8F/freecompress-%E5%B0%8Foriol-hausmann-jo2ScPwRnvA-unsplash.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="遐方怨"/></a><div class="content"><a class="title" href="/posts/b005e4da.html" title="遐方怨">遐方怨</a><time datetime="2026-04-06T03:01:21.000Z" title="发表于 2026-04-06 11:01:21">2026-04-06</time></div></div></div></div><div class="card-widget card-info text-center"><!-- 作者名（带链接）--><div class="author-info-name"><a class="author-name-link" href="/about/">yesandnoandperhaps</a></div><!-- 作者描述--><div class="author-info-description">随后的每一天，太阳先生从海洋里探出头来，缓缓的顺着山脊走到工位上。到了下午的先生，又与月亮先生相见了，也许一闪一闪的星星在先生的照耀下没了踪影，但在月亮先生的旁边，它们会很开心。</div><!-- 投稿按钮--><a id="card-info-btn" href="/submission/"><i class="iconfont icon-edit"></i><span>投稿</span></a><!-- 社交链接--><!-- 三大类统计：文章 / 标签 / 分类--><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">407</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">110</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">197</div></a></div><!-- 以下为 Web 信息整合展示--><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">407</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">264.8k</div></div></div></div></div></div></main><footer id="footer" style="background: linear-gradient(45deg, #20002c, #cbb4d4);"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By yesandnoandperhaps</div><div class="footer_custom_text">左右相望、前后相顾</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="iconfont icon-cog"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="iconfont icon-arrows-alt-h"></i></button><button class="randomPost" type="button" title="随机访问一篇文章" onclick="randomPost()"><i class="iconfont icon-random"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="iconfont icon-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/pluginsSrc/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://instant.page/5.2.0" type="module"></script><script src="/pluginsSrc/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
   const runMermaid = ele => {
     window.loadMermaid = true
     const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
