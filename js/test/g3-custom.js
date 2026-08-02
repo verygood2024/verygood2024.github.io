@@ -1,0 +1,1 @@
+window.G3RadiusButterfly.start([{selector:"modal-content",options:{n:5,radius:28}},{selector:".btn, .tag-cloud a",options:{n:4,radius:18}},{selector:"#sidebar .sidebar-nav li",options:{n:5,radius:15}}]);

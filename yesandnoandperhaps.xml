@@ -6,7 +6,7 @@
   <link href="https://yesandnoandperhaps.cn/yesandnoandperhaps.xml" rel="self"/>
   
   <link href="https://yesandnoandperhaps.cn/"/>
-  <updated>2026-07-12T12:40:22.436Z</updated>
+  <updated>2026-08-02T21:32:34.075Z</updated>
   <id>https://yesandnoandperhaps.cn/</id>
   
   <author>
@@ -15,6 +15,48 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>投稿教程</title>
+    <link href="https://yesandnoandperhaps.cn/posts/a22d44a4.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/a22d44a4.html</id>
+    <published>2026-07-25T09:23:01.000Z</published>
+    <updated>2026-08-02T21:32:34.075Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="前言">前言</h2><p>  首先感谢您对本站的关注！本文面向有意使用 Markdown 或本站扩展标签进行排版的投稿人，属于进阶说明，非必读内容。如果您仅需提交纯文本稿件，可直接关闭本文，按常规方式填写表单即可，不影响投稿。<br>  投稿系统完整支持 Markdown 语法及本站自有的扩展标签。您可在正文输入框中按相应格式书写，输入阶段显示为纯文本，稿件发表后将自动渲染为排版样式。<br>  上述功能均属可选，您可根据实际需要决定是否使用，无需额外费心。</p><div class="note info flat"><p>  也许在不远的将来，我们的文本框会支持实时渲染 Markdown 语法。</p></div><hr><h2 id="什么是-Markdown？">什么是 Markdown？</h2><p>  Markdown 是一种轻量级的文本格式化语法，用简单的符号就能实现标题、列表、加粗、链接等效果。<br>您不需要学习复杂的代码，只要记住几个常用符号即可。</p><blockquote><p><strong>示例</strong>：在输入框里写 <code>**加粗文字**</code>，最终显示出来就是<strong>加粗文字</strong>。</p></blockquote><hr><h2 id="一些相关使用">一些相关使用</h2><h3 id="1-标题用法">1. 标题用法</h3><p>  在文字前加 <code>## </code> 号，两个 <code>## </code> 表示一级标题，三个 <code>### </code> 表示二级标题，以此类推（最多五级）。</p><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 一级标题</span></span><br><span class="line"><span class="section">### 二级标题</span></span><br><span class="line"><span class="section">#### 三级标题</span></span><br><span class="line">&quot;#&quot;后须有空格，错误示例：&quot;##一级标题&quot;。</span><br></pre></td></tr></table></figure><div class="note info flat"><p>  为了网站的美观与统一，请勿在没有层级关系的情况下使用<strong>标题</strong>功能。<br>例如：<br>  1. 单页单篇诗词曲内容。<br>    - 此情况无层级关系。<br>    - 错误示范图例：<img class="inline-img" src="/img/img/yesandno/%E6%8A%95%E7%A8%BF%E6%95%99%E7%A8%8B/freecompress-QQ20260725-050700.png" style="height:150px" /><br>  2. 标题重复文章标题。<br>    - 此情况的标题已经在头图中显示，请勿重复添加相同内容。<br>    - 错误示范图例：<img class="inline-img" src="/img/img/yesandno/%E6%8A%95%E7%A8%BF%E6%95%99%E7%A8%8B/freecompress-5dbf2965-2775-46e2-ba7e-cd3988299189.png" style="height:150px" /></p></div><h3 id="2-强调用法">2. 强调用法</h3><p>  通过将文本设置为<strong>粗体</strong>或<em>斜体</em>来强调其重要性。</p><h4 id="2-1-粗体（Bold）">2.1. 粗体（Bold）</h4><p>  在文字两侧用<code>**</code>号包裹。预览效果：<strong>文字</strong>。</p><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**需要粗体内容**</span></span><br></pre></td></tr></table></figure><h4 id="2-2-斜体（Italic）">2.2. 斜体（Italic）</h4><p>  在文字两侧用<code>*</code>号包裹。预览效果：<em>文字</em>。</p><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*需要斜体内容*</span></span><br></pre></td></tr></table></figure><h4 id="2-3-粗体（Bold）和斜体（Italic）">2.3. 粗体（Bold）和斜体（Italic）</h4><p>  在文字两侧用<code>***</code>号包裹。预览效果：<em><strong>文字</strong></em>。</p><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**<span class="emphasis">*需要粗体和斜体内容*</span>**</span></span><br></pre></td></tr></table></figure><div class="note info flat"><p>  为了网站的美观与统一，请勿未需要强调的情况下使用。<br>例如：<br>  1. 诗词曲内容。<br>  2. 全文强调。</p></div><h3 id="3-分割线用法">3. 分割线用法</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">效果</button></div><div class="tab-contents"><div class="tab-item-content active"><hr></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="4-一般注释块用法">4. 一般注释块用法</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">用法</button><button type="button" class="tab">效果</button><button type="button" class="tab">注意</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% note success flat %&#125;</span><br><span class="line">用于显示您文章的注释、意思等。</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><div class="note success flat"><p>用于显示您文章的注释、意思等。</p></div></div><div class="tab-item-content"><p>  该块和投稿板块中的<strong>作品意思</strong>框不同，该块应输入在<strong>作品正文</strong>框中，作为展示在网页中的内容。<br>  投稿板块中的<strong>作品意思</strong>框是给审核人员看的，在一般投稿下无需添加内容。</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="5-居中块用法">5. 居中块用法</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">用法</button><button type="button" class="tab">效果</button></div><div class="tab-contents"><div class="tab-item-content active"><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% cq %&#125;</span><br><span class="line">需要居中的内容</span><br><span class="line">&#123;% endcq %&#125;</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><div class="custom-cq"><p>需要居中的内容</p></div></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="6-列表用法">6. 列表用法</h3><div class="tabs"><div class="nav-tabs"><button type="button" class="tab active">用法</button><button type="button" class="tab">效果</button></div><div class="tab-contents"><div class="tab-item-content active"><h4 id="6-1-无序列表">6.1. 无序列表</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> 内容1</span><br><span class="line"><span class="bullet">-</span> 内容2</span><br><span class="line"><span class="bullet">-</span> 内容3</span><br><span class="line"></span><br><span class="line">&quot;-&quot;后须有空格，错误示例：&quot;-内容1&quot;。</span><br></pre></td></tr></table></figure><h4 id="6-2-有序列表">6.2. 有序列表</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 内容1</span><br><span class="line"><span class="bullet">2.</span> 内容2</span><br><span class="line"><span class="bullet">3.</span> 内容3</span><br><span class="line"></span><br><span class="line">&quot;数字.&quot;后须有空格，错误示例：&quot;1.内容1&quot;。</span><br></pre></td></tr></table></figure><h4 id="6-3-列表与列表嵌套">6.3. 列表与列表嵌套</h4><p>您可以在有序列表中嵌套无序列表，反之亦然。</p><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">1.</span> 内容1</span><br><span class="line"><span class="bullet">    -</span> 内容1.1</span><br><span class="line"><span class="bullet">2.</span> 内容2</span><br><span class="line"><span class="code">    -内容2.1</span></span><br><span class="line"><span class="code">3. 内容3</span></span><br><span class="line"><span class="code"></span></span><br><span class="line">二级列与一级列表之间必须有空格，错误示例：</span><br><span class="line"><span class="bullet">1.</span> 内容1</span><br><span class="line"><span class="bullet">-</span> 内容1.1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content"><h4 id="6-1（B）-无序列表">6.1（B）. 无序列表</h4><ul><li>内容1</li><li>内容2</li><li>内容3</li></ul><p>“-“后须有空格，错误示例：”-内容1”。</p><h4 id="6-2（B）-有序列表">6.2（B）. 有序列表</h4><ol><li>内容1</li><li>内容2</li><li>内容3</li></ol><p>&quot;数字.&quot;后须有空格，错误示例：“1.内容1”。</p><h4 id="6-3（B）-列表与列表嵌套">6.3（B）. 列表与列表嵌套</h4><p>您可以在有序列表中嵌套无序列表，反之亦然。</p><ol><li>内容1<ul><li>内容1.1</li></ul></li><li>内容2<br>-内容2.1</li><li>内容3</li></ol><p>二级列与一级列表之间必须有空格，错误示例：</p><ol><li>内容1</li></ol><ul><li>内容1.1</li></ul></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="7-Obsidian样式注释块用法">7. Obsidian样式注释块用法</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% new<span class="emphasis">_note tip &quot;标题&quot; %&#125;</span></span><br><span class="line"><span class="emphasis">用于在需要一个不足以为标题，但后续需要展开内容的情况。</span></span><br><span class="line"><span class="emphasis">&#123;% endnew_</span>note %&#125;</span><br><span class="line"></span><br><span class="line">&quot;标题&quot; 为必填项，直接输入文字即可，不要加引号。引号仅为占位示意。</span><br><span class="line"></span><br><span class="line">适用于需要简短小结，但单独作为标题又不够正式，后续还需展开说明的场景。</span><br></pre></td></tr></table></figure><div class="note info flat"><p>  为了网站的美观与统一，请勿将该块等同于一般注释块使用。<br>  准确来说，注释块是用于显示您文章的注释、意思等。而该块用于引言或一个不足以为标题，但后续需要展开内容的情况。</p></div><h4 id="7-1-显示效果与示例">7.1. 显示效果与示例</h4>    <div class="new-note-container" style="--note-accent: #28a745; --note-rgb: 40,167,69;">      <div class="new-note-header">        <span class="new-note-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>        <span class="new-note-title">标题</span>      </div>      <div class="new-note-body"><p>用于在需要一个不足以为标题，但后续需要展开内容的情况。</p></div>    </div>    <div class="new-note-container" style="--note-accent: #28a745; --note-rgb: 40,167,69;">      <div class="new-note-header">        <span class="new-note-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>        <span class="new-note-title">引言</span>      </div>      <div class="new-note-body"><p>引言内容</p></div>    </div>    <div class="new-note-container" style="--note-accent: #28a745; --note-rgb: 40,167,69;">      <div class="new-note-header">        <span class="new-note-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>        <span class="new-note-title">残芰朱萼</span>      </div>      <div class="new-note-body"><p>它们是那么的安静、低沉<br>淤着的会下去。</p></div>    </div><h3 id="8-空格用法">8. 空格用法</h3><p>  在投稿输入框中，空格有两种完全不同的用途：<strong>排版留白</strong>与<strong>语法标记</strong>。请根据需要正确区分。</p><p>  · <strong><code>&amp;emsp;</code>（排版空格）</strong><br>    用于在页面上制造<strong>可见的空白</strong>，如段落首行缩进、文字间距。输入 <code>&amp;emsp;</code> 后，网页上会渲染为一个全角宽度的空白。<br>    示例：<code>文字&amp;emsp;文字</code> → 文字 文字</p><p>  · <strong>普通空格（键盘空格键）</strong><br>    用于 <strong>Markdown 语法结构</strong>和<strong>块标记语法</strong>。它不会被渲染为可见留白，而是被解析为标记的一部分。<br>    示例：<code># 标题</code>、<code>- 列表项</code>、`{% note success flat %}` 中的空格都必须用普通空格。</p><h4 id="8-1-相关注意事项与示例">8.1 相关注意事项与示例</h4><p>  段落的首行缩进由系统自动完成。即便您不手动添加<code>&amp;emsp;</code>，最终渲染时也会自动补上两个<code>&amp;emsp;</code>的缩进量。因此，请勿在段首重复添加。</p><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">错误示例：</span><br><span class="line"><span class="literal">&amp;emsp;</span><span class="literal">&amp;emsp;</span>内容（段落1）</span><br><span class="line"><span class="literal">&amp;emsp;</span><span class="literal">&amp;emsp;</span>内容（段落2）</span><br><span class="line"><span class="literal">&amp;emsp;</span><span class="literal">&amp;emsp;</span>内容（段落3）</span><br><span class="line"><span class="literal">&amp;emsp;</span><span class="literal">&amp;emsp;</span>内容（段落4）</span><br><span class="line"></span><br><span class="line">正确示例：</span><br><span class="line">内容（段落1）</span><br><span class="line">内容（段落2）</span><br><span class="line">内容（段落3）</span><br><span class="line">内容（段落4）</span><br><span class="line"></span><br><span class="line">使用示例：</span><br><span class="line">内容A<span class="literal">&amp;emsp;</span>内容B（段落1）</span><br><span class="line">内容A<span class="literal">&amp;emsp;</span><span class="literal">&amp;emsp;</span>内容B（段落2）</span><br><span class="line"><span class="literal">&amp;emsp;</span><span class="literal">&amp;emsp;</span>内容（段落3）</span><br><span class="line"><span class="literal">&amp;emsp;</span><span class="literal">&amp;emsp;</span>内容（段落4）</span><br><span class="line">内容（段落5）</span><br><span class="line">内容（段落6）</span><br></pre></td></tr></table></figure>    <div class="new-note-container" style="--note-accent: #28a745; --note-rgb: 40,167,69;">      <div class="new-note-header">        <span class="new-note-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>        <span class="new-note-title">使用示例显示效果</span>      </div>      <div class="new-note-body"><p>  内容A 内容B（段落1）<br>  内容A  内容B（段落2）<br>    内容（段落3）<br>    内容（段落4）<br>  内容（段落5）<br>  内容（段落6）</p></div>    </div><p>  <strong>请勿在标签语法内部使用 <code>&amp;emsp;</code> 替代普通空格</strong></p><p>  诸如 `{% note success flat %}`、`{% new_note tip 标题 %}`、`{% cq %}` 等块标记，<strong>参数之间的空格必须使用普通空格</strong>，绝不能写成 `{%&emsp;note&emsp;success&emsp;flat&emsp;%}`，否则标签将无法被后台识别，导致排版错误。</p><p>  · 错误示范：`{%&emsp;cq&emsp;%}` → 居中块失效<br>  · 正确写法：`{% cq %}`</p><p>  <strong>内容区域可自由使用空格</strong></p><p>  在这些块标记<strong>内部所包裹的内容区域</strong>（包括列表项、注释块正文、居中块正文、Obsidian样式注释块正文等），你可以根据需要随意使用普通空格和 <code>&amp;emsp;</code> 进行排版，完全不受限制，例如如下内容编写与对应展示。</p><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&#123;% new<span class="emphasis">_note tip &quot;使用示例&quot; %&#125;</span></span><br><span class="line"><span class="emphasis">&amp;emsp;&amp;emsp;内容（段落1）</span></span><br><span class="line"><span class="emphasis">&amp;emsp;&amp;emsp;内容（段落2）</span></span><br><span class="line"><span class="emphasis">&#123;% endnew_</span>note %&#125;</span><br></pre></td></tr></table></figure>    <div class="new-note-container" style="--note-accent: #28a745; --note-rgb: 40,167,69;">      <div class="new-note-header">        <span class="new-note-icon"><svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>        <span class="new-note-title">使用示例显示效果</span>      </div>      <div class="new-note-body"><p>  内容（段落1）<br>  内容（段落2）</p></div>    </div><h2 id="2026-7-18投稿板块更新内容介绍">2026.7.18投稿板块更新内容介绍</h2><div class="note info flat"><p>  本段介绍摘自<a href="/posts/604f057e.html#%E7%AC%AC%E5%9B%9B%E6%9D%A1%E4%B9%8B%E4%B8%80%E3%80%81%E6%96%87%E9%9B%86%E6%8A%95%E7%A8%BF%C2%B7%E6%96%87%E9%9B%86%E5%88%9B%E5%BB%BA%EF%BC%882026-7-19%E6%96%B0%EF%BC%89">《投稿2025》“第四条之一、文集投稿·文集创建”</a>，具体操作请以原文为准，本页可能存在更新滞后。</p></div><h3 id="（一）文集投稿">（一）文集投稿</h3><p>对我们开放的文集进行投稿，截至2026.7.19，网站开放的文集有《残芰朱萼》（若日后有更多开放文集，该页面可能不会及时更新）。</p><h3 id="（二）创建文集">（二）创建文集</h3><p>当前网站文集分为两类：云辑与素辑。</p><h4 id="创建云辑">创建云辑</h4><p>云辑适用于多人联合投稿，或单一作者投稿作品数量达三十篇以上且题材跨度较大、需按章节分卷展示的情形。不符合云辑标准的投稿，将自动归入素辑。</p><p>云辑的创建周期一般为30至60个工作日。如投稿作品数量庞大且细分类目较多，创建时间可延长至365个工作日。（网站将分批上传作品，前述时限为整体完成期限。）</p><h5 id="关于投稿云辑时投稿页的使用">关于投稿云辑时投稿页的使用</h5><p>若是<strong>单一作者投稿作品数量达三十篇以上且题材跨度较大、需按章节分卷展示的情形</strong>进行云辑投稿。可使用以下方式为作品分类：</p><p>文集简介框：<br><code>main：</code>云辑本身的简介、序引、题记、楔子等<br><code>分类名1：</code>分类的简介、序引、题记、楔子等<br><code>分类名2：</code>同上<br><code>分类名3：</code>同上<br>…</p><p>作品分类标注方式：<br>如需将某篇作品归入特定分类，请在作品的“额外要求”栏中单独占一行输入以下格式的标签：<br><code>tag:分类名2</code>或<code>分类名2</code>。</p><p>示例：<br>作品1需要分类到分类名2中，则需要在作品1的额外要求栏中输入<code>tag:分类名2</code>或<code>分类名2</code>。<br>作品2需要分类到分类名3中，则需要在作品2的额外要求栏中输入<code>tag:分类名3</code>或<code>分类名3</code>。</p><p>注意：无论采用何种格式的标签，请让它们必须占一行。</p><blockquote><p>也许在未来更多人使用该功能后，我们将开发更简便的方案。</p></blockquote><h4 id="创建素辑">创建素辑</h4><p>素辑适用于作品数量不少于两篇的情形。</p><p>素辑的创建周期一般为9至14个工作日。投稿作品超过五篇的，每增加五篇，创建时间延长9个工作日。（网站将按每四至五篇一批次的方式分批上传。）</p>]]></content>
+    
+    
+    <summary type="html">关于本站的投稿板块使用教程</summary>
+    
+    
+    
+    <category term="yesandnoandperhaps" scheme="https://yesandnoandperhaps.cn/categories/yesandnoandperhaps/"/>
+    
+    
+    <category term="yesandnoandperhaps" scheme="https://yesandnoandperhaps.cn/tags/yesandnoandperhaps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装应用程序</title>
+    <link href="https://yesandnoandperhaps.cn/posts/4b0e8a3c.html"/>
+    <id>https://yesandnoandperhaps.cn/posts/4b0e8a3c.html</id>
+    <published>2026-07-23T09:34:00.000Z</published>
+    <updated>2026-07-25T09:52:22.665Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="引言">引言</h2><p>  为了让您在不同设备上都能获得更流畅、更沉浸的访问体验，本站现已正式支持 PWA（渐进式 Web 应用） 和 安卓 APK 安装包 两种安装方式。无论您偏好轻量级的网页应用，还是习惯独立的本机应用，都能找到适合自己的方案。</p><p>  本文将详细说明两种安装方式的操作步骤、适用场景及注意事项，帮助您快速上手。</p><h2 id="方式一：PWA（渐进式-Web-应用）">方式一：PWA（渐进式 Web 应用）</h2><p>  PWA 是一种无需通过应用商店即可安装的网页应用，安装后它会在你的设备主屏幕上生成一个图标，点击即可近似原生 App 一样启动。</p><h3 id="支持平台">支持平台</h3><ul><li>Android（为了防止未知错误，请使用Chrome或Edge浏览器）</li><li>iOS（Safari 14+，需手动添加到主屏幕）</li><li>Windows / macOS（为了防止未知错误，请使用Chrome或Edge浏览器）</li></ul><h3 id="安装步骤">安装步骤</h3><h4 id="Android、windows、macOS（Chrome-Edge）">Android、windows、macOS（Chrome / Edge）</h4>      <style>        #pwa-install-btn i {          color: #639ebc !important;        }      </style>          <style>        html[data-theme="dark"] #pwa-install-btn i {          color: #7fa8bd !important;        }      </style>    <a class="card-base sponsor-card"   href="javascript:void(0)"   target="_self"   rel="external nofollow noreferrer"   title="安装应用"   id="pwa-install-btn">  <div class="sponsor-logo">    <img src="/img/app_ic-playstore.png" alt="安装应用 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="fas fa-download"></i> 安装应用</div>    <div class="sponsor-desc" title="点击这里安装我们的PWA应用程序，享受更流畅的浏览体验！">      点击这里安装我们的PWA应用程序，享受更流畅的浏览体验！    </div>  </div></a>  <h4 id="iOS（Safari）">iOS（Safari）</h4><ol><li>使用 Safari 打开本站。</li><li>点击底部的 <strong>“分享”</strong> 按钮（方框加箭头）。</li><li>向下滑动，选择 <strong>“添加到主屏幕”</strong>。</li><li>编辑名称后点击 <strong>“添加”</strong>，图标即会出现在主屏幕上。</li><li>图例:<img class="inline-img" src="/img/img/yesandno/freecompress-20241115-134700.png" style="height:150px" /><img class="inline-img" src="/img/img/yesandno/freecompress-IMG_1400.png" style="height:150px" />。</li></ol><hr><h2 id="方式二：Android-APK-安装包">方式二：Android APK 安装包</h2><p>  本站提供的 Android APK 是基于 WebView 技术将网页内容封装而成的独立安装包。它本质上是一个“网页套壳”应用，核心目的只是提供一个无浏览器地址栏、无标签页干扰的全屏浏览窗口，并通过独立的桌面图标快速启动。</p><h3 id="下载APK文件">下载APK文件</h3>      <style>        #card-feature1785706881189-41 i {          color: #639ebc !important;        }      </style>          <style>        html[data-theme="dark"] #card-feature1785706881189-41 i {          color: #7fa8bd !important;        }      </style>    <a class="card-base sponsor-card"   href="/download/yesnoperhaps.apk"   target="_self"   rel="external nofollow noreferrer"   title="下载APK安装包"   id="card-feature1785706881189-41">  <div class="sponsor-logo">    <img src="/img/app_ic-playstore.png" alt="下载APK安装包 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="fas fa-download"></i> 下载APK安装包</div>    <div class="sponsor-desc" title="点击这里下载我们的APK安装包，享受更流畅的浏览体验！">      点击这里下载我们的APK安装包，享受更流畅的浏览体验！    </div>  </div></a>  <!-- flag of hidden posts -->]]></content>
+    
+    
+    <summary type="html">安装关于本网站的应用程序</summary>
+    
+    
+    
+    <category term="yesandnoandperhaps" scheme="https://yesandnoandperhaps.cn/categories/yesandnoandperhaps/"/>
+    
+    
+    <category term="yesandnoandperhaps" scheme="https://yesandnoandperhaps.cn/tags/yesandnoandperhaps/"/>
+    
+  </entry>
   
   <entry>
     <title>风</title>
@@ -223,9 +265,9 @@
     
     <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
     
-    <category term="八声甘州" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E5%85%AB%E5%A3%B0%E7%94%98%E5%B7%9E/"/>
-    
     <category term="东君" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%B8%9C%E5%90%9B/"/>
+    
+    <category term="八声甘州" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E5%85%AB%E5%A3%B0%E7%94%98%E5%B7%9E/"/>
     
     <category term="李岚霏" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%B8%9C%E5%90%9B/%E6%9D%8E%E5%B2%9A%E9%9C%8F/"/>
     
@@ -256,9 +298,9 @@
     
     <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
     
-    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
-    
     <category term="古体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
     
     <category term="五言" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/%E4%BA%94%E8%A8%80/"/>
     
@@ -295,9 +337,9 @@
     
     <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
     
-    <category term="山花子" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E5%B1%B1%E8%8A%B1%E5%AD%90/"/>
-    
     <category term="介蘅" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E4%BB%8B%E8%98%85/"/>
+    
+    <category term="山花子" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E5%B1%B1%E8%8A%B1%E5%AD%90/"/>
     
     
     <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
@@ -330,9 +372,9 @@
     
     <category term="古诗" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/"/>
     
-    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
-    
     <category term="古体" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/"/>
+    
+    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
     
     <category term="杂言" scheme="https://yesandnoandperhaps.cn/categories/%E5%8F%A4%E8%AF%97/%E5%8F%A4%E4%BD%93/%E6%9D%82%E8%A8%80/"/>
     
@@ -671,92 +713,6 @@
     <category term="流水高山·知春社一周年分韵展" scheme="https://yesandnoandperhaps.cn/tags/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1%C2%B7%E7%9F%A5%E6%98%A5%E7%A4%BE%E4%B8%80%E5%91%A8%E5%B9%B4%E5%88%86%E9%9F%B5%E5%B1%95/"/>
     
     <category term="歌头" scheme="https://yesandnoandperhaps.cn/tags/%E6%AD%8C%E5%A4%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>小重山·分韵得“春”字赋知春周年</title>
-    <link href="https://yesandnoandperhaps.cn/posts/95b1963e.html"/>
-    <id>https://yesandnoandperhaps.cn/posts/95b1963e.html</id>
-    <published>2026-03-01T11:32:20.000Z</published>
-    <updated>2026-03-01T12:09:42.850Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  风过长亭月近春。西山东极望、曲觞人。乘槎浮向桂宫巡。催豪宴，兰席话银樽。</p><p>  汉上旧题襟。知元卿白客、往来频。年年花底梦诸君。烦相问，明岁可登临？</p>]]></content>
-    
-    
-    <summary type="html">风过长亭月近春。西山东极望、曲觞人。乘槎浮向桂宫巡。催豪宴，兰席话银樽。汉上旧题襟。知元卿白客、往来频。年年花底梦诸君。烦相问，明岁可登临？</summary>
-    
-    
-    
-    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
-    
-    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
-    
-    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
-    
-    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
-    
-    <category term="小重山" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E5%B0%8F%E9%87%8D%E5%B1%B1/"/>
-    
-    <category term="摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E6%91%9B%E7%BF%B0/"/>
-    
-    <category term="流水高山" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1/"/>
-    
-    <category term="流水高山|摛翰" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1-%E6%91%9B%E7%BF%B0/"/>
-    
-    
-    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
-    
-    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
-    
-    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="流水高山·知春社一周年分韵展" scheme="https://yesandnoandperhaps.cn/tags/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1%C2%B7%E7%9F%A5%E6%98%A5%E7%A4%BE%E4%B8%80%E5%91%A8%E5%B9%B4%E5%88%86%E9%9F%B5%E5%B1%95/"/>
-    
-    <category term="小重山" scheme="https://yesandnoandperhaps.cn/tags/%E5%B0%8F%E9%87%8D%E5%B1%B1/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一剪梅·知春年会拈得“知”字韵</title>
-    <link href="https://yesandnoandperhaps.cn/posts/35480598.html"/>
-    <id>https://yesandnoandperhaps.cn/posts/35480598.html</id>
-    <published>2026-03-01T11:32:10.000Z</published>
-    <updated>2026-03-01T11:45:51.530Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  一曲溪风划细枝。绿盖云生，姑绾笺辞。</p><p>  碎铃薄有雨时开，轻也兰舟，清漏沉差。</p><p>  消瘦前时罗缦移。青帝先知，声缓纤迤。</p><p>  此番轻咽且休提，秀木萧萧，斑袂文蕤。</p>]]></content>
-    
-    
-    <summary type="html">一曲溪风划细枝。绿盖云生，姑绾笺辞。碎铃薄有雨时开，轻也兰舟，清漏沉差。消瘦前时罗缦移。青帝先知，声缓纤迤。此番轻咽且休提，秀木萧萧，斑袂文蕤。</summary>
-    
-    
-    
-    <category term="文集" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/"/>
-    
-    <category term="云辑" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/"/>
-    
-    <category term="作者" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/"/>
-    
-    <category term="词" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/"/>
-    
-    <category term="一剪梅" scheme="https://yesandnoandperhaps.cn/categories/%E8%AF%8D/%E4%B8%80%E5%89%AA%E6%A2%85/"/>
-    
-    <category term="流水高山" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1/"/>
-    
-    <category term="流水高山|莺本斋" scheme="https://yesandnoandperhaps.cn/categories/%E6%96%87%E9%9B%86/%E4%BA%91%E8%BE%91/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1-%E8%8E%BA%E6%9C%AC%E6%96%8B/"/>
-    
-    <category term="莺本斋" scheme="https://yesandnoandperhaps.cn/categories/%E4%BD%9C%E8%80%85/%E8%8E%BA%E6%9C%AC%E6%96%8B/"/>
-    
-    
-    <category term="文学" scheme="https://yesandnoandperhaps.cn/tags/%E6%96%87%E5%AD%A6/"/>
-    
-    <category term="词集" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E9%9B%86/"/>
-    
-    <category term="词林正韵" scheme="https://yesandnoandperhaps.cn/tags/%E8%AF%8D%E6%9E%97%E6%AD%A3%E9%9F%B5/"/>
-    
-    <category term="流水高山·知春社一周年分韵展" scheme="https://yesandnoandperhaps.cn/tags/%E6%B5%81%E6%B0%B4%E9%AB%98%E5%B1%B1%C2%B7%E7%9F%A5%E6%98%A5%E7%A4%BE%E4%B8%80%E5%91%A8%E5%B9%B4%E5%88%86%E9%9F%B5%E5%B1%95/"/>
-    
-    <category term="一剪梅" scheme="https://yesandnoandperhaps.cn/tags/%E4%B8%80%E5%89%AA%E6%A2%85/"/>
     
   </entry>
   

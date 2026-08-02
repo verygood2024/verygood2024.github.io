@@ -3597,7 +3597,7 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
     })
   );
   registerRoute(
-    ({ request }) => request.mode === "navigate",
+    ({ request, url }) => request.mode === "navigate" || url.pathname.endsWith(".html"),
     new NetworkFirst({
       cacheName: "hexo-html",
       networkTimeoutSeconds: 10,
@@ -3615,6 +3615,21 @@ This is generally NOT safe. Learn more at https://bit.ly/wb-precache`;
           }
         }
       ]
+    })
+  );
+  registerRoute(
+    ({ url }) => url.pathname.endsWith(".html"),
+    new NetworkFirst({
+      cacheName: "hexo-html",
+      networkTimeoutSeconds: 10,
+      plugins: [validResponsePlugin]
+    })
+  );
+  registerRoute(
+    ({ url }) => url.pathname === "/img/PWA/manifest.json",
+    new StaleWhileRevalidate({
+      cacheName: "hexo-manifest",
+      plugins: [validResponsePlugin]
     })
   );
   registerRoute(
