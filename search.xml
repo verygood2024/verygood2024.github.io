@@ -33,7 +33,7 @@
       <link href="/posts/4b0e8a3c.html"/>
       <url>/posts/4b0e8a3c.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="引言">引言</h2><p>  为了让您在不同设备上都能获得更流畅、更沉浸的访问体验，本站现已正式支持 PWA（渐进式 Web 应用） 和 安卓 APK 安装包 两种安装方式。无论您偏好轻量级的网页应用，还是习惯独立的本机应用，都能找到适合自己的方案。</p><p>  本文将详细说明两种安装方式的操作步骤、适用场景及注意事项，帮助您快速上手。</p><h2 id="方式一：PWA（渐进式-Web-应用）">方式一：PWA（渐进式 Web 应用）</h2><p>  PWA 是一种无需通过应用商店即可安装的网页应用，安装后它会在你的设备主屏幕上生成一个图标，点击即可近似原生 App 一样启动。</p><h3 id="支持平台">支持平台</h3><ul><li>Android（为了防止未知错误，请使用Chrome或Edge浏览器）</li><li>iOS（Safari 14+，需手动添加到主屏幕）</li><li>Windows / macOS（为了防止未知错误，请使用Chrome或Edge浏览器）</li></ul><h3 id="安装步骤">安装步骤</h3><h4 id="Android、windows、macOS（Chrome-Edge）">Android、windows、macOS（Chrome / Edge）</h4>      <style>        #pwa-install-btn i {          color: #639ebc !important;        }      </style>          <style>        html[data-theme="dark"] #pwa-install-btn i {          color: #7fa8bd !important;        }      </style>    <a class="card-base sponsor-card"   href="javascript:void(0)"   target="_self"   rel="external nofollow noreferrer"   title="安装应用"   id="pwa-install-btn">  <div class="sponsor-logo">    <img src="/img/app_ic-playstore.png" alt="安装应用 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="fas fa-download"></i> 安装应用</div>    <div class="sponsor-desc" title="点击这里安装我们的PWA应用程序，享受更流畅的浏览体验！">      点击这里安装我们的PWA应用程序，享受更流畅的浏览体验！    </div>  </div></a>  <h4 id="iOS（Safari）">iOS（Safari）</h4><ol><li>使用 Safari 打开本站。</li><li>点击底部的 <strong>“分享”</strong> 按钮（方框加箭头）。</li><li>向下滑动，选择 <strong>“添加到主屏幕”</strong>。</li><li>编辑名称后点击 <strong>“添加”</strong>，图标即会出现在主屏幕上。</li><li>图例:<img class="inline-img" src="/img/img/yesandno/freecompress-20241115-134700.png" style="height:150px" /><img class="inline-img" src="/img/img/yesandno/freecompress-IMG_1400.png" style="height:150px" />。</li></ol><hr><h2 id="方式二：Android-APK-安装包">方式二：Android APK 安装包</h2><p>  本站提供的 Android APK 是基于 WebView 技术将网页内容封装而成的独立安装包。它本质上是一个“网页套壳”应用，核心目的只是提供一个无浏览器地址栏、无标签页干扰的全屏浏览窗口，并通过独立的桌面图标快速启动。</p><h3 id="下载APK文件">下载APK文件</h3>      <style>        #card-feature1785718210369-623 i {          color: #639ebc !important;        }      </style>          <style>        html[data-theme="dark"] #card-feature1785718210369-623 i {          color: #7fa8bd !important;        }      </style>    <a class="card-base sponsor-card"   href="/download/yesnoperhaps.apk"   target="_self"   rel="external nofollow noreferrer"   title="下载APK安装包"   id="card-feature1785718210369-623">  <div class="sponsor-logo">    <img src="/img/app_ic-playstore.png" alt="下载APK安装包 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="fas fa-download"></i> 下载APK安装包</div>    <div class="sponsor-desc" title="点击这里下载我们的APK安装包，享受更流畅的浏览体验！">      点击这里下载我们的APK安装包，享受更流畅的浏览体验！    </div>  </div></a>  <div class="note danger flat"><p>Android APK 安装包情况下，受缓存机制影响，网站更新后需要手动下拉刷新才能看到最新内容。</p></div><!-- flag of hidden posts -->]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="引言">引言</h2><p>  为了让您在不同设备上都能获得更流畅、更沉浸的访问体验，本站现已正式支持 PWA（渐进式 Web 应用） 和 安卓 APK 安装包 两种安装方式。无论您偏好轻量级的网页应用，还是习惯独立的本机应用，都能找到适合自己的方案。</p><p>  本文将详细说明两种安装方式的操作步骤、适用场景及注意事项，帮助您快速上手。</p><h2 id="方式一：PWA（渐进式-Web-应用）">方式一：PWA（渐进式 Web 应用）</h2><p>  PWA 是一种无需通过应用商店即可安装的网页应用，安装后它会在你的设备主屏幕上生成一个图标，点击即可近似原生 App 一样启动。</p><h3 id="支持平台">支持平台</h3><ul><li>Android（为了防止未知错误，请使用Chrome或Edge浏览器）</li><li>iOS（Safari 14+，需手动添加到主屏幕）</li><li>Windows / macOS（为了防止未知错误，请使用Chrome或Edge浏览器）</li></ul><h3 id="安装步骤">安装步骤</h3><h4 id="Android、windows、macOS（Chrome-Edge）">Android、windows、macOS（Chrome / Edge）</h4>      <style>        #pwa-install-btn i {          color: #639ebc !important;        }      </style>          <style>        html[data-theme="dark"] #pwa-install-btn i {          color: #7fa8bd !important;        }      </style>    <a class="card-base sponsor-card"   href="javascript:void(0)"   target="_self"   rel="external nofollow noreferrer"   title="安装应用"   id="pwa-install-btn">  <div class="sponsor-logo">    <img src="/img/app_ic-playstore.png" alt="安装应用 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="fas fa-download"></i> 安装应用</div>    <div class="sponsor-desc" title="点击这里安装我们的PWA应用程序，享受更流畅的浏览体验！">      点击这里安装我们的PWA应用程序，享受更流畅的浏览体验！    </div>  </div></a>  <h4 id="iOS（Safari）">iOS（Safari）</h4><ol><li>使用 Safari 打开本站。</li><li>点击底部的 <strong>“分享”</strong> 按钮（方框加箭头）。</li><li>向下滑动，选择 <strong>“添加到主屏幕”</strong>。</li><li>编辑名称后点击 <strong>“添加”</strong>，图标即会出现在主屏幕上。</li><li>图例:<img class="inline-img" src="/img/img/yesandno/freecompress-20241115-134700.png" style="height:150px" /><img class="inline-img" src="/img/img/yesandno/freecompress-IMG_1400.png" style="height:150px" />。</li></ol><hr><h2 id="方式二：Android-APK-安装包">方式二：Android APK 安装包</h2><p>  本站提供的 Android APK 是基于 WebView 技术将网页内容封装而成的独立安装包。它本质上是一个“网页套壳”应用，核心目的只是提供一个无浏览器地址栏、无标签页干扰的全屏浏览窗口，并通过独立的桌面图标快速启动。</p><h3 id="下载APK文件">下载APK文件</h3>      <style>        #card-feature1785721959687-535 i {          color: #639ebc !important;        }      </style>          <style>        html[data-theme="dark"] #card-feature1785721959687-535 i {          color: #7fa8bd !important;        }      </style>    <a class="card-base sponsor-card"   href="/download/yesnoperhaps.apk"   target="_self"   rel="external nofollow noreferrer"   title="下载APK安装包"   id="card-feature1785721959687-535">  <div class="sponsor-logo">    <img src="/img/app_ic-playstore.png" alt="下载APK安装包 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="fas fa-download"></i> 下载APK安装包</div>    <div class="sponsor-desc" title="点击这里下载我们的APK安装包，享受更流畅的浏览体验！">      点击这里下载我们的APK安装包，享受更流畅的浏览体验！    </div>  </div></a>  <div class="note danger flat"><p>Android APK 安装包情况下，受缓存机制影响，网站更新后需要手动下拉刷新才能看到最新内容。</p></div><!-- flag of hidden posts -->]]></content>
       
       
       <categories>
@@ -284,9 +284,9 @@
           
           <category> 词 </category>
           
-          <category> 八声甘州 </category>
-          
           <category> 东君 </category>
+          
+          <category> 八声甘州 </category>
           
           <category> 李岚霏 </category>
           
@@ -399,9 +399,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -409,9 +409,9 @@
           
           <category> 杂言 </category>
           
-          <category> 流水高山 </category>
-          
           <category> 临界 </category>
+          
+          <category> 流水高山 </category>
           
           <category> 流水高山|临界 </category>
           
@@ -450,13 +450,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -575,9 +575,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 词林正韵 </tag>
-            
             <tag> 临江仙 </tag>
+            
+            <tag> 词林正韵 </tag>
             
             <tag> 流水高山·知春社一周年分韵展 </tag>
             
@@ -599,21 +599,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
           <category> 无为 </category>
           
-          <category> 流水高山 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 流水高山 </category>
           
           <category> 流水高山|无为先生 </category>
           
@@ -677,9 +677,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 词林正韵 </tag>
-            
             <tag> 菩萨蛮 </tag>
+            
+            <tag> 词林正韵 </tag>
             
             <tag> 流水高山·知春社一周年分韵展 </tag>
             
@@ -867,9 +867,9 @@
             
             <tag> 词林正韵 </tag>
             
-            <tag> 一剪梅 </tag>
-            
             <tag> 流水高山·知春社一周年分韵展 </tag>
+            
+            <tag> 一剪梅 </tag>
             
         </tags>
       
@@ -1090,13 +1090,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1143,9 +1143,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -1192,13 +1192,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1245,9 +1245,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -1294,13 +1294,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1319,11 +1319,11 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 七绝 </tag>
             
@@ -1347,9 +1347,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -1396,13 +1396,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1449,13 +1449,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1502,13 +1502,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1553,9 +1553,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -1602,13 +1602,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1745,13 +1745,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1843,13 +1843,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1896,13 +1896,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -1949,13 +1949,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -2002,13 +2002,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -2055,13 +2055,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -2108,9 +2108,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2157,9 +2157,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2206,13 +2206,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -2259,9 +2259,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2314,9 +2314,9 @@
           
           <category> 词 </category>
           
-          <category> 破阵子 </category>
-          
           <category> 辞暮 </category>
+          
+          <category> 破阵子 </category>
           
           <category> 游箫集 </category>
           
@@ -2331,9 +2331,9 @@
             
             <tag> 词林正韵 </tag>
             
-            <tag> 破阵子 </tag>
-            
             <tag> 游箫集 </tag>
+            
+            <tag> 破阵子 </tag>
             
         </tags>
       
@@ -2353,9 +2353,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2402,9 +2402,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -2447,9 +2447,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -2492,9 +2492,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2541,9 +2541,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2590,9 +2590,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2639,9 +2639,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -2688,13 +2688,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -2739,13 +2739,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -2790,13 +2790,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -2841,13 +2841,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -2892,13 +2892,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -2943,9 +2943,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -3082,13 +3082,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
@@ -3107,13 +3107,13 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 五绝 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
         </tags>
       
@@ -3268,9 +3268,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -3315,9 +3315,9 @@
           
           <category> 文言 </category>
           
-          <category> 记事 </category>
-          
           <category> 东君 </category>
+          
+          <category> 记事 </category>
           
       </categories>
       
@@ -3377,9 +3377,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -3422,9 +3422,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -3504,9 +3504,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -3549,9 +3549,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -3628,7 +3628,7 @@
       <link href="/posts/a7247f88.html"/>
       <url>/posts/a7247f88.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><a class="card-base sponsor-card"   href="/posts/4bedfa1f.html"   target="_self"   rel="external nofollow noreferrer"   title="小六壬基础篇"   id="card-feature1785718210417-310">  <div class="sponsor-logo">    <img src="/img/img/封建迷信/freecompress-朝元图80.jpg" alt="小六壬基础篇 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="iconfont icon-share-square"></i> 小六壬基础篇</div>    <div class="sponsor-desc" title="前提知识">      前提知识    </div>  </div></a>  <p>在<a href="/posts/4bedfa1f.html">小六壬基础篇</a>中，我们起卦、算卦后至解卦一步，总有犯难或犹豫，该篇将尽量解决诸如此类问题。</p><h2 id="起卦争议">起卦争议</h2><p>农历时起卦，若遇闰月是作下月还是本月？先言结论为<strong>作本月</strong>。</p><h3 id="闰月的本质">闰月的本质</h3><p>农历（阴阳合历）是<strong>阴历</strong>与<strong>阳历</strong>结合的结果。闰月是为了调节阴历年与阳历年（太阳年）的差异而产生的。</p><ul><li><p><strong>阴历（月亮周期）</strong>：</p><ul><li>一个朔望月（从新月到下一个新月）大约 <strong>29.53天</strong>。</li><li>每个月约 <strong>29或30天</strong>。</li><li>12个月约 (12 × 29.53 ≈ 354.36) 天。</li></ul></li><li><p><strong>阳历（太阳周期）</strong>：</p><ul><li>一年（回归年）约 <strong>365.24天</strong>。</li><li>阴历年比阳历年短 <strong>≈11天</strong>。</li></ul></li></ul><blockquote><p>如果不调整，农历年会逐渐落后于节气和季节。</p></blockquote><h3 id="闰月的作用">闰月的作用</h3><ul><li>阴历年短于阳历年，因此需要<strong>增加一个闰月</strong>来调整。</li><li>这样可以让农历月份与节气基本对应。</li><li>每隔几年就会出现一个闰月。</li><li>同一年最多只会有 <strong>一个闰月</strong>。</li></ul><h3 id="闰月的判断方法">闰月的判断方法</h3><ol><li>农历年分 <strong>24节气</strong>，每个节气约15天。</li><li>如果某个农历月中 <strong>没有中气</strong>，这个月就被定为 <strong>闰月</strong>。<ul><li>中气指每个月的中间太阳位置，如立春、中气等。</li></ul></li><li>闰月通常加在某个月之后，如 <strong>闰四月</strong> 表示在四月后再加一个月。</li></ol><h3 id="闰月示意表">闰月示意表</h3><p>假设某年的阴历月份与节气对齐情况如下：</p><table><thead><tr><th>阴历月</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th></tr></thead><tbody><tr><td>是否有中气</td><td>有</td><td>有</td><td>无</td><td>有</td><td>有</td></tr><tr><td>农历月份</td><td>正月</td><td>二月</td><td><strong>闰二月</strong></td><td>三月</td><td>四月</td></tr></tbody></table><ul><li>这里因为 <strong>3月没有中气</strong>，所以在2月后插入一个 <strong>闰二月</strong>。</li><li>年份的农历月份数由 12 变成 <strong>13</strong>，以同步阳历。</li></ul><h3 id="起卦时遇闰月的处理">起卦时遇闰月的处理</h3><ul><li><strong>一般规则</strong>：起卦时，遇到闰月通常<strong>作前一个月</strong>（即本月），而不是顺延到下一个月。</li><li><strong>原因</strong>：闰月是为了节气对齐，本质上是“加出来的重复月”，不改变原本月份的顺序。</li></ul><h3 id="闰月作本月时">闰月作本月时</h3><p>闰月重复前一个月份，天干地支不跳过，保持月份顺序和干支连续。</p><h3 id="闰月作下月时">闰月作下月时</h3><p>闰月视为节气提前的月份，算作下一个月，强调节气与月份对齐。</p><h2 id="三宫">三宫</h2><p><strong>天、地、人</strong>三宫常可按顺序表示<strong>起因、经过、结果</strong>。</p><p>在起卦为<strong>时间起卦</strong>时不单单可取<strong>月、日、时</strong>还可取<strong>年、月、日</strong>。</p><h2 id="生克（为什么会有五行和生克且表现为如此？）">生克（为什么会有五行和生克且表现为如此？）</h2><p><strong>生克</strong>二字表<strong>生育与凶克</strong>实际不适合，而更应该表示为<strong>新伐之材湿而未干故能够胜任为新东西</strong>。</p><p><img src="/img/img/%E5%B0%81%E5%BB%BA%E8%BF%B7%E4%BF%A1/%E4%BA%94%E8%A1%8C%E5%9B%BE.jpg" alt="五行生克图"></p><p>五行生克图<strong>图解</strong>：</p><ul><li>木至火至土（从木、火为始）（黑点线）（第一次）</li><li>土至金至水至木至火至土（从土、金、水为始）（蓝点线）（第二次）</li><li>相克（对应实心色线至对应元素）（例如：红实心线至<strong>金</strong>处则表<strong>火克金</strong>）</li><li>一二次互不直接关联。</li></ul><p><strong>由上详意</strong>：</p><ul><li>从<strong>曲直、炎上、稼穑、从革、润下</strong>五个名词来说分别意为：<ul><li>弯曲和平直。（《书·洪范》：“木曰曲直，金曰从革。”）</li><li>火焰向上；火向上燃烧。（《书·洪范》：“火曰炎上。”孔颖达疏引王肃曰：“火之性，炎盛而升上。”）</li><li>耕种和收获。泛指农业劳动。（《书·无逸》：“厥父母勤劳稼穑，厥子乃不知稼穑之艰难。”）</li><li>谓依从人的意愿而改变(其形状)。（《书·洪范》：“木曰曲直，金曰从革。”）</li><li>谓水性就下以滋润万物。（《书·洪范》：“水曰润下，火曰炎上。”孔传：“言其自然之常性。”）</li></ul></li><li>又言《书·洪范》：“水火者，百姓之所饮食也。金木者，百姓之所兴作也。土者，万物之所资生也。是为人用。”五行与社会生活的许多联系，故而解释五行从社会生活中解释符合五行观念的出现。又能总结为<strong>新伐之材湿而未干故能够胜任为新东西</strong></li><li>后补充<strong>新伐之材湿而未干故能够胜任为新东西</strong>中<strong>材</strong>为旧物，<strong>材湿</strong>为新物。</li></ul><h2 id="六神宫详解">六神宫详解</h2><p>大安：属木、东方、有青龙又主震。</p><p>流连：属四方土又曰属水、中宫向四角、有腾蛇且属<strong>水、土、火</strong>改<strong>流连</strong>属又无八卦主。</p><p>速喜：属火、南方、有朱雀又主离。</p><p>赤口：属金、西方，有白虎又主兑。</p><p>小吉：属水又曰属木。</p><p>空亡：属土、中宫、有勾陈。</p><h3 id="小吉、流连五行属何？">小吉、流连五行属何？</h3><p>从<strong>五行生克图</strong>知，五行实则为两循环二过土而显<strong>原貌</strong>：<br>从大安始属木后至速喜属火后至小吉属土。<br>从空亡始属土后至赤口属金后至流连属水。</p><p>又从<strong>五行生克图</strong>知：<br>大安属木克土生流连或空亡且承载水生小吉或流连。<br>流连或空亡属土克水生小吉或流连且承载火生速喜。<br>小吉或流连属水克火生速喜或流连且承载金生赤口。<br>速喜或流连属火克金生赤口且承载木生大安或小吉。<br>赤口属金克木生大安或小吉且承载土生流连或空亡。<br><img src="/img/img/%E5%B0%81%E5%BB%BA%E8%BF%B7%E4%BF%A1/%E5%85%AD%E7%A5%9E%E5%AE%AB%E5%9B%BE.jpg" alt="六神宫出显图解"><br><strong>图意</strong></p><ul><li>实线与对应颜色代表生出什么（例如：<strong>大安</strong>属木克土生<strong>流连</strong>和<strong>空亡</strong>为<strong>棕色实线</strong>）</li><li>虚线与对应颜色代表承载什么（例如：<strong>大安</strong>属木由<strong>五行生克图</strong>知承载水生<strong>小吉</strong>和<strong>流连</strong>）</li><li>正方形底色代表对应五行（木为绿、火为红、土为棕、金为黄、灰为水）</li></ul><p>列出未知与已知：</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>甲</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>乙</mtext><mo>→</mo><mtext>土</mtext><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\text{木} \to \text{甲} \to \text{火} \to \text{金} \to \text{乙} \to \text{土}\\</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">甲</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">乙</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span><span class="mspace newline"></span></span></span></span></p><p>1.当<strong>流连</strong>属火时，为了五行完备则<strong>小吉</strong>只能属水且<strong>流连</strong>、<strong>速喜</strong>必为中宫有一定关系且成循环。例如：火克金生<strong>赤口</strong>，水承载金生<strong>小吉</strong>，水受土生<strong>空亡</strong>，土受木生<strong>大安</strong>，火承载木生<strong>流连</strong>。</p><blockquote><p>注：<strong>受</strong>为<strong>克</strong>的衍生，表示为<strong>被克关系</strong>。例如：土受木则是木<strong>克</strong>土又可言为<strong>土被木克</strong>。</p></blockquote><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{火} \to \text{火} \to \text{金} \to \text{水} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>2.当<strong>流连</strong>属水时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属水后<strong>流连</strong>、<strong>小吉</strong>必为中宫有一定关系且成循环但为<strong>五行生克图</strong>第二次且始需为<strong>流连</strong>或<strong>小吉</strong>。例如：水受土生<strong>空亡</strong>，土受木生<strong>大安</strong>，木承载水生<strong>流连</strong>，水克火生<strong>速喜</strong>，火克金生<strong>赤口</strong>，水承载金生<strong>小吉</strong>，<strong>小吉</strong>受土生<strong>空亡</strong>。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{水} \to \text{火} \to \text{金} \to \text{水} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>3.当<strong>流连</strong>属水时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属木后<strong>流连</strong>、<strong>小吉</strong>必为中宫有一定关系且成循环但为<strong>五行生克图</strong>第二次且始需为<strong>流连</strong>或<strong>小吉</strong>。例如：水受土生<strong>空亡</strong>，土受木生<strong>大安</strong>，木承载水生<strong>流连</strong>，水克火生<strong>速喜</strong>，火克金生<strong>赤口</strong>，水承载金生<strong>小吉</strong>，<strong>小吉</strong>受土生<strong>空亡</strong>。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>木</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{水} \to \text{火} \to \text{金} \to \text{木} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>4.当<strong>流连</strong>属土时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属木后六神宫缺水，中宫也有两组。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>土</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>木</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{土} \to \text{火} \to \text{金} \to \text{木} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>5.当<strong>流连</strong>属土时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属水后<strong>流连</strong>、<strong>空亡</strong>必为中宫有一定关系且成循环。例如：木承载水生<strong>流连</strong>，水克火生<strong>速喜</strong>，火克金生<strong>赤口</strong>，金克木生<strong>小吉</strong>，木克土生<strong>空亡</strong>，土克水生<strong>流连</strong>。故然该类极符合生克论法。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>土</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{土} \to \text{火} \to \text{金} \to \text{水} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><h3 id="生克与三宫实际应用案例">生克与三宫实际应用案例</h3><p>在小六壬的实际解卦过程中，三宫与生克往往是结合使用的。三宫提供了事情发展的时间顺序框架（起因 → 经过 → 结果），而生克关系则可以更好的适合新手理解其中关系。以下举数例来说明其具体应用。</p><h4 id="案例一：求财">案例一：求财</h4><p>闰六月廿六亥时<br>空亡（土）、大安（木）、空亡（土）<br>起因有障碍压制，若坚而奋进则大安，却发展迟缓，若强行推进则有凶相，若顺迟缓而行则无凶却也无喜。又因土生金而过程中定有争执与个人的恐慌，也已经发现问题所在。再言木克土而生空亡，此空亡就能确定为及时调整，无凶也无喜。</p><h4 id="案例二：问情">案例二：问情</h4><p>6、5、4<br>空亡（土）、赤口（金）、大安（木）<br>当前状态不稳，土又生金而显争执与猜疑，不适合推进。金又克木而大安仅剩稳无安，故而放弃保全自身即可。</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><a class="card-base sponsor-card"   href="/posts/4bedfa1f.html"   target="_self"   rel="external nofollow noreferrer"   title="小六壬基础篇"   id="card-feature1785721959730-647">  <div class="sponsor-logo">    <img src="/img/img/封建迷信/freecompress-朝元图80.jpg" alt="小六壬基础篇 logo"         onerror="this.onerror=null;this.src='/img/friend_404.gif'">  </div>  <div class="sponsor-info">    <div class="rectangle-name"><i class="iconfont icon-share-square"></i> 小六壬基础篇</div>    <div class="sponsor-desc" title="前提知识">      前提知识    </div>  </div></a>  <p>在<a href="/posts/4bedfa1f.html">小六壬基础篇</a>中，我们起卦、算卦后至解卦一步，总有犯难或犹豫，该篇将尽量解决诸如此类问题。</p><h2 id="起卦争议">起卦争议</h2><p>农历时起卦，若遇闰月是作下月还是本月？先言结论为<strong>作本月</strong>。</p><h3 id="闰月的本质">闰月的本质</h3><p>农历（阴阳合历）是<strong>阴历</strong>与<strong>阳历</strong>结合的结果。闰月是为了调节阴历年与阳历年（太阳年）的差异而产生的。</p><ul><li><p><strong>阴历（月亮周期）</strong>：</p><ul><li>一个朔望月（从新月到下一个新月）大约 <strong>29.53天</strong>。</li><li>每个月约 <strong>29或30天</strong>。</li><li>12个月约 (12 × 29.53 ≈ 354.36) 天。</li></ul></li><li><p><strong>阳历（太阳周期）</strong>：</p><ul><li>一年（回归年）约 <strong>365.24天</strong>。</li><li>阴历年比阳历年短 <strong>≈11天</strong>。</li></ul></li></ul><blockquote><p>如果不调整，农历年会逐渐落后于节气和季节。</p></blockquote><h3 id="闰月的作用">闰月的作用</h3><ul><li>阴历年短于阳历年，因此需要<strong>增加一个闰月</strong>来调整。</li><li>这样可以让农历月份与节气基本对应。</li><li>每隔几年就会出现一个闰月。</li><li>同一年最多只会有 <strong>一个闰月</strong>。</li></ul><h3 id="闰月的判断方法">闰月的判断方法</h3><ol><li>农历年分 <strong>24节气</strong>，每个节气约15天。</li><li>如果某个农历月中 <strong>没有中气</strong>，这个月就被定为 <strong>闰月</strong>。<ul><li>中气指每个月的中间太阳位置，如立春、中气等。</li></ul></li><li>闰月通常加在某个月之后，如 <strong>闰四月</strong> 表示在四月后再加一个月。</li></ol><h3 id="闰月示意表">闰月示意表</h3><p>假设某年的阴历月份与节气对齐情况如下：</p><table><thead><tr><th>阴历月</th><th>1月</th><th>2月</th><th>3月</th><th>4月</th><th>5月</th></tr></thead><tbody><tr><td>是否有中气</td><td>有</td><td>有</td><td>无</td><td>有</td><td>有</td></tr><tr><td>农历月份</td><td>正月</td><td>二月</td><td><strong>闰二月</strong></td><td>三月</td><td>四月</td></tr></tbody></table><ul><li>这里因为 <strong>3月没有中气</strong>，所以在2月后插入一个 <strong>闰二月</strong>。</li><li>年份的农历月份数由 12 变成 <strong>13</strong>，以同步阳历。</li></ul><h3 id="起卦时遇闰月的处理">起卦时遇闰月的处理</h3><ul><li><strong>一般规则</strong>：起卦时，遇到闰月通常<strong>作前一个月</strong>（即本月），而不是顺延到下一个月。</li><li><strong>原因</strong>：闰月是为了节气对齐，本质上是“加出来的重复月”，不改变原本月份的顺序。</li></ul><h3 id="闰月作本月时">闰月作本月时</h3><p>闰月重复前一个月份，天干地支不跳过，保持月份顺序和干支连续。</p><h3 id="闰月作下月时">闰月作下月时</h3><p>闰月视为节气提前的月份，算作下一个月，强调节气与月份对齐。</p><h2 id="三宫">三宫</h2><p><strong>天、地、人</strong>三宫常可按顺序表示<strong>起因、经过、结果</strong>。</p><p>在起卦为<strong>时间起卦</strong>时不单单可取<strong>月、日、时</strong>还可取<strong>年、月、日</strong>。</p><h2 id="生克（为什么会有五行和生克且表现为如此？）">生克（为什么会有五行和生克且表现为如此？）</h2><p><strong>生克</strong>二字表<strong>生育与凶克</strong>实际不适合，而更应该表示为<strong>新伐之材湿而未干故能够胜任为新东西</strong>。</p><p><img src="/img/img/%E5%B0%81%E5%BB%BA%E8%BF%B7%E4%BF%A1/%E4%BA%94%E8%A1%8C%E5%9B%BE.jpg" alt="五行生克图"></p><p>五行生克图<strong>图解</strong>：</p><ul><li>木至火至土（从木、火为始）（黑点线）（第一次）</li><li>土至金至水至木至火至土（从土、金、水为始）（蓝点线）（第二次）</li><li>相克（对应实心色线至对应元素）（例如：红实心线至<strong>金</strong>处则表<strong>火克金</strong>）</li><li>一二次互不直接关联。</li></ul><p><strong>由上详意</strong>：</p><ul><li>从<strong>曲直、炎上、稼穑、从革、润下</strong>五个名词来说分别意为：<ul><li>弯曲和平直。（《书·洪范》：“木曰曲直，金曰从革。”）</li><li>火焰向上；火向上燃烧。（《书·洪范》：“火曰炎上。”孔颖达疏引王肃曰：“火之性，炎盛而升上。”）</li><li>耕种和收获。泛指农业劳动。（《书·无逸》：“厥父母勤劳稼穑，厥子乃不知稼穑之艰难。”）</li><li>谓依从人的意愿而改变(其形状)。（《书·洪范》：“木曰曲直，金曰从革。”）</li><li>谓水性就下以滋润万物。（《书·洪范》：“水曰润下，火曰炎上。”孔传：“言其自然之常性。”）</li></ul></li><li>又言《书·洪范》：“水火者，百姓之所饮食也。金木者，百姓之所兴作也。土者，万物之所资生也。是为人用。”五行与社会生活的许多联系，故而解释五行从社会生活中解释符合五行观念的出现。又能总结为<strong>新伐之材湿而未干故能够胜任为新东西</strong></li><li>后补充<strong>新伐之材湿而未干故能够胜任为新东西</strong>中<strong>材</strong>为旧物，<strong>材湿</strong>为新物。</li></ul><h2 id="六神宫详解">六神宫详解</h2><p>大安：属木、东方、有青龙又主震。</p><p>流连：属四方土又曰属水、中宫向四角、有腾蛇且属<strong>水、土、火</strong>改<strong>流连</strong>属又无八卦主。</p><p>速喜：属火、南方、有朱雀又主离。</p><p>赤口：属金、西方，有白虎又主兑。</p><p>小吉：属水又曰属木。</p><p>空亡：属土、中宫、有勾陈。</p><h3 id="小吉、流连五行属何？">小吉、流连五行属何？</h3><p>从<strong>五行生克图</strong>知，五行实则为两循环二过土而显<strong>原貌</strong>：<br>从大安始属木后至速喜属火后至小吉属土。<br>从空亡始属土后至赤口属金后至流连属水。</p><p>又从<strong>五行生克图</strong>知：<br>大安属木克土生流连或空亡且承载水生小吉或流连。<br>流连或空亡属土克水生小吉或流连且承载火生速喜。<br>小吉或流连属水克火生速喜或流连且承载金生赤口。<br>速喜或流连属火克金生赤口且承载木生大安或小吉。<br>赤口属金克木生大安或小吉且承载土生流连或空亡。<br><img src="/img/img/%E5%B0%81%E5%BB%BA%E8%BF%B7%E4%BF%A1/%E5%85%AD%E7%A5%9E%E5%AE%AB%E5%9B%BE.jpg" alt="六神宫出显图解"><br><strong>图意</strong></p><ul><li>实线与对应颜色代表生出什么（例如：<strong>大安</strong>属木克土生<strong>流连</strong>和<strong>空亡</strong>为<strong>棕色实线</strong>）</li><li>虚线与对应颜色代表承载什么（例如：<strong>大安</strong>属木由<strong>五行生克图</strong>知承载水生<strong>小吉</strong>和<strong>流连</strong>）</li><li>正方形底色代表对应五行（木为绿、火为红、土为棕、金为黄、灰为水）</li></ul><p>列出未知与已知：</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>甲</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>乙</mtext><mo>→</mo><mtext>土</mtext><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">\text{木} \to \text{甲} \to \text{火} \to \text{金} \to \text{乙} \to \text{土}\\</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">甲</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">乙</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span><span class="mspace newline"></span></span></span></span></p><p>1.当<strong>流连</strong>属火时，为了五行完备则<strong>小吉</strong>只能属水且<strong>流连</strong>、<strong>速喜</strong>必为中宫有一定关系且成循环。例如：火克金生<strong>赤口</strong>，水承载金生<strong>小吉</strong>，水受土生<strong>空亡</strong>，土受木生<strong>大安</strong>，火承载木生<strong>流连</strong>。</p><blockquote><p>注：<strong>受</strong>为<strong>克</strong>的衍生，表示为<strong>被克关系</strong>。例如：土受木则是木<strong>克</strong>土又可言为<strong>土被木克</strong>。</p></blockquote><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{火} \to \text{火} \to \text{金} \to \text{水} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>2.当<strong>流连</strong>属水时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属水后<strong>流连</strong>、<strong>小吉</strong>必为中宫有一定关系且成循环但为<strong>五行生克图</strong>第二次且始需为<strong>流连</strong>或<strong>小吉</strong>。例如：水受土生<strong>空亡</strong>，土受木生<strong>大安</strong>，木承载水生<strong>流连</strong>，水克火生<strong>速喜</strong>，火克金生<strong>赤口</strong>，水承载金生<strong>小吉</strong>，<strong>小吉</strong>受土生<strong>空亡</strong>。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{水} \to \text{火} \to \text{金} \to \text{水} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>3.当<strong>流连</strong>属水时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属木后<strong>流连</strong>、<strong>小吉</strong>必为中宫有一定关系且成循环但为<strong>五行生克图</strong>第二次且始需为<strong>流连</strong>或<strong>小吉</strong>。例如：水受土生<strong>空亡</strong>，土受木生<strong>大安</strong>，木承载水生<strong>流连</strong>，水克火生<strong>速喜</strong>，火克金生<strong>赤口</strong>，水承载金生<strong>小吉</strong>，<strong>小吉</strong>受土生<strong>空亡</strong>。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>木</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{水} \to \text{火} \to \text{金} \to \text{木} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>4.当<strong>流连</strong>属土时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属木后六神宫缺水，中宫也有两组。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>土</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>木</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{土} \to \text{火} \to \text{金} \to \text{木} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><p>5.当<strong>流连</strong>属土时，<strong>小吉</strong>能属水、木，而若<strong>小吉</strong>属水后<strong>流连</strong>、<strong>空亡</strong>必为中宫有一定关系且成循环。例如：木承载水生<strong>流连</strong>，水克火生<strong>速喜</strong>，火克金生<strong>赤口</strong>，金克木生<strong>小吉</strong>，木克土生<strong>空亡</strong>，土克水生<strong>流连</strong>。故然该类极符合生克论法。</p><p class="katex-block "><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>木</mtext><mo>→</mo><mtext>土</mtext><mo>→</mo><mtext>火</mtext><mo>→</mo><mtext>金</mtext><mo>→</mo><mtext>水</mtext><mo>→</mo><mtext>土</mtext></mrow><annotation encoding="application/x-tex">\text{木} \to \text{土} \to \text{火} \to \text{金} \to \text{水} \to \text{土}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">木</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">火</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">金</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">水</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord text"><span class="mord cjk_fallback">土</span></span></span></span></span></span></p><h3 id="生克与三宫实际应用案例">生克与三宫实际应用案例</h3><p>在小六壬的实际解卦过程中，三宫与生克往往是结合使用的。三宫提供了事情发展的时间顺序框架（起因 → 经过 → 结果），而生克关系则可以更好的适合新手理解其中关系。以下举数例来说明其具体应用。</p><h4 id="案例一：求财">案例一：求财</h4><p>闰六月廿六亥时<br>空亡（土）、大安（木）、空亡（土）<br>起因有障碍压制，若坚而奋进则大安，却发展迟缓，若强行推进则有凶相，若顺迟缓而行则无凶却也无喜。又因土生金而过程中定有争执与个人的恐慌，也已经发现问题所在。再言木克土而生空亡，此空亡就能确定为及时调整，无凶也无喜。</p><h4 id="案例二：问情">案例二：问情</h4><p>6、5、4<br>空亡（土）、赤口（金）、大安（木）<br>当前状态不稳，土又生金而显争执与猜疑，不适合推进。金又克木而大安仅剩稳无安，故而放弃保全自身即可。</p>]]></content>
       
       
       <categories>
@@ -3800,9 +3800,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -3886,9 +3886,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4077,9 +4077,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4124,9 +4124,9 @@
           
           <category> 词 </category>
           
-          <category> 渔歌子 </category>
-          
           <category> 高子琅 </category>
+          
+          <category> 渔歌子 </category>
           
       </categories>
       
@@ -4159,9 +4159,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4245,13 +4245,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4296,13 +4296,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4347,13 +4347,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4398,13 +4398,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4423,9 +4423,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -4449,13 +4449,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -4500,13 +4500,13 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
           
-          <category> 李岚霏 </category>
+          <category> 作者 </category>
           
           <category> 绝句 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 七绝 </category>
           
@@ -4572,9 +4572,9 @@
           
           <category> 词 </category>
           
-          <category> 清平乐 </category>
-          
           <category> 东君 </category>
+          
+          <category> 清平乐 </category>
           
       </categories>
       
@@ -4640,9 +4640,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -4738,19 +4738,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|何梦溪 </category>
           
@@ -4840,19 +4840,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|则好 </category>
           
@@ -5083,9 +5083,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -5157,9 +5157,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 词林正韵 </tag>
-            
             <tag> 菩萨蛮 </tag>
+            
+            <tag> 词林正韵 </tag>
             
             <tag> 知春集·乙巳 </tag>
             
@@ -5187,9 +5187,9 @@
           
           <category> 词 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 水龙吟 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|子远 </category>
           
@@ -5251,9 +5251,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 长相思 </tag>
-            
             <tag> 词林正韵 </tag>
+            
+            <tag> 长相思 </tag>
             
             <tag> 知春集·乙巳 </tag>
             
@@ -5275,9 +5275,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -5285,9 +5285,9 @@
           
           <category> 五言 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 知春集·乙巳 </category>
+          
+          <category> 摛翰 </category>
           
           <category> 知春集·乙巳|摛翰 </category>
           
@@ -5334,9 +5334,9 @@
           
           <category> 八声甘州 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 知春集·乙巳 </category>
+          
+          <category> 摛翰 </category>
           
           <category> 知春集·乙巳|摛翰 </category>
           
@@ -5381,9 +5381,9 @@
           
           <category> 江城子 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 知春集·乙巳 </category>
+          
+          <category> 摛翰 </category>
           
           <category> 知春集·乙巳|摛翰 </category>
           
@@ -5398,9 +5398,9 @@
             
             <tag> 词林正韵 </tag>
             
-            <tag> 江城子 </tag>
-            
             <tag> 知春集·乙巳 </tag>
+            
+            <tag> 江城子 </tag>
             
         </tags>
       
@@ -5420,21 +5420,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 绝句 </category>
           
-          <category> 摛翰 </category>
+          <category> 五绝 </category>
           
           <category> 知春集·乙巳 </category>
           
-          <category> 五绝 </category>
+          <category> 摛翰 </category>
           
           <category> 知春集·乙巳|摛翰 </category>
           
@@ -5481,13 +5481,13 @@
           
           <category> 词 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 知春集·乙巳 </category>
           
-          <category> 知春集·乙巳|摛翰 </category>
-          
           <category> 行香子 </category>
+          
+          <category> 摛翰 </category>
+          
+          <category> 知春集·乙巳|摛翰 </category>
           
       </categories>
       
@@ -5528,11 +5528,11 @@
           
           <category> 词 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 浣溪沙 </category>
           
           <category> 知春集·乙巳 </category>
+          
+          <category> 摛翰 </category>
           
           <category> 知春集·乙巳|摛翰 </category>
           
@@ -5575,11 +5575,11 @@
           
           <category> 词 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 浣溪沙 </category>
           
           <category> 知春集·乙巳 </category>
+          
+          <category> 摛翰 </category>
           
           <category> 知春集·乙巳|摛翰 </category>
           
@@ -5663,19 +5663,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 绝句 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|桔子 </category>
           
@@ -5718,19 +5718,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 绝句 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|桔子 </category>
           
@@ -5773,19 +5773,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 绝句 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|桔子 </category>
           
@@ -5828,9 +5828,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -5879,9 +5879,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -5930,9 +5930,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -5940,11 +5940,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 苏沐影 </category>
-          
           <category> 七古 </category>
           
           <category> 知春集·乙巳|苏沐影 </category>
+          
+          <category> 苏沐影 </category>
           
       </categories>
       
@@ -5981,9 +5981,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -5991,11 +5991,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 苏沐影 </category>
-          
           <category> 七古 </category>
           
           <category> 知春集·乙巳|苏沐影 </category>
+          
+          <category> 苏沐影 </category>
           
       </categories>
       
@@ -6032,9 +6032,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -6042,11 +6042,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 苏沐影 </category>
-          
           <category> 七古 </category>
           
           <category> 知春集·乙巳|苏沐影 </category>
+          
+          <category> 苏沐影 </category>
           
       </categories>
       
@@ -6083,9 +6083,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -6093,11 +6093,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 苏沐影 </category>
-          
           <category> 七古 </category>
           
           <category> 知春集·乙巳|苏沐影 </category>
+          
+          <category> 苏沐影 </category>
           
       </categories>
       
@@ -6134,23 +6134,23 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 七律 </category>
           
-          <category> 苏沐影 </category>
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|苏沐影 </category>
+          
+          <category> 苏沐影 </category>
           
       </categories>
       
@@ -6189,9 +6189,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -6199,9 +6199,9 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 知春集·乙巳|谷旻灵 </category>
-          
           <category> 五古 </category>
+          
+          <category> 知春集·乙巳|谷旻灵 </category>
           
           <category> 谷旻灵 </category>
           
@@ -6240,19 +6240,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|谷旻灵 </category>
           
@@ -6267,9 +6267,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -6295,19 +6295,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|谷旻灵 </category>
           
@@ -6322,9 +6322,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -6350,19 +6350,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|谷旻灵 </category>
           
@@ -6377,9 +6377,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -6405,19 +6405,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|谷旻灵 </category>
           
@@ -6432,9 +6432,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -6460,9 +6460,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -6470,9 +6470,9 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 知春集·乙巳|谷旻灵 </category>
-          
           <category> 五古 </category>
+          
+          <category> 知春集·乙巳|谷旻灵 </category>
           
           <category> 谷旻灵 </category>
           
@@ -6511,9 +6511,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -6521,9 +6521,9 @@
           
           <category> 七言 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 高子琅 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|高子琅 </category>
           
@@ -6562,21 +6562,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 绝句 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 绝句 </category>
           
           <category> 高子琅 </category>
           
           <category> 七绝 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|高子琅 </category>
           
@@ -6617,21 +6617,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 高子琅 </category>
           
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|高子琅 </category>
           
@@ -6678,9 +6678,9 @@
           
           <category> 词 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 高子琅 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|高子琅 </category>
           
@@ -6719,21 +6719,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 高子琅 </category>
           
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|高子琅 </category>
           
@@ -6772,9 +6772,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -6901,9 +6901,9 @@
           
           <category> 金风 </category>
           
-          <category> 减字木兰花 </category>
-          
           <category> 知春集·乙巳|金风 </category>
+          
+          <category> 减字木兰花 </category>
           
       </categories>
       
@@ -6993,11 +6993,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 少璞 </category>
+          <category> 祝英台近 </category>
           
           <category> 知春集·乙巳|少璞 </category>
           
-          <category> 祝英台近 </category>
+          <category> 少璞 </category>
           
       </categories>
       
@@ -7032,9 +7032,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -7044,9 +7044,9 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 少璞 </category>
-          
           <category> 知春集·乙巳|少璞 </category>
+          
+          <category> 少璞 </category>
           
       </categories>
       
@@ -7093,9 +7093,9 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 少璞 </category>
-          
           <category> 知春集·乙巳|少璞 </category>
+          
+          <category> 少璞 </category>
           
       </categories>
       
@@ -7138,11 +7138,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 少璞 </category>
-          
           <category> 芭蕉雨 </category>
           
           <category> 知春集·乙巳|少璞 </category>
+          
+          <category> 少璞 </category>
           
       </categories>
       
@@ -7177,23 +7177,23 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 七律 </category>
           
-          <category> 程岑 </category>
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|程岑 </category>
+          
+          <category> 程岑 </category>
           
       </categories>
       
@@ -7232,23 +7232,23 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 五律 </category>
           
-          <category> 程岑 </category>
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|程岑 </category>
+          
+          <category> 程岑 </category>
           
       </categories>
       
@@ -7287,9 +7287,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -7299,9 +7299,9 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 程岑 </category>
-          
           <category> 知春集·乙巳|程岑 </category>
+          
+          <category> 程岑 </category>
           
       </categories>
       
@@ -7338,23 +7338,23 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 七律 </category>
           
-          <category> 程岑 </category>
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|程岑 </category>
+          
+          <category> 程岑 </category>
           
       </categories>
       
@@ -7393,19 +7393,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|失堂 </category>
           
@@ -7420,9 +7420,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -7448,19 +7448,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|失堂 </category>
           
@@ -7503,19 +7503,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|失堂 </category>
           
@@ -7558,9 +7558,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -7609,19 +7609,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|失堂 </category>
           
@@ -7670,13 +7670,13 @@
           
           <category> 词 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 无为 </category>
           
-          <category> 知春集·乙巳|无为 </category>
+          <category> 知春集·乙巳 </category>
           
           <category> 宴清都 </category>
+          
+          <category> 知春集·乙巳|无为 </category>
           
       </categories>
       
@@ -7717,9 +7717,9 @@
           
           <category> 词 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 无为 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 击梧桐 </category>
           
@@ -7758,9 +7758,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -7768,9 +7768,9 @@
           
           <category> 七言 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 无为 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|无为 </category>
           
@@ -7809,21 +7809,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 无为 </category>
           
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|无为 </category>
           
@@ -7864,21 +7864,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 无为 </category>
           
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|无为 </category>
           
@@ -7919,21 +7919,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 无为 </category>
           
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|无为 </category>
           
@@ -7974,21 +7974,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 无为 </category>
           
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|无为 </category>
           
@@ -8170,19 +8170,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|玉书道人 </category>
           
@@ -8233,11 +8233,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 莺本斋 </category>
-          
           <category> 南歌子 </category>
           
           <category> 知春集·乙巳|莺本斋 </category>
+          
+          <category> 莺本斋 </category>
           
       </categories>
       
@@ -8280,11 +8280,11 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 莺本斋 </category>
-          
           <category> 醉太平 </category>
           
           <category> 知春集·乙巳|莺本斋 </category>
+          
+          <category> 莺本斋 </category>
           
       </categories>
       
@@ -8329,9 +8329,9 @@
           
           <category> 知春集·乙巳 </category>
           
-          <category> 莺本斋 </category>
-          
           <category> 知春集·乙巳|莺本斋 </category>
+          
+          <category> 莺本斋 </category>
           
       </categories>
       
@@ -8366,23 +8366,23 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 五律 </category>
           
-          <category> 莺本斋 </category>
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|莺本斋 </category>
+          
+          <category> 莺本斋 </category>
           
       </categories>
       
@@ -8421,9 +8421,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -8431,9 +8431,9 @@
           
           <category> 杂言 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 于谆之 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|于谆之 </category>
           
@@ -8478,9 +8478,9 @@
           
           <category> 词 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 于谆之 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 击梧桐 </category>
           
@@ -8525,9 +8525,9 @@
           
           <category> 词 </category>
           
-          <category> 知春集·乙巳 </category>
-          
           <category> 于谆之 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 念奴娇 </category>
           
@@ -8566,21 +8566,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 于谆之 </category>
           
           <category> 七律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|于谆之 </category>
           
@@ -8621,21 +8621,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 于谆之 </category>
           
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|于谆之 </category>
           
@@ -8676,21 +8676,21 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 律诗 </category>
+          <category> 作者 </category>
           
-          <category> 知春集·乙巳 </category>
+          <category> 律诗 </category>
           
           <category> 于谆之 </category>
           
           <category> 五律 </category>
+          
+          <category> 知春集·乙巳 </category>
           
           <category> 知春集·乙巳|于谆之 </category>
           
@@ -8949,9 +8949,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9021,9 +9021,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9056,9 +9056,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9091,9 +9091,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9126,9 +9126,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9198,15 +9198,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 七律 </category>
+          
+          <category> 摛翰 </category>
           
       </categories>
       
@@ -9243,15 +9243,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七律 </category>
+          
+          <category> 柳君 </category>
           
       </categories>
       
@@ -9381,9 +9381,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9418,17 +9418,17 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 云辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
           <category> 作者 </category>
           
-          <category> 李岚霏 </category>
-          
           <category> 五言 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 知春集·乙巳 </category>
           
@@ -9465,9 +9465,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9500,9 +9500,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9535,9 +9535,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -9745,9 +9745,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -9792,9 +9792,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -9839,9 +9839,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -9886,9 +9886,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -10150,15 +10150,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七律 </category>
+          
+          <category> 柳君 </category>
           
       </categories>
       
@@ -10238,9 +10238,9 @@
           
           <category> 词 </category>
           
-          <category> 柳君 </category>
-          
           <category> 贺新郎 </category>
+          
+          <category> 柳君 </category>
           
       </categories>
       
@@ -10275,9 +10275,9 @@
           
           <category> 词 </category>
           
-          <category> 柳君 </category>
-          
           <category> 伊州令 </category>
+          
+          <category> 柳君 </category>
           
       </categories>
       
@@ -10310,15 +10310,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七律 </category>
+          
+          <category> 柳君 </category>
           
       </categories>
       
@@ -10355,19 +10355,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七律 </category>
+          
+          <category> 柳君 </category>
           
           <category> 越南四首 </category>
           
@@ -10380,9 +10380,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -10406,9 +10406,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -10453,19 +10453,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七律 </category>
+          
+          <category> 柳君 </category>
           
           <category> 越南四首 </category>
           
@@ -10478,9 +10478,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -10504,19 +10504,19 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
+          <category> 作者 </category>
+          
           <category> 律诗 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七律 </category>
+          
+          <category> 柳君 </category>
           
           <category> 越南四首 </category>
           
@@ -10529,9 +10529,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -10555,15 +10555,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 柳君 </category>
           
       </categories>
       
@@ -10574,11 +10574,11 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 七绝 </tag>
             
@@ -10600,15 +10600,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
-          <category> 柳君 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 柳君 </category>
           
       </categories>
       
@@ -10710,43 +10710,6 @@
     
     
     <entry>
-      <title>醉东风·贺新岁</title>
-      <link href="/posts/ed9a679c.html"/>
-      <url>/posts/ed9a679c.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  万家灯火，都往关山寄，花火夜空不见月，游子归家再忆。<br>  碎霞独倚苍天，昔人乘鹤成仙。君问茫然何处？何曾换了人间!</p><div class="note success no-icon flat"><p>作者自注：不-出律；火、月-出韵。</p></div>]]></content>
-      
-      
-      <categories>
-          
-          <category> 作者 </category>
-          
-          <category> 词 </category>
-          
-          <category> 墨山 </category>
-          
-          <category> 醉东风 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 文学 </tag>
-            
-            <tag> 词集 </tag>
-            
-            <tag> 中华通韵 </tag>
-            
-            <tag> 醉东风 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>青玉案·大病久愈作</title>
       <link href="/posts/7b41eb99.html"/>
       <url>/posts/7b41eb99.html</url>
@@ -10776,6 +10739,43 @@
             <tag> 词林正韵 </tag>
             
             <tag> 青玉案 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>醉东风·贺新岁</title>
+      <link href="/posts/ed9a679c.html"/>
+      <url>/posts/ed9a679c.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  万家灯火，都往关山寄，花火夜空不见月，游子归家再忆。<br>  碎霞独倚苍天，昔人乘鹤成仙。君问茫然何处？何曾换了人间!</p><div class="note success no-icon flat"><p>作者自注：不-出律；火、月-出韵。</p></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 作者 </category>
+          
+          <category> 词 </category>
+          
+          <category> 墨山 </category>
+          
+          <category> 醉东风 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文学 </tag>
+            
+            <tag> 词集 </tag>
+            
+            <tag> 中华通韵 </tag>
+            
+            <tag> 醉东风 </tag>
             
         </tags>
       
@@ -10889,11 +10889,11 @@
     
     
     <entry>
-      <title>长缓慢慢（长缓慢慢哀）</title>
-      <link href="/posts/40fa3028.html"/>
-      <url>/posts/40fa3028.html</url>
+      <title>幽长缓缓（长缓慢慢哀）</title>
+      <link href="/posts/4e4b43af.html"/>
+      <url>/posts/4e4b43af.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><style>    .green-underline {        text-decoration: underline;        text-decoration-color: #a8d08d;        text-decoration-thickness: 3px;    }</style><h2 id="本文说明">本文说明</h2><p>1@特注：此格为曲格，本格韵前可改句式。例如：平平平平平<font color=a62121>韵</font>。可改为：平平平，平平<font color=a62121>韵</font>。</p><h2 id="第一段">第一段</h2><p>平 入 上 平 平，</p><p>入 平 入 上去 平，</p><p>上 上 上 上，</p><p>平 上去 平 平<font color=a62121>韵</font>。</p><p>平 入 上 平 平、</p><p>入 平 入 上去 平，</p><p>平入 上 去 上去、</p><p>平 平入 平 上去<font color=a62121>叶韵</font>。</p><p>平入 上去 上 平，</p><p>上去 去 平 平入，</p><p>平入 上去 平去 平，</p><p>上去 上 去入 平去 上去 去入、</p><p>去入 平去 平入 平入 上<font color=a62121>叶韵</font>。</p><p>平入 上去 去入 平去，</p><p>上去 去入 上 去入、</p><p>平去 平入 平入 平，</p><p>上去 上去 平去 上去入 平，</p><p>上去 平去 上去 平去 上去<font color=a62121>叶韵</font>。</p><p>平 上 入去 平 去 平入去，</p><p>上去 平 平，</p><p>去 上 上去入，</p><p>平 平 平 去 上去入<font color=a62121>叶韵</font>。</p><p>平 上 入去、</p><p>平 上去 平，</p><p>平  平入  上去 上去入，</p><p>入平 平入 入上去，</p><p>上 平 去 平入 平入  平入<font color=a62121>韵/叶韵</font>。</p><h2 id="第二段">第二段</h2><p>平 入 上 平 平 入 平 入 上去 平，</p><p>上 上 上 上 平 上去 平 平<font color=a62121>韵</font>。</p><p>平 入 上 平 平 入 平 入 上去 平，</p><p>平入 上 去 上去 平 平入 平 上去<font color=a62121>叶韵</font>。</p><p>平入 上去 上 平 平 上去 去 平 平入 平入 上去 平去 平 ，上去 上 去入 平去 上去 去入 去入 平去 平入 平入 上<font color=a62121>叶韵</font>。</p><p>平入 上去 去入 平去 上去 去入 上 去入 平去 平入 平入 平，</p><p>上去 上去 平去 上去入 平 上去 平 平入 平 上去<font color=a62121>叶韵</font>。</p><p>平 上 入去 平 上去 <span class="green-underline">上入 上入</span> 平入去 入平 上去 平 平。</p><p>1@注：下划线处，前后皆可为上。若前用入，后必用上。若后用入，前必用上。</p><p>去 上 上去入 平 平 平 去 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 上去 平 平入  <span class="green-underline">入上去 平</span> 平入 </p><p>1@注：下划线处，若为上时即平处必平；若为入，则为平。</p><p>入平 平入 入上去 上 平 去 平入 平入  平入 <font color=a62121>韵/叶韵</font>。</p><h2 id="第三段">第三段</h2><p>平入 上去 上 平 平 上去 去 平 平入 平入 上去 平 </p><p>上去 上 去入 平去 上去 去入 去入 平去 平入 平入 上 <font color=a62121>叶韵</font>。</p><p>平入 上去 去入 平去 上去 去入 上 去入 平去 平入 平入 平 ，</p><p>上去 上去 平去 上去入 平 上去 平 平入{偏入} 平 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 去 平入去 上去 平 平 </p><p>去 上 上去入 平 平 平 去 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 上去 平 平  平入  上去 上去入 ，</p><p>入平 平入 入上去 上 平 去 平入 平入  平入 <font color=a62121>韵/叶韵</font>。</p><h2 id="第四段">第四段</h2><p>平 上 入去 平 去 平入去 上去 平 平 ，</p><p>去 上 上去入 平 平 平 去 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 上去 平 平 平入 上去 上去入 ，</p><p>入平 平入 入上去 上 平 去 平入 平入  平入 <font color=a62121>韵/叶韵</font>。</p><p>平入 <span class="green-underline">平入 平上去</span> <b><i>上去入</i> 去平</b> 去上 平去 去 平 <font color=a62121>韵</font></p><p>1@注：划线处若头为入，则后可平。若头为平，则后不可平。</p><p>2@注：斜体处若头为平，则后只可入。</p><p>3@注：粗体处若头为入，则后只可平。</p><hr><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/232287c.html" title="长缓慢慢哀" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="长缓慢慢哀" />          </div>          <div class="flink-item-name">长缓慢慢哀</div>          <div class="flink-item-desc" title="长缓慢慢哀-格-李岚霏">长缓慢慢哀-格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/dd3e8798.html" title="难咽哀（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="难咽哀（长缓慢慢哀）" />          </div>          <div class="flink-item-name">难咽哀（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-难咽哀-词格-李岚霏">长缓慢慢哀-难咽哀-词格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/4e4b43af.html" title="幽长缓缓（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="幽长缓缓（长缓慢慢哀）" />          </div>          <div class="flink-item-name">幽长缓缓（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-幽长缓缓-词格-李岚霏">长缓慢慢哀-幽长缓缓-词格-李岚霏</div>        </a>      </div></div></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="第一段">第一段</h2><p>  平仄仄平平，仄平仄仄平，仄仄仄仄，平仄平平<font color=a62121>韵</font>。平仄仄平平、仄平仄仄平，中仄仄仄、平中平仄<font color=a62121>叶韵</font>。中仄仄平，仄仄平中，中仄中平，仄仄仄中仄仄、仄中中中仄<font color=a62121>叶韵</font>。中仄仄中，仄仄仄仄、中中中平，仄仄中仄平，仄中仄中仄<font color=a62121>叶韵</font>。平仄仄平仄中，仄平平，仄仄仄，平平平仄仄<font color=a62121>叶韵</font>。平仄仄、平仄平，平中仄仄，中中仄，仄平仄中中中<font color=a62121>韵/叶韵</font>。</p><h2 id="第二段">第二段</h2><p>  平仄仄平平仄平仄仄平，仄仄仄仄平仄平平<font color=a62121>韵</font>。平仄仄平平仄平仄仄平，中仄仄仄平中平仄<font color=a62121>叶韵</font>。中仄仄平平仄仄平中中平，仄仄仄中仄仄仄中仄<font color=a62121>叶韵</font>。中仄仄中仄仄仄仄中中中平，仄仄中仄平仄平中平仄<font color=a62121>叶韵</font>。平上仄平仄仄仄中中仄平平仄仄仄平平平仄中<font color=a62121>韵/叶韵</font>。平仄仄平仄平中仄平中，中中仄仄平仄中中中<font color=a62121>韵/叶韵</font>。</p><h2 id="第三段">第三段</h2><p>  中仄仄平平仄仄平中中仄平，仄仄仄中仄仄仄中中中仄<font color=a62121>叶韵</font>。中仄仄中仄仄仄仄中中中平，仄仄中仄平仄平中平中<font color=a62121>韵/叶韵</font>。平仄仄平仄中仄平平，仄仄仄平平平仄中<font color=a62121>韵/叶韵</font>。平仄仄平仄平平中仄仄，中中仄仄平仄中中中<font color=a62121>韵/叶韵</font>。</p><h2 id="第四段">第四段</h2><p>  平上仄平仄中仄平平，仄仄仄平平平仄中<font color=a62121>韵/叶韵</font>。平仄仄平仄平平中仄仄，中中仄仄平仄中中中<font color=a62121>韵/叶韵</font>。中中中仄中仄中仄平<font color=a62121>韵</font></p><hr><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/40fa3028.html" title="长缓慢慢（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="长缓慢慢（长缓慢慢哀）" />          </div>          <div class="flink-item-name">长缓慢慢（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-长缓慢慢-曲格-李岚霏">长缓慢慢哀-长缓慢慢-曲格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/dd3e8798.html" title="难咽哀（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="难咽哀（长缓慢慢哀）" />          </div>          <div class="flink-item-name">难咽哀（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-难咽哀-词格-李岚霏">长缓慢慢哀-难咽哀-词格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/232287c.html" title="长缓慢慢哀" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="长缓慢慢哀" />          </div>          <div class="flink-item-name">长缓慢慢哀</div>          <div class="flink-item-desc" title="长缓慢慢哀-格-李岚霏">长缓慢慢哀-格-李岚霏</div>        </a>      </div></div></div>]]></content>
       
       
       <categories>
@@ -10924,11 +10924,11 @@
     
     
     <entry>
-      <title>幽长缓缓（长缓慢慢哀）</title>
-      <link href="/posts/4e4b43af.html"/>
-      <url>/posts/4e4b43af.html</url>
+      <title>长缓慢慢（长缓慢慢哀）</title>
+      <link href="/posts/40fa3028.html"/>
+      <url>/posts/40fa3028.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><h2 id="第一段">第一段</h2><p>  平仄仄平平，仄平仄仄平，仄仄仄仄，平仄平平<font color=a62121>韵</font>。平仄仄平平、仄平仄仄平，中仄仄仄、平中平仄<font color=a62121>叶韵</font>。中仄仄平，仄仄平中，中仄中平，仄仄仄中仄仄、仄中中中仄<font color=a62121>叶韵</font>。中仄仄中，仄仄仄仄、中中中平，仄仄中仄平，仄中仄中仄<font color=a62121>叶韵</font>。平仄仄平仄中，仄平平，仄仄仄，平平平仄仄<font color=a62121>叶韵</font>。平仄仄、平仄平，平中仄仄，中中仄，仄平仄中中中<font color=a62121>韵/叶韵</font>。</p><h2 id="第二段">第二段</h2><p>  平仄仄平平仄平仄仄平，仄仄仄仄平仄平平<font color=a62121>韵</font>。平仄仄平平仄平仄仄平，中仄仄仄平中平仄<font color=a62121>叶韵</font>。中仄仄平平仄仄平中中平，仄仄仄中仄仄仄中仄<font color=a62121>叶韵</font>。中仄仄中仄仄仄仄中中中平，仄仄中仄平仄平中平仄<font color=a62121>叶韵</font>。平上仄平仄仄仄中中仄平平仄仄仄平平平仄中<font color=a62121>韵/叶韵</font>。平仄仄平仄平中仄平中，中中仄仄平仄中中中<font color=a62121>韵/叶韵</font>。</p><h2 id="第三段">第三段</h2><p>  中仄仄平平仄仄平中中仄平，仄仄仄中仄仄仄中中中仄<font color=a62121>叶韵</font>。中仄仄中仄仄仄仄中中中平，仄仄中仄平仄平中平中<font color=a62121>韵/叶韵</font>。平仄仄平仄中仄平平，仄仄仄平平平仄中<font color=a62121>韵/叶韵</font>。平仄仄平仄平平中仄仄，中中仄仄平仄中中中<font color=a62121>韵/叶韵</font>。</p><h2 id="第四段">第四段</h2><p>  平上仄平仄中仄平平，仄仄仄平平平仄中<font color=a62121>韵/叶韵</font>。平仄仄平仄平平中仄仄，中中仄仄平仄中中中<font color=a62121>韵/叶韵</font>。中中中仄中仄中仄平<font color=a62121>韵</font></p><hr><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/40fa3028.html" title="长缓慢慢（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="长缓慢慢（长缓慢慢哀）" />          </div>          <div class="flink-item-name">长缓慢慢（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-长缓慢慢-曲格-李岚霏">长缓慢慢哀-长缓慢慢-曲格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/dd3e8798.html" title="难咽哀（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="难咽哀（长缓慢慢哀）" />          </div>          <div class="flink-item-name">难咽哀（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-难咽哀-词格-李岚霏">长缓慢慢哀-难咽哀-词格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/232287c.html" title="长缓慢慢哀" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="长缓慢慢哀" />          </div>          <div class="flink-item-name">长缓慢慢哀</div>          <div class="flink-item-desc" title="长缓慢慢哀-格-李岚霏">长缓慢慢哀-格-李岚霏</div>        </a>      </div></div></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><style>    .green-underline {        text-decoration: underline;        text-decoration-color: #a8d08d;        text-decoration-thickness: 3px;    }</style><h2 id="本文说明">本文说明</h2><p>1@特注：此格为曲格，本格韵前可改句式。例如：平平平平平<font color=a62121>韵</font>。可改为：平平平，平平<font color=a62121>韵</font>。</p><h2 id="第一段">第一段</h2><p>平 入 上 平 平，</p><p>入 平 入 上去 平，</p><p>上 上 上 上，</p><p>平 上去 平 平<font color=a62121>韵</font>。</p><p>平 入 上 平 平、</p><p>入 平 入 上去 平，</p><p>平入 上 去 上去、</p><p>平 平入 平 上去<font color=a62121>叶韵</font>。</p><p>平入 上去 上 平，</p><p>上去 去 平 平入，</p><p>平入 上去 平去 平，</p><p>上去 上 去入 平去 上去 去入、</p><p>去入 平去 平入 平入 上<font color=a62121>叶韵</font>。</p><p>平入 上去 去入 平去，</p><p>上去 去入 上 去入、</p><p>平去 平入 平入 平，</p><p>上去 上去 平去 上去入 平，</p><p>上去 平去 上去 平去 上去<font color=a62121>叶韵</font>。</p><p>平 上 入去 平 去 平入去，</p><p>上去 平 平，</p><p>去 上 上去入，</p><p>平 平 平 去 上去入<font color=a62121>叶韵</font>。</p><p>平 上 入去、</p><p>平 上去 平，</p><p>平  平入  上去 上去入，</p><p>入平 平入 入上去，</p><p>上 平 去 平入 平入  平入<font color=a62121>韵/叶韵</font>。</p><h2 id="第二段">第二段</h2><p>平 入 上 平 平 入 平 入 上去 平，</p><p>上 上 上 上 平 上去 平 平<font color=a62121>韵</font>。</p><p>平 入 上 平 平 入 平 入 上去 平，</p><p>平入 上 去 上去 平 平入 平 上去<font color=a62121>叶韵</font>。</p><p>平入 上去 上 平 平 上去 去 平 平入 平入 上去 平去 平 ，上去 上 去入 平去 上去 去入 去入 平去 平入 平入 上<font color=a62121>叶韵</font>。</p><p>平入 上去 去入 平去 上去 去入 上 去入 平去 平入 平入 平，</p><p>上去 上去 平去 上去入 平 上去 平 平入 平 上去<font color=a62121>叶韵</font>。</p><p>平 上 入去 平 上去 <span class="green-underline">上入 上入</span> 平入去 入平 上去 平 平。</p><p>1@注：下划线处，前后皆可为上。若前用入，后必用上。若后用入，前必用上。</p><p>去 上 上去入 平 平 平 去 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 上去 平 平入  <span class="green-underline">入上去 平</span> 平入 </p><p>1@注：下划线处，若为上时即平处必平；若为入，则为平。</p><p>入平 平入 入上去 上 平 去 平入 平入  平入 <font color=a62121>韵/叶韵</font>。</p><h2 id="第三段">第三段</h2><p>平入 上去 上 平 平 上去 去 平 平入 平入 上去 平 </p><p>上去 上 去入 平去 上去 去入 去入 平去 平入 平入 上 <font color=a62121>叶韵</font>。</p><p>平入 上去 去入 平去 上去 去入 上 去入 平去 平入 平入 平 ，</p><p>上去 上去 平去 上去入 平 上去 平 平入{偏入} 平 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 去 平入去 上去 平 平 </p><p>去 上 上去入 平 平 平 去 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 上去 平 平  平入  上去 上去入 ，</p><p>入平 平入 入上去 上 平 去 平入 平入  平入 <font color=a62121>韵/叶韵</font>。</p><h2 id="第四段">第四段</h2><p>平 上 入去 平 去 平入去 上去 平 平 ，</p><p>去 上 上去入 平 平 平 去 平入 <font color=a62121>韵/叶韵</font>。</p><p>平 上 入去 平 上去 平 平 平入 上去 上去入 ，</p><p>入平 平入 入上去 上 平 去 平入 平入  平入 <font color=a62121>韵/叶韵</font>。</p><p>平入 <span class="green-underline">平入 平上去</span> <b><i>上去入</i> 去平</b> 去上 平去 去 平 <font color=a62121>韵</font></p><p>1@注：划线处若头为入，则后可平。若头为平，则后不可平。</p><p>2@注：斜体处若头为平，则后只可入。</p><p>3@注：粗体处若头为入，则后只可平。</p><hr><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/232287c.html" title="长缓慢慢哀" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="长缓慢慢哀" />          </div>          <div class="flink-item-name">长缓慢慢哀</div>          <div class="flink-item-desc" title="长缓慢慢哀-格-李岚霏">长缓慢慢哀-格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/dd3e8798.html" title="难咽哀（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="难咽哀（长缓慢慢哀）" />          </div>          <div class="flink-item-name">难咽哀（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-难咽哀-词格-李岚霏">长缓慢慢哀-难咽哀-词格-李岚霏</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/4e4b43af.html" title="幽长缓缓（长缓慢慢哀）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="幽长缓缓（长缓慢慢哀）" />          </div>          <div class="flink-item-name">幽长缓缓（长缓慢慢哀）</div>          <div class="flink-item-desc" title="长缓慢慢哀-幽长缓缓-词格-李岚霏">长缓慢慢哀-幽长缓缓-词格-李岚霏</div>        </a>      </div></div></div>]]></content>
       
       
       <categories>
@@ -11028,9 +11028,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 文学简言 </category>
+          
+          <category> 作者 </category>
           
           <category> 李岚霏 </category>
           
@@ -11057,9 +11057,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11092,9 +11092,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11305,43 +11305,6 @@
     
     
     <entry>
-      <title>临江仙·无题</title>
-      <link href="/posts/469d3f2a.html"/>
-      <url>/posts/469d3f2a.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  不碍春消花落，何妨老死天收。人间无事不悠悠。等闲霜与露，毕竟几经秋。<br>  晚照樽前相送，月明杯里浮游。醉眠江海漫行舟。青山身后去，卧看白云流。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 作者 </category>
-          
-          <category> 词 </category>
-          
-          <category> 临江仙 </category>
-          
-          <category> 辞暮 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 文学 </tag>
-            
-            <tag> 词集 </tag>
-            
-            <tag> 词林正韵 </tag>
-            
-            <tag> 临江仙 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>满江红·生日贺词寄友人</title>
       <link href="/posts/fd9af3ec.html"/>
       <url>/posts/fd9af3ec.html</url>
@@ -11379,6 +11342,43 @@
     
     
     <entry>
+      <title>临江仙·无题</title>
+      <link href="/posts/469d3f2a.html"/>
+      <url>/posts/469d3f2a.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  不碍春消花落，何妨老死天收。人间无事不悠悠。等闲霜与露，毕竟几经秋。<br>  晚照樽前相送，月明杯里浮游。醉眠江海漫行舟。青山身后去，卧看白云流。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 作者 </category>
+          
+          <category> 词 </category>
+          
+          <category> 临江仙 </category>
+          
+          <category> 辞暮 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 文学 </tag>
+            
+            <tag> 词集 </tag>
+            
+            <tag> 临江仙 </tag>
+            
+            <tag> 词林正韵 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>陈济棠倡办南路大学 校址高州 钦廉担一部经费</title>
       <link href="/posts/48a5e998.html"/>
       <url>/posts/48a5e998.html</url>
@@ -11388,9 +11388,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11423,9 +11423,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11458,9 +11458,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11493,9 +11493,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11528,9 +11528,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11563,9 +11563,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -11615,9 +11615,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 词林正韵 </tag>
-            
             <tag> 临江仙 </tag>
+            
+            <tag> 词林正韵 </tag>
             
         </tags>
       
@@ -11721,9 +11721,9 @@
           
           <category> 词 </category>
           
-          <category> 江城子 </category>
-          
           <category> 无为 </category>
+          
+          <category> 江城子 </category>
           
       </categories>
       
@@ -11758,9 +11758,9 @@
           
           <category> 词 </category>
           
-          <category> 破阵子 </category>
-          
           <category> 无为 </category>
+          
+          <category> 破阵子 </category>
           
       </categories>
       
@@ -11791,9 +11791,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -12041,9 +12041,9 @@
           
           <category> 词 </category>
           
-          <category> 清平乐 </category>
-          
           <category> 东君 </category>
+          
+          <category> 清平乐 </category>
           
       </categories>
       
@@ -12069,7 +12069,7 @@
       <link href="/posts/102a81c7.html"/>
       <url>/posts/102a81c7.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><style>    .text {    writing-mode: vertical-rl;    text-align: justify;    line-height: 2;    margin-bottom: 20px;    padding-left: 40px;    padding-right: 40px;    }    .text p {    margin-bottom: 20px;    }    .slanted-small {        font-size: 70%;        color: #a62121;    }</style><div class="text">相<span class="slanted-small">上尺</span>顾<span class="slanted-small">四上尺</span>潸<span class="slanted-small">工</span>然<span class="slanted-small">工</span>泪<span class="slanted-small">上尺</span>成<span class="slanted-small">五六工</span>收<span class="slanted-small">尺工</span>，<br>人<span class="slanted-small">尺工</span>如<span class="slanted-small">尺</span>落<span class="slanted-small">上</span>花<span class="slanted-small">上</span>两<span class="slanted-small">尺</span>坠<span class="slanted-small">尺上四</span>楼<span class="slanted-small">合四</span>。<br>梦<span class="slanted-small">工</span>魂<span class="slanted-small">尺工</span>羞<span class="slanted-small">尺</span>，<br>痴<span class="slanted-small">工</span>儿<span class="slanted-small">上</span>望<span class="slanted-small">上</span>到<span class="slanted-small">尺</span>小<span class="slanted-small">尺上</span>渝<span class="slanted-small">上尺上四合</span>州<span class="slanted-small">合四</span>。<br>欲<span class="slanted-small">上尺</span>把<span class="slanted-small">四上尺</span>卿<span class="slanted-small">工</span>瞳<span class="slanted-small">工</span>当<span class="slanted-small">上尺</span>湖<span class="slanted-small">五六工</span>水<span class="slanted-small">尺工</span>，<br>那<span class="slanted-small">工尺</span>年<span class="slanted-small">尺</span>溺<span class="slanted-small">上</span>死<span class="slanted-small">上</span>在<span class="slanted-small">尺</span>君<span class="slanted-small">尺上四</span>眸<span class="slanted-small">合四</span>。<br>秋<span class="slanted-small">工</span>池<span class="slanted-small">尺工</span>偷<span class="slanted-small">尺上</span>，<br>西<span class="slanted-small">工</span>窗<span class="slanted-small">上</span>雨<span class="slanted-small">上</span>夜<span class="slanted-small">尺</span>愁<span class="slanted-small">尺上</span>共<span class="slanted-small">上尺上四合</span>流<span class="slanted-small">合四</span>。</div><hr>        <div id="aplayer-zcMDIKvy" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>  <script>  var options = {"narrow":false,"autoplay":false,"showlrc":3,"mutex":true,"theme":"#e6d0b2","preload":"auto","listmaxheight":"513px","music":[{"title":"摊破次浣溪沙","author":"东君","url":"/music/摊破次浣溪沙_.mp3","pic":"/img/img/新云雾.jpg"}]};  options.element = document.getElementById("aplayer-zcMDIKvy");  var ap = new APlayer(options);    window.aplayers || (window.aplayers = []);  window.aplayers.push(ap);  </script><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/6a7e16af.html" title="卧红鬃（摊破次浣溪沙）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）</div>          <div class="flink-item-desc" title="格律-东君">格律-东君</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/ee6e9c6.html" title="摊破次浣溪沙-渝州思故人有感" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="摊破次浣溪沙-渝州思故人有感" />          </div>          <div class="flink-item-name">摊破次浣溪沙-渝州思故人有感</div>          <div class="flink-item-desc" title="定格-东君">定格-东君</div>        </a>      </div></div></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><style>    .text {    writing-mode: vertical-rl;    text-align: justify;    line-height: 2;    margin-bottom: 20px;    padding-left: 40px;    padding-right: 40px;    }    .text p {    margin-bottom: 20px;    }    .slanted-small {        font-size: 70%;        color: #a62121;    }</style><div class="text">相<span class="slanted-small">上尺</span>顾<span class="slanted-small">四上尺</span>潸<span class="slanted-small">工</span>然<span class="slanted-small">工</span>泪<span class="slanted-small">上尺</span>成<span class="slanted-small">五六工</span>收<span class="slanted-small">尺工</span>，<br>人<span class="slanted-small">尺工</span>如<span class="slanted-small">尺</span>落<span class="slanted-small">上</span>花<span class="slanted-small">上</span>两<span class="slanted-small">尺</span>坠<span class="slanted-small">尺上四</span>楼<span class="slanted-small">合四</span>。<br>梦<span class="slanted-small">工</span>魂<span class="slanted-small">尺工</span>羞<span class="slanted-small">尺</span>，<br>痴<span class="slanted-small">工</span>儿<span class="slanted-small">上</span>望<span class="slanted-small">上</span>到<span class="slanted-small">尺</span>小<span class="slanted-small">尺上</span>渝<span class="slanted-small">上尺上四合</span>州<span class="slanted-small">合四</span>。<br>欲<span class="slanted-small">上尺</span>把<span class="slanted-small">四上尺</span>卿<span class="slanted-small">工</span>瞳<span class="slanted-small">工</span>当<span class="slanted-small">上尺</span>湖<span class="slanted-small">五六工</span>水<span class="slanted-small">尺工</span>，<br>那<span class="slanted-small">工尺</span>年<span class="slanted-small">尺</span>溺<span class="slanted-small">上</span>死<span class="slanted-small">上</span>在<span class="slanted-small">尺</span>君<span class="slanted-small">尺上四</span>眸<span class="slanted-small">合四</span>。<br>秋<span class="slanted-small">工</span>池<span class="slanted-small">尺工</span>偷<span class="slanted-small">尺上</span>，<br>西<span class="slanted-small">工</span>窗<span class="slanted-small">上</span>雨<span class="slanted-small">上</span>夜<span class="slanted-small">尺</span>愁<span class="slanted-small">尺上</span>共<span class="slanted-small">上尺上四合</span>流<span class="slanted-small">合四</span>。</div><hr>        <div id="aplayer-yBfDdnTc" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>  <script>  var options = {"narrow":false,"autoplay":false,"showlrc":3,"mutex":true,"theme":"#e6d0b2","preload":"auto","listmaxheight":"513px","music":[{"title":"摊破次浣溪沙","author":"东君","url":"/music/摊破次浣溪沙_.mp3","pic":"/img/img/新云雾.jpg"}]};  options.element = document.getElementById("aplayer-yBfDdnTc");  var ap = new APlayer(options);    window.aplayers || (window.aplayers = []);  window.aplayers.push(ap);  </script><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/6a7e16af.html" title="卧红鬃（摊破次浣溪沙）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）</div>          <div class="flink-item-desc" title="格律-东君">格律-东君</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/ee6e9c6.html" title="摊破次浣溪沙-渝州思故人有感" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="摊破次浣溪沙-渝州思故人有感" />          </div>          <div class="flink-item-name">摊破次浣溪沙-渝州思故人有感</div>          <div class="flink-item-desc" title="定格-东君">定格-东君</div>        </a>      </div></div></div>]]></content>
       
       
       <categories>
@@ -12104,7 +12104,7 @@
       <link href="/posts/6a7e16af.html"/>
       <url>/posts/6a7e16af.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  中仄平平仄中平<font color=a62121>韵</font>。中平中仄仄平平<font color=a62121>韵</font>。中平平<font color=a62121>韵</font>，平平仄仄仄平平<font color=a62121>韵</font>。<br>  中仄中平平中仄<font color=a62121>句</font>。中平中仄仄平平<font color=a62121>韵</font>。中平平<font color=a62121>韵</font>，平平仄仄仄平平<font color=a62121>韵</font>。</p><p>注：下阙“中仄中平平中仄。中平中仄仄平平”应对仗</p><hr>        <div id="aplayer-FmtcuNJc" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>  <script>  var options = {"narrow":false,"autoplay":false,"showlrc":3,"mutex":true,"theme":"#e6d0b2","preload":"auto","listmaxheight":"513px","music":[{"title":"摊破次浣溪沙","author":"东君","url":"/music/摊破次浣溪沙_.mp3","pic":"/img/img/新云雾.jpg"}]};  options.element = document.getElementById("aplayer-FmtcuNJc");  var ap = new APlayer(options);    window.aplayers || (window.aplayers = []);  window.aplayers.push(ap);  </script><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/102a81c7.html" title="卧红鬃（摊破次浣溪沙）工尺谱" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）工尺谱" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）工尺谱</div>          <div class="flink-item-desc" title="工尺谱-东君">工尺谱-东君</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/ee6e9c6.html" title="摊破次浣溪沙-渝州思故人有感" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="摊破次浣溪沙-渝州思故人有感" />          </div>          <div class="flink-item-name">摊破次浣溪沙-渝州思故人有感</div>          <div class="flink-item-desc" title="定格-东君">定格-东君</div>        </a>      </div></div></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  中仄平平仄中平<font color=a62121>韵</font>。中平中仄仄平平<font color=a62121>韵</font>。中平平<font color=a62121>韵</font>，平平仄仄仄平平<font color=a62121>韵</font>。<br>  中仄中平平中仄<font color=a62121>句</font>。中平中仄仄平平<font color=a62121>韵</font>。中平平<font color=a62121>韵</font>，平平仄仄仄平平<font color=a62121>韵</font>。</p><p>注：下阙“中仄中平平中仄。中平中仄仄平平”应对仗</p><hr>        <div id="aplayer-eytupeHW" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>  <script>  var options = {"narrow":false,"autoplay":false,"showlrc":3,"mutex":true,"theme":"#e6d0b2","preload":"auto","listmaxheight":"513px","music":[{"title":"摊破次浣溪沙","author":"东君","url":"/music/摊破次浣溪沙_.mp3","pic":"/img/img/新云雾.jpg"}]};  options.element = document.getElementById("aplayer-eytupeHW");  var ap = new APlayer(options);    window.aplayers || (window.aplayers = []);  window.aplayers.push(ap);  </script><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/102a81c7.html" title="卧红鬃（摊破次浣溪沙）工尺谱" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）工尺谱" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）工尺谱</div>          <div class="flink-item-desc" title="工尺谱-东君">工尺谱-东君</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/ee6e9c6.html" title="摊破次浣溪沙-渝州思故人有感" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="摊破次浣溪沙-渝州思故人有感" />          </div>          <div class="flink-item-name">摊破次浣溪沙-渝州思故人有感</div>          <div class="flink-item-desc" title="定格-东君">定格-东君</div>        </a>      </div></div></div>]]></content>
       
       
       <categories>
@@ -12139,7 +12139,7 @@
       <link href="/posts/ee6e9c6.html"/>
       <url>/posts/ee6e9c6.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  相顾潸然泪成收，人如落花两坠楼。梦魂羞，痴儿望到小渝州。<br>  欲把卿瞳当湖水，那年溺死在君眸。秋池偷，西窗雨夜愁共流。</p><hr>        <div id="aplayer-QPtNRnkN" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>  <script>  var options = {"narrow":false,"autoplay":false,"showlrc":3,"mutex":true,"theme":"#e6d0b2","preload":"auto","listmaxheight":"513px","music":[{"title":"摊破次浣溪沙","author":"东君","url":"/music/摊破次浣溪沙_.mp3","pic":"/img/img/新云雾.jpg"}]};  options.element = document.getElementById("aplayer-QPtNRnkN");  var ap = new APlayer(options);    window.aplayers || (window.aplayers = []);  window.aplayers.push(ap);  </script><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/6a7e16af.html" title="卧红鬃（摊破次浣溪沙）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）</div>          <div class="flink-item-desc" title="格律-东君">格律-东君</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/102a81c7.html" title="卧红鬃（摊破次浣溪沙）工尺谱" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）工尺谱" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）工尺谱</div>          <div class="flink-item-desc" title="工尺谱-东君">工尺谱-东君</div>        </a>      </div></div></div>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/css/APlayer.min.css"><script src="/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script>var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&r=:r'</script><script class="meting-secondary-script-marker" src="/js/Meting.min.js"></script><p>  相顾潸然泪成收，人如落花两坠楼。梦魂羞，痴儿望到小渝州。<br>  欲把卿瞳当湖水，那年溺死在君眸。秋池偷，西窗雨夜愁共流。</p><hr>        <div id="aplayer-dqoDnLQl" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>  <script>  var options = {"narrow":false,"autoplay":false,"showlrc":3,"mutex":true,"theme":"#e6d0b2","preload":"auto","listmaxheight":"513px","music":[{"title":"摊破次浣溪沙","author":"东君","url":"/music/摊破次浣溪沙_.mp3","pic":"/img/img/新云雾.jpg"}]};  options.element = document.getElementById("aplayer-dqoDnLQl");  var ap = new APlayer(options);    window.aplayers || (window.aplayers = []);  window.aplayers.push(ap);  </script><div class="flink"><div class="flink-name">相关阅读</div><div class="flink-list">      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/6a7e16af.html" title="卧红鬃（摊破次浣溪沙）" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）</div>          <div class="flink-item-desc" title="格律-东君">格律-东君</div>        </a>      </div>      <div class="flink-list-item">        <a href="https://yesandnoandperhaps.cn/posts/102a81c7.html" title="卧红鬃（摊破次浣溪沙）工尺谱" target="_blank">          <div class="flink-item-icon">            <img class="no-lightbox" src="/img/img/aaaaaa.jpg" onerror='this.onerror=null;this.src="/img/friend_404.gif"' alt="卧红鬃（摊破次浣溪沙）工尺谱" />          </div>          <div class="flink-item-name">卧红鬃（摊破次浣溪沙）工尺谱</div>          <div class="flink-item-desc" title="工尺谱-东君">工尺谱-东君</div>        </a>      </div></div></div>]]></content>
       
       
       <categories>
@@ -12226,17 +12226,17 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
           <category> 作者 </category>
           
-          <category> 李岚霏 </category>
-          
           <category> 五言 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 怜集 </category>
           
@@ -12273,9 +12273,9 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
+          
+          <category> 古诗 </category>
           
           <category> 古体 </category>
           
@@ -12320,17 +12320,17 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
           
-          <category> 李岚霏 </category>
+          <category> 作者 </category>
           
           <category> 绝句 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 怜集 </category>
           
@@ -12345,11 +12345,11 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 七绝 </tag>
             
@@ -12562,9 +12562,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -12597,9 +12597,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -12634,13 +12634,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -12659,9 +12659,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -12700,9 +12700,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 临江仙 </tag>
-            
             <tag> 中华通韵 </tag>
+            
+            <tag> 临江仙 </tag>
             
         </tags>
       
@@ -12722,13 +12722,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -12747,9 +12747,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -12773,13 +12773,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -12798,9 +12798,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -12824,13 +12824,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -12849,9 +12849,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -12875,13 +12875,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -12900,9 +12900,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -12926,13 +12926,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -12951,9 +12951,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -12977,13 +12977,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -13002,9 +13002,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -13028,13 +13028,13 @@
           
           <category> 文集 </category>
           
-          <category> 古诗 </category>
-          
           <category> 素辑 </category>
           
-          <category> 作者 </category>
+          <category> 古诗 </category>
           
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -13053,9 +13053,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -13207,9 +13207,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -13273,9 +13273,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -13337,9 +13337,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 钦廉 </category>
           
@@ -13399,13 +13399,13 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
           
-          <category> 李岚霏 </category>
+          <category> 作者 </category>
           
           <category> 绝句 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 七绝 </category>
           
@@ -13418,11 +13418,11 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 七绝 </tag>
             
@@ -13485,9 +13485,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 李岚霏 </category>
           
@@ -13571,9 +13571,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 李岚霏 </category>
           
@@ -13707,9 +13707,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 临江仙 </tag>
-            
             <tag> 中华通韵 </tag>
+            
+            <tag> 临江仙 </tag>
             
         </tags>
       
@@ -13744,9 +13744,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 长相思 </tag>
-            
             <tag> 词林正韵 </tag>
+            
+            <tag> 长相思 </tag>
             
         </tags>
       
@@ -13857,9 +13857,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 临江仙 </tag>
-            
             <tag> 中华通韵 </tag>
+            
+            <tag> 临江仙 </tag>
             
         </tags>
       
@@ -13916,15 +13916,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 七律 </category>
+          
+          <category> 摛翰 </category>
           
       </categories>
       
@@ -13961,15 +13961,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
-          <category> 摛翰 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 摛翰 </category>
           
       </categories>
       
@@ -14006,13 +14006,13 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
           
-          <category> 李岚霏 </category>
+          <category> 作者 </category>
           
           <category> 绝句 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 七绝 </category>
           
@@ -14025,11 +14025,11 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 七绝 </tag>
             
@@ -14049,9 +14049,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 李岚霏 </category>
           
@@ -14082,13 +14082,13 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
           
-          <category> 李岚霏 </category>
+          <category> 作者 </category>
           
           <category> 绝句 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 七绝 </category>
           
@@ -14205,15 +14205,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
-          <category> 枫霜 </category>
-          
           <category> 五绝 </category>
+          
+          <category> 枫霜 </category>
           
       </categories>
       
@@ -14224,13 +14224,13 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 五绝 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
         </tags>
       
@@ -14250,15 +14250,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
-          <category> 枫霜 </category>
-          
           <category> 五绝 </category>
+          
+          <category> 枫霜 </category>
           
       </categories>
       
@@ -14269,13 +14269,13 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 绝句 </tag>
             
             <tag> 五绝 </tag>
             
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
         </tags>
       
@@ -14295,15 +14295,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
-          <category> 枫霜 </category>
-          
           <category> 七绝 </category>
+          
+          <category> 枫霜 </category>
           
       </categories>
       
@@ -14418,13 +14418,13 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
           
-          <category> 李岚霏 </category>
+          <category> 作者 </category>
           
           <category> 绝句 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 七绝 </category>
           
@@ -14566,9 +14566,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 文学简言 </category>
+          
+          <category> 作者 </category>
           
           <category> 李岚霏 </category>
           
@@ -14983,9 +14983,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -15002,9 +15002,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -15043,9 +15043,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 临江仙 </tag>
-            
             <tag> 中华通韵 </tag>
+            
+            <tag> 临江仙 </tag>
             
         </tags>
       
@@ -15065,9 +15065,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -15084,9 +15084,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -15110,9 +15110,9 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 律诗 </category>
           
@@ -15129,9 +15129,9 @@
             
             <tag> 古诗集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 近体 </tag>
+            
+            <tag> 中华通韵 </tag>
             
             <tag> 律诗 </tag>
             
@@ -15170,9 +15170,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 中华通韵 </tag>
-            
             <tag> 菩萨蛮 </tag>
+            
+            <tag> 中华通韵 </tag>
             
         </tags>
       
@@ -15318,9 +15318,9 @@
           
           <category> 词 </category>
           
-          <category> 渔家傲 </category>
-          
           <category> 辞暮 </category>
+          
+          <category> 渔家傲 </category>
           
       </categories>
       
@@ -15355,9 +15355,9 @@
           
           <category> 词 </category>
           
-          <category> 人月圆 </category>
-          
           <category> 辞暮 </category>
+          
+          <category> 人月圆 </category>
           
       </categories>
       
@@ -15433,9 +15433,9 @@
           
           <category> 文言 </category>
           
-          <category> 记事 </category>
-          
           <category> 辞暮 </category>
+          
+          <category> 记事 </category>
           
       </categories>
       
@@ -15507,15 +15507,15 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
+          
+          <category> 作者 </category>
           
           <category> 绝句 </category>
           
-          <category> 不名 </category>
-          
           <category> 五绝 </category>
+          
+          <category> 不名 </category>
           
       </categories>
       
@@ -15604,9 +15604,9 @@
             
             <tag> 词集 </tag>
             
-            <tag> 词林正韵 </tag>
-            
             <tag> 如梦令 </tag>
+            
+            <tag> 词林正韵 </tag>
             
         </tags>
       
@@ -16360,9 +16360,9 @@
           
           <category> 文言 </category>
           
-          <category> 讨论 </category>
-          
           <category> 东君 </category>
+          
+          <category> 讨论 </category>
           
       </categories>
       
@@ -16690,9 +16690,9 @@
       
       <categories>
           
-          <category> 作者 </category>
-          
           <category> 人文 </category>
+          
+          <category> 作者 </category>
           
           <category> 李岚霏 </category>
           
@@ -17015,13 +17015,13 @@
           
           <category> 古诗 </category>
           
-          <category> 作者 </category>
-          
           <category> 近体 </category>
           
-          <category> 李岚霏 </category>
+          <category> 作者 </category>
           
           <category> 绝句 </category>
+          
+          <category> 李岚霏 </category>
           
           <category> 五绝 </category>
           
