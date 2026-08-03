@@ -1,1 +1,1 @@
-window.__SITE_VERSION__="2026.08.03 vv2.7.84";
+window.__SITE_VERSION__="2026.08.03 vv2.7.0";
